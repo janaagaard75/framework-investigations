@@ -1,6 +1,7 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
+import React = __React;
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
 import { Utils } from "./utils";
 

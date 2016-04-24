@@ -4,6 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var React = __React;
+var ReactDOM = __React.__DOM;
 var TodoModel_1 = require("./TodoModel");
 var footer_1 = require("./footer");
 var todoItem_1 = require("./todoItem");
@@ -30,10 +32,10 @@ var TodoApp = (function (_super) {
             return;
         }
         event.preventDefault();
-        var val = React.findDOMNode(this.refs["newField"]).value.trim();
+        var val = ReactDOM.findDOMNode(this.refs["newField"]).value.trim();
         if (val) {
             this.props.model.addTodo(val);
-            React.findDOMNode(this.refs["newField"]).value = "";
+            ReactDOM.findDOMNode(this.refs["newField"]).value = "";
         }
     };
     TodoApp.prototype.toggleAll = function (event) {
@@ -95,7 +97,7 @@ var TodoApp = (function (_super) {
 }(React.Component));
 var model = new TodoModel_1.TodoModel("react-todos");
 function render() {
-    React.render(React.createElement(TodoApp, {model: model}), document.getElementsByClassName("todoapp")[0]);
+    ReactDOM.render(React.createElement(TodoApp, {model: model}), document.getElementsByClassName("todoapp")[0]);
 }
 model.subscribe(render);
 render();

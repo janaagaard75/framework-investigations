@@ -3,6 +3,8 @@
 
 declare var Router;
 
+import React = __React;
+import ReactDOM = __React.__DOM;
 import { TodoModel } from "./TodoModel";
 import { TodoFooter } from "./footer";
 import { TodoItem } from "./todoItem";
@@ -36,11 +38,11 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     event.preventDefault();
 
-    const val = React.findDOMNode<HTMLInputElement>(this.refs["newField"]).value.trim();
+    const val = ReactDOM.findDOMNode<HTMLInputElement>(this.refs["newField"]).value.trim();
 
     if (val) {
       this.props.model.addTodo(val);
-      React.findDOMNode<HTMLInputElement>(this.refs["newField"]).value = "";
+      ReactDOM.findDOMNode<HTMLInputElement>(this.refs["newField"]).value = "";
     }
   }
 
@@ -62,7 +64,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     this.setState({ editing: todo.id });
   }
 
-  public save(todoToSave: ITodo, text: String) {
+  public save(todoToSave: ITodo, text: string) {
     this.props.model.save(todoToSave, text);
     this.setState({ editing: null });
   }
@@ -164,7 +166,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 const model = new TodoModel("react-todos");
 
 function render() {
-  React.render(
+  ReactDOM.render(
     <TodoApp model={model}/>,
     document.getElementsByClassName("todoapp")[0]
   );
