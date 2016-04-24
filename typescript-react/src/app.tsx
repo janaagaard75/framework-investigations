@@ -3,9 +3,10 @@
 
 declare var Router;
 
-import React = __React;
-import ReactDOM = __React.__DOM;
-import { TodoModel } from "./TodoModel";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
+import TodoModel from "./TodoModel";
 import { TodoFooter } from "./footer";
 import { TodoItem } from "./todoItem";
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS, ENTER_KEY } from "./constants";
@@ -112,7 +113,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     // easier to reason about and React works very well with them. That's why
     // we use map(), filter() and reduce() everywhere instead of mutating the
     // array or todo items themselves.
-    const activeTodoCount = todos.reduce(function (accum, todo) {
+    const activeTodoCount = todos.reduce(function (accum, todo: ITodo) {
       return todo.completed ? accum : accum + 1;
     }, 0);
 

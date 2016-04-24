@@ -1,5 +1,4 @@
-class Utils {
-
+export class Utils {
   public static uuid(): string {
     /* tslint:disable:no-bitwise */
     let uuid = "";
@@ -42,5 +41,3 @@ class Utils {
     return newObj;
   }
 }
-
-export { Utils };

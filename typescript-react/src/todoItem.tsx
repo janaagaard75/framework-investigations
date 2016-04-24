@@ -1,8 +1,9 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
-import React = __React;
-import ReactDOM = __React.__DOM;
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
 import { ENTER_KEY, ESCAPE_KEY } from "./constants";
 
 class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {

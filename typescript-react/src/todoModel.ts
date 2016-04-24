@@ -13,7 +13,7 @@ import { Utils } from "./utils";
 // may not even be worth separating this logic
 // out, but we do this to demonstrate one way to
 // separate out parts of your application.
-class TodoModel implements ITodoModel {
+export default class TodoModel implements ITodoModel {
 
   public key: string;
   public todos: Array<ITodo>;
@@ -90,5 +90,3 @@ class TodoModel implements ITodoModel {
     this.inform();
   }
 }
-
-export { TodoModel };

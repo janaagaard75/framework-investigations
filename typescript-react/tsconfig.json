@@ -6,7 +6,7 @@
         "forceConsistentCasingInFileNames": false,
         "isolatedModules": false,
         "jsx": "react",
-        "module": "commonjs",
+        "module": "amd",
         "moduleResolution": "node",
         "newLine": "LF",
         "noImplicitAny": false,

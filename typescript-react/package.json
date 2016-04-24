@@ -5,12 +5,14 @@
   "dependencies": {
     "classnames": "2.1.5",
     "director": "1.2.0",
-    "react": "0.13.3",
+    "react": "15.0.1",
+    "react-dom": "15.0.1",
     "todomvc-app-css": "2.0.0",
     "todomvc-common": "1.0.1"
   },
   "devDependencies": {
-    "tslint-eslint-rules": "^1.2.0",
-    "typescript": "^1.8.10"
+    "ts-loader": "0.8.2",
+    "tslint-eslint-rules": "1.2.0",
+    "typescript": "1.8.10"
   }
 }
