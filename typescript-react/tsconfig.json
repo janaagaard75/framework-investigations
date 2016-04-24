@@ -15,12 +15,12 @@
         "suppressImplicitAnyIndexErrors": true
     },
     "files": [
-        "js/constants.ts",
-        "js/interfaces.d.ts",
-        "js/todoModel.ts",
-        "js/utils.ts",
         "js/app.tsx",
+        "js/constants.ts",
         "js/footer.tsx",
-        "js/todoItem.tsx"
+        "js/interfaces.d.ts",
+        "js/todoItem.tsx",
+        "js/todoModel.ts",
+        "js/utils.ts"
     ]
 }
