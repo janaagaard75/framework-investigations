@@ -15,9 +15,9 @@ var TodoModel = (function () {
     };
     TodoModel.prototype.addTodo = function (title) {
         this.todos = this.todos.concat({
+            completed: false,
             id: utils_1.Utils.uuid(),
-            title: title,
-            completed: false
+            title: title
         });
         this.inform();
     };

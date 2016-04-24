@@ -13,18 +13,17 @@ var TodoApp = (function (_super) {
     function TodoApp(props) {
         _super.call(this, props);
         this.state = {
-            nowShowing: constants_1.ALL_TODOS,
-            editing: null
+            editing: null,
+            nowShowing: constants_1.ALL_TODOS
         };
     }
     TodoApp.prototype.componentDidMount = function () {
-        var setState = this.setState;
         var router = Router({
-            '/': setState.bind(this, { nowShowing: constants_1.ALL_TODOS }),
-            '/active': setState.bind(this, { nowShowing: constants_1.ACTIVE_TODOS }),
-            '/completed': setState.bind(this, { nowShowing: constants_1.COMPLETED_TODOS })
+            "/": this.setState.bind(this, { nowShowing: constants_1.ALL_TODOS }),
+            "/active": this.setState.bind(this, { nowShowing: constants_1.ACTIVE_TODOS }),
+            "/completed": this.setState.bind(this, { nowShowing: constants_1.COMPLETED_TODOS })
         });
-        router.init('/');
+        router.init("/");
     };
     TodoApp.prototype.handleNewTodoKeyDown = function (event) {
         if (event.keyCode !== constants_1.ENTER_KEY) {
@@ -34,7 +33,7 @@ var TodoApp = (function (_super) {
         var val = React.findDOMNode(this.refs["newField"]).value.trim();
         if (val) {
             this.props.model.addTodo(val);
-            React.findDOMNode(this.refs["newField"]).value = '';
+            React.findDOMNode(this.refs["newField"]).value = "";
         }
     };
     TodoApp.prototype.toggleAll = function (event) {
@@ -94,9 +93,9 @@ var TodoApp = (function (_super) {
     };
     return TodoApp;
 }(React.Component));
-var model = new TodoModel_1.TodoModel('react-todos');
+var model = new TodoModel_1.TodoModel("react-todos");
 function render() {
-    React.render(React.createElement(TodoApp, {model: model}), document.getElementsByClassName('todoapp')[0]);
+    React.render(React.createElement(TodoApp, {model: model}), document.getElementsByClassName("todoapp")[0]);
 }
 model.subscribe(render);
 render();

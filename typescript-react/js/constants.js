@@ -1,9 +1,9 @@
 "use strict";
-var ALL_TODOS = 'all';
+var ALL_TODOS = "all";
 exports.ALL_TODOS = ALL_TODOS;
-var ACTIVE_TODOS = 'active';
+var ACTIVE_TODOS = "active";
 exports.ACTIVE_TODOS = ACTIVE_TODOS;
-var COMPLETED_TODOS = 'completed';
+var COMPLETED_TODOS = "completed";
 exports.COMPLETED_TODOS = COMPLETED_TODOS;
 var ENTER_KEY = 13;
 exports.ENTER_KEY = ENTER_KEY;
