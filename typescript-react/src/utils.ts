@@ -1,7 +1,7 @@
 
 class Utils {
 
-  public static uuid() : string {
+  public static uuid(): string {
     /*jshint bitwise:false */
     var i, random;
     var uuid = '';
@@ -22,7 +22,7 @@ class Utils {
     return count === 1 ? word : word + 's';
   }
 
-  public static store(namespace : string, data? : any) {
+  public static store(namespace: string, data?: any) {
     if (data) {
       return localStorage.setItem(namespace, JSON.stringify(data));
     }
@@ -31,7 +31,7 @@ class Utils {
     return (store && JSON.parse(store)) || [];
   }
 
-  public static extend(...objs : any[]) : any {
+  public static extend(...objs: any[]): any {
     var newObj = {};
     for (var i = 0; i < objs.length; i++) {
       var obj = objs[i];

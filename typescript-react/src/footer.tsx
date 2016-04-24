@@ -36,24 +36,24 @@ class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/"
-              className={classNames({selected: nowShowing === ALL_TODOS})}>
-                All
+              className={classNames({ selected: nowShowing === ALL_TODOS }) }>
+              All
             </a>
           </li>
           {' '}
           <li>
             <a
               href="#/active"
-              className={classNames({selected: nowShowing === ACTIVE_TODOS})}>
-                Active
+              className={classNames({ selected: nowShowing === ACTIVE_TODOS }) }>
+              Active
             </a>
           </li>
           {' '}
           <li>
             <a
               href="#/completed"
-              className={classNames({selected: nowShowing === COMPLETED_TODOS})}>
-                Completed
+              className={classNames({ selected: nowShowing === COMPLETED_TODOS }) }>
+              Completed
             </a>
           </li>
         </ul>

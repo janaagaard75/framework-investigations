@@ -11,18 +11,18 @@ import { ENTER_KEY, ESCAPE_KEY } from "./constants";
 
 class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
 
-  public state : ITodoItemState;
+  public state: ITodoItemState;
 
-  constructor(props : ITodoItemProps){
+  constructor(props: ITodoItemProps) {
     super(props);
     this.state = { editText: this.props.todo.title };
   }
 
-  public handleSubmit(event : __React.FormEvent) {
+  public handleSubmit(event: __React.FormEvent) {
     var val = this.state.editText.trim();
     if (val) {
       this.props.onSave(val);
-      this.setState({editText: val});
+      this.setState({ editText: val });
     } else {
       this.props.onDestroy();
     }
@@ -30,21 +30,21 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
 
   public handleEdit() {
     this.props.onEdit();
-    this.setState({editText: this.props.todo.title});
+    this.setState({ editText: this.props.todo.title });
   }
 
-  public handleKeyDown(event : __React.KeyboardEvent) {
+  public handleKeyDown(event: __React.KeyboardEvent) {
     if (event.keyCode === ESCAPE_KEY) {
-      this.setState({editText: this.props.todo.title});
+      this.setState({ editText: this.props.todo.title });
       this.props.onCancel(event);
     } else if (event.keyCode === ENTER_KEY) {
       this.handleSubmit(event);
     }
   }
 
-  public handleChange(event : __React.FormEvent) {
-    var input : any = event.target;
-    this.setState({ editText : input.value });
+  public handleChange(event: __React.FormEvent) {
+    var input: any = event.target;
+    this.setState({ editText: input.value });
   }
 
   /**
@@ -54,7 +54,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
    * just use it as an example of how little code it takes to get an order
    * of magnitude performance improvement.
    */
-  public shouldComponentUpdate(nextProps : ITodoItemProps, nextState : ITodoItemState) {
+  public shouldComponentUpdate(nextProps: ITodoItemProps, nextState: ITodoItemState) {
     return (
       nextProps.todo !== this.props.todo ||
       nextProps.editing !== this.props.editing ||
@@ -68,7 +68,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
    * For more info refer to notes at https://facebook.github.io/react/docs/component-api.html#setstate
    * and https://facebook.github.io/react/docs/component-specs.html#updating-componentdidupdate
    */
-  public componentDidUpdate(prevProps : ITodoItemProps) {
+  public componentDidUpdate(prevProps: ITodoItemProps) {
     if (!prevProps.editing && this.props.editing) {
       var node = React.findDOMNode<HTMLInputElement>(this.refs["editField"]);
       node.focus();
@@ -81,14 +81,14 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
       <li className={classNames({
         completed: this.props.todo.completed,
         editing: this.props.editing
-      })}>
+      }) }>
         <div className="view">
           <input
             className="toggle"
             type="checkbox"
             checked={this.props.todo.completed}
             onChange={this.props.onToggle}
-          />
+            />
           <label onDoubleClick={ e => this.handleEdit() }>
             {this.props.todo.title}
           </label>
@@ -101,7 +101,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
           onBlur={ e => this.handleSubmit(e) }
           onChange={ e => this.handleChange(e) }
           onKeyDown={ e => this.handleKeyDown(e) }
-        />
+          />
       </li>
     );
   }
