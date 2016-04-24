@@ -4,7 +4,7 @@
 /*jshint newcap:false */
 /*global React, Router*/
 
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
 declare var Router;

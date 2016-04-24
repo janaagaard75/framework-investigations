@@ -4,7 +4,7 @@
 /*jshint newcap:false */
 /*global React */
 
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
