@@ -58,23 +58,24 @@ Get help from other React users:
 
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know](https://github.com/tastejs/todomvc/issues)._
 
-
-
 ## Running
+
+This project is build using webpack. Details in [React-TypeScript](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/quick-start/react-webpack.md)
 
 A standalone TypeScript compiler is available on NPM.
 
-	npm install typescript
+    npm install --global webpack
+    npm install
 
 To compile the TypeScript in this project:
 
-	# from examples/typescript-react
-	$ tsc -p js
+	  # from examples/typescript-react
+	  $ tsc -p js
 
 To be able to run the output JS files in the browser:
 
-	# from examples/typescript-react
-	$ npm install -g browserify
-	$ browserify js/app.js -o js/bundle.js
+    # from examples/typescript-react
+    $ npm install -g browserify
+    $ browserify js/app.js -o js/bundle.js
 
 To run the app, spin up an HTTP server (e.g. `python -m SimpleHTTPServer`) and visit http://localhost/.../myexample/.
