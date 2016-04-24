@@ -14,19 +14,13 @@
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true
     },
-    "filesGlob": [
-        "**/*.ts",
-        "**/*.tsx",
-        "!node_modules/**"
-    ],
     "files": [
-        "constants.ts",
-        "interfaces.d.ts",
-        "todoModel.ts",
-        "utils.ts",
-        "app.tsx",
-        "footer.tsx",
-        "todoItem.tsx"
-    ],
-    "exclude": []
+        "js/constants.ts",
+        "js/interfaces.d.ts",
+        "js/todoModel.ts",
+        "js/utils.ts",
+        "js/app.tsx",
+        "js/footer.tsx",
+        "js/todoItem.tsx"
+    ]
 }
