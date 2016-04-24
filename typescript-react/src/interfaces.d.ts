@@ -34,10 +34,10 @@ interface ITodoModel {
   subscribe(onChange);
   inform();
   addTodo(title: string);
-  toggleAll(checked);
-  toggle(todoToToggle);
-  destroy(todo);
-  save(todoToSave, text);
+  toggleAll(checked: boolean);
+  toggle(todoToToggle: ITodo);
+  destroy(todo: ITodo);
+  save(todoToSave: ITodo, text: string);
   clearCompleted();
 }
 

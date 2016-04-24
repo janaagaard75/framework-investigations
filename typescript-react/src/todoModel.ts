@@ -19,7 +19,7 @@ class TodoModel implements ITodoModel {
   public todos: Array<ITodo>;
   public onChanges: Array<any>;
 
-  constructor(key) {
+  constructor(key: string) {
     this.key = key;
     this.todos = Utils.store(key);
     this.onChanges = [];
@@ -36,9 +36,9 @@ class TodoModel implements ITodoModel {
 
   public addTodo(title: string) {
     this.todos = this.todos.concat({
+      completed: false,
       id: Utils.uuid(),
-      title: title,
-      completed: false
+      title: title
     });
 
     this.inform();
@@ -75,7 +75,7 @@ class TodoModel implements ITodoModel {
   }
 
   public save(todoToSave: ITodo, text: string) {
-    this.todos = this.todos.map(function (todo) {
+    this.todos = this.todos.map(function (todo: ITodo) {
       return todo !== todoToSave ? todo : Utils.extend({}, todo, { title: text });
     });
 
@@ -83,7 +83,7 @@ class TodoModel implements ITodoModel {
   }
 
   public clearCompleted() {
-    this.todos = this.todos.filter(function (todo) {
+    this.todos = this.todos.filter(function (todo: ITodo) {
       return !todo.completed;
     });
 

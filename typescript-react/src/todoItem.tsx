@@ -19,7 +19,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   }
 
   public handleSubmit(event: __React.FormEvent) {
-    var val = this.state.editText.trim();
+    const val = this.state.editText.trim();
     if (val) {
       this.props.onSave(val);
       this.setState({ editText: val });
@@ -43,7 +43,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   }
 
   public handleChange(event: __React.FormEvent) {
-    var input: any = event.target;
+    const input: any = event.target;
     this.setState({ editText: input.value });
   }
 
@@ -70,7 +70,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
    */
   public componentDidUpdate(prevProps: ITodoItemProps) {
     if (!prevProps.editing && this.props.editing) {
-      var node = React.findDOMNode<HTMLInputElement>(this.refs["editField"]);
+      const node = React.findDOMNode<HTMLInputElement>(this.refs["editField"]);
       node.focus();
       node.setSelectionRange(node.value.length, node.value.length);
     }
