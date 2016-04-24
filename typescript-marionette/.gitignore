@@ -1,0 +1,5 @@
+# Node modules.
+node_modules/
+
+# The output folder of the source files.
+js/compiled/

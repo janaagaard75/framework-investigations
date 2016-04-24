@@ -1,0 +1,8 @@
+{
+  "ambientDependencies": {
+    "backbone-global": "registry:dt/backbone-global#1.0.0+20160417152450",
+    "backbone.localstorage": "registry:dt/backbone.localstorage#1.0.0+20160317120654",
+    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
+    "underscore": "registry:dt/underscore#1.7.0+20160412141459"
+  }
+}

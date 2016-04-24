@@ -1,0 +1,8 @@
+# Compiled JavaScript files, generated with `tsc`.
+js/
+
+# Node modules, fetched using `npm install`.
+node_modules/
+
+# Node package manager log file.
+npm-debug.log
