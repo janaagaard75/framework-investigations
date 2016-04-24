@@ -11,18 +11,19 @@
         "newLine": "LF",
         "noImplicitAny": false,
         "noLib": false,
+        "outDir": "js",
         "preserveConstEnums": true,
         "removeComments": true,
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
     "files": [
-        "js/app.tsx",
-        "js/constants.ts",
-        "js/footer.tsx",
-        "js/interfaces.d.ts",
-        "js/todoItem.tsx",
-        "js/todoModel.ts",
-        "js/utils.ts"
+        "src/app.tsx",
+        "src/constants.ts",
+        "src/footer.tsx",
+        "src/interfaces.d.ts",
+        "src/todoItem.tsx",
+        "src/todoModel.ts",
+        "src/utils.ts"
     ]
 }
