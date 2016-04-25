@@ -18,12 +18,12 @@
         "target": "es5"
     },
     "files": [
-        "src/app.tsx",
         "src/constants.ts",
-        "src/footer.tsx",
+        "src/TodoApp.tsx",
+        "src/TodoFooter.tsx",
         "src/interfaces.d.ts",
-        "src/todoItem.tsx",
-        "src/todoModel.ts",
-        "src/utils.ts"
+        "src/TodoItem.tsx",
+        "src/TodoModel.ts",
+        "src/Utils.ts"
     ]
 }

@@ -6,7 +6,7 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
-import { Utils } from "./utils";
+import { Utils } from "./Utils";
 
 // Generic "model" object. You can use whatever
 // framework you want. For this application it

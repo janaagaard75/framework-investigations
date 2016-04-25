@@ -7,8 +7,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import TodoModel from "./TodoModel";
-import { TodoFooter } from "./footer";
-import { TodoItem } from "./todoItem";
+import { TodoFooter } from "./TodoFooter";
+import { TodoItem } from "./TodoItem";
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS, ENTER_KEY } from "./constants";
 
 class TodoApp extends React.Component<IAppProps, IAppState> {

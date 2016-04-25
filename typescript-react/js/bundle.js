@@ -49,7 +49,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(5), __webpack_require__(7), __webpack_require__(6)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, ReactDOM, TodoModel_1, footer_1, todoItem_1, constants_1) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(5), __webpack_require__(7), __webpack_require__(6)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, ReactDOM, TodoModel_1, TodoFooter_1, TodoItem_1, constants_1) {
 	    "use strict";
 	    var TodoApp = (function (_super) {
 	        __extends(TodoApp, _super);
@@ -119,7 +119,7 @@
 	                }
 	            });
 	            var todoItems = shownTodos.map(function (todo) {
-	                return (React.createElement(todoItem_1.TodoItem, {key: todo.id, todo: todo, onToggle: _this.toggle.bind(_this, todo), onDestroy: _this.destroy.bind(_this, todo), onEdit: _this.edit.bind(_this, todo), editing: _this.state.editing === todo.id, onSave: _this.save.bind(_this, todo), onCancel: function (e) { return _this.cancel(); }}));
+	                return (React.createElement(TodoItem_1.TodoItem, {key: todo.id, todo: todo, onToggle: _this.toggle.bind(_this, todo), onDestroy: _this.destroy.bind(_this, todo), onEdit: _this.edit.bind(_this, todo), editing: _this.state.editing === todo.id, onSave: _this.save.bind(_this, todo), onCancel: function (e) { return _this.cancel(); }}));
 	            });
 	            var activeTodoCount = todos.reduce(function (accum, todo) {
 	                return todo.completed ? accum : accum + 1;
@@ -127,7 +127,7 @@
 	            var completedCount = todos.length - activeTodoCount;
 	            if (activeTodoCount || completedCount) {
 	                footer =
-	                    React.createElement(footer_1.TodoFooter, {count: activeTodoCount, completedCount: completedCount, nowShowing: this.state.nowShowing, onClearCompleted: function (e) { return _this.clearCompleted(); }});
+	                    React.createElement(TodoFooter_1.TodoFooter, {count: activeTodoCount, completedCount: completedCount, nowShowing: this.state.nowShowing, onClearCompleted: function (e) { return _this.clearCompleted(); }});
 	            }
 	            if (todos.length) {
 	                main = (React.createElement("section", {className: "main"}, React.createElement("input", {className: "toggle-all", type: "checkbox", onChange: function (e) { return _this.toggleAll(e); }, checked: activeTodoCount === 0}), React.createElement("ul", {className: "todo-list"}, todoItems)));
@@ -161,32 +161,32 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(4)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, utils_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(4)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, Utils_1) {
 	    "use strict";
 	    var TodoModel = (function () {
 	        function TodoModel(key) {
 	            this.key = key;
-	            this.todos = utils_1.Utils.store(key);
+	            this.todos = Utils_1.Utils.store(key);
 	            this.onChanges = [];
 	        }
 	        TodoModel.prototype.subscribe = function (onChange) {
 	            this.onChanges.push(onChange);
 	        };
 	        TodoModel.prototype.inform = function () {
-	            utils_1.Utils.store(this.key, this.todos);
+	            Utils_1.Utils.store(this.key, this.todos);
 	            this.onChanges.forEach(function (cb) { cb(); });
 	        };
 	        TodoModel.prototype.addTodo = function (title) {
 	            this.todos = this.todos.concat({
 	                completed: false,
-	                id: utils_1.Utils.uuid(),
+	                id: Utils_1.Utils.uuid(),
 	                title: title
 	            });
 	            this.inform();
 	        };
 	        TodoModel.prototype.toggleAll = function (checked) {
 	            this.todos = this.todos.map(function (todo) {
-	                return utils_1.Utils.extend({}, todo, { completed: checked });
+	                return Utils_1.Utils.extend({}, todo, { completed: checked });
 	            });
 	            this.inform();
 	        };
@@ -194,7 +194,7 @@
 	            this.todos = this.todos.map(function (todo) {
 	                return todo !== todoToToggle ?
 	                    todo :
-	                    utils_1.Utils.extend({}, todo, { completed: !todo.completed });
+	                    Utils_1.Utils.extend({}, todo, { completed: !todo.completed });
 	            });
 	            this.inform();
 	        };
@@ -206,7 +206,7 @@
 	        };
 	        TodoModel.prototype.save = function (todoToSave, text) {
 	            this.todos = this.todos.map(function (todo) {
-	                return todo !== todoToSave ? todo : utils_1.Utils.extend({}, todo, { title: text });
+	                return todo !== todoToSave ? todo : Utils_1.Utils.extend({}, todo, { title: text });
 	            });
 	            this.inform();
 	        };
@@ -284,7 +284,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(6), __webpack_require__(4)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, constants_1, utils_1) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(6), __webpack_require__(4)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, constants_1, Utils_1) {
 	    "use strict";
 	    var TodoFooter = (function (_super) {
 	        __extends(TodoFooter, _super);
@@ -292,7 +292,7 @@
 	            _super.apply(this, arguments);
 	        }
 	        TodoFooter.prototype.render = function () {
-	            var activeTodoWord = utils_1.Utils.pluralize(this.props.count, "item");
+	            var activeTodoWord = Utils_1.Utils.pluralize(this.props.count, "item");
 	            var clearButton = null;
 	            if (this.props.completedCount > 0) {
 	                clearButton = (React.createElement("button", {className: "clear-completed", onClick: this.props.onClearCompleted}, "Clear completed"));
