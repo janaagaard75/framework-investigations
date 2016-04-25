@@ -26,12 +26,13 @@ interface ITodoFooterProps {
   count: number;
 }
 
+type ChangeFunction = () => any;
 
 interface ITodoModel {
   key: any;
   todos: Array<ITodo>;
-  onChanges: Array<any>;
-  subscribe(onChange);
+  onChanges: Array<ChangeFunction>;
+  subscribe(onChange: ChangeFunction);
   inform();
   addTodo(title: string);
   toggleAll(checked: boolean);

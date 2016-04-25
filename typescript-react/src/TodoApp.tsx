@@ -113,8 +113,8 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     // easier to reason about and React works very well with them. That's why
     // we use map(), filter() and reduce() everywhere instead of mutating the
     // array or todo items themselves.
-    const activeTodoCount = todos.reduce(function (accum, todo: ITodo) {
-      return todo.completed ? accum : accum + 1;
+    const activeTodoCount = todos.reduce(function (sum: number, todo: ITodo) {
+      return todo.completed ? sum : sum + 1;
     }, 0);
 
     const completedCount = todos.length - activeTodoCount;

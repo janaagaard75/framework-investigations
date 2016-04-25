@@ -24,13 +24,13 @@ export default class TodoModel implements ITodoModel {
   public todos: Array<ITodo>;
   public onChanges: Array<any>;
 
-  public subscribe(onChange) {
+  public subscribe(onChange: ChangeFunction) {
     this.onChanges.push(onChange);
   }
 
   public inform() {
     Utils.store(this.key, this.todos);
-    this.onChanges.forEach(function (cb) { cb(); });
+    this.onChanges.forEach(function (onChange: ChangeFunction) { onChange(); });
   }
 
   public addTodo(title: string) {
@@ -65,9 +65,9 @@ export default class TodoModel implements ITodoModel {
     this.inform();
   }
 
-  public destroy(todo: ITodo) {
-    this.todos = this.todos.filter(function (candidate) {
-      return candidate !== todo;
+  public destroy(todoToDestroy: ITodo) {
+    this.todos = this.todos.filter(function (todo: ITodo) {
+      return todo !== todoToDestroy;
     });
 
     this.inform();
