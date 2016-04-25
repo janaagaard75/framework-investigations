@@ -32,7 +32,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     router.init("/");
   }
 
-  public handleNewTodoKeyDown(event: __React.KeyboardEvent) {
+  public handleNewTodoKeyDown(event: React.KeyboardEvent) {
     if (event.keyCode !== KeyCode.Enter) {
       return;
     }
@@ -47,7 +47,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     }
   }
 
-  public toggleAll(event: __React.FormEvent) {
+  public toggleAll(event: React.FormEvent) {
     const target: any = event.target;
     const checked = target.checked;
     this.props.model.toggleAll(checked);

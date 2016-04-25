@@ -14,7 +14,7 @@ export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemS
 
   public state: ITodoItemState;
 
-  public handleSubmit(event: __React.FormEvent) {
+  public handleSubmit(event: React.FormEvent) {
     const val = this.state.editText.trim();
     if (val) {
       this.props.onSave(val);
@@ -42,7 +42,7 @@ export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemS
     }
   }
 
-  public handleChange(event: __React.FormEvent) {
+  public handleChange(event: React.FormEvent) {
     const input: any = event.target;
     this.setState({ editText: input.value });
   }
