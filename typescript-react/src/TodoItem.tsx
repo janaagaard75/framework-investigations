@@ -4,7 +4,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { ENTER_KEY, ESCAPE_KEY } from "./constants";
+import KeyCode from "./KeyCode";
 
 export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   constructor(props: ITodoItemProps) {
@@ -30,10 +30,10 @@ export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemS
   }
 
   public handleKeyDown(event: __React.KeyboardEvent) {
-    if (event.keyCode === ESCAPE_KEY) {
+    if (event.keyCode === KeyCode.Escape) {
       this.setState({ editText: this.props.todo.title });
       this.props.onCancel(event);
-    } else if (event.keyCode === ENTER_KEY) {
+    } else if (event.keyCode === KeyCode.Enter) {
       this.handleSubmit(event);
     }
   }

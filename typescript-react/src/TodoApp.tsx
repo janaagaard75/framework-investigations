@@ -9,7 +9,8 @@ import * as ReactDOM from "react-dom";
 import TodoModel from "./TodoModel";
 import TodoFooter from "./TodoFooter";
 import TodoItem from "./TodoItem";
-import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS, ENTER_KEY } from "./constants";
+import KeyCode from "./KeyCode";
+import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
 
 class TodoApp extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -32,7 +33,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public handleNewTodoKeyDown(event: __React.KeyboardEvent) {
-    if (event.keyCode !== ENTER_KEY) {
+    if (event.keyCode !== KeyCode.Enter) {
       return;
     }
 
