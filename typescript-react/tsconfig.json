@@ -19,9 +19,10 @@
     },
     "files": [
         "src/constants.ts",
+        "src/interfaces.d.ts",
+        "src/KeyCode.ts",
         "src/TodoApp.tsx",
         "src/TodoFooter.tsx",
-        "src/interfaces.d.ts",
         "src/TodoItem.tsx",
         "src/TodoModel.ts",
         "src/Utils.ts"
