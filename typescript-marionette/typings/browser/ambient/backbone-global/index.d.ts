@@ -72,11 +72,11 @@ declare namespace Backbone {
     }
 
     interface RoutesHash {
-        [routePattern: string]: string | {(...urlParts: string[]): void};
+        [routePattern: string]: string | { (...urlParts: string[]): void };
     }
 
     interface EventsHash {
-        [selector: string]: string | {(eventObject: JQueryEventObject): void};
+        [selector: string]: string | { (eventObject: JQueryEventObject): void };
     }
 
     class Events {
@@ -149,14 +149,18 @@ declare namespace Backbone {
 
         change(): any;
         changedAttributes(attributes?: any): any[];
+
+        /** Removes all attributes from the model, including the id attribute. Fires a "change" event unless silent is passed as an option. */
         clear(options?: Silenceable): any;
         clone(): Model;
-        destroy(options?: ModelDestroyOptions): any;
+
+        /** Destroys the model on the server by delegating an HTTP DELETE request to Backbone.sync. Returns a jqXHR object, or false if the model isNew. Accepts success and error callbacks in the options hash, which will be passed (model, response, options). Triggers a "destroy" event on the model, which will bubble up through any collections that contain it, a "request" event as it begins the Ajax request to the server, and a "sync" event, after the server has successfully acknowledged the model's deletion. Pass {wait: true} if you'd like to wait for the server to respond before removing the model from the collection. */
+        destroy(options?: ModelDestroyOptions): boolean | JQueryXHR;
         escape(attribute: string): string;
         has(attribute: string): boolean;
         hasChanged(attribute?: string): boolean;
         isNew(): boolean;
-        isValid(options?:any): boolean;
+        isValid(options?: any): boolean;
         previous(attribute: string): any;
         previousAttributes(): any[];
         save(attributes?: any, options?: ModelSaveOptions): any;
@@ -184,7 +188,7 @@ declare namespace Backbone {
         **/
         private static extend(properties: any, classProperties?: any): any;
 
-        model: new (...args:any[]) => TModel;
+        model: new (...args: any[]) => TModel;
         models: TModel[];
         length: number;
 
@@ -198,13 +202,13 @@ declare namespace Backbone {
          */
         comparator: string | ((element: TModel) => number | string) | ((compare: TModel, to?: TModel) => number);
 
-        add(model: {}|TModel, options?: AddOptions): TModel;
-        add(models: ({}|TModel)[], options?: AddOptions): TModel[];
+        add(model: {} | TModel, options?: AddOptions): TModel;
+        add(models: ({} | TModel)[], options?: AddOptions): TModel[];
         at(index: number): TModel;
         /**
          * Get a model from a collection, specified by an id, a cid, or by passing in a model.
          **/
-        get(id: number|string|Model): TModel;
+        get(id: number | string | Model): TModel;
         create(attributes: any, options?: ModelSaveOptions): TModel;
         pluck(attribute: string): any[];
         push(model: TModel, options?: AddOptions): TModel;
@@ -293,7 +297,7 @@ declare namespace Backbone {
 
         constructor(options?: RouterOptions);
         initialize(options?: RouterOptions): void;
-        route(route: string|RegExp, name: string, callback?: Function): Router;
+        route(route: string | RegExp, name: string, callback?: Function): Router;
         navigate(fragment: string, options?: NavigateOptions): Router;
         navigate(fragment: string, trigger?: boolean): Router;
 
@@ -324,16 +328,18 @@ declare namespace Backbone {
         private _updateHash(location: Location, fragment: string, replace: boolean): void;
     }
 
-   interface ViewOptions<TModel extends Model> {
-      model?: TModel;
-       // TODO: quickfix, this can't be fixed easy. The collection does not need to have the same model as the parent view.
-      collection?: Backbone.Collection<any>; //was: Collection<TModel>;
-      el?: any;
-      events?: EventsHash;
-      id?: string;
-      className?: string;
-      tagName?: string;
-      attributes?: {[id: string]: any};
+    type ClassName = string | (() => string);
+
+    interface ViewOptions<TModel extends Model> {
+        model?: TModel;
+        // TODO: quickfix, this can't be fixed easy. The collection does not need to have the same model as the parent view.
+        collection?: Backbone.Collection<any>; //was: Collection<TModel>;
+        el?: any;
+        events?: EventsHash;
+        id?: string;
+        className?: ClassName;
+        tagName?: string;
+        attributes?: { [id: string]: any };
     }
 
     class View<TModel extends Model> extends Events {
@@ -357,25 +363,33 @@ declare namespace Backbone {
         model: TModel;
         collection: Collection<TModel>;
         //template: (json, options?) => string;
-        setElement(element: HTMLElement|JQuery, delegate?: boolean): View<TModel>;
+        /** If you'd like to apply a Backbone view to a different DOM element, use setElement, which will also create the cached $el reference and move the view's delegated events from the old element to the new one. */
+        setElement(element: HTMLElement | JQuery, delegate?: boolean): View<TModel>;
         id: string;
         cid: string;
-        className: string | (() => string);
+        className: ClassName;
         tagName: string;
 
-        el: any;
+        el: HTMLElement;
         $el: JQuery;
-        setElement(element: any): View<TModel>;
+
         attributes: any;
         $(selector: any): JQuery;
+
+        /** The default implementation of render is a no-op. Override this function with your code that renders the view template from model data, and updates this.el with the new HTML. A good convention is to return this at the end of render to enable chained calls. */
         render(): View<TModel>;
         remove(): View<TModel>;
         make(tagName: any, attributes?: any, content?: any): any;
-        delegateEvents(events?: EventsHash): any;
+
+        /** Set callbacks, where events is a hash of { "event selector": "callback" } pairs. Callbacks will be bound to the view, with `this` set properly. Uses event delegation for efficiency. Omitting the selector binds the event to this.el. */
+        delegateEvents(events?: EventsHash): View<TModel>;
         delegate(eventName: string, selector: string, listener: Function): View<TModel>;
-        undelegateEvents(): any;
+
+        /** Clears all callbacks previously bound to the view by delegateEvents. You usually don't need to use this, but may wish to if you have multiple Backbone views attached to the same DOM element. */
+        undelegateEvents(): View<TModel>;
         undelegate(eventName: string, selector?: string, listener?: Function): View<TModel>;
 
+        /** Ensure that the View has a DOM element to render into. If this.el is a string, pass it through $(), take the first matching element, and re-assign it to el. Otherwise, create an element from the id, className and tagName properties. */
         _ensureElement(): void;
     }
 

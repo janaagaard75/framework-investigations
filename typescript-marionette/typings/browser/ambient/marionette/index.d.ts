@@ -806,6 +806,10 @@ declare namespace Marionette {
         supportsDestroyLifecycle: boolean;
     }
 
+    interface ItemViewOptions<TModel extends Backbone.Model> extends Backbone.ViewOptions<TModel> {
+        template: string | (() => string);
+    }
+
     /**
      * An ItemView is a view that represents a single item. That item may be
      * a Backbone.Model or may be a Backbone.Collection. Whichever it is though,
@@ -813,7 +817,7 @@ declare namespace Marionette {
      */
     class ItemView<TModel extends Backbone.Model> extends View<TModel> {
 
-        constructor(options?: Backbone.ViewOptions<TModel>);
+        constructor(options?: ItemViewOptions<TModel>);
 
         /**
          * Item views will serialize a model or collection, by default, by calling
@@ -875,6 +879,8 @@ declare namespace Marionette {
          * children and remove those that are rejected by the filter.
          */
         reorderOnSort?: boolean;
+
+        ui?: any;
     }
 
     /**

@@ -1,7 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    export class HeaderLayout extends Marionette.ItemView<any> {
+    export class HeaderLayout extends Marionette.CollectionView<Todo, TodoView> {
         constructor() {
             super();
 
@@ -9,8 +9,7 @@ namespace TodoMVC {
                 "keypress @ui.input": this.saveOnEnter,
                 "keyup @ui.input": this.cancelOnEscape
             };
-
-            // TODO: Probably has to re-register events.
+            this.delegateEvents();
         }
 
         ui = {

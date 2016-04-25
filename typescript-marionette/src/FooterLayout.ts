@@ -1,25 +1,40 @@
 namespace TodoMVC {
     "use strict";
 
-    export class FooterLayout extends Marionette.ItemView<Todo> {
+    export class FooterLayout extends Marionette.CollectionView<Todo, TodoView> {
         constructor() {
-            super();
+            super({
+                events: {
+                    "click @ui.clear": "onClearClick"
+                },
+                ui: <any>{
+                    active: ".active a",
+                    all: ".all a",
+                    clear: "#clear-completed",
+                    completed: ".completed a",
+                    filters: "#filters a",
+                    summary: "#todo-count"
+                }
+            });
 
-            this.events = <any>{
-                "click @ui.clear": this.onClearClick
-            };
+            this.collection = arguments[0].collection;
+
+            // this.events = <any>{
+            //     "click @ui.clear": this.onClearClick
+            // };
+            // this.delegateEvents();
         }
 
-        template: "#template-footer";
+        template = "#template-footer";
 
-        ui = {
-            active: ".active a",
-            all: ".all a",
-            clear: "#clear-completed",
-            completed: ".completed a",
-            filters: "#filters a",
-            summary: "#todo-count"
-        };
+        // ui = {
+        //     active: ".active a",
+        //     all: ".all a",
+        //     clear: "#clear-completed",
+        //     completed: ".completed a",
+        //     filters: "#filters a",
+        //     summary: "#todo-count"
+        // };
 
         // TODO: Is this really enough to specify that the collection supplied is a TodoList and not a generic Backbone.Collection<Todo>?
         collection: TodoList;
