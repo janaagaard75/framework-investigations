@@ -79,6 +79,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public render() {
+    // TODO: Figure out how to move these declarations down.
     let footer;
     let main;
     const todos = this.props.model.todos;
