@@ -39,7 +39,7 @@
         "no-irregular-whitespace": true,
         "no-require-imports": true,
         "no-shadowed-variable": true,
-        "no-string-literal": false, // TODO: Figure out how to turn this on.
+        "no-string-literal": false,
         "no-switch-case-fall-through": true,
         "no-trailing-whitespace": true,
         "no-unreachable": true,
