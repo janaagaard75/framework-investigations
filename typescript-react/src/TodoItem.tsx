@@ -29,12 +29,16 @@ export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemS
     this.setState({ editText: this.props.todo.title });
   }
 
-  public handleKeyDown(event: __React.KeyboardEvent) {
-    if (event.keyCode === KeyCode.Escape) {
-      this.setState({ editText: this.props.todo.title });
-      this.props.onCancel(event);
-    } else if (event.keyCode === KeyCode.Enter) {
-      this.handleSubmit(event);
+  public handleKeyDown(event: React.KeyboardEvent) {
+    switch (event.keyCode) {
+      case KeyCode.Enter:
+        this.handleSubmit(event);
+        break;
+
+      case KeyCode.Escape:
+        this.setState({ editText: this.props.todo.title });
+        this.props.onCancel(event);
+        break;
     }
   }
 
