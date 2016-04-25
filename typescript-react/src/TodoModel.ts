@@ -6,7 +6,7 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
-import { Utils } from "./Utils";
+import Utils from "./Utils";
 
 // Generic "model" object. You can use whatever
 // framework you want. For this application it
@@ -14,16 +14,15 @@ import { Utils } from "./Utils";
 // out, but we do this to demonstrate one way to
 // separate out parts of your application.
 export default class TodoModel implements ITodoModel {
-
-  public key: string;
-  public todos: Array<ITodo>;
-  public onChanges: Array<any>;
-
   constructor(key: string) {
     this.key = key;
     this.todos = Utils.store(key);
     this.onChanges = [];
   }
+
+  public key: string;
+  public todos: Array<ITodo>;
+  public onChanges: Array<any>;
 
   public subscribe(onChange) {
     this.onChanges.push(onChange);

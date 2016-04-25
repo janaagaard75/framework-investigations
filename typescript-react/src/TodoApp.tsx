@@ -7,14 +7,11 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import TodoModel from "./TodoModel";
-import { TodoFooter } from "./TodoFooter";
-import { TodoItem } from "./TodoItem";
+import TodoFooter from "./TodoFooter";
+import TodoItem from "./TodoItem";
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS, ENTER_KEY } from "./constants";
 
 class TodoApp extends React.Component<IAppProps, IAppState> {
-
-  public state: IAppState;
-
   constructor(props: IAppProps) {
     super(props);
     this.state = {
@@ -22,6 +19,8 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
       nowShowing: ALL_TODOS
     };
   }
+
+  public state: IAppState;
 
   public componentDidMount() {
     const router = Router({

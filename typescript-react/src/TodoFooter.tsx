@@ -4,9 +4,9 @@
 import * as React from "react";
 
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
-import { Utils } from "./Utils";
+import Utils from "./Utils";
 
-class TodoFooter extends React.Component<ITodoFooterProps, {}> {
+export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
 
   public render() {
     const activeTodoWord = Utils.pluralize(this.props.count, "item");
@@ -58,5 +58,3 @@ class TodoFooter extends React.Component<ITodoFooterProps, {}> {
     );
   }
 }
-
-export { TodoFooter };

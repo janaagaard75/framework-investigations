@@ -1,4 +1,4 @@
-export class Utils {
+export default class Utils {
   public static uuid(): string {
     /* tslint:disable:no-bitwise */
     let uuid = "";

@@ -119,7 +119,7 @@
 	                }
 	            });
 	            var todoItems = shownTodos.map(function (todo) {
-	                return (React.createElement(TodoItem_1.TodoItem, {key: todo.id, todo: todo, onToggle: _this.toggle.bind(_this, todo), onDestroy: _this.destroy.bind(_this, todo), onEdit: _this.edit.bind(_this, todo), editing: _this.state.editing === todo.id, onSave: _this.save.bind(_this, todo), onCancel: function (e) { return _this.cancel(); }}));
+	                return (React.createElement(TodoItem_1.default, {key: todo.id, todo: todo, onToggle: _this.toggle.bind(_this, todo), onDestroy: _this.destroy.bind(_this, todo), onEdit: _this.edit.bind(_this, todo), editing: _this.state.editing === todo.id, onSave: _this.save.bind(_this, todo), onCancel: function (e) { return _this.cancel(); }}));
 	            });
 	            var activeTodoCount = todos.reduce(function (accum, todo) {
 	                return todo.completed ? accum : accum + 1;
@@ -127,7 +127,7 @@
 	            var completedCount = todos.length - activeTodoCount;
 	            if (activeTodoCount || completedCount) {
 	                footer =
-	                    React.createElement(TodoFooter_1.TodoFooter, {count: activeTodoCount, completedCount: completedCount, nowShowing: this.state.nowShowing, onClearCompleted: function (e) { return _this.clearCompleted(); }});
+	                    React.createElement(TodoFooter_1.default, {count: activeTodoCount, completedCount: completedCount, nowShowing: this.state.nowShowing, onClearCompleted: function (e) { return _this.clearCompleted(); }});
 	            }
 	            if (todos.length) {
 	                main = (React.createElement("section", {className: "main"}, React.createElement("input", {className: "toggle-all", type: "checkbox", onChange: function (e) { return _this.toggleAll(e); }, checked: activeTodoCount === 0}), React.createElement("ul", {className: "todo-list"}, todoItems)));
@@ -166,27 +166,27 @@
 	    var TodoModel = (function () {
 	        function TodoModel(key) {
 	            this.key = key;
-	            this.todos = Utils_1.Utils.store(key);
+	            this.todos = Utils_1.default.store(key);
 	            this.onChanges = [];
 	        }
 	        TodoModel.prototype.subscribe = function (onChange) {
 	            this.onChanges.push(onChange);
 	        };
 	        TodoModel.prototype.inform = function () {
-	            Utils_1.Utils.store(this.key, this.todos);
+	            Utils_1.default.store(this.key, this.todos);
 	            this.onChanges.forEach(function (cb) { cb(); });
 	        };
 	        TodoModel.prototype.addTodo = function (title) {
 	            this.todos = this.todos.concat({
 	                completed: false,
-	                id: Utils_1.Utils.uuid(),
+	                id: Utils_1.default.uuid(),
 	                title: title
 	            });
 	            this.inform();
 	        };
 	        TodoModel.prototype.toggleAll = function (checked) {
 	            this.todos = this.todos.map(function (todo) {
-	                return Utils_1.Utils.extend({}, todo, { completed: checked });
+	                return Utils_1.default.extend({}, todo, { completed: checked });
 	            });
 	            this.inform();
 	        };
@@ -194,7 +194,7 @@
 	            this.todos = this.todos.map(function (todo) {
 	                return todo !== todoToToggle ?
 	                    todo :
-	                    Utils_1.Utils.extend({}, todo, { completed: !todo.completed });
+	                    Utils_1.default.extend({}, todo, { completed: !todo.completed });
 	            });
 	            this.inform();
 	        };
@@ -206,7 +206,7 @@
 	        };
 	        TodoModel.prototype.save = function (todoToSave, text) {
 	            this.todos = this.todos.map(function (todo) {
-	                return todo !== todoToSave ? todo : Utils_1.Utils.extend({}, todo, { title: text });
+	                return todo !== todoToSave ? todo : Utils_1.default.extend({}, todo, { title: text });
 	            });
 	            this.inform();
 	        };
@@ -271,7 +271,8 @@
 	        };
 	        return Utils;
 	    }());
-	    exports.Utils = Utils;
+	    Object.defineProperty(exports, "__esModule", { value: true });
+	    exports.default = Utils;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 
@@ -292,7 +293,7 @@
 	            _super.apply(this, arguments);
 	        }
 	        TodoFooter.prototype.render = function () {
-	            var activeTodoWord = Utils_1.Utils.pluralize(this.props.count, "item");
+	            var activeTodoWord = Utils_1.default.pluralize(this.props.count, "item");
 	            var clearButton = null;
 	            if (this.props.completedCount > 0) {
 	                clearButton = (React.createElement("button", {className: "clear-completed", onClick: this.props.onClearCompleted}, "Clear completed"));
@@ -302,7 +303,8 @@
 	        };
 	        return TodoFooter;
 	    }(React.Component));
-	    exports.TodoFooter = TodoFooter;
+	    Object.defineProperty(exports, "__esModule", { value: true });
+	    exports.default = TodoFooter;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 
@@ -385,7 +387,8 @@
 	        };
 	        return TodoItem;
 	    }(React.Component));
-	    exports.TodoItem = TodoItem;
+	    Object.defineProperty(exports, "__esModule", { value: true });
+	    exports.default = TodoItem;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 

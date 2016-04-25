@@ -6,14 +6,13 @@ import * as ReactDOM from "react-dom";
 
 import { ENTER_KEY, ESCAPE_KEY } from "./constants";
 
-class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
-
-  public state: ITodoItemState;
-
+export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   constructor(props: ITodoItemProps) {
     super(props);
     this.state = { editText: this.props.todo.title };
   }
+
+  public state: ITodoItemState;
 
   public handleSubmit(event: __React.FormEvent) {
     const val = this.state.editText.trim();
@@ -103,5 +102,3 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     );
   }
 }
-
-export { TodoItem };
