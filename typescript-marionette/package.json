@@ -1,6 +1,6 @@
 {
   "name": "typescript-marionette",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "backbone": "1.3.3",
@@ -19,8 +19,8 @@
     "typescript": "1.8.10"
   },
   "scripts": {
-    "compile": "tsc",
-    "setup": "npm install && typings install",
-    "lint": "tslint src/*.ts"
+    "build": "tsc",
+    "lint": "tslint src/*.ts",
+    "setup": "npm install && typings install"
   }
 }
