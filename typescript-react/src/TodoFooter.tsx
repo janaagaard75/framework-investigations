@@ -4,7 +4,7 @@
 import * as React from "react";
 
 import { ITodoFooterProps } from "./interfaces";
-import Filter from "./Filter";
+import NowShowingFilter from "./NowShowingFilter";
 import Utils from "./Utils";
 
 export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
@@ -32,7 +32,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/"
-              className={classNames({ selected: nowShowing === Filter.All }) }>
+              className={classNames({ selected: nowShowing === NowShowingFilter.All }) }>
               All
             </a>
           </li>
@@ -40,7 +40,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/active"
-              className={classNames({ selected: nowShowing === Filter.Active }) }>
+              className={classNames({ selected: nowShowing === NowShowingFilter.Active }) }>
               Active
             </a>
           </li>
@@ -48,7 +48,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/completed"
-              className={classNames({ selected: nowShowing === Filter.Completed }) }>
+              className={classNames({ selected: nowShowing === NowShowingFilter.Completed }) }>
               Completed
             </a>
           </li>

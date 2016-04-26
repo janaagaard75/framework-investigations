@@ -1,4 +1,4 @@
-import Filter from "./Filter";
+import NowShowingFilter from "./NowShowingFilter";
 
 export type ChangeFunction = () => any;
 
@@ -8,7 +8,7 @@ export interface IAppProps {
 
 export interface IAppState {
   editing?: string;
-  nowShowing?: Filter;
+  nowShowing?: NowShowingFilter;
 }
 
 export interface ITodo {
@@ -35,7 +35,7 @@ export interface ITodoItemState {
 export interface ITodoFooterProps {
   completedCount: number;
   onClearCompleted: any;
-  nowShowing: Filter;
+  nowShowing: NowShowingFilter;
   count: number;
 }
 

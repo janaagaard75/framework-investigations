@@ -7,7 +7,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { IAppProps, IAppState, ITodo } from "./interfaces";
-import Filter from "./Filter";
+import NowShowingFilter from "./NowShowingFilter";
 import KeyCode from "./KeyCode";
 import TodoFooter from "./TodoFooter";
 import TodoItem from "./TodoItem";
@@ -18,7 +18,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
     super(props);
     this.state = {
       editing: null,
-      nowShowing: Filter.All
+      nowShowing: NowShowingFilter.All
     };
   }
 
@@ -26,9 +26,9 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
   public componentDidMount() {
     const router = Router({
-      "/": this.setState.bind(this, { nowShowing: Filter.All }),
-      "/active": this.setState.bind(this, { nowShowing: Filter.Active }),
-      "/completed": this.setState.bind(this, { nowShowing: Filter.Completed })
+      "/": this.setState.bind(this, { nowShowing: NowShowingFilter.All }),
+      "/active": this.setState.bind(this, { nowShowing: NowShowingFilter.Active }),
+      "/completed": this.setState.bind(this, { nowShowing: NowShowingFilter.Completed })
     });
     router.init("/");
   }
@@ -87,10 +87,10 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     const shownTodos = todos.filter((todo) => {
       switch (this.state.nowShowing) {
-        case Filter.Active:
+        case NowShowingFilter.Active:
           return !todo.completed;
 
-        case Filter.Completed:
+        case NowShowingFilter.Completed:
           return todo.completed;
 
         // TODO: Is it possible to avoid this default state since we're now using an enum?
