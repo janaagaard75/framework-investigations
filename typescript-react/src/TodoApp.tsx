@@ -87,15 +87,14 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     const shownTodos = todos.filter((todo) => {
       switch (this.state.nowShowing) {
+        case NowShowingFilter.All:
+          return true;
+
         case NowShowingFilter.Active:
           return !todo.completed;
 
         case NowShowingFilter.Completed:
           return todo.completed;
-
-        // TODO: Is it possible to avoid this default state since we're now using an enum?
-        default:
-          return true;
       }
     });
 
