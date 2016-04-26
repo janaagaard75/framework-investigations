@@ -1,23 +1,23 @@
 import Filter from "./Filter";
 
-type ChangeFunction = () => any;
+export type ChangeFunction = () => any;
 
-interface IAppProps {
+export interface IAppProps {
   model: ITodoModel;
 }
 
-interface IAppState {
+export interface IAppState {
   editing?: string;
   nowShowing?: Filter;
 }
 
-interface ITodo {
+export interface ITodo {
   id: string;
   title: string;
   completed: boolean;
 }
 
-interface ITodoItemProps {
+export interface ITodoItemProps {
   key: string;
   todo: ITodo;
   editing?: boolean;
@@ -28,18 +28,18 @@ interface ITodoItemProps {
   onToggle: () => void;
 }
 
-interface ITodoItemState {
+export interface ITodoItemState {
   editText: string;
 }
 
-interface ITodoFooterProps {
+export interface ITodoFooterProps {
   completedCount: number;
   onClearCompleted: any;
   nowShowing: Filter;
   count: number;
 }
 
-interface ITodoModel {
+export interface ITodoModel {
   key: any;
   todos: Array<ITodo>;
   onChanges: Array<ChangeFunction>;

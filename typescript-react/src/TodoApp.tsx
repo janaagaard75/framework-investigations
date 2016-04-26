@@ -6,18 +6,19 @@ declare var Router;
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import TodoModel from "./TodoModel";
+import { IAppProps, IAppState, ITodo } from "./interfaces";
+import Filter from "./Filter";
+import KeyCode from "./KeyCode";
 import TodoFooter from "./TodoFooter";
 import TodoItem from "./TodoItem";
-import KeyCode from "./KeyCode";
-import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
+import TodoModel from "./TodoModel";
 
 class TodoApp extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
     this.state = {
       editing: null,
-      nowShowing: ALL_TODOS
+      nowShowing: Filter.All
     };
   }
 
@@ -25,9 +26,9 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
   public componentDidMount() {
     const router = Router({
-      "/": this.setState.bind(this, { nowShowing: ALL_TODOS }),
-      "/active": this.setState.bind(this, { nowShowing: ACTIVE_TODOS }),
-      "/completed": this.setState.bind(this, { nowShowing: COMPLETED_TODOS })
+      "/": this.setState.bind(this, { nowShowing: Filter.All }),
+      "/active": this.setState.bind(this, { nowShowing: Filter.Active }),
+      "/completed": this.setState.bind(this, { nowShowing: Filter.Completed })
     });
     router.init("/");
   }
@@ -86,10 +87,13 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     const shownTodos = todos.filter((todo) => {
       switch (this.state.nowShowing) {
-        case ACTIVE_TODOS:
+        case Filter.Active:
           return !todo.completed;
-        case COMPLETED_TODOS:
+
+        case Filter.Completed:
           return todo.completed;
+
+        // TODO: Is it possible to avoid this default state since we're now using an enum?
         default:
           return true;
       }

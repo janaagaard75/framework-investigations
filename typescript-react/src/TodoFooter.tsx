@@ -3,11 +3,11 @@
 
 import * as React from "react";
 
-import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from "./constants";
+import { ITodoFooterProps } from "./interfaces";
+import Filter from "./Filter";
 import Utils from "./Utils";
 
 export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
-
   public render() {
     const activeTodoWord = Utils.pluralize(this.props.count, "item");
     let clearButton = null;
@@ -32,7 +32,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/"
-              className={classNames({ selected: nowShowing === ALL_TODOS }) }>
+              className={classNames({ selected: nowShowing === Filter.All }) }>
               All
             </a>
           </li>
@@ -40,7 +40,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/active"
-              className={classNames({ selected: nowShowing === ACTIVE_TODOS }) }>
+              className={classNames({ selected: nowShowing === Filter.Active }) }>
               Active
             </a>
           </li>
@@ -48,7 +48,7 @@ export default class TodoFooter extends React.Component<ITodoFooterProps, {}> {
           <li>
             <a
               href="#/completed"
-              className={classNames({ selected: nowShowing === COMPLETED_TODOS }) }>
+              className={classNames({ selected: nowShowing === Filter.Completed }) }>
               Completed
             </a>
           </li>

@@ -1,4 +1,0 @@
-// TODO: Is it possible to defined this an an Enum instead?
-export const ALL_TODOS = "all";
-export const ACTIVE_TODOS = "active";
-export const COMPLETED_TODOS = "completed";

@@ -4,6 +4,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import { ITodoItemProps, ITodoItemState } from "./interfaces";
 import KeyCode from "./KeyCode";
 
 export default class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {

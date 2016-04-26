@@ -6,6 +6,7 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="./interfaces.d.ts"/>
 
+import { ChangeFunction, ITodo, ITodoModel } from "./interfaces";
 import Utils from "./Utils";
 
 // Generic "model" object. You can use whatever
