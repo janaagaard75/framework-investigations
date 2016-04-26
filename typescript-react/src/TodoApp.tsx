@@ -103,11 +103,11 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
         <TodoItem
           key={todo.id}
           todo={todo}
-          onToggle={this.toggle.bind(this, todo) }
-          onDestroy={this.destroy.bind(this, todo) }
-          onEdit={this.edit.bind(this, todo) }
-          editing={this.state.editing === todo.id}
-          onSave={this.save.bind(this, todo) }
+          onToggle={ this.toggle.bind(this, todo) }
+          onDestroy={ this.destroy.bind(this, todo) }
+          onEdit={ this.edit.bind(this, todo) }
+          editing={ this.state.editing === todo.id }
+          onSave={ this.save.bind(this, todo) }
           onCancel={ e => this.cancel() }
           />
       );
