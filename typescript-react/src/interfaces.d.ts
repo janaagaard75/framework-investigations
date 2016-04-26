@@ -1,3 +1,16 @@
+import Filter from "./Filter";
+
+type ChangeFunction = () => any;
+
+interface IAppProps {
+  model: ITodoModel;
+}
+
+interface IAppState {
+  editing?: string;
+  nowShowing?: Filter;
+}
+
 interface ITodo {
   id: string;
   title: string;
@@ -22,11 +35,9 @@ interface ITodoItemState {
 interface ITodoFooterProps {
   completedCount: number;
   onClearCompleted: any;
-  nowShowing: string;
+  nowShowing: Filter;
   count: number;
 }
-
-type ChangeFunction = () => any;
 
 interface ITodoModel {
   key: any;
@@ -40,13 +51,4 @@ interface ITodoModel {
   destroy(todo: ITodo);
   save(todoToSave: ITodo, text: string);
   clearCompleted();
-}
-
-interface IAppProps {
-  model: ITodoModel;
-}
-
-interface IAppState {
-  editing?: string;
-  nowShowing?: string;
 }
