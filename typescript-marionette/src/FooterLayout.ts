@@ -63,20 +63,20 @@ namespace TodoMVC {
         };
 
         get filterElements(): JQuery {
-            return <any>this.ui.filters;
+            return <any>this.ui.filters as JQuery;
         }
 
         // TODO: Is there really not a better way to access the elements in the UI array?
         getFilterElement(filter: Filter): JQuery {
             switch (filter) {
                 case "active":
-                    return <any>this.ui.active;
+                    return <any>this.ui.active as JQuery;
 
                 case "all":
-                    return <any>this.ui.all;
+                    return <any>this.ui.all as JQuery;
 
                 case "completed":
-                    return <any>this.ui.completed;
+                    return <any>this.ui.completed as JQuery;
             }
 
             throw `Unknown filter '${filter}'.`;

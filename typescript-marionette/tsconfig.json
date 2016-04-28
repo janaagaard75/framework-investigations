@@ -21,6 +21,7 @@
         "src/FooterLayout.ts",
         "src/HeaderLayout.ts",
         "src/KeyCode.ts",
+        "src/ListView.ts",
         "src/RootLayout.ts",
         "src/Todo.ts",
         "src/TodoList.ts",
