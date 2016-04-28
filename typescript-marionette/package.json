@@ -14,7 +14,7 @@
     "underscore": "1.8.3"
   },
   "devDependencies": {
-    "tslint": "3.7.4",
+    "tslint": "3.8.1",
     "tslint-eslint-rules": "1.2.0",
     "typescript": "1.8.10"
   },
