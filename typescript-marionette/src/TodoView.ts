@@ -1,6 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
+    // TODO: TodoView is currently defined twice. Not good.
     /** Display an individual todo item, and respond to changes that are made to the item, including marking completed. */
     export class TodoView extends Marionette.ItemView<Todo> {
         constructor() {

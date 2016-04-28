@@ -25,8 +25,16 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        // TODO: Make class that can return the correct channel.
-        filterChannel = Backbone.Radio.channel("filter");
+        filterChannelInstance: Backbone.Radio.Channel;
+
+        get filterChannel() {
+            if (this.filterChannelInstance === undefined) {
+                // TODO: Wrap this nicely, so that the magic string isn't needed.
+                this.filterChannelInstance = Backbone.Radio.channel("filter");
+            }
+
+            return this.filterChannelInstance;
+        }
 
         template = "#template-footer";
 
@@ -54,20 +62,20 @@ namespace TodoMVC {
             }
         };
 
-        get filtersElements(): JQuery {
+        get filterElements(): JQuery {
             return <any>this.ui.filters;
         }
 
         // TODO: Is there really not a better way to access the elements in the UI array?
         getFilterElement(filter: Filter): JQuery {
             switch (filter) {
-                case Filter.Active:
+                case "active":
                     return <any>this.ui.active;
 
-                case Filter.All:
+                case "all":
                     return <any>this.ui.all;
 
-                case Filter.Completed:
+                case "completed":
                     return <any>this.ui.completed;
             }
 
@@ -78,6 +86,7 @@ namespace TodoMVC {
             // TODO: Had to remove the last parameter.
             //this.listenTo(filterChannel.request("filterState"), "change:filter", this.updateFilterSelection, this);
             // TODO: Is it possible to wrap this request nicely in a class?
+            // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);
         }
 
@@ -98,7 +107,7 @@ namespace TodoMVC {
         }
 
         updateFilterSelection() {
-            this.filtersElements.removeClass("selected");
+            this.filterElements.removeClass("selected");
             const filterState: FilterState = this.filterChannel.request("filterState");
             this.getFilterElement(filterState.filter).addClass("selected");
         }

@@ -1,16 +1,18 @@
 namespace TodoMVC {
     "use strict";
 
-    export enum Filter {
-        Active,
-        All,
-        Completed
-    }
+    // TODO: Use an enum when everything has been converted to TypeScript.
+    // export enum Filter {
+    //     Active,
+    //     All,
+    //     Completed
+    // }
+    export type Filter = "active" | "all" | "completed";
 
     export class FilterState extends Backbone.Model {
         constructor() {
             super();
-            this.filter = Filter.All;
+            this.filter = "all";
         }
 
         get filter(): Filter {

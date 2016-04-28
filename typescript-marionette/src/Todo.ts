@@ -45,13 +45,13 @@ namespace TodoMVC {
 
         matchesFilter(filter: Filter): boolean {
             switch (filter) {
-                case Filter.Active:
+                case "active":
                     return !this.completed;
 
-                case Filter.All:
+                case "all":
                     return true;
 
-                case Filter.Completed:
+                case "completed":
                     return this.completed;
             }
 
