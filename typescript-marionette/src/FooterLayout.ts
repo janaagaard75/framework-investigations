@@ -1,9 +1,9 @@
 namespace TodoMVC {
     "use strict";
 
-    export class FooterLayout extends Marionette.CollectionView<Todo, TodoView> {
+    export class FooterLayout extends Marionette.ItemView<Todo> {
         constructor() {
-            super({
+            super(/*{
                 events: {
                     "click @ui.clear": "onClearClick"
                 },
@@ -15,26 +15,29 @@ namespace TodoMVC {
                     filters: "#filters a",
                     summary: "#todo-count"
                 }
-            });
+            }*/);
 
             this.collection = arguments[0].collection;
 
-            // this.events = <any>{
-            //     "click @ui.clear": this.onClearClick
-            // };
-            // this.delegateEvents();
+            this.events = <any>{
+                "click @ui.clear": this.onClearClick
+            };
+            this.delegateEvents();
         }
+
+        // TODO: Make class that can return the correct channel.
+        filterChannel = Backbone.Radio.channel("filter");
 
         template = "#template-footer";
 
-        // ui = {
-        //     active: ".active a",
-        //     all: ".all a",
-        //     clear: "#clear-completed",
-        //     completed: ".completed a",
-        //     filters: "#filters a",
-        //     summary: "#todo-count"
-        // };
+        ui = {
+            active: ".active a",
+            all: ".all a",
+            clear: "#clear-completed",
+            completed: ".completed a",
+            filters: "#filters a",
+            summary: "#todo-count"
+        };
 
         // TODO: Is this really enough to specify that the collection supplied is a TodoList and not a generic Backbone.Collection<Todo>?
         collection: TodoList;
@@ -68,13 +71,14 @@ namespace TodoMVC {
                     return <any>this.ui.completed;
             }
 
-            throw "Unknown filter string.";
+            throw `Unknown filter '${filter}'.`;
         }
 
         initialize() {
             // TODO: Had to remove the last parameter.
             //this.listenTo(filterChannel.request("filterState"), "change:filter", this.updateFilterSelection, this);
-            this.listenTo(FilterChannel.state, "change:filter", this.updateFilterSelection);
+            // TODO: Is it possible to wrap this request nicely in a class?
+            this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);
         }
 
         serializeData() {
@@ -95,7 +99,8 @@ namespace TodoMVC {
 
         updateFilterSelection() {
             this.filtersElements.removeClass("selected");
-            this.getFilterElement(FilterChannel.filter).addClass("selected");
+            const filterState: FilterState = this.filterChannel.request("filterState");
+            this.getFilterElement(filterState.filter).addClass("selected");
         }
 
         onClearClick() {

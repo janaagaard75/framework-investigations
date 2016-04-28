@@ -17,6 +17,7 @@
         "typings/browser.d.ts",
         "src/App.ts",
         "src/FilterChannel.ts",
+        "src/FilterState.ts",
         "src/FooterLayout.ts",
         "src/HeaderLayout.ts",
         "src/KeyCode.ts",

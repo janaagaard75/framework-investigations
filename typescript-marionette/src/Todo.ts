@@ -1,8 +1,6 @@
 namespace TodoMVC {
     "use strict";
 
-    export type TaskFilter = "" | "all" | "active"
-
     export class Todo extends Backbone.Model {
         defaults() {
             return {
@@ -45,16 +43,19 @@ namespace TodoMVC {
             return this;
         }
 
-        matchesFilter (filter: TaskFilter): boolean {
-            if (filter === "all") {
-                return true;
+        matchesFilter(filter: Filter): boolean {
+            switch (filter) {
+                case Filter.Active:
+                    return !this.completed;
+
+                case Filter.All:
+                    return true;
+
+                case Filter.Completed:
+                    return this.completed;
             }
 
-            if (filter === "active") {
-                return !this.completed;
-            }
-
-            return this.completed;
+            throw `Unknown filter '${filter}'.`;
         }
     }
 }

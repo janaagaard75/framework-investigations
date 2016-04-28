@@ -1,25 +1,12 @@
 namespace TodoMVC {
     "use strict";
 
-    export enum Filter {
-        Active,
-        All,
-        Completed
-    }
+    // This file sets up the filter channel, but not in very object oriented way.
 
-    export class FilterChannel {
-        private static channel = Backbone.Radio.channel("filter");
+    const filterState = new FilterState();
 
-        static get state(): any {
-            return FilterChannel.channel.request("filterState");
-        }
-
-        static get filter(): Filter {
-            return this.state.get("filter");
-        }
-
-        static set filter(filter: Filter) {
-            this.state.set("filter", filter);
-        }
-    }
+    const filterChannel = Backbone.Radio.channel("filter");
+    filterChannel.reply("filterState", () => {
+        return filterState;
+    });
 }
