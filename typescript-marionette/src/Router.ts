@@ -4,12 +4,11 @@ namespace TodoMVC {
     export class Router extends Marionette.AppRouter {
         constructor(controller: Marionette.Controller) {
             super({
+                appRoutes: {
+                    "*filter": "filterItems"
+                },
                 controller: controller
             });
         }
-
-        appRoutes = {
-            "*filter": "filterItems"
-        };
     }
 }
