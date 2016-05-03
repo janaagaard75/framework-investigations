@@ -1,7 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    // This file sets up the filter channel, but not in very object oriented way.
+    // TODO: This file sets up the filter channel, but not in a very object oriented way.
 
     const filterState = new FilterState();
 

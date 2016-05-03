@@ -1,7 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Is there not a better way to introduce the checked state?
+    // TODO: Isn't there a better way to introduce the checked property?
     class CheckboxEventTarget extends EventTarget {
         checked: boolean;
     }
@@ -53,7 +53,7 @@ namespace TodoMVC {
         }
 
         initialize() {
-            // TODO: Figure out why I dad to remove the last parameter.
+            // TODO: Figure out why I had to remove the last parameter.
             //this.listenTo(filterChannel.request("filterState"), "change:filter", this.render, this);
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.render);
         }
@@ -65,10 +65,11 @@ namespace TodoMVC {
 
         setCheckAllState() {
             function reduceCompleted(left: Todo, right: Todo) {
+                // TODO: This would benefit from some type checking.
                 return left && right.get("completed");
             }
 
-            // TODO: Is using a reduce really the easier solution here?
+            // TODO: Is using a reduce really the easiet solution here?
             // TODO: The type of the collection is the generic Backbone.Collection<Todo>. It should be TodoList.
             const allCompleted = this.collection.reduce(reduceCompleted, true);
             this.toggleElement.prop("checked", allCompleted);

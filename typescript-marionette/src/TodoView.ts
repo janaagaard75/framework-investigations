@@ -7,14 +7,6 @@ namespace TodoMVC {
         constructor() {
             super();
 
-            this.events = <any>{
-                "click @ui.destroy": this.deleteModel,
-                "dblclick @ui.label": this.onEditClick,
-                "keydown @ui.edit": this.onEditKeypress,
-                "focusout @ui.edit": this.onEditFocusout,
-                "click @ui.toggle": this.toggle
-            };
-
             // TODO: These elements become jQuery elements. Is there any way to add static typing to this?
             this.ui = {
                 destroy: ".destroy",
@@ -23,7 +15,14 @@ namespace TodoMVC {
                 toggle: ".toggle"
             };
 
-            // TODO: Might have to call delegateEvents here.
+            this.events = <any>{
+                "click @ui.destroy": this.deleteModel,
+                "dblclick @ui.label": this.onEditClick,
+                "keydown @ui.edit": this.onEditKeypress,
+                "focusout @ui.edit": this.onEditFocusout,
+                "click @ui.toggle": this.toggle
+            };
+            this.delegateEvents();
         }
 
         get editElement(): JQuery {
