@@ -3,12 +3,10 @@ namespace TodoMVC {
 
     // TODO: Apparently the Controller object has been deprecated. Use a standard Object instead.
     export class Controller extends Marionette.Controller {
-        todoList: TodoList;
-
         filterChannelInstance: Backbone.Radio.Channel;
-
         // TODO: This should come from the definition file.
         router: Backbone.Router;
+        todos: TodoCollection;
 
         get filterChannel() {
             if (this.filterChannelInstance === undefined) {
@@ -20,34 +18,35 @@ namespace TodoMVC {
         }
 
         initialize() {
-            this.todoList = new TodoMVC.TodoList();
+            this.todos = new TodoMVC.TodoCollection();
         }
 
         // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
         start() {
-            this.showHeader(this.todoList);
-            this.showFooter(this.todoList);
-            this.showTodoList(this.todoList);
-            this.todoList.on("all", this.updateHiddenElements, this);
-            this.todoList.fetch();
+            this.showHeader(this.todos);
+            this.showFooter(this.todos);
+            this.showTodos(this.todos);
+            this.todos.on("all", this.updateHiddenElements, this);
+            this.todos.fetch();
         }
 
         updateHiddenElements() {
-            $("#main, #footer").toggle(!!this.todoList.length);
+            // TODO: Avoid the hidious !! syntax.
+            $("#main, #footer").toggle(!!this.todos.length);
         }
 
-        showHeader(todoList: TodoList) {
-            const header = new TodoMVC.HeaderLayout(todoList);
+        showHeader(todos: TodoCollection) {
+            const header = new TodoMVC.HeaderLayout(todos);
             TodoMVC.app.root.showChildView("header", header);
         }
 
-        showFooter(todoList: TodoList) {
-            const footer = new TodoMVC.FooterLayout(todoList);
+        showFooter(todos: TodoCollection) {
+            const footer = new TodoMVC.FooterLayout(todos);
             TodoMVC.app.root.showChildView("footer", footer);
         }
 
-        showTodoList(todoList: TodoList) {
-            TodoMVC.app.root.showChildView("main", new TodoMVC.ListView(todoList));
+        showTodos(todos: TodoCollection) {
+            TodoMVC.app.root.showChildView("main", new TodoMVC.ListView(todos));
         }
 
         // Set the filter to show complete or all items.

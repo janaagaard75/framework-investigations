@@ -3,10 +3,10 @@ namespace TodoMVC {
 
     // TODO: Rename to FooterView.
     export class FooterLayout extends Marionette.ItemView<Todo> {
-        constructor(collection: TodoList) {
+        constructor(todos: TodoCollection) {
             super();
 
-            this.collection = collection;
+            this.collection = todos;
 
             this.events = <any>{
                 "click @ui.clear": this.onClearClick
@@ -36,8 +36,8 @@ namespace TodoMVC {
             summary: "#todo-count"
         };
 
-        // TODO: Is this really enough to specify that the collection supplied is a TodoList and not a generic Backbone.Collection<Todo>?
-        collection: TodoList;
+        // TODO: Is this really enough to specify that the collection supplied is a TodoCollection and not a generic Backbone.Collection<Todo>?
+        collection: TodoCollection;
 
         collectionEvents = {
             all: "render"

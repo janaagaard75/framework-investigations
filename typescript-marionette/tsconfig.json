@@ -27,7 +27,7 @@
         "src/Router.ts",
         "src/Todo.ts",
         "src/TodoApp.ts",
-        "src/TodoList.ts",
+        "src/TodoCollection.ts",
         "src/TodoView.ts"
     ]
 }

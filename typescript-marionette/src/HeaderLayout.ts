@@ -3,10 +3,10 @@ namespace TodoMVC {
 
     // TODO: Rename to HeaderView.
     export class HeaderLayout extends Marionette.ItemView<Todo> {
-        constructor(collection: TodoList) {
+        constructor(todos: TodoCollection) {
             super();
 
-            this.collection = collection;
+            this.collection = todos;
 
             this.events = <any>{
                 "keypress @ui.input": this.saveOnEnter,

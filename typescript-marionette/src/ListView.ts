@@ -13,12 +13,12 @@ namespace TodoMVC {
     // Controls the rendering of the list of items, including the
     // filtering of activs vs completed items for display.
     export class ListView extends Marionette.CompositeView<Todo, TodoView> {
-        constructor(collection: TodoList) {
+        constructor(todos: TodoCollection) {
             super({
                 childViewContainer: "#todo-list"
             });
 
-            this.collection = collection;
+            this.collection = todos;
 
             this.events = <any>{
                 "click @ui.toggle": "onToggleAllClick"
@@ -26,7 +26,7 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        template = "#template-todoListCompositeView";
+        template = "#listViewTemplate";
 
         childView = TodoMVC.TodoView;
 
@@ -72,7 +72,7 @@ namespace TodoMVC {
             }
 
             // TODO: Is using a reduce really the easiet solution here?
-            // TODO: The type of the collection is the generic Backbone.Collection<Todo>. It should be TodoList.
+            // TODO: The type of the collection is the generic Backbone.Collection<Todo>. It should be TodoCollection.
             const allCompleted = this.collection.reduce(reduceCompleted, true);
             this.toggleElement.prop("checked", allCompleted);
             this.$el.parent().toggle(!!this.collection.length);
