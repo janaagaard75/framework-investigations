@@ -10,9 +10,8 @@ namespace TodoMVC {
         currentTarget: CheckboxEventTarget;
     }
 
-    // Controls the rendering of the list of items, including the
-    // filtering of activs vs completed items for display.
-    export class ListView extends Marionette.CompositeView<Todo, TodoView> {
+    // Controls the rendering of the list of items, including the filtering of activs vs completed items for display.
+    export class TodosView extends Marionette.CompositeView<Todo, TodoView> {
         constructor(todos: TodoCollection) {
             super({
                 childViewContainer: "#todo-list"
@@ -26,7 +25,7 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        template = "#listViewTemplate";
+        template = "#todosViewTemplate";
 
         childView = TodoMVC.TodoView;
 

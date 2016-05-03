@@ -46,7 +46,7 @@ namespace TodoMVC {
         }
 
         showTodos(todos: TodoCollection) {
-            TodoMVC.app.root.showChildView("main", new TodoMVC.ListView(todos));
+            TodoMVC.app.root.showChildView("main", new TodoMVC.TodosView(todos));
         }
 
         // Set the filter to show complete or all items.

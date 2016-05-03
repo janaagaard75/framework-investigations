@@ -22,12 +22,12 @@
         "src/FooterLayout.ts",
         "src/HeaderLayout.ts",
         "src/KeyCode.ts",
-        "src/ListView.ts",
         "src/RootLayout.ts",
         "src/Router.ts",
         "src/Todo.ts",
         "src/TodoApp.ts",
         "src/TodoCollection.ts",
+        "src/TodosView.ts",
         "src/TodoView.ts"
     ]
 }
