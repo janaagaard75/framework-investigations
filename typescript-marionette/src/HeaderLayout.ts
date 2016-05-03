@@ -19,7 +19,7 @@ namespace TodoMVC {
             input: "#new-todo"
         };
 
-        template = "#template-header";
+        template = "#headerTemplate";
 
         get inputElement(): JQuery {
             return <any>this.ui.input;

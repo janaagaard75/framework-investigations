@@ -24,7 +24,7 @@
 		</footer>
 
 		<!-- Templates -->
-		<script type="text/html" id="template-footer">
+		<script type="text/html" id="footerTemplate">
 			<span id="todo-count" class="todo-count">
 				<strong><%= activeCount %></strong> <%= activeCountLabel() %>
 			</span>
@@ -41,11 +41,11 @@
 			</ul>
 			<button id="clear-completed" class="clear-completed" <% if (!completedCount) { %>class="hidden"<% } %>>Clear completed</button>
 		</script>
-		<script type="text/html" id="template-header">
+		<script type="text/html" id="headerTemplate">
 			<h1>todos</h1>
 			<input id="new-todo" class="new-todo" placeholder="What needs to be done?" autofocus>
 		</script>
-		<script type="text/html" id="template-todoItemView">
+		<script type="text/html" id="todoViewTemplate">
 			<div class="view">
 				<input class="toggle" type="checkbox" <% if (completed) { %>checked<% } %>>
 				<label><%- title %></label>

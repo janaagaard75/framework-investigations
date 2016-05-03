@@ -25,7 +25,7 @@ namespace TodoMVC {
             return this.filterChannelInstance;
         }
 
-        template = "#template-footer";
+        template = "#footerTemplate";
 
         ui = {
             active: ".active a",

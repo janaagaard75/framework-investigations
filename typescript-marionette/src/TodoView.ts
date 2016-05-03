@@ -33,7 +33,7 @@ namespace TodoMVC {
             return this.ui.edit;
         }
 
-        template = "#template-todoItemView";
+        template = "#todoViewTemplate";
 
         modelEvents = {
             change: this.render
