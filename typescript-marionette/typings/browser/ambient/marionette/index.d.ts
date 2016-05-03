@@ -1331,6 +1331,8 @@ declare namespace Marionette {
          * same semantics and behavior of the appRoutes configuration.
          */
         appRoute(route: string, methodName: string): void;
+
+        appRoutes: any;
     }
 
     /**

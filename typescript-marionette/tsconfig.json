@@ -15,7 +15,8 @@
     },
     "files": [
         "typings/browser.d.ts",
-        "src/App.ts",
+        "src/Bootstrap.ts",
+        "src/Controller.ts",
         "src/FilterChannel.ts",
         "src/FilterState.ts",
         "src/FooterLayout.ts",
@@ -23,7 +24,9 @@
         "src/KeyCode.ts",
         "src/ListView.ts",
         "src/RootLayout.ts",
+        "src/Router.ts",
         "src/Todo.ts",
+        "src/TodoApp.ts",
         "src/TodoList.ts",
         "src/TodoView.ts"
     ]

@@ -23,7 +23,7 @@ declare namespace Backbone {
     }
 
     interface RouterOptions {
-        routes: any;
+        routes?: any;
     }
 
     interface Silenceable {
