@@ -44,16 +44,12 @@ var TodoMVC = TodoMVC || {};
 		},
 
 		showHeader: function (todoList) {
-			var header = new TodoMVC.HeaderLayout({
-				collection: todoList
-			});
+			var header = new TodoMVC.HeaderLayout(todoList);
 			TodoMVC.App.root.showChildView('header', header);
 		},
 
 		showFooter: function (todoList) {
-			var footer = new TodoMVC.FooterLayout({
-				collection: todoList
-			});
+			var footer = new TodoMVC.FooterLayout(todoList);
 			TodoMVC.App.root.showChildView('footer', footer);
 		},
 

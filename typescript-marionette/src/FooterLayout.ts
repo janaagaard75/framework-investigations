@@ -1,23 +1,12 @@
 namespace TodoMVC {
     "use strict";
 
+    // TODO: Rename to FooterView.
     export class FooterLayout extends Marionette.ItemView<Todo> {
-        constructor() {
-            super(/*{
-                events: {
-                    "click @ui.clear": "onClearClick"
-                },
-                ui: <any>{
-                    active: ".active a",
-                    all: ".all a",
-                    clear: "#clear-completed",
-                    completed: ".completed a",
-                    filters: "#filters a",
-                    summary: "#todo-count"
-                }
-            }*/);
+        constructor(collection: TodoList) {
+            super();
 
-            this.collection = arguments[0].collection;
+            this.collection = collection;
 
             this.events = <any>{
                 "click @ui.clear": this.onClearClick
