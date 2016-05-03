@@ -1,7 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    export class HeaderLayout extends Marionette.CollectionView<Todo, TodoView> {
+    export class HeaderLayout extends Marionette.ItemView<Todo> {
         constructor() {
             super();
 
