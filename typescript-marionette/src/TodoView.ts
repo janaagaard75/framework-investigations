@@ -5,7 +5,7 @@ namespace TodoMVC {
     /** Display an individual todo item, and respond to changes that are made to the item, including marking completed. */
     export class TodoView extends Marionette.ItemView<Todo> {
         constructor() {
-            super(<any>{
+            super({
                 tagName: "li"
             });
 

@@ -807,7 +807,7 @@ declare namespace Marionette {
     }
 
     interface ItemViewOptions<TModel extends Backbone.Model> extends Backbone.ViewOptions<TModel> {
-        template: string | (() => string);
+        template?: string | (() => string);
     }
 
     /**
@@ -881,6 +881,8 @@ declare namespace Marionette {
         reorderOnSort?: boolean;
 
         ui?: any;
+
+        childViewContainer?: string;
     }
 
     /**

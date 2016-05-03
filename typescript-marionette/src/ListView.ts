@@ -14,7 +14,7 @@ namespace TodoMVC {
     // filtering of activs vs completed items for display.
     export class ListView extends Marionette.CompositeView<Todo, TodoView> {
         constructor() {
-            super(<any>{
+            super({
                 childViewContainer: "#todo-list"
             });
 
