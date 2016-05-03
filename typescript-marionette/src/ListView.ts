@@ -14,7 +14,11 @@ namespace TodoMVC {
     // filtering of activs vs completed items for display.
     export class ListView extends Marionette.CompositeView<Todo, TodoView> {
         constructor() {
-            super();
+            super(<any>{
+                childViewContainer: "#todo-list"
+            });
+
+            this.collection = arguments[0].collection;
 
             this.events = <any>{
                 "click @ui.toggle": "onToggleAllClick"
@@ -25,8 +29,6 @@ namespace TodoMVC {
         template = "#template-todoListCompositeView";
 
         childView = TodoMVC.TodoView;
-
-        childViewContainer: "#todo-list";
 
         ui = {
             toggle: "#toggle-all"

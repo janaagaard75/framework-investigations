@@ -5,7 +5,11 @@ namespace TodoMVC {
     /** Display an individual todo item, and respond to changes that are made to the item, including marking completed. */
     export class TodoView extends Marionette.ItemView<Todo> {
         constructor() {
-            super();
+            super(<any>{
+                tagName: "li"
+            });
+
+            this.model = arguments[0].model;
 
             // TODO: These elements become jQuery elements. Is there any way to add static typing to this?
             this.ui = {
@@ -28,9 +32,6 @@ namespace TodoMVC {
         get editElement(): JQuery {
             return this.ui.edit;
         }
-
-        // TODO: This probably has to be set in the super call.
-        tagName = "li";
 
         template = "#template-todoItemView";
 
