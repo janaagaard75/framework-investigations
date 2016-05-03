@@ -4,7 +4,7 @@ namespace TodoMVC {
     // TODO: Apparently the Controller object has been deprecated. Use a standard Object instead.
     export class Controller extends Marionette.Controller {
         filterChannelInstance: Backbone.Radio.Channel;
-        // TODO: This should come from the definition file.
+        // TODO: 'router' should come from the definition file.
         router: Backbone.Router;
         todos: TodoCollection;
 
@@ -31,8 +31,7 @@ namespace TodoMVC {
         }
 
         updateHiddenElements() {
-            // TODO: Avoid the hidious !! syntax.
-            $("#main, #footer").toggle(!!this.todos.length);
+            $("#main, #footer").toggle(this.todos.length > 0);
         }
 
         showHeader(todos: TodoCollection) {
