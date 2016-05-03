@@ -7,8 +7,7 @@ namespace TodoMVC {
         app.setRootLayout();
     });
 
-    // After we initialize the app, we want to kick off the router
-    // and controller, which will handle initializing our Views
+    // After we initialize the app, we want to kick off the router and controller, which will handle initializing our Views.
     app.on("start", function () {
         const controller = new TodoMVC.Controller();
         controller.router = new TodoMVC.Router(controller);

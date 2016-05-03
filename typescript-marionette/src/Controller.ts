@@ -22,8 +22,7 @@ namespace TodoMVC {
             this.todoList = new TodoMVC.TodoList();
         }
 
-        // Start the app by showing the appropriate views
-        // and fetching the list of todo items, if there are any
+        // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
         start() {
             this.showHeader(this.todoList);
             this.showFooter(this.todoList);
@@ -50,7 +49,7 @@ namespace TodoMVC {
             TodoMVC.app.root.showChildView("main", new TodoMVC.ListView(todoList));
         }
 
-        // Set the filter to show complete or all items
+        // Set the filter to show complete or all items.
         filterItems(filter: string) {
             const newFilter = filter && filter.trim() || "all";
             this.filterChannel.request("filterState").set("filter", newFilter);
