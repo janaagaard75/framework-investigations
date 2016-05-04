@@ -1,20 +1,20 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Apparently the Controller object has been deprecated. Use a standard Object instead.
-    export class Controller extends Marionette.Controller {
+    export class Controller extends Marionette.Object {
         constructor(
             private app: TodoApp
         ) {
             super();
         }
 
+        // TODO: Why is TSLint complaining about this line?
         filterChannelInstance: Backbone.Radio.Channel;
         // TODO: 'router' should come from the definition file.
         router: Backbone.Router;
         todos: TodoCollection;
 
-        // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
+        /** Start the app by showing the appropriate views and fetching the list of todo items, if there are any. */
         start() {
             this.showHeader(this.todos);
             this.showFooter(this.todos);
@@ -32,7 +32,7 @@ namespace TodoMVC {
             return this.filterChannelInstance;
         }
 
-        // Set the filter to show complete or all items.
+        /** Set the filter to show complete or all items. */
         filterItems(filter: string) {
             const newFilter = filter && filter.trim() || "all";
             this.filterChannel.request("filterState").set("filter", newFilter);
