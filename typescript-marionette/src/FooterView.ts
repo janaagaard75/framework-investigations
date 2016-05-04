@@ -44,7 +44,7 @@ namespace TodoMVC {
         initialize() {
             // TODO: Is it possible to wrap this request nicely in a class?
             // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
-            this.listenTo(FilterChannel.instance.getFilterState(), "change:filter", this.updateFilterSelection);
+            this.listenTo(FilterChannel.instance.requestFilterState(), "change:filter", this.updateFilterSelection);
         }
 
         onRender() {
@@ -92,7 +92,7 @@ namespace TodoMVC {
 
         private updateFilterSelection() {
             this.filterElements.removeClass("selected");
-            this.getFilterElement(FilterChannel.instance.getFilterState().filter).addClass("selected");
+            this.getFilterElement(FilterChannel.instance.requestFilterState().filter).addClass("selected");
         }
     }
 }

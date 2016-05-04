@@ -25,7 +25,7 @@ namespace TodoMVC {
         /** Set the filter to show complete or all items. */
         filterItems(filter: string) {
             const newFilter = (filter && filter.trim() || "all") as Filter;
-            FilterChannel.instance.getFilterState().filter = newFilter;
+            FilterChannel.instance.requestFilterState().filter = newFilter;
         }
 
         initialize() {

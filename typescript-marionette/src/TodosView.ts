@@ -49,12 +49,12 @@ namespace TodoMVC {
         }
 
         filter(child: Todo) {
-            const filteredOn = FilterChannel.instance.getFilterState().filter;
+            const filteredOn = FilterChannel.instance.requestFilterState().filter;
             return child.matchesFilter(filteredOn);
         }
 
         initialize() {
-            this.listenTo(FilterChannel.instance.getFilterState(), "change:filter", this.render);
+            this.listenTo(FilterChannel.instance.requestFilterState(), "change:filter", this.render);
         }
 
         private onToggleAllClick(e: CheckboxEvent) {
