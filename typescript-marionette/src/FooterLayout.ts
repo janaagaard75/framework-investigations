@@ -14,18 +14,24 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
+        // TODO: Is this really enough to specify that the collection supplied is a TodoCollection and not a generic Backbone.Collection<Todo>?
+        collection: TodoCollection;
+
+        collectionEvents = {
+            all: "render"
+        };
+
         filterChannelInstance: Backbone.Radio.Channel;
 
-        get filterChannel() {
-            if (this.filterChannelInstance === undefined) {
-                // TODO: Wrap this nicely, so that the magic string isn't needed.
-                this.filterChannelInstance = Backbone.Radio.channel("filter");
-            }
-
-            return this.filterChannelInstance;
-        }
-
         template = "#footerTemplate";
+
+        templateHelpers = {
+            // TODO: Why not simply put everything in serializeData?
+            activeCountLabel: () => {
+                //return (this.activeCount === 1 ? "item" : "items") + " left";
+                return (this.collection.getActive().length === 1 ? "item" : "items") + " left";
+            }
+        };
 
         ui = {
             active: ".active a",
@@ -36,20 +42,14 @@ namespace TodoMVC {
             summary: "#todo-count"
         };
 
-        // TODO: Is this really enough to specify that the collection supplied is a TodoCollection and not a generic Backbone.Collection<Todo>?
-        collection: TodoCollection;
-
-        collectionEvents = {
-            all: "render"
-        };
-
-        templateHelpers = {
-            // TODO: Why not simply put everything in serializeData?
-            activeCountLabel: () => {
-                //return (this.activeCount === 1 ? "item" : "items") + " left";
-                return (this.collection.getActive().length === 1 ? "item" : "items") + " left";
+        get filterChannel() {
+            if (this.filterChannelInstance === undefined) {
+                // TODO: Wrap this nicely, so that the magic string isn't needed.
+                this.filterChannelInstance = Backbone.Radio.channel("filter");
             }
-        };
+
+            return this.filterChannelInstance;
+        }
 
         get filterElements(): JQuery {
             return <any>this.ui.filters as JQuery;
@@ -79,6 +79,18 @@ namespace TodoMVC {
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);
         }
 
+        onClearClick() {
+            const completed = this.collection.getCompleted();
+            completed.forEach(todo => {
+                todo.destroy();
+            });
+        }
+
+        onRender() {
+            this.$el.parent().toggle(this.collection.length > 0);
+            this.updateFilterSelection();
+        }
+
         serializeData() {
             const active = this.collection.getActive().length;
             const total = this.collection.length;
@@ -90,22 +102,10 @@ namespace TodoMVC {
             };
         }
 
-        onRender() {
-            this.$el.parent().toggle(this.collection.length > 0);
-            this.updateFilterSelection();
-        }
-
         updateFilterSelection() {
             this.filterElements.removeClass("selected");
             const filterState: FilterState = this.filterChannel.request("filterState");
             this.getFilterElement(filterState.filter).addClass("selected");
-        }
-
-        onClearClick() {
-            const completed = this.collection.getCompleted();
-            completed.forEach(todo => {
-                todo.destroy();
-            });
         }
     }
 }

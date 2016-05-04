@@ -15,11 +15,11 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
+        template = "#headerTemplate";
+
         ui = {
             input: "#new-todo"
         };
-
-        template = "#headerTemplate";
 
         get inputElement(): JQuery {
             return <any>this.ui.input;

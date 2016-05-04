@@ -18,6 +18,12 @@ namespace TodoMVC {
             this.set("completed", newValue);
         }
 
+        // TODO: No need for a getter?
+        // TODO: Should use a date behind the scenes instead.
+        set created(newDate: number) {
+            this.set("created", newDate);
+        }
+
         get title(): string {
             return this.get("title");
         }
@@ -26,21 +32,11 @@ namespace TodoMVC {
             this.set("title", newTitle);
         }
 
-        // TODO: Should use a date behind the scenes instead.
-        set created(newDate: number) {
-            this.set("created", newDate);
-        }
-
         // TODO: Why not set this in the defaults method?
         initialize() {
             if (this.isNew()) {
                 this.created = Date.now();
             }
-        }
-
-        toggle(): Todo {
-            this.completed = !this.completed;
-            return this;
         }
 
         matchesFilter(filter: Filter): boolean {
@@ -56,6 +52,11 @@ namespace TodoMVC {
             }
 
             throw `Unknown filter '${filter}'.`;
+        }
+
+        toggle(): Todo {
+            this.completed = !this.completed;
+            return this;
         }
     }
 }

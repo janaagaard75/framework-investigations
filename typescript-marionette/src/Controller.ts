@@ -23,8 +23,28 @@ namespace TodoMVC {
             return this.filterChannelInstance;
         }
 
+        // Set the filter to show complete or all items.
+        filterItems(filter: string) {
+            const newFilter = filter && filter.trim() || "all";
+            this.filterChannel.request("filterState").set("filter", newFilter);
+        }
+
         initialize() {
             this.todos = new TodoMVC.TodoCollection();
+        }
+
+        showFooter(todos: TodoCollection) {
+            const footer = new TodoMVC.FooterLayout(todos);
+            this.app.root.showChildView("footer", footer);
+        }
+
+        showHeader(todos: TodoCollection) {
+            const header = new TodoMVC.HeaderLayout(todos);
+            this.app.root.showChildView("header", header);
+        }
+
+        showTodos(todos: TodoCollection) {
+            this.app.root.showChildView("main", new TodoMVC.TodosView(todos));
         }
 
         // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
@@ -38,26 +58,6 @@ namespace TodoMVC {
 
         updateHiddenElements() {
             $("#main, #footer").toggle(this.todos.length > 0);
-        }
-
-        showHeader(todos: TodoCollection) {
-            const header = new TodoMVC.HeaderLayout(todos);
-            this.app.root.showChildView("header", header);
-        }
-
-        showFooter(todos: TodoCollection) {
-            const footer = new TodoMVC.FooterLayout(todos);
-            this.app.root.showChildView("footer", footer);
-        }
-
-        showTodos(todos: TodoCollection) {
-            this.app.root.showChildView("main", new TodoMVC.TodosView(todos));
-        }
-
-        // Set the filter to show complete or all items.
-        filterItems(filter: string) {
-            const newFilter = filter && filter.trim() || "all";
-            this.filterChannel.request("filterState").set("filter", newFilter);
         }
     }
 }

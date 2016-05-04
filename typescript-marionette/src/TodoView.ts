@@ -29,26 +29,23 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        get editElement(): JQuery {
-            return this.ui.edit;
-        }
-
-        template = "#todoViewTemplate";
-
         modelEvents = {
             change: this.render
         };
 
+        template = "#todoViewTemplate";
+
+        get editElement(): JQuery {
+            return this.ui.edit;
+        }
+
+        // Property syntax required by the definition file.
         className = () => {
             return this.model.get("completed") ? "completed" : "active";
         };
 
         deleteModel() {
             this.model.destroy();
-        }
-
-        toggle() {
-            this.model.toggle().save();
         }
 
         onEditClick() {
@@ -79,6 +76,10 @@ namespace TodoMVC {
                     this.$el.removeClass("editing");
                     break;
             }
+        }
+
+        toggle() {
+            this.model.toggle().save();
         }
     }
 }
