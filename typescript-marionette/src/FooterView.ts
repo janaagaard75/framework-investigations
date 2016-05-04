@@ -27,7 +27,6 @@ namespace TodoMVC {
         templateHelpers = {
             // TODO: Why not simply put everything in serializeData?
             activeCountLabel: () => {
-                //return (this.activeCount === 1 ? "item" : "items") + " left";
                 return (this.collection.getActive().length === 1 ? "item" : "items") + " left";
             }
         };
@@ -71,8 +70,6 @@ namespace TodoMVC {
         }
 
         initialize() {
-            // TODO: Had to remove the last parameter.
-            //this.listenTo(filterChannel.request("filterState"), "change:filter", this.updateFilterSelection, this);
             // TODO: Is it possible to wrap this request nicely in a class?
             // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);

@@ -59,8 +59,6 @@ namespace TodoMVC {
         }
 
         initialize() {
-            // TODO: Figure out why I had to remove the last parameter.
-            //this.listenTo(filterChannel.request("filterState"), "change:filter", this.render, this);
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.render);
         }
 
