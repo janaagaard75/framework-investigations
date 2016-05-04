@@ -44,7 +44,7 @@ namespace TodoMVC {
 
         // Property syntax required by the definition file.
         className = () => {
-            return this.model.get("completed") ? "completed" : "active";
+            return this.model.completed ? "completed" : "active";
         };
 
         private deleteModel() {

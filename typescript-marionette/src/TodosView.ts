@@ -71,7 +71,7 @@ namespace TodoMVC {
         private onToggleAllClick(e: CheckboxEvent) {
             const isChecked = e.currentTarget.checked;
 
-            this.collection.each(function (todo: Todo) {
+            this.collection.each((todo: Todo) => {
                 todo.save({ completed: isChecked });
             });
         }
