@@ -10,4 +10,16 @@ namespace TodoMVC {
     filterChannel.reply("filterState", () => {
         return filterState;
     });
+
+    export class FilterChannel extends Backbone.Radio.Channel {
+        constructor() {
+            super();
+
+            this.reply("filterState", () => {
+                return FilterChannel.filterState;
+            });
+        }
+
+        private static filterState = new FilterState();
+    }
 }
