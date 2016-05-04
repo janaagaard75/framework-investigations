@@ -9,6 +9,7 @@ namespace TodoMVC {
                 tagName: "li"
             });
 
+            // TODO: Make this statically typed. I think Marionette is calling this using {model: someTodo}, so we have to keep this syntax.
             this.model = arguments[0].model;
 
             // TODO: These elements become jQuery elements. Is there any way to add static typing to this?
