@@ -8,22 +8,22 @@
 		<link rel="stylesheet" href="css/app.css"/>
 	</head>
 	<body>
-		<section id="todoapp" class="todoapp">
-			<header id="header"></header>
-			<section id="main" class="main"></section>
-			<footer id="footer" class="footer"></footer>
+		<section class="js-todoapp todoapp">
+			<header class="js-header"></header>
+			<section class="js-main main"></section>
+			<footer class="js-footer footer"></footer>
 		</section>
-		<footer id="info" class="info">
+		<footer class="info">
 			<p>Double-click to edit a todo</p>
 			<p>Created by <a href="http://github.com/janaagaard75">Jan Aagaard</a> using <a href="http://www.typescriptlang.org/">TypeScript</a> and <a href="http://marionettejs.com/">Marionette</a></p>
 		</footer>
 
 		<!-- Templates -->
 		<script type="text/html" id="footerTemplate">
-			<span id="todo-count" class="todo-count">
+			<span class="js-todo-count todo-count">
 				<strong><%= activeCount %></strong> <%= activeCountLabel() %>
 			</span>
-			<ul id="filters" class="filters">
+			<ul class="js-filters filters">
 				<li class="all">
 					<a href="#/">All</a>
 				</li>
@@ -34,11 +34,11 @@
 					<a href="#/completed">Completed</a>
 				</li>
 			</ul>
-			<button id="clear-completed" class="clear-completed" <% if (!completedCount) { %>class="hidden"<% } %>>Clear completed</button>
+			<button class="js-clear-completed clear-completed" <% if (!completedCount) { %>class="hidden"<% } %>>Clear completed</button>
 		</script>
 		<script type="text/html" id="headerTemplate">
 			<h1>todos</h1>
-			<input id="new-todo" class="new-todo" placeholder="What needs to be done?" autofocus>
+			<input class="js-new-todo new-todo" placeholder="What needs to be done?" autofocus>
 		</script>
 		<script type="text/html" id="todoViewTemplate">
 			<div class="view">
@@ -49,9 +49,10 @@
 			<input class="edit" value="<%- title %>">
 		</script>
 		<script type="text/html" id="todosViewTemplate">
-			<input id="toggle-all" class="toggle-all" type="checkbox">
+			<input class="js-toggle-all toggle-all" type="checkbox">
+			<!-- TODO: Figure out how to reference the checkbox. -->
 			<label for="toggle-all">Mark all as complete</label>
-			<ul id="todo-list" class="todo-list"></ul>
+			<ul class="js-todo-list todo-list"></ul>
 		</script>
 
 		<!-- Vendor libraries -->

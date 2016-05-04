@@ -37,10 +37,10 @@ namespace TodoMVC {
         ui = {
             active: ".active a",
             all: ".all a",
-            clear: "#clear-completed",
+            clear: ".js-clear-completed",
             completed: ".completed a",
-            filters: "#filters a",
-            summary: "#todo-count"
+            filters: ".js-filters a",
+            summary: ".js-todo-count"
         };
 
         initialize() {

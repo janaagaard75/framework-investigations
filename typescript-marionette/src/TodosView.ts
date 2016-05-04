@@ -18,7 +18,7 @@ namespace TodoMVC {
     export class TodosView extends Marionette.CompositeView<Todo, TodoView> {
         constructor(options: TodosViewOptions) {
             super({
-                childViewContainer: "#todo-list"
+                childViewContainer: ".js-todo-list"
             });
 
             this.collection = options.collection;
@@ -43,7 +43,7 @@ namespace TodoMVC {
         template = "#todosViewTemplate";
 
         ui = {
-            toggle: "#toggle-all"
+            toggle: ".ts-toggle-all"
         };
 
         private get filterChannel() {

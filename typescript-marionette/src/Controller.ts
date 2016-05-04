@@ -63,7 +63,7 @@ namespace TodoMVC {
         }
 
         private updateHiddenElements() {
-            $("#main, #footer").toggle(this.todos.length > 0);
+            $(".js-main, .js-footer").toggle(this.todos.length > 0);
         }
     }
 }

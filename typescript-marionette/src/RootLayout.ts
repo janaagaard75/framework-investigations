@@ -4,12 +4,11 @@ namespace TodoMVC {
     export class RootLayout extends Marionette.LayoutView<any> {
         constructor() {
             super({
-                // TODO: Use classes instead of IDs.
-                el: "#todoapp",
+                el: ".js-todoapp",
                 regions: {
-                    footer: "#footer",
-                    header: "#header",
-                    main: "#main"
+                    footer: ".js-footer",
+                    header: ".js-header",
+                    main: ".js-main"
                 }
             });
         }
