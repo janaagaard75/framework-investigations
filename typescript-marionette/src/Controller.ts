@@ -3,6 +3,12 @@ namespace TodoMVC {
 
     // TODO: Apparently the Controller object has been deprecated. Use a standard Object instead.
     export class Controller extends Marionette.Controller {
+        constructor(
+            private app: TodoApp
+        ) {
+            super();
+        }
+
         filterChannelInstance: Backbone.Radio.Channel;
         // TODO: 'router' should come from the definition file.
         router: Backbone.Router;
@@ -36,16 +42,16 @@ namespace TodoMVC {
 
         showHeader(todos: TodoCollection) {
             const header = new TodoMVC.HeaderLayout(todos);
-            TodoMVC.app.root.showChildView("header", header);
+            this.app.root.showChildView("header", header);
         }
 
         showFooter(todos: TodoCollection) {
             const footer = new TodoMVC.FooterLayout(todos);
-            TodoMVC.app.root.showChildView("footer", footer);
+            this.app.root.showChildView("footer", footer);
         }
 
         showTodos(todos: TodoCollection) {
-            TodoMVC.app.root.showChildView("main", new TodoMVC.TodosView(todos));
+            this.app.root.showChildView("main", new TodoMVC.TodosView(todos));
         }
 
         // Set the filter to show complete or all items.
