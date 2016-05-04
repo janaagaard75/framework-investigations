@@ -35,7 +35,7 @@ namespace TodoMVC {
 
         template = "#todoViewTemplate";
 
-        get editElement(): JQuery {
+        private get editElement(): JQuery {
             return this.ui.edit;
         }
 
@@ -44,17 +44,17 @@ namespace TodoMVC {
             return this.model.get("completed") ? "completed" : "active";
         };
 
-        deleteModel() {
+        private deleteModel() {
             this.model.destroy();
         }
 
-        onEditClick() {
+        private onEditClick() {
             this.$el.addClass("editing");
             this.editElement.focus();
             this.editElement.val(this.editElement.val());
         }
 
-        onEditFocusout() {
+        private onEditFocusout() {
             const todoText = this.editElement.val().trim();
             if (todoText) {
                 this.model.title = todoText;
@@ -65,7 +65,7 @@ namespace TodoMVC {
             }
         }
 
-        onEditKeypress(e: KeyboardEvent) {
+        private onEditKeypress(e: KeyboardEvent) {
             switch (e.which) {
                 case KeyCode.Enter:
                     this.onEditFocusout();
@@ -78,7 +78,7 @@ namespace TodoMVC {
             }
         }
 
-        toggle() {
+        private toggle() {
             this.model.toggle().save();
         }
     }

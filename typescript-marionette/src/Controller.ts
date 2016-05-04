@@ -14,7 +14,16 @@ namespace TodoMVC {
         router: Backbone.Router;
         todos: TodoCollection;
 
-        get filterChannel() {
+        // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
+        start() {
+            this.showHeader(this.todos);
+            this.showFooter(this.todos);
+            this.showTodos(this.todos);
+            this.todos.on("all", this.updateHiddenElements, this);
+            this.todos.fetch();
+        }
+
+        private get filterChannel() {
             if (this.filterChannelInstance === undefined) {
                 // TODO: Wrap this nicely, so that the magic string isn't needed.
                 this.filterChannelInstance = Backbone.Radio.channel("filter");
@@ -33,30 +42,21 @@ namespace TodoMVC {
             this.todos = new TodoMVC.TodoCollection();
         }
 
-        showFooter(todos: TodoCollection) {
+        private showFooter(todos: TodoCollection) {
             const footer = new TodoMVC.FooterView(todos);
             this.app.root.showChildView("footer", footer);
         }
 
-        showHeader(todos: TodoCollection) {
+        private showHeader(todos: TodoCollection) {
             const header = new TodoMVC.HeaderView(todos);
             this.app.root.showChildView("header", header);
         }
 
-        showTodos(todos: TodoCollection) {
+        private showTodos(todos: TodoCollection) {
             this.app.root.showChildView("main", new TodoMVC.TodosView(todos));
         }
 
-        // Start the app by showing the appropriate views and fetching the list of todo items, if there are any.
-        start() {
-            this.showHeader(this.todos);
-            this.showFooter(this.todos);
-            this.showTodos(this.todos);
-            this.todos.on("all", this.updateHiddenElements, this);
-            this.todos.fetch();
-        }
-
-        updateHiddenElements() {
+        private updateHiddenElements() {
             $("#main, #footer").toggle(this.todos.length > 0);
         }
     }

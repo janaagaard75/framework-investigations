@@ -40,46 +40,10 @@ namespace TodoMVC {
             summary: "#todo-count"
         };
 
-        get filterChannel() {
-            if (this.filterChannelInstance === undefined) {
-                // TODO: Wrap this nicely, so that the magic string isn't needed.
-                this.filterChannelInstance = Backbone.Radio.channel("filter");
-            }
-
-            return this.filterChannelInstance;
-        }
-
-        get filterElements(): JQuery {
-            return <any>this.ui.filters as JQuery;
-        }
-
-        // TODO: Is there really not a better way to access the elements in the UI array?
-        getFilterElement(filter: Filter): JQuery {
-            switch (filter) {
-                case "active":
-                    return <any>this.ui.active as JQuery;
-
-                case "all":
-                    return <any>this.ui.all as JQuery;
-
-                case "completed":
-                    return <any>this.ui.completed as JQuery;
-            }
-
-            throw `Unknown filter '${filter}'.`;
-        }
-
         initialize() {
             // TODO: Is it possible to wrap this request nicely in a class?
             // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);
-        }
-
-        onClearClick() {
-            const completed = this.collection.getCompleted();
-            completed.forEach(todo => {
-                todo.destroy();
-            });
         }
 
         onRender() {
@@ -98,7 +62,43 @@ namespace TodoMVC {
             };
         }
 
-        updateFilterSelection() {
+        private get filterChannel() {
+            if (this.filterChannelInstance === undefined) {
+                // TODO: Wrap this nicely, so that the magic string isn't needed.
+                this.filterChannelInstance = Backbone.Radio.channel("filter");
+            }
+
+            return this.filterChannelInstance;
+        }
+
+        private get filterElements(): JQuery {
+            return <any>this.ui.filters as JQuery;
+        }
+
+        // TODO: Is there really not a better way to access the elements in the UI array?
+        private getFilterElement(filter: Filter): JQuery {
+            switch (filter) {
+                case "active":
+                    return <any>this.ui.active as JQuery;
+
+                case "all":
+                    return <any>this.ui.all as JQuery;
+
+                case "completed":
+                    return <any>this.ui.completed as JQuery;
+            }
+
+            throw `Unknown filter '${filter}'.`;
+        }
+
+        private onClearClick() {
+            const completed = this.collection.getCompleted();
+            completed.forEach(todo => {
+                todo.destroy();
+            });
+        }
+
+        private updateFilterSelection() {
             this.filterElements.removeClass("selected");
             const filterState: FilterState = this.filterChannel.request("filterState");
             this.getFilterElement(filterState.filter).addClass("selected");

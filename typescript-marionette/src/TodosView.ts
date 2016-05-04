@@ -20,7 +20,7 @@ namespace TodoMVC {
             this.collection = todos;
 
             this.events = <any>{
-                "click @ui.toggle": "onToggleAllClick"
+                "click @ui.toggle": this.onToggleAllClick
             };
             this.delegateEvents();
         }
@@ -30,8 +30,8 @@ namespace TodoMVC {
         collection: TodoCollection;
 
         collectionEvents = {
-            "change:completed": "render",
-            "all": "setCheckAllState"
+            "change:completed": this.render,
+            "all": this.setCheckAllState
         };
 
         filterChannelInstance: Backbone.Radio.Channel;
@@ -42,7 +42,7 @@ namespace TodoMVC {
             toggle: "#toggle-all"
         };
 
-        get filterChannel() {
+        private get filterChannel() {
             if (this.filterChannelInstance === undefined) {
                 // TODO: Wrap this nicely, so that the magic string isn't needed.
                 this.filterChannelInstance = Backbone.Radio.channel("filter");
@@ -51,7 +51,7 @@ namespace TodoMVC {
             return this.filterChannelInstance;
         }
 
-        get toggleElement(): JQuery {
+        private get toggleElement(): JQuery {
             return <any>this.ui.toggle as JQuery;
         }
 
@@ -64,7 +64,7 @@ namespace TodoMVC {
             this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.render);
         }
 
-        onToggleAllClick(e: CheckboxEvent) {
+        private onToggleAllClick(e: CheckboxEvent) {
             const isChecked = e.currentTarget.checked;
 
             this.collection.each(function (todo: Todo) {
@@ -72,7 +72,7 @@ namespace TodoMVC {
             });
         }
 
-        setCheckAllState() {
+        private setCheckAllState() {
             // TODO: Figure out why true and false have to inversed for this to work.
             // const someTodosNotChecked = !this.collection.allCompleted();
             // if (someTodosNotChecked) {

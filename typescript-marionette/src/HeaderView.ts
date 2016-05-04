@@ -20,7 +20,7 @@ namespace TodoMVC {
             input: "#new-todo"
         };
 
-        get inputElement(): JQuery {
+        private get inputElement(): JQuery {
             return <any>this.ui.input;
         }
 
