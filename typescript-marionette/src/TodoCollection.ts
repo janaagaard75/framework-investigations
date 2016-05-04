@@ -7,11 +7,15 @@ namespace TodoMVC {
         localStorage = new Backbone.LocalStorage("todos-typescript-marionette");
         comparator = "created";
 
-        getActive() {
+        allCompleted(): boolean {
+            return (this.getActive().length === 0);
+        }
+
+        getActive(): Array<Todo> {
             return this.reject(todo => todo.completed);
         }
 
-        getCompleted() {
+        getCompleted(): Array<Todo> {
             return this.filter(todo => todo.completed);
         }
     }

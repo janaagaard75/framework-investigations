@@ -27,6 +27,8 @@ namespace TodoMVC {
 
         childView = TodoMVC.TodoView;
 
+        collection: TodoCollection;
+
         collectionEvents = {
             "change:completed": "render",
             "all": "setCheckAllState"
@@ -71,16 +73,17 @@ namespace TodoMVC {
         }
 
         setCheckAllState() {
-            function reduceCompleted(left: Todo, right: Todo) {
-                // TODO: This would benefit from some type checking.
-                return left && right.get("completed");
-            }
+            // TODO: Figure out why true and false have to inversed for this to work.
+            // const someTodosNotChecked = !this.collection.allCompleted();
+            // if (someTodosNotChecked) {
+            //     this.toggleElement.prop("checked", false);
+            // }
+            // else {
+            //     this.toggleElement.prop("checked", true);
+            // }
 
-            // TODO: Is using a reduce really the easiet solution here?
-            // TODO: The type of the collection is the generic Backbone.Collection<Todo>. It should be TodoCollection.
-            const allCompleted = this.collection.reduce(reduceCompleted, true);
-            this.toggleElement.prop("checked", allCompleted);
-            this.$el.parent().toggle(!!this.collection.length);
+            this.toggleElement.prop("checked", this.collection.allCompleted());
+            this.$el.parent().toggle(this.collection.length > 0);
         }
     }
 }
