@@ -11,15 +11,17 @@ namespace TodoMVC {
         return filterState;
     });
 
-    export class FilterChannel extends Backbone.Radio.Channel {
+    // TODO: Need a singleton.
+    export class FilterChannel {
         constructor() {
-            super();
+            FilterChannel.instance = Backbone.Radio.channel("filter");
 
-            this.reply("filterState", () => {
+            FilterChannel.instance.reply("filterState", () => {
                 return FilterChannel.filterState;
             });
         }
 
         private static filterState = new FilterState();
+        private static instance: Backbone.Radio.Channel;
     }
 }
