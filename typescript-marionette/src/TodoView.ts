@@ -1,16 +1,20 @@
 namespace TodoMVC {
     "use strict";
 
+    // TODO: Using these options interfaces might be the right way to approach working with Backbone and Marionette.
+    interface TodoViewOptions {
+        model: Todo;
+    }
+
     // TODO: TodoView is currently defined twice. Not good.
     /** Display an individual todo item, and respond to changes that are made to the item, including marking completed. */
     export class TodoView extends Marionette.ItemView<Todo> {
-        constructor() {
+        constructor(options: TodoViewOptions) {
             super({
                 tagName: "li"
             });
 
-            // TODO: Make this statically typed. I think Marionette is calling this using {model: someTodo}, so we have to keep this syntax.
-            this.model = arguments[0].model;
+            this.model = options.model;
 
             // TODO: These elements become jQuery elements. Is there any way to add static typing to this?
             this.ui = {
