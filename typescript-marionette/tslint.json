@@ -15,7 +15,6 @@
         "max-line-length": [
             false
         ],
-        // TODO: Turn on again when it's once again working.
         "member-ordering": [
             false,
             "public-before-private",
