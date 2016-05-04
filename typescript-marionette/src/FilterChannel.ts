@@ -1,27 +1,30 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: This file sets up the filter channel, but not in a very object oriented way.
-    // TODO: filterChannel should extend Backbone.Channel and be a singleton or have some kind of getInstance, that would call Backbone.Radio.channel("filter").
-
-    const filterState = new FilterState();
-
-    const filterChannel = Backbone.Radio.channel("filter");
-    filterChannel.reply("filterState", () => {
-        return filterState;
-    });
-
-    // TODO: Need a singleton.
     export class FilterChannel {
         constructor() {
-            FilterChannel.instance = Backbone.Radio.channel("filter");
+            if (FilterChannel.instance) {
+                throw new Error("use getInstance().");
+            }
 
-            FilterChannel.instance.reply("filterState", () => {
-                return FilterChannel.filterState;
+            FilterChannel.instance = this;
+
+            this.channel = Backbone.Radio.channel("filter");
+            this.channel.reply("filterState", () => {
+                return this.filterState;
             });
         }
 
-        private static filterState = new FilterState();
-        private static instance: Backbone.Radio.Channel;
+        public static getInstance() {
+            return FilterChannel.instance;
+        }
+
+        public getFilterState(): FilterState {
+            return this.channel.request("filterState");
+        }
+
+        public channel: Backbone.Radio.Channel;
+        private static instance: FilterChannel = new FilterChannel();
+        private filterState = new FilterState();
     }
 }

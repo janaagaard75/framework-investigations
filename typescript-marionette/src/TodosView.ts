@@ -38,34 +38,23 @@ namespace TodoMVC {
             "all": this.setCheckAllState
         };
 
-        filterChannelInstance: Backbone.Radio.Channel;
-
         template = "#todosViewTemplate";
 
         ui = {
             toggle: ".ts-toggle-all"
         };
 
-        private get filterChannel() {
-            if (this.filterChannelInstance === undefined) {
-                // TODO: Wrap this nicely, so that the magic string isn't needed.
-                this.filterChannelInstance = Backbone.Radio.channel("filter");
-            }
-
-            return this.filterChannelInstance;
-        }
-
         private get toggleElement(): JQuery {
             return <any>this.ui.toggle as JQuery;
         }
 
         filter(child: Todo) {
-            const filteredOn = this.filterChannel.request("filterState").get("filter") as Filter;
+            const filteredOn = FilterChannel.getInstance().getFilterState().filter;
             return child.matchesFilter(filteredOn);
         }
 
         initialize() {
-            this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.render);
+            this.listenTo(FilterChannel.getInstance().getFilterState(), "change:filter", this.render);
         }
 
         private onToggleAllClick(e: CheckboxEvent) {

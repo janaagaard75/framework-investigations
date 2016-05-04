@@ -9,7 +9,6 @@ namespace TodoMVC {
         }
 
         // TODO: Why is TSLint complaining about this line?
-        filterChannelInstance: Backbone.Radio.Channel;
         // TODO: 'router' should come from the definition file.
         router: Backbone.Router;
         todos: TodoCollection;
@@ -23,19 +22,10 @@ namespace TodoMVC {
             this.todos.fetch();
         }
 
-        private get filterChannel() {
-            if (this.filterChannelInstance === undefined) {
-                // TODO: Wrap this nicely, so that the magic string isn't needed.
-                this.filterChannelInstance = Backbone.Radio.channel("filter");
-            }
-
-            return this.filterChannelInstance;
-        }
-
         /** Set the filter to show complete or all items. */
         filterItems(filter: string) {
-            const newFilter = filter && filter.trim() || "all";
-            this.filterChannel.request("filterState").set("filter", newFilter);
+            const newFilter = (filter && filter.trim() || "all") as Filter;
+            FilterChannel.getInstance().getFilterState().filter = newFilter;
         }
 
         initialize() {

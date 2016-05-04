@@ -23,8 +23,6 @@ namespace TodoMVC {
             all: "render"
         };
 
-        filterChannelInstance: Backbone.Radio.Channel;
-
         template = "#footerTemplate";
 
         templateHelpers = {
@@ -46,7 +44,7 @@ namespace TodoMVC {
         initialize() {
             // TODO: Is it possible to wrap this request nicely in a class?
             // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
-            this.listenTo(this.filterChannel.request("filterState"), "change:filter", this.updateFilterSelection);
+            this.listenTo(FilterChannel.getInstance().getFilterState(), "change:filter", this.updateFilterSelection);
         }
 
         onRender() {
@@ -63,15 +61,6 @@ namespace TodoMVC {
                 completedCount: total - active,
                 totalCount: total
             };
-        }
-
-        private get filterChannel() {
-            if (this.filterChannelInstance === undefined) {
-                // TODO: Wrap this nicely, so that the magic string isn't needed.
-                this.filterChannelInstance = Backbone.Radio.channel("filter");
-            }
-
-            return this.filterChannelInstance;
         }
 
         private get filterElements(): JQuery {
@@ -103,8 +92,7 @@ namespace TodoMVC {
 
         private updateFilterSelection() {
             this.filterElements.removeClass("selected");
-            const filterState: FilterState = this.filterChannel.request("filterState");
-            this.getFilterElement(filterState.filter).addClass("selected");
+            this.getFilterElement(FilterChannel.getInstance().getFilterState().filter).addClass("selected");
         }
     }
 }
