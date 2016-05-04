@@ -63,7 +63,8 @@ namespace TodoMVC {
                 this.model.title = todoText;
                 this.model.save();
                 this.$el.removeClass("editing");
-            } else {
+            }
+            else {
                 this.destroy();
             }
         }
