@@ -19,7 +19,7 @@ namespace TodoMVC {
         }
 
         // TODO: No need for a getter?
-        // TODO: Should use a date behind the scenes instead.
+        // TODO: Should use a proper Date type.
         set created(newDate: number) {
             this.set("created", newDate);
         }
