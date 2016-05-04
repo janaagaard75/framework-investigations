@@ -1,8 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Rename to FooterView.
-    export class FooterLayout extends Marionette.ItemView<Todo> {
+    export class FooterView extends Marionette.ItemView<Todo> {
         constructor(todos: TodoCollection) {
             super();
 

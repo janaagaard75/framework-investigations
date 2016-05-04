@@ -34,12 +34,12 @@ namespace TodoMVC {
         }
 
         showFooter(todos: TodoCollection) {
-            const footer = new TodoMVC.FooterLayout(todos);
+            const footer = new TodoMVC.FooterView(todos);
             this.app.root.showChildView("footer", footer);
         }
 
         showHeader(todos: TodoCollection) {
-            const header = new TodoMVC.HeaderLayout(todos);
+            const header = new TodoMVC.HeaderView(todos);
             this.app.root.showChildView("header", header);
         }
 
