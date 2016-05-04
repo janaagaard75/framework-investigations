@@ -1,5 +1,8 @@
 # Node modules.
 node_modules/
 
+# Node Package Manager error log.
+npm-debug.log
+
 # The output folder of the source files.
 js/
