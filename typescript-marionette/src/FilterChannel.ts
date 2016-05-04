@@ -3,11 +3,11 @@ namespace TodoMVC {
 
     export class FilterChannel {
         constructor() {
-            if (FilterChannel.instance) {
-                throw new Error("use getInstance().");
+            if (FilterChannel.filterChannelInstance) {
+                throw new Error("Use the instance property.");
             }
 
-            FilterChannel.instance = this;
+            FilterChannel.filterChannelInstance = this;
 
             this.filterState = new FilterState();
             this.channel = Backbone.Radio.channel("filter");
@@ -16,12 +16,12 @@ namespace TodoMVC {
             });
         }
 
-        public static getInstance() {
-            if (FilterChannel.instance === undefined) {
-                FilterChannel.instance = new FilterChannel();
+        public static get instance() {
+            if (FilterChannel.filterChannelInstance === undefined) {
+                FilterChannel.filterChannelInstance = new FilterChannel();
             }
 
-            return FilterChannel.instance;
+            return FilterChannel.filterChannelInstance;
         }
 
         public getFilterState(): FilterState {
@@ -29,7 +29,7 @@ namespace TodoMVC {
         }
 
         public channel: Backbone.Radio.Channel;
-        private static instance: FilterChannel;
+        private static filterChannelInstance: FilterChannel;
         private filterState: FilterState;
     }
 }
