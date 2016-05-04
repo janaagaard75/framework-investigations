@@ -9,14 +9,17 @@ namespace TodoMVC {
 
             FilterChannel.filterChannelInstance = this;
 
-            this.filterState = new FilterState();
+            this.filterStateInstance = new FilterState();
             this.channel = Backbone.Radio.channel("filter");
-            this.channel.reply(this.filterStateId, () => {
-                return this.filterState;
+            this.channel.reply(FilterChannel.filterStateId, () => {
+                return this.filterStateInstance;
             });
         }
 
-        private filterStateId = "filterState";
+        public channel: Backbone.Radio.Channel;
+        private static filterChannelInstance: FilterChannel;
+        private static filterStateId = "filterState";
+        private filterStateInstance: FilterState;
 
         public static get instance() {
             if (FilterChannel.filterChannelInstance === undefined) {
@@ -26,12 +29,8 @@ namespace TodoMVC {
             return FilterChannel.filterChannelInstance;
         }
 
-        public requestFilterState(): FilterState {
-            return this.channel.request(this.filterStateId);
+        public static get filterState(): FilterState {
+            return FilterChannel.instance.channel.request(FilterChannel.filterStateId);
         }
-
-        public channel: Backbone.Radio.Channel;
-        private static filterChannelInstance: FilterChannel;
-        private filterState: FilterState;
     }
 }
