@@ -15,8 +15,9 @@
         "max-line-length": [
             false
         ],
+        // TODO: Turn on again when it's once again working.
         "member-ordering": [
-            true,
+            false,
             "public-before-private",
             "static-before-instance",
             "variables-before-functions"
