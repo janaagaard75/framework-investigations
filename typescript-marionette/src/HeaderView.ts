@@ -1,11 +1,15 @@
 namespace TodoMVC {
     "use strict";
 
+    interface HeaderViewOptions {
+        collection: TodoCollection;
+    }
+
     export class HeaderView extends Marionette.ItemView<Todo> {
-        constructor(todos: TodoCollection) {
+        constructor(options: HeaderViewOptions) {
             super();
 
-            this.collection = todos;
+            this.collection = options.collection;
 
             this.events = <any>{
                 "keypress @ui.input": this.saveOnEnter,
@@ -13,6 +17,8 @@ namespace TodoMVC {
             };
             this.delegateEvents();
         }
+
+        collection: TodoCollection;
 
         template = "#headerTemplate";
 

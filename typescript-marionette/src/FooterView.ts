@@ -1,11 +1,15 @@
 namespace TodoMVC {
     "use strict";
 
+    interface FooterViewOptions {
+        collection: TodoCollection;
+    }
+
     export class FooterView extends Marionette.ItemView<Todo> {
-        constructor(todos: TodoCollection) {
+        constructor(options: FooterViewOptions) {
             super();
 
-            this.collection = todos;
+            this.collection = options.collection;
 
             this.events = <any>{
                 "click @ui.clear": this.onClearClick
@@ -13,7 +17,6 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        // TODO: Is this really enough to specify that the collection supplied is a TodoCollection and not a generic Backbone.Collection<Todo>?
         collection: TodoCollection;
 
         collectionEvents = {

@@ -1,12 +1,10 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Using these options interfaces might be the right way to approach working with Backbone and Marionette.
     interface TodoViewOptions {
         model: Todo;
     }
 
-    // TODO: TodoView is currently defined twice. Not good.
     /** Display an individual todo item, and respond to changes that are made to the item, including marking completed. */
     export class TodoView extends Marionette.ItemView<Todo> {
         constructor(options: TodoViewOptions) {

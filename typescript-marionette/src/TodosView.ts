@@ -10,14 +10,18 @@ namespace TodoMVC {
         currentTarget: CheckboxEventTarget;
     }
 
-    // Controls the rendering of the list of items, including the filtering of activs vs completed items for display.
+    interface TodosViewOptions {
+        collection: TodoCollection;
+    }
+
+    /** Controls the rendering of the list of items, including the filtering of activs vs completed items for display. */
     export class TodosView extends Marionette.CompositeView<Todo, TodoView> {
-        constructor(todos: TodoCollection) {
+        constructor(options: TodosViewOptions) {
             super({
                 childViewContainer: "#todo-list"
             });
 
-            this.collection = todos;
+            this.collection = options.collection;
 
             this.events = <any>{
                 "click @ui.toggle": this.onToggleAllClick

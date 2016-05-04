@@ -43,17 +43,23 @@ namespace TodoMVC {
         }
 
         private showFooter(todos: TodoCollection) {
-            const footer = new TodoMVC.FooterView(todos);
+            const footer = new TodoMVC.FooterView({
+                collection: todos
+            });
             this.app.root.showChildView("footer", footer);
         }
 
         private showHeader(todos: TodoCollection) {
-            const header = new TodoMVC.HeaderView(todos);
+            const header = new TodoMVC.HeaderView({
+                collection: todos
+            });
             this.app.root.showChildView("header", header);
         }
 
         private showTodos(todos: TodoCollection) {
-            this.app.root.showChildView("main", new TodoMVC.TodosView(todos));
+            this.app.root.showChildView("main", new TodoMVC.TodosView({
+                collection: todos
+            }));
         }
 
         private updateHiddenElements() {
