@@ -3,7 +3,7 @@
     "jshint.enable": false,
     "jscs.enable": false,
     "search.exclude": {
-        "js/compiled/": true
+        "js/": true
     },
     "tslint.enable": true
 }
