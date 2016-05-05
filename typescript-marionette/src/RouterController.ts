@@ -8,7 +8,6 @@ namespace TodoMVC {
             super();
         }
 
-        // TODO: 'router' should have been defined in the definition file.
         router: Backbone.Router;
         todos: TodoCollection;
 

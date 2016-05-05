@@ -26,7 +26,6 @@ namespace TodoMVC {
         template = "#footerTemplate";
 
         templateHelpers = {
-            // TODO: Why not simply put everything in serializeData?
             activeCountLabel: () => {
                 return (this.collection.getActive().length === 1 ? "item" : "items") + " left";
             }

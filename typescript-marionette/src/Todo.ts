@@ -18,8 +18,6 @@ namespace TodoMVC {
             this.set("completed", newValue);
         }
 
-        // TODO: No need for a getter?
-        // TODO: Should use a proper Date type.
         set created(newDate: number) {
             this.set("created", newDate);
         }
