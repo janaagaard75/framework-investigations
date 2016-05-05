@@ -1,12 +1,11 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Isn't there a better way to introduce the checked property?
-    class CheckboxEventTarget extends EventTarget {
+    interface CheckboxEventTarget extends EventTarget {
         checked: boolean;
     }
 
-    class CheckboxEvent extends Event {
+    interface CheckboxEvent extends Event {
         currentTarget: CheckboxEventTarget;
     }
 
@@ -66,15 +65,7 @@ namespace TodoMVC {
         }
 
         private setCheckAllState() {
-            // TODO: Figure out why true and false have to inversed for this to work.
-            // const someTodosNotChecked = !this.collection.allCompleted();
-            // if (someTodosNotChecked) {
-            //     this.toggleElement.prop("checked", false);
-            // }
-            // else {
-            //     this.toggleElement.prop("checked", true);
-            // }
-
+            // TODO: This code here is pretty weird. Clean it up.
             this.toggleElement.prop("checked", this.collection.allCompleted());
             this.$el.parent().toggle(this.collection.length > 0);
         }

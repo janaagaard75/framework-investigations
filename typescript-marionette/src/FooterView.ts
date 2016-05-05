@@ -42,8 +42,6 @@ namespace TodoMVC {
         };
 
         initialize() {
-            // TODO: Is it possible to wrap this request nicely in a class?
-            // TODO: initialize is called by super(), so this.filterChannel is not yet initialized.
             this.listenTo(FilterChannel.filterState, "change:filter", this.updateFilterSelection);
         }
 

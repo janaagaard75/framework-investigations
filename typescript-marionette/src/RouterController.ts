@@ -8,8 +8,7 @@ namespace TodoMVC {
             super();
         }
 
-        // TODO: Why is TSLint complaining about this line?
-        // TODO: 'router' should come from the definition file.
+        // TODO: 'router' should have been defined in the definition file.
         router: Backbone.Router;
         todos: TodoCollection;
 

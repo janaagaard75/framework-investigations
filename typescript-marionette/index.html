@@ -38,19 +38,19 @@
 		</script>
 		<script type="text/html" id="headerTemplate">
 			<h1>todos</h1>
-			<input class="js-new-todo new-todo" placeholder="What needs to be done?" autofocus>
+			<input type="text" class="js-new-todo new-todo" placeholder="What needs to be done?" autofocus/>
 		</script>
 		<script type="text/html" id="todoViewTemplate">
 			<div class="view">
-				<input class="toggle" type="checkbox" <% if (completed) { %>checked<% } %>/>
+				<input type="checkbox" class="toggle" <% if (completed) { %>checked<% } %>/>
 				<label><%- title %></label>
 				<button class="destroy"></button>
 			</div>
-			<input class="edit" value="<%- title %>">
+			<input type="text" class="edit" value="<%- title %>"/>
 		</script>
 		<script type="text/html" id="todosViewTemplate">
 			<!-- TODO: Figure out how avoid hard coding the ID. -->
-			<input id="toggle-all" class="js-toggle-all toggle-all" type="checkbox"/>
+			<input type="checkbox" id="toggle-all" class="js-toggle-all toggle-all"/>
 			<label for="toggle-all">Mark all as complete</label>
 			<ul class="js-todo-list todo-list"></ul>
 		</script>
