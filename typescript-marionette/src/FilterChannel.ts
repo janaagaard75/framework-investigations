@@ -9,6 +9,7 @@ namespace TodoMVC {
 
             FilterChannel.filterChannelInstance = this;
 
+            // TODO: This singleton is all about only new'ing the FilterState once. It should be possible to build this in a simpler fashion.
             this.filterStateInstance = new FilterState();
             this.channel = Backbone.Radio.channel("filter");
             this.channel.reply(FilterChannel.filterStateId, () => {
