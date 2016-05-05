@@ -41,7 +41,7 @@ namespace TodoMVC {
         template = "#todosViewTemplate";
 
         ui = {
-            toggle: ".ts-toggle-all"
+            toggle: ".js-toggle-all"
         };
 
         private get toggleElement(): JQuery {

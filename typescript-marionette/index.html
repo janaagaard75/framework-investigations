@@ -42,15 +42,15 @@
 		</script>
 		<script type="text/html" id="todoViewTemplate">
 			<div class="view">
-				<input class="toggle" type="checkbox" <% if (completed) { %>checked<% } %>>
+				<input class="toggle" type="checkbox" <% if (completed) { %>checked<% } %>/>
 				<label><%- title %></label>
 				<button class="destroy"></button>
 			</div>
 			<input class="edit" value="<%- title %>">
 		</script>
 		<script type="text/html" id="todosViewTemplate">
-			<input class="js-toggle-all toggle-all" type="checkbox">
-			<!-- TODO: Figure out how to reference the checkbox. -->
+			<!-- TODO: Figure out how avoid hard coding the ID. -->
+			<input id="toggle-all" class="js-toggle-all toggle-all" type="checkbox"/>
 			<label for="toggle-all">Mark all as complete</label>
 			<ul class="js-todo-list todo-list"></ul>
 		</script>
