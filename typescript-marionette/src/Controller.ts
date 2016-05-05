@@ -29,6 +29,10 @@ namespace TodoMVC {
             FilterChannel.filterState.filter = newFilter;
         }
 
+        initialize() {
+            this.todos = new TodoMVC.TodoCollection();
+        }
+
         private static convertStringToFilter(filterString: string): Filter {
             switch (filterString) {
                 case null:
@@ -43,10 +47,6 @@ namespace TodoMVC {
             }
 
             throw new Error(`Unknown filter string '${filterString}'.`);
-        }
-
-        initialize() {
-            this.todos = new TodoMVC.TodoCollection();
         }
 
         private showFooter(todos: TodoCollection) {

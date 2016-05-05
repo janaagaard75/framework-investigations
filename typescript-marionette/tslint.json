@@ -19,9 +19,8 @@
             false
         ],
         "member-ordering": [
-            false,
+            true,
             "public-before-private",
-            "static-before-instance",
             "variables-before-functions"
         ],
         "no-any": false,
