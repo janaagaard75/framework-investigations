@@ -17,6 +17,7 @@
         "typings/browser.d.ts",
         "src/Bootstrap.ts",
         "src/Controller.ts",
+        "src/Filter.ts",
         "src/FilterChannel.ts",
         "src/FilterState.ts",
         "src/FooterView.ts",
