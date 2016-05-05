@@ -9,8 +9,8 @@ namespace TodoMVC {
 
     // After we initialize the app, we want to kick off the router and controller, which will handle initializing our views.
     app.on("start", () => {
-        const controller = new TodoMVC.Controller(app);
-        controller.router = new TodoMVC.Router(controller);
+        const controller = new RouterController(app);
+        controller.router = new Router(controller);
 
         controller.start();
         Backbone.history.start();

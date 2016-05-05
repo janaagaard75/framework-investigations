@@ -1,8 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
-    // TODO: Rename to RouterController.
-    export class Controller extends Marionette.Object {
+    export class RouterController extends Marionette.Object {
         constructor(
             private app: TodoApp
         ) {
@@ -25,12 +24,12 @@ namespace TodoMVC {
 
         /** Set the filter to show complete or all items. */
         filterItems(filterString: string) {
-            const newFilter = Controller.convertStringToFilter(filterString);
+            const newFilter = RouterController.convertStringToFilter(filterString);
             FilterChannel.filterState.filter = newFilter;
         }
 
         initialize() {
-            this.todos = new TodoMVC.TodoCollection();
+            this.todos = new TodoCollection();
         }
 
         private static convertStringToFilter(filterString: string): Filter {
@@ -50,21 +49,21 @@ namespace TodoMVC {
         }
 
         private showFooter(todos: TodoCollection) {
-            const footer = new TodoMVC.FooterView({
+            const footer = new FooterView({
                 collection: todos
             });
             this.app.root.showChildView("footer", footer);
         }
 
         private showHeader(todos: TodoCollection) {
-            const header = new TodoMVC.HeaderView({
+            const header = new HeaderView({
                 collection: todos
             });
             this.app.root.showChildView("header", header);
         }
 
         private showTodos(todos: TodoCollection) {
-            this.app.root.showChildView("main", new TodoMVC.TodosView({
+            this.app.root.showChildView("main", new TodosView({
                 collection: todos
             }));
         }

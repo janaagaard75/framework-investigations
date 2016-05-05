@@ -2,7 +2,7 @@ namespace TodoMVC {
     "use strict";
 
     export class Router extends Marionette.AppRouter {
-        constructor(controller: TodoMVC.Controller) {
+        constructor(controller: RouterController) {
             super({
                 appRoutes: {
                     // TODO: Is is possible to make a function reference to controller.filterItems?

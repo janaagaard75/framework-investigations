@@ -5,7 +5,7 @@ namespace TodoMVC {
         root: RootLayout;
 
         setRootLayout() {
-            this.root = new TodoMVC.RootLayout();
+            this.root = new RootLayout();
         }
     }
 }

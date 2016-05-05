@@ -29,7 +29,7 @@ namespace TodoMVC {
             this.delegateEvents();
         }
 
-        childView = TodoMVC.TodoView;
+        childView = TodoView;
 
         collection: TodoCollection;
 
