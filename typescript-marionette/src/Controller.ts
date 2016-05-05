@@ -1,6 +1,7 @@
 namespace TodoMVC {
     "use strict";
 
+    // TODO: Rename to RouterController.
     export class Controller extends Marionette.Object {
         constructor(
             private app: TodoApp
@@ -23,9 +24,25 @@ namespace TodoMVC {
         }
 
         /** Set the filter to show complete or all items. */
-        filterItems(filter: string) {
-            const newFilter = (filter && filter.trim() || "all") as Filter;
+        filterItems(filterString: string) {
+            const newFilter = Controller.convertStringToFilter(filterString);
             FilterChannel.filterState.filter = newFilter;
+        }
+
+        private static convertStringToFilter(filterString: string): Filter {
+            switch (filterString) {
+                case null:
+                case "":
+                    return Filter.All;
+
+                case "active":
+                    return Filter.Active;
+
+                case "completed":
+                    return Filter.Completed;
+            }
+
+            throw new Error(`Unknown filter string '${filterString}'.`);
         }
 
         initialize() {

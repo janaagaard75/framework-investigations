@@ -41,13 +41,13 @@ namespace TodoMVC {
 
         matchesFilter(filter: Filter): boolean {
             switch (filter) {
-                case "active":
+                case Filter.Active:
                     return !this.completed;
 
-                case "all":
+                case Filter.All:
                     return true;
 
-                case "completed":
+                case Filter.Completed:
                     return this.completed;
             }
 

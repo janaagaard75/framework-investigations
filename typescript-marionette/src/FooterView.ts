@@ -70,13 +70,13 @@ namespace TodoMVC {
         // TODO: Is there really not a better way to access the elements in the UI array?
         private getFilterElement(filter: Filter): JQuery {
             switch (filter) {
-                case "active":
+                case Filter.Active:
                     return <any>this.ui.active as JQuery;
 
-                case "all":
+                case Filter.All:
                     return <any>this.ui.all as JQuery;
 
-                case "completed":
+                case Filter.Completed:
                     return <any>this.ui.completed as JQuery;
             }
 
