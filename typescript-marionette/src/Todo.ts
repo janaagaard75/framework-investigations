@@ -5,7 +5,7 @@ namespace TodoMVC {
         defaults() {
             return {
                 completed: false,
-                created: 0,
+                created: Date.now(),
                 title: "ts"
             };
         }
@@ -30,13 +30,6 @@ namespace TodoMVC {
 
         set title(newTitle: string) {
             this.set("title", newTitle);
-        }
-
-        // TODO: Why not set this in the defaults method?
-        initialize() {
-            if (this.isNew()) {
-                this.created = Date.now();
-            }
         }
 
         matchesFilter(filter: Filter): boolean {
