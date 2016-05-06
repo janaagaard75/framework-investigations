@@ -42,6 +42,7 @@
 		</script>
 		<script type="text/html" id="todoViewTemplate">
 			<div class="view">
+				<!-- No link between checkbox and label because that breaks the doubleclick-to-edit functionality. -->
 				<input type="checkbox" class="toggle" <% if (completed) { %>checked<% } %>/>
 				<label><%- title %></label>
 				<button class="destroy"></button>
@@ -49,7 +50,6 @@
 			<input type="text" class="edit" value="<%- title %>"/>
 		</script>
 		<script type="text/html" id="todosViewTemplate">
-			<!-- TODO: Figure out how avoid hard coding the ID. -->
 			<input type="checkbox" id="toggle-all" class="js-toggle-all toggle-all"/>
 			<label for="toggle-all">Mark all as complete</label>
 			<ul class="js-todo-list todo-list"></ul>
