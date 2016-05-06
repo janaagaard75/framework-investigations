@@ -6,7 +6,7 @@ namespace TodoMVC {
             return {
                 completed: false,
                 created: Date.now(),
-                title: "ts"
+                title: ""
             };
         }
 
@@ -16,10 +16,6 @@ namespace TodoMVC {
 
         set completed(newValue: boolean) {
             this.set("completed", newValue);
-        }
-
-        set created(newDate: number) {
-            this.set("created", newDate);
         }
 
         get title(): string {
