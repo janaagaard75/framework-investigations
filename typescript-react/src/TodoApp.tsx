@@ -80,9 +80,6 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public render() {
-    // TODO: Figure out how to move these declarations down.
-    let footer;
-    let main;
     const todos = this.props.model.todos;
 
     const shownTodos = todos.filter((todo) => {
@@ -123,6 +120,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
 
     const completedCount = todos.length - activeTodoCount;
 
+    let footer;
     if (activeTodoCount || completedCount) {
       footer =
         <TodoFooter
@@ -133,6 +131,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
           />;
     }
 
+    let main;
     if (todos.length) {
       main = (
         <section className="main">
