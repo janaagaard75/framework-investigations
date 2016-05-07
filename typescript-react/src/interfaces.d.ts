@@ -6,7 +6,6 @@ export interface IAppProps {
   model: ITodoModel;
 }
 
-// TODO: The optionals here seem a bit weird. They're necessary since it's possible to only set part of the value as the state, but for the state itself, it seems that these values should always be defined.
 export interface IAppState {
   editing?: string;
   nowShowing?: NowShowingFilter;
