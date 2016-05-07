@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "allowJs": false,
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -17,14 +18,10 @@
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
-    "files": [
-        "src/constants.ts",
-        "src/interfaces.d.ts",
-        "src/KeyCode.ts",
-        "src/TodoApp.tsx",
-        "src/TodoFooter.tsx",
-        "src/TodoItem.tsx",
-        "src/TodoModel.ts",
-        "src/Utils.ts"
+    "exclude": [
+      "js",
+      "node_modules",
+      "typings/main",
+      "typings/main.d.ts"
     ]
 }
