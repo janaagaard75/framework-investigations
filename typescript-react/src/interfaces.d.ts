@@ -11,6 +11,13 @@ export interface IAppState {
   nowShowing?: NowShowingFilter;
 }
 
+export interface ITodoFooterProps {
+  completedCount: number;
+  onClearCompleted: any;
+  nowShowing: NowShowingFilter;
+  count: number;
+}
+
 export interface ITodo {
   id: string;
   title: string;
@@ -30,13 +37,6 @@ export interface ITodoItemProps {
 
 export interface ITodoItemState {
   editText: string;
-}
-
-export interface ITodoFooterProps {
-  completedCount: number;
-  onClearCompleted: any;
-  nowShowing: NowShowingFilter;
-  count: number;
 }
 
 export interface ITodoModel {
