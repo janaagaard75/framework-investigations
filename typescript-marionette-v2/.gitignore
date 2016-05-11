@@ -7,5 +7,5 @@ node_modules/
 # Node Package Manager error log.
 npm-debug.log
 
-# TypeScript definition files.
+# TypeScript type definition files.
 typings/
