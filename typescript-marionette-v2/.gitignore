@@ -1,5 +1,5 @@
-# The output folder of the source files.
-js/
+# The generated files.
+dist/
 
 # Node modules.
 node_modules/
@@ -9,6 +9,3 @@ npm-debug.log
 
 # TypeScript type definition files.
 typings/
-
-# The generated JavaScript file.
-bundle.js
