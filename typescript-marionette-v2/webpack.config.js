@@ -1,7 +1,16 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
+
 module.exports = {
-  entry: "./src/index.html",
+  entry: "./src/index.js",
   output: {
-    path: __dirname + "/dist",
+    path: "dist",
     filename: "bundle.js"
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.ejs',
+      title: 'Todos'
+    })
+  ]
 }
