@@ -3,7 +3,8 @@
     "jshint.enable": false,
     "jscs.enable": false,
     "search.exclude": {
-        "js/": true
+        "js/": true,
+        "typings/": true
     },
     "tslint.enable": true
 }
