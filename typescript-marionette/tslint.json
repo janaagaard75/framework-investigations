@@ -19,7 +19,7 @@
             false
         ],
         "member-ordering": [
-            true,
+            false,
             "public-before-private",
             "variables-before-functions"
         ],
