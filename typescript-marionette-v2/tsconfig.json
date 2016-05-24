@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "allowJs": false,
+        "allowJs": true,
         "forceConsistentCasingInFileNames": true,
         "module": "amd",
         "newLine": "LF",
@@ -13,6 +13,7 @@
         "target": "es5"
     },
     "exclude": [
+        "dist",
         "node_modules",
         "typings/globals"
     ]
