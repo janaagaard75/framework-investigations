@@ -5,6 +5,7 @@ import * as Marionette from "backbone.marionette"
 
 export default class App extends Marionette.Application {
   initialize() {
+    console.info("initialize called.")
     window.document.write("Testing.")
   }
 }
