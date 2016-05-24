@@ -77,7 +77,7 @@
         ],
         "semicolon": [
             true,
-            "always"
+            "never"
         ],
         "trailing-comma": [
             true,
