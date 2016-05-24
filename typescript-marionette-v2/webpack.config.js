@@ -21,12 +21,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.ejs',
-      title: 'Todos'
+      template: './src/index.ejs'
     })
   ],
   resolve: {
     // Add .ts as resolvable extensions.
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".js"]
+    extensions: ["", ".ts", ".js"]
   }
 }
