@@ -3,5 +3,8 @@
 
 import * as Marionette from "backbone.marionette"
 
-export class TodoApp extends Marionette.Application {
+export default class App extends Marionette.Application {
+  initialize() {
+    window.document.write("Testing.")
+  }
 }

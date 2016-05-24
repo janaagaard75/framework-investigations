@@ -1,9 +1,9 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   module: {
     loaders: [
       // All files with a .ts extension will be handled by ts-loader.
@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.ejs'
+      template: "./src/index.ejs"
     })
   ],
   resolve: {
