@@ -1,8 +1,8 @@
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
+  // Enable sourcemaps for debugging webpack's output. Temporarely disabled, because they cause Webpack to crash. https://github.com/webpack/webpack/issues/1071.
+  //devtool: "source-map",
   entry: "./src/index.ts",
   module: {
     loaders: [
