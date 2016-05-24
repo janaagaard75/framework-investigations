@@ -1,5 +1,5 @@
 {
-  "ambientDependencies": {
+  "globalDependencies": {
     "backbone-global": "registry:dt/backbone-global#1.0.0+20160417152450",
     "backbone.localstorage": "registry:dt/backbone.localstorage#1.0.0+20160317120654",
     "backbone.radio": "registry:dt/backbone.radio#0.0.0+20160317120654",
