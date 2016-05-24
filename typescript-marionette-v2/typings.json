@@ -1,6 +1,6 @@
 {
   "globalDependencies": {
-    "backbone": "registry:dt/backbone#1.0.0+20160316155526",
+    "backbone-global": "registry:dt/backbone-global#1.0.0+20160509145756",
     "backbone.localstorage": "registry:dt/backbone.localstorage#1.0.0+20160317120654",
     "jquery": "registry:dt/jquery#1.10.0+20160417213236",
     "marionette": "registry:dt/marionette#0.0.0+20160317120654",
