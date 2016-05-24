@@ -11,3 +11,8 @@ Todo app written in TypeScript and using Marionette. Created to learn about comb
 
     webpack-dev-server --inline
     http://localhost:8080/
+
+## Notes
+
+* backbone-global definition types file is required by Marionette.
+* The Marionette definition file was apparently updated to exported as "backbone.marionette" instead of just "marionette".
