@@ -2,19 +2,23 @@
     "compilerOptions": {
         "allowJs": true,
         "forceConsistentCasingInFileNames": true,
-        "module": "amd",
+        "inlineSources": true,
+        "module": "commonjs",
         "newLine": "LF",
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "outFile": "dist/bundle.js",
+        //"outDir": "dist",
+        //"outFile": "dist/bundle.js",
         "removeComments": true,
         "sourceMap": true,
+        //"strictNullChecks": true,
         "target": "es5"
     },
     "exclude": [
         "dist",
         "node_modules",
-        "typings/globals"
+        "typings/globals",
+        "webpack.config.js"
     ]
 }
