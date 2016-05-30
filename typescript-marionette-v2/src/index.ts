@@ -3,6 +3,8 @@ import App from "./App"
 // Create our Application
 const app = new App()
 
+// TODO: Move as much as possible into App.ts.
+
 // Start history when our application is ready
 app.on("start", () => {
   Backbone.history.start()
