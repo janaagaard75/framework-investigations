@@ -5,10 +5,6 @@ const app = new App()
 
 // TODO: Move as much as possible into App.ts.
 
-app.on("before:start", () => {
-  app.setRootLayout()
-})
-
 // Start history when our application is ready
 app.on("start", () => {
   Backbone.history.start()

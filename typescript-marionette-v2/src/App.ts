@@ -7,11 +7,9 @@ import RootView from "./RootView"
 export default class App extends Marionette.Application {
   rootView: RootView
 
-  setRootLayout() {
-    this.rootView = new RootView()
-  }
-
   initialize() {
+    this.rootView = new RootView()
+    this.rootView.render()
     console.info("App initialized.")
   }
 }
