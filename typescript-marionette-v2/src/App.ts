@@ -2,9 +2,14 @@
 /// <reference path="../typings/index.d.ts"/>
 
 import * as Marionette from "backbone.marionette"
+import RootView from "./RootView"
 
 export default class App extends Marionette.Application {
-  template = "#appTemplate"
+  rootView: RootView
+
+  setRootLayout() {
+    this.rootView = new RootView()
+  }
 
   initialize() {
     console.info("App initialized.")
