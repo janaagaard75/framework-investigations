@@ -19,8 +19,7 @@
             false
         ],
         "member-ordering": [
-            true,
-            "public-before-private"
+            false
         ],
         "no-any": false,
         "no-arg": true,
