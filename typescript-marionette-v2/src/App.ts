@@ -2,14 +2,17 @@
 /// <reference path="../typings/index.d.ts"/>
 
 import * as Marionette from "backbone.marionette"
+import RootModel from "./RootModel"
 import RootView from "./RootView"
 
 export default class App extends Marionette.Application {
   rootView: RootView
 
   initialize() {
-    this.rootView = new RootView()
+    this.rootView = new RootView({
+      model: new RootModel({title: "Defined when new'ing"})
+    })
     this.rootView.render()
-    console.info("App initialized.")
+    window.console.info("Application initialized.")
   }
 }
