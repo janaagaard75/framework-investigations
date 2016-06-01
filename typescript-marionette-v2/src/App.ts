@@ -10,7 +10,7 @@ export default class App extends Marionette.Application {
 
   initialize() {
     this.rootView = new RootView({
-      model: new RootModel({title: "Defined when new'ing"})
+      model: new RootModel()
     })
     this.rootView.render()
     window.console.info("Application initialized.")
