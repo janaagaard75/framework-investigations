@@ -31,6 +31,7 @@
     "url": "https://github.com/janaagaard75/TodoMvcTypeScript.git"
   },
   "scripts": {
+    "build": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
     "lint": "tslint src/*.ts",
     "setup": "npm install && typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
