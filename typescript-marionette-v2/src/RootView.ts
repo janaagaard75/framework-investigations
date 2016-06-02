@@ -17,5 +17,5 @@ export default class RootView extends Marionette.ItemView<RootModel> {
     return options
   }
 
-  template = "#rootTemplate"
+  template = require("!ejs!./RootViewTemplate.ejs")
 }
