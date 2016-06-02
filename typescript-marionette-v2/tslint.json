@@ -44,7 +44,7 @@
         "no-irregular-whitespace": true,
         "no-multiple-var-decl": true,
         "no-octal-literal": true,
-        "no-require-imports": true,
+        "no-require-imports": false,
         "no-shadowed-variable": true,
         "no-sparse-arrays": true,
         "no-string-based-set-immediate": true,
