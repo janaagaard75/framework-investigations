@@ -1,6 +1,7 @@
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var webpack = require("webpack")
 
 module.exports = {
   // Enable sourcemaps for debugging webpack's output. Temporarely disabled, because they cause Webpack to crash. https://github.com/webpack/webpack/issues/1071.
@@ -25,6 +26,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.ejs"
+    }),
+    new webpack.ProvidePlugin({
+        _: "underscore"
     })
   ],
   resolve: {

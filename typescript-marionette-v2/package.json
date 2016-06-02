@@ -9,6 +9,7 @@
   },
   "description": "Todo app written in TypeScript using Marionette. Inspired by TodoMVC.",
   "devDependencies": {
+    "ejs-loader": "0.2.1",
     "html-webpack-plugin": "2.19.0",
     "jquery": "2.2.4",
     "source-map-loader": "0.1.5",
