@@ -4,6 +4,7 @@
     "backbone.localstorage": "registry:dt/backbone.localstorage#1.0.0+20160317120654",
     "jquery": "registry:dt/jquery#1.10.0+20160417213236",
     "marionette": "registry:dt/marionette#0.0.0+20160317120654",
+    "require": "registry:dt/require#2.1.20+20160316155526",
     "underscore": "registry:dt/underscore#1.7.0+20160505190121"
   }
 }
