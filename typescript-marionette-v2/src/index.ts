@@ -21,5 +21,5 @@ app.on("start", () => {
 
 // Load some initial data, and then start our application.
 //loadInitialData().then(app.start);
-//app.start({container: "#root"})
+
 app.start()
