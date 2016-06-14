@@ -4,13 +4,13 @@
 //     export = Backbone.LocalStorage;
 // }
 import Store = require("backbone.localstorage")
-import TodoModel from "./TodoModel"
+import TodoCollection from "./TodoCollection"
 
 export default class RootModel extends Backbone.Model {
   defaults() {
     return {
       title: "Todos",
-      todos: [TodoModel] // TODO: Figure out how to use the Array<> syntax.
+      todos: TodoCollection
     }
   }
 
@@ -24,11 +24,11 @@ export default class RootModel extends Backbone.Model {
     this.set("title", title)
   }
 
-  get todos(): Array<TodoModel> {
+  get todos(): TodoCollection {
     return this.get("todos")
   }
 
-  set todos(todos: Array<TodoModel>) {
+  set todos(todos: TodoCollection) {
     this.set("todos", todos)
   }
 }
