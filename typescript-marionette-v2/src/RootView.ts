@@ -9,6 +9,8 @@ export default class RootView extends Marionette.ItemView<RootModel> {
     super(RootView.setPlaceholderElement(options))
   }
 
+  template = require("!ejs!./RootViewTemplate.ejs")
+
   private static setPlaceholderElement(options: RootViewOptions): RootViewOptions {
     if (!options.el) {
       options.el = "#rootPlaceholder"
@@ -16,6 +18,4 @@ export default class RootView extends Marionette.ItemView<RootModel> {
 
     return options
   }
-
-  template = require("!ejs!./RootViewTemplate.ejs")
 }
