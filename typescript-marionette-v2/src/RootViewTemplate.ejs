@@ -1,3 +1,8 @@
 <div class="container">
   <h1><%- title %></h1>
+  <ul>
+    <% _.each(todos, function(todo) { %>
+      <li>Todo</li>
+    <% }) %>
+  </ul>
 </div>
