@@ -4,13 +4,20 @@
 import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import RootView from "./RootView"
+import TodoModel from "./TodoModel"
 
 export default class App extends Marionette.Application {
   rootView: RootView
 
   initialize() {
+    const rootModel = new RootModel()
+    rootModel.todos = [
+      new TodoModel(),
+      new TodoModel()
+    ]
+
     this.rootView = new RootView({
-      model: new RootModel()
+      model: rootModel
     })
     this.rootView.render()
     window.console.info("Application initialized.")
