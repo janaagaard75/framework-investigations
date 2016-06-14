@@ -11,6 +11,14 @@ export default class Todo extends Backbone.Model {
     return this.get("completed")
   }
 
+  get completedString(): string {
+    if (this.completed) {
+      return "checked"
+    } else {
+      return ""
+    }
+  }
+
   set completed(newValue: boolean) {
     this.set("completed", newValue)
   }
