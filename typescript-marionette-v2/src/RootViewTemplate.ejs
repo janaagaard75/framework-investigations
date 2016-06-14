@@ -6,5 +6,8 @@
       <pre><%= JSON.stringify(todo) %></pre>
       <li><input type="checkbox"><%= todo %></li>
     <% }); %>
+    <% _.each(todos.toJSON(), function(todo) { %>
+      <pre><%= JSON.stringify(todo) %></pre>
+    <% }); %>
   </ul>
 </div>
