@@ -1,8 +1,10 @@
 <div class="container">
   <h1><%- title %></h1>
   <ul>
+    <pre><%= JSON.stringify(todos) %></pre>
     <% _.each(todos, function(todo) { %>
-      <li>Todo</li>
-    <% }) %>
+      <pre><%= JSON.stringify(todo) %></pre>
+      <li><input type="checkbox"><%= todo %></li>
+    <% }); %>
   </ul>
 </div>
