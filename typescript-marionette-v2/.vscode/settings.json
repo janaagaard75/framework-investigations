@@ -4,5 +4,8 @@
     "eslint.enable": false,
     "jscs.enable": false,
     "jshint.enable": false,
+    "search.exclude": {
+        "dist": true
+    },
     "tslint.enable": true
 }
