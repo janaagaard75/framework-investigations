@@ -2,7 +2,7 @@ import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TodoView from "./TodoView"
 
-// Add to childViewContainer?:string; to CollectionViewOptions in marionette/index.d.ts.
+// Add childViewContainer?:string; to CollectionViewOptions in marionette/index.d.ts.
 
 interface TodosViewOptions extends Marionette.CollectionViewOptions<TodoModel> {
   collection: TodoCollection
