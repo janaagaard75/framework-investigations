@@ -2,13 +2,13 @@
   <h1><%- title %></h1>
   <% todos %>
   <ul>
-    <pre><%= JSON.stringify(todos) %></pre>
+    <pre><%- JSON.stringify(todos) %></pre>
     <% _.each(todos, function(todo) { %>
-      <pre><%= JSON.stringify(todo) %></pre>
+      <pre><%- JSON.stringify(todo) %></pre>
       <li><input type="checkbox"><%= todo %></li>
     <% }); %>
     <% _.each(todos.toJSON(), function(todo) { %>
-      <pre><%= JSON.stringify(todo) %></pre>
+      <pre><%- JSON.stringify(todo) %></pre>
     <% }); %>
   </ul>
 </div>
