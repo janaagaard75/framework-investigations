@@ -1,6 +1,7 @@
 <div class="container">
   <h1><%- title %></h1>
   <% todos %>
+  <div class="jsTodosPlaceholder"></div>
   <ul>
     <pre><%- JSON.stringify(todos) %></pre>
     <% _.each(todos, function(todo) { %>
