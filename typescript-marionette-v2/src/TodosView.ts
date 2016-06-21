@@ -21,5 +21,5 @@ export default class TodosView extends Marionette.CompositeView<TodoModel, TodoV
 
   collection: TodoCollection
 
-  template = require("!ejs!./TodosViewTemplate.ejs")
+  template = require("./TodosViewTemplate.ejs")
 }

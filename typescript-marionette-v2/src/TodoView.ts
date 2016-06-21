@@ -8,7 +8,7 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
     super(TodoView.setTagName(options))
   }
 
-  template = require("!ejs!./TodoViewTemplate.ejs")
+  template = require("./TodoViewTemplate.ejs")
 
   private static setTagName(options: TodoViewOptions): TodoViewOptions {
     if (!options.el) {
