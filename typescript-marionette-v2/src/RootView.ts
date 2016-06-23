@@ -8,6 +8,8 @@ interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> {
 export default class RootView extends Marionette.LayoutView<RootModel> {
   constructor(options: RootViewOptions) {
     super(RootView.setDefaultOptions(options))
+
+    this.listenTo(this.model.todos, "change:completed", this.render)
   }
 
   template = require("./RootView.ejs")
@@ -23,6 +25,8 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
 
   templateHelpers() {
     return {
+      // TODO: Create property on the model.
+      numberOfCompletedTodos: this.model.todos.filter(todo => todo.completed).length,
       numberOfTodos: this.model.todos.length
     }
   }
