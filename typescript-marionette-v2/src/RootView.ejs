@@ -1,15 +1,4 @@
 <div class="container">
   <h1><%- title %></h1>
-  <% todos %>
   <div class="jsTodosPlaceholder"></div>
-  <ul>
-    <pre><%- JSON.stringify(todos) %></pre>
-    <% _.each(todos, function(todo) { %>
-      <pre><%- JSON.stringify(todo) %></pre>
-      <li><input type="checkbox"><%= todo %></li>
-    <% }); %>
-    <% _.each(todos.toJSON(), function(todo) { %>
-      <pre><%- JSON.stringify(todo) %></pre>
-    <% }); %>
-  </ul>
 </div>
