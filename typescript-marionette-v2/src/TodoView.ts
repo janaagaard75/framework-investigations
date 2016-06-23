@@ -7,6 +7,15 @@ interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> {
 export default class TodoView extends Marionette.ItemView<TodoModel> {
   constructor(options: TodoViewOptions) {
     super(TodoView.setTagName(options))
+
+    this.ui = {
+      toggle: ".js-toggle"
+    }
+
+    this.events = <any>{
+      "click @ui.toggle": this.toggle
+    }
+    this.delegateEvents();
   }
 
   template = require("./TodoView.ejs")
@@ -23,5 +32,9 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
     }
 
     return options
+  }
+
+  private toggle() {
+    this.model.toggle()
   }
 }
