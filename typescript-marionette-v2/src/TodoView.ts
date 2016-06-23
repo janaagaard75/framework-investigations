@@ -6,7 +6,7 @@ interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> {
 
 export default class TodoView extends Marionette.ItemView<TodoModel> {
   constructor(options: TodoViewOptions) {
-    super(TodoView.setTagName(options))
+    super(TodoView.setDefaultOptions(options))
 
     this.ui = {
       toggle: ".js-toggle"
@@ -26,10 +26,8 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
     }
   }
 
-  private static setTagName(options: TodoViewOptions): TodoViewOptions {
-    if (!options.el) {
-      options.tagName = "li"
-    }
+  private static setDefaultOptions(options: TodoViewOptions): TodoViewOptions {
+    options.tagName = "li"
 
     return options
   }
