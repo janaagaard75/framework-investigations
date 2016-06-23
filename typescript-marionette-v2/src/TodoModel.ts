@@ -1,4 +1,5 @@
 interface TodoAttributes {
+  completed?: boolean,
   title: string
 }
 
@@ -17,14 +18,6 @@ export default class Todo extends Backbone.Model {
 
   get completed(): boolean {
     return this.get("completed")
-  }
-
-  get completedString(): string {
-    if (this.completed) {
-      return "checked"
-    } else {
-      return ""
-    }
   }
 
   set completed(newValue: boolean) {

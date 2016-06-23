@@ -11,6 +11,12 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
 
   template = require("./TodoView.ejs")
 
+  templateHelpers() {
+    return {
+      checked: this.model.completed ? "checked" : ""
+    }
+  }
+
   private static setTagName(options: TodoViewOptions): TodoViewOptions {
     if (!options.el) {
       options.tagName = "li"

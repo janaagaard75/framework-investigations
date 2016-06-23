@@ -12,10 +12,14 @@ export default class App extends Marionette.Application {
 
   initialize() {
     const rootModel = new RootModel()
+
     rootModel.todos = new TodoCollection()
+
     rootModel.todos.add(new TodoModel({
+      completed: true,
       title: "Handle ind"
     }))
+
     rootModel.todos.add(new TodoModel({
       title: "Lave mad"
     }))
@@ -23,6 +27,7 @@ export default class App extends Marionette.Application {
     this.rootView = new RootView({
       model: rootModel
     })
+
     this.rootView.render()
   }
 }
