@@ -18,7 +18,4 @@ app.on("start", () => {
   Backbone.history.start()
 })
 
-// Load some initial data, and then start our application.
-//loadInitialData().then(app.start);
-
 app.start()

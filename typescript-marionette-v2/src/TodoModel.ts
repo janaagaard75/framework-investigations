@@ -1,4 +1,12 @@
+interface TodoAttributes {
+  title: string
+}
+
 export default class Todo extends Backbone.Model {
+  constructor(attributes: TodoAttributes, options?: any) {
+    super(attributes, options)
+  }
+
   defaults() {
     return {
       completed: false,

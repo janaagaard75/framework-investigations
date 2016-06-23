@@ -13,8 +13,12 @@ export default class App extends Marionette.Application {
   initialize() {
     const rootModel = new RootModel()
     rootModel.todos = new TodoCollection()
-    rootModel.todos.add(new TodoModel())
-    rootModel.todos.add(new TodoModel())
+    rootModel.todos.add(new TodoModel({
+      title: "Handle ind"
+    }))
+    rootModel.todos.add(new TodoModel({
+      title: "Lave mad"
+    }))
 
     this.rootView = new RootView({
       model: rootModel
