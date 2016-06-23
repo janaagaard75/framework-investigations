@@ -15,7 +15,7 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
     this.events = <any>{
       "click @ui.toggle": this.toggle
     }
-    this.delegateEvents();
+    this.delegateEvents()
   }
 
   template = require("./TodoView.ejs")
