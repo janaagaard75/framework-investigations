@@ -15,7 +15,6 @@ const app = new App()
 
 // Start history when our application is ready.
 app.on("start", () => {
-  window.console.info("Application started.")
   Backbone.history.start()
 })
 
