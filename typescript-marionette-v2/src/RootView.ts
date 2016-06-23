@@ -21,6 +21,12 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
     this.showChildView("todos", todosView)
   }
 
+  templateHelpers() {
+    return {
+      numberOfTodos: this.model.todos.length
+    }
+  }
+
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
     options.el = ".jsRootPlaceholder"
 

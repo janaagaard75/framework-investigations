@@ -26,12 +26,6 @@ export default class TodosView extends Marionette.CompositeView<TodoModel, TodoV
 
   template = require("./TodosView.ejs")
 
-  templateHelpers() {
-    return {
-      numberOfTodos: this.collection.length
-    }
-  }
-
   private static setDefaultOptions(options: TodosViewOptions): TodosViewOptions {
     options.childViewContainer = ".js-child-view-container"
     return options
