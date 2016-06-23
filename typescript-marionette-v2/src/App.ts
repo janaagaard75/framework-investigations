@@ -20,6 +20,5 @@ export default class App extends Marionette.Application {
       model: rootModel
     })
     this.rootView.render()
-    window.console.info("Application initialized.")
   }
 }
