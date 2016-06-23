@@ -4,19 +4,20 @@ import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TodoView from "./TodoView"
 
-// Add childViewContainer?:string; to CollectionViewOptions in marionette/index.d.ts.
+// Add this to marionette/index.d.ts.
+// interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
+//     childView?: string,
+//     collection?: Backbone.Collection<TModel>,
+//     template?: any
+// }
 
-interface TodosViewOptions extends Marionette.CollectionViewOptions<TodoModel> {
+interface TodosViewOptions extends Marionette.CompositeViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
 export default class TodosView extends Marionette.CompositeView<TodoModel, TodoView> {
   constructor(options: TodosViewOptions) {
-    super({
-      childViewContainer: ".js-child-view-container"
-    })
-
-    this.collection = options.collection
+    super(TodosView.setDefaultOptions(options))
   }
 
   childView = TodoView
@@ -24,4 +25,9 @@ export default class TodosView extends Marionette.CompositeView<TodoModel, TodoV
   collection: TodoCollection
 
   template = require("./TodosView.ejs")
+
+  private static setDefaultOptions(options: TodosViewOptions): TodosViewOptions {
+    options.childViewContainer = ".js-child-view-container"
+    return options
+  }
 }
