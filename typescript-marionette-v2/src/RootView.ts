@@ -12,6 +12,15 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
 
   template = require("./RootView.ejs")
 
+  onRender() {
+    const todosView = new TodosView({
+      collection: this.model.todos
+    })
+
+    // Note to self: Shorthand for this.getRegion("todos").show(todosView)
+    this.showChildView("todos", todosView)
+  }
+
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
     options.el = ".jsRootPlaceholder"
 
@@ -20,15 +29,5 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
     }
 
     return options
-  }
-
-  onBeforeShow() {
-    const todosView = new TodosView({
-      collection: this.model.todos
-    })
-
-    // TODO: Are these two lines equivalent?
-    this.getRegion("todos").show(todosView)
-    // this.showChildView("todos", todosView)
   }
 }
