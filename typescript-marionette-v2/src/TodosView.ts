@@ -1,3 +1,5 @@
+// TODO: Why does the compiler not complain when Marionette is missing?
+import * as Marionette from "backbone.marionette"
 import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TodoView from "./TodoView"
