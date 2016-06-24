@@ -5,7 +5,8 @@
     "jscs.enable": false,
     "jshint.enable": false,
     "search.exclude": {
-        "dist": true
+        "dist": true,
+        "typings": true
     },
     "tslint.enable": true
 }
