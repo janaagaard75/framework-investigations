@@ -4,8 +4,8 @@ export default class TodoCollection extends Backbone.Collection<TodoModel> {
   model = TodoModel
   comparator = "created"
 
-  allTodosAreCompleted(): boolean {
-    return (this.getActive().length === 0)
+  allAreCompleted(): boolean {
+    return this.all(todo => todo.completed)
   }
 
   getActive(): Array<TodoModel> {
