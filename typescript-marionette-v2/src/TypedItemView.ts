@@ -6,7 +6,7 @@ interface UiHash {
   [selector: string]: string
 }
 
-export default class ImprovedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
+export default class TypedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
   /** Call setEvents in the constructor in the initialize method. */
   protected setEvents(events: Backbone.EventsHash) {
     this.events = <any>events

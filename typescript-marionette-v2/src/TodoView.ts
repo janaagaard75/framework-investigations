@@ -1,9 +1,9 @@
-import ImprovedItemView from "./ImprovedItemView"
+import TypedItemView from "./TypedItemView"
 import TodoModel from "./TodoModel"
 
 interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> { }
 
-export default class TodoView extends ImprovedItemView<TodoModel> {
+export default class TodoView extends TypedItemView<TodoModel> {
   constructor(options: TodoViewOptions) {
     super(TodoView.setDefaultOptions(options))
 
