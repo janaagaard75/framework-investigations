@@ -12,7 +12,7 @@ export default class TodoView extends TypedItemView<TodoModel> {
     })
 
     this.setEvents({
-      "click @ui.toggle": this.toggle
+      "click @ui.toggle": this.toggleClicked
     })
   }
 
@@ -29,7 +29,7 @@ export default class TodoView extends TypedItemView<TodoModel> {
     return options
   }
 
-  private toggle() {
+  private toggleClicked() {
     this.model.toggle()
   }
 }
