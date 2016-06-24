@@ -25,7 +25,7 @@ export default class TodoView extends ImprovedItemView<TodoModel> {
   }
 
   private static setDefaultOptions(options: TodoViewOptions): TodoViewOptions {
-    options.tagName = "li"
+    options = this.setTagName(options, "li")
     return options
   }
 
