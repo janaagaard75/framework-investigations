@@ -2,22 +2,21 @@ import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import TodosView from "./TodosView"
+import TypedLayoutView from "./TypedLayoutView"
 
-interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> {
-}
+interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> { }
 
-export default class RootView extends Marionette.LayoutView<RootModel> {
+export default class RootView extends TypedLayoutView<RootModel> {
   constructor(options: RootViewOptions) {
     super(RootView.setDefaultOptions(options))
 
-    this.ui = {
+    this.setUi({
       toggleAll: ".jsToggleAll"
-    }
+    })
 
-    this.events = <any>{
+    this.setEvents({
       "click @ui.toggleAll": this.toggleAllClicked
-    }
-    this.delegateEvents()
+    })
 
     this.listenTo(this.model.todos, "change:completed", this.getThrottledRender())
   }
