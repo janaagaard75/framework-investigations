@@ -1,4 +1,3 @@
-import * as _ from "underscore"
 import App from "./App"
 
 // Create our Application
