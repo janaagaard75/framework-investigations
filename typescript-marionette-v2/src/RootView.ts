@@ -28,7 +28,6 @@ export default class RootView extends TypedLayoutView<RootModel> {
   }
 
   onRender() {
-    console.info("RootView.onRender " + Date.now())
     const todosView = new TodosView({
       collection: this.model.todos
     })
