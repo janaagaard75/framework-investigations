@@ -1,21 +1,19 @@
-import * as Marionette from "backbone.marionette"
+import ImprovedItemView from "./ImprovedItemView"
 import TodoModel from "./TodoModel"
 
-interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> {
-}
+interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> { }
 
-export default class TodoView extends Marionette.ItemView<TodoModel> {
+export default class TodoView extends ImprovedItemView<TodoModel> {
   constructor(options: TodoViewOptions) {
     super(TodoView.setDefaultOptions(options))
 
-    this.ui = {
+    this.setUi({
       toggle: ".jsToggle"
-    }
+    })
 
-    this.events = <any>{
+    this.setEvents({
       "click @ui.toggle": this.toggle
-    }
-    this.delegateEvents()
+    })
   }
 
   template = require("./TodoView.ejs")
@@ -28,7 +26,6 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
 
   private static setDefaultOptions(options: TodoViewOptions): TodoViewOptions {
     options.tagName = "li"
-
     return options
   }
 
