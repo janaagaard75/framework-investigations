@@ -9,7 +9,7 @@ export default class TodoView extends Marionette.ItemView<TodoModel> {
     super(TodoView.setDefaultOptions(options))
 
     this.ui = {
-      toggle: ".js-toggle"
+      toggle: ".jsToggle"
     }
 
     this.events = <any>{
