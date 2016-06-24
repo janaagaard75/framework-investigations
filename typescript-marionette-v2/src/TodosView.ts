@@ -1,32 +1,21 @@
-// TODO: Why does the compiler not complain when Marionette is missing?
-import * as Marionette from "backbone.marionette"
 import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TodoView from "./TodoView"
+import TypedCompositeView from "./TypedCompositeView"
+import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
 
-// Add this to marionette/index.d.ts.
-// interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
-//     childView?: string,
-//     collection?: Backbone.Collection<TModel>,
-//     template?: any
-// }
+interface TodosViewOptions extends TypedCompositeViewOptions<TodoModel, TodoCollection> { }
 
-interface TodosViewOptions extends Marionette.CompositeViewOptions<TodoModel> {
-  collection: TodoCollection
-}
-
-export default class TodosView extends Marionette.CompositeView<TodoModel, TodoView> {
-  constructor(options: TodosViewOptions) {
+export default class TodosView extends TypedCompositeView<TodoModel, TodoCollection, TodoView> {
+  constructor(options: TypedCompositeViewOptions<TodoModel, TodoCollection>) {
     super(TodosView.setDefaultOptions(options))
   }
 
   childView = TodoView
 
-  collection: TodoCollection
-
   template = require("./TodosView.ejs")
 
-  private static setDefaultOptions(options: TodosViewOptions): TodosViewOptions {
+  private static setDefaultOptions(options: TypedCompositeViewOptions<TodoModel, TodoCollection>): TypedCompositeViewOptions<TodoModel, TodoCollection> {
     options.childViewContainer = ".jsChildViewContainer"
     return options
   }
