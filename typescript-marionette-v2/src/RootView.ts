@@ -33,7 +33,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.todos
     })
 
-    // Note to self: Shorthand for this.getRegion("todos").show(todosView)
+    // Note to self: This is a shorthand notation for this.getRegion("todos").show(todosView)
     this.showChildView("todos", todosView)
   }
 
@@ -58,7 +58,6 @@ export default class RootView extends TypedLayoutView<RootModel> {
   private toggleAllClicked() {
     const markTodosCompleted = !this.model.todos.allAreCompleted()
 
-    // TODO: This tiggers a re-render for each todo that is changed. Not good.
     this.model.todos.each(todo => {
       todo.completed = markTodosCompleted
     })
