@@ -9,6 +9,15 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
   constructor(options: RootViewOptions) {
     super(RootView.setDefaultOptions(options))
 
+    this.ui = {
+      toggleAll: ".jsToggleAll"
+    }
+
+    this.events = <any>{
+      "click @ui.toggleAll": this.toggleAllClicked
+    }
+    this.delegateEvents()
+
     this.listenTo(this.model.todos, "change:completed", this.render)
   }
 
@@ -25,9 +34,10 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
 
   templateHelpers() {
     return {
-      // TODO: Create property on the model.
-      numberOfCompletedTodos: this.model.todos.filter(todo => todo.completed).length,
-      numberOfTodos: this.model.todos.length
+      // TODO: Create helper properties in the model.
+      numberOfCompletedTodos: this.model.todos.getCompleted().length,
+      numberOfTodos: this.model.todos.length,
+      toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
     }
   }
 
@@ -39,5 +49,9 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
     }
 
     return options
+  }
+
+  private toggleAllClicked() {
+    console.info("RootView.toogleAllClicked")
   }
 }

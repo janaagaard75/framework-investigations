@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%- title %></h1>
   <div class="checkbox">
-    <label><input type="checkbox" class="jsToggleAll"> Toggle todos</label>
+    <label><input type="checkbox" class="jsToggleAll" <%- toggleAllChecked %>> Toggle todos</label>
   </div>
   <div class="jsTodosPlaceholder"></div>
   <% /* TODO: Consider moving these to TodosView to avoid repainting the whole component. */ %>
