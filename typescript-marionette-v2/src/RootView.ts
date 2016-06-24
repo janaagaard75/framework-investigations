@@ -1,3 +1,4 @@
+import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import TodosView from "./TodosView"
@@ -18,26 +19,23 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
     }
     this.delegateEvents()
 
-    this.listenTo(this.model.todos, "change:completed", this.render)
+    this.listenTo(this.model.todos, "change:completed", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
 
+  private getThrottledRender() {
+    return _.throttle(this.render, 10, { leading: false })
+  }
+
   onRender() {
+    console.info("RootView.onRender " + Date.now())
     const todosView = new TodosView({
       collection: this.model.todos
     })
 
     // Note to self: Shorthand for this.getRegion("todos").show(todosView)
     this.showChildView("todos", todosView)
-  }
-
-  templateHelpers() {
-    return {
-      numberOfCompletedTodos: this.model.todos.getCompleted().length,
-      numberOfTodos: this.model.todos.length,
-      toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
-    }
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
@@ -50,7 +48,20 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
     return options
   }
 
+  templateHelpers() {
+    return {
+      numberOfCompletedTodos: this.model.todos.getCompleted().length,
+      numberOfTodos: this.model.todos.length,
+      toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
+    }
+  }
+
   private toggleAllClicked() {
-    console.info("RootView.toogleAllClicked")
+    const markTodosCompleted = !this.model.todos.allAreCompleted()
+
+    // TODO: This tiggers a re-render for each todo that is changed. Not good.
+    this.model.todos.each(todo => {
+      todo.completed = markTodosCompleted
+    })
   }
 }
