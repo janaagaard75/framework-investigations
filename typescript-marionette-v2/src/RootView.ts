@@ -34,7 +34,6 @@ export default class RootView extends Marionette.LayoutView<RootModel> {
 
   templateHelpers() {
     return {
-      // TODO: Create helper properties in the model.
       numberOfCompletedTodos: this.model.todos.getCompleted().length,
       numberOfTodos: this.model.todos.length,
       toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
