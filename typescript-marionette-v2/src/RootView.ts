@@ -50,12 +50,12 @@ export default class RootView extends TypedLayoutView<RootModel> {
     return {
       numberOfCompletedTodos: this.model.todos.getCompleted().length,
       numberOfTodos: this.model.todos.length,
-      toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
+      toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
     }
   }
 
   private toggleAllClicked() {
-    const markTodosCompleted = !this.model.todos.allAreCompleted()
+    const markTodosCompleted = !this.model.todos.allCompleted()
 
     this.model.todos.each(todo => {
       todo.completed = markTodosCompleted
