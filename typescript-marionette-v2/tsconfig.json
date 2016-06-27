@@ -1,24 +1,24 @@
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "forceConsistentCasingInFileNames": true,
-        "inlineSources": true,
-        "module": "commonjs",
-        "newLine": "LF",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        //"outDir": "dist",
-        //"outFile": "dist/bundle.js",
-        "removeComments": true,
-        "sourceMap": true,
-        //"strictNullChecks": true,
-        "target": "es5"
-    },
-    "exclude": [
-        "dist",
-        "node_modules",
-        "typings/globals",
-        "webpack.config.js"
-    ]
+  "compilerOptions": {
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": true,
+    "module": "commonjs",
+    "newLine": "LF",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    //"outDir": "dist",
+    //"outFile": "dist/bundle.js",
+    "removeComments": true,
+    "sourceMap": true,
+    //"strictNullChecks": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "typings/globals",
+    "webpack.config.js"
+  ]
 }
