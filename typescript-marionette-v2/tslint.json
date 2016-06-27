@@ -119,8 +119,8 @@
             true,
             "check-branch",
             "check-decl",
-            "check-module",
             "check-operator",
+            "check-module",
             "check-separator",
             "check-type"
         ]
