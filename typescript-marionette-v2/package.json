@@ -7,7 +7,7 @@
     "backbone.marionette": "2.4.7",
     "underscore": "1.8.3"
   },
-  "description": "Todo app written in TypeScript using Marionette. Inspired by TodoMVC.",
+  "description": "Todo app written in TypeScript using Marionette. Heavily inspired by TodoMVC.",
   "devDependencies": {
     "ejs-loader": "0.3.0",
     "html-webpack-plugin": "2.21.0",
