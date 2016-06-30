@@ -15,10 +15,12 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     this.collection = options.collection
 
     this.setUi({
+      addButton: ".jsAddButton",
       todoTitle: ".jsTitleInput"
     })
 
     this.setEvents({
+      "click @ui.addButton": this.submitForm,
       "keypress @ui.todoTitle": this.todoTitleKeypress
     })
   }
@@ -33,14 +35,20 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     const newTodo = new TodoModel({
       title: this.todoTitleElement.val().trim()
     })
-
     this.collection.add(newTodo)
+
+    this.todoTitleElement.val("")
+  }
+
+  private submitForm(e: JQueryMouseEventObject) {
+    e.preventDefault()
+    this.addTodo()
   }
 
   private todoTitleKeypress(e: JQueryKeyEventObject) {
     switch (e.which) {
-      case KeyCode.Enter:
-        this.addTodo()
+      case KeyCode.Escape:
+        console.info("Escape pressed.")
         break
     }
   }
