@@ -2,6 +2,7 @@ import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
 import AddTodoView from "./AddTodoView"
 import RootModel from "./RootModel"
+import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
 import TypedLayoutView from "./TypedLayoutView"
 
@@ -19,18 +20,11 @@ export default class RootView extends TypedLayoutView<RootModel> {
       "click @ui.toggleAll": this.toggleAllClicked
     })
 
+    // TODO: Move the toogleTodos checkbox to a separate view and remove this listener.
     this.listenTo(this.model.todos, "change:completed", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
-
-  private get addTodoRegion() {
-    return this.getRegion("addTodo")
-  }
-
-  private get todosRegion() {
-    return this.getRegion("todos")
-  }
 
   /** Returns a throttled version of the render method. */
   private getThrottledRender() {
@@ -41,12 +35,17 @@ export default class RootView extends TypedLayoutView<RootModel> {
     const addTodoView = new AddTodoView({
       collection: this.model.todos
     })
-    this.addTodoRegion.show(addTodoView)
+    this.getRegion("addTodo").show(addTodoView)
 
     const todosView = new TodosView({
       collection: this.model.todos
     })
-    this.todosRegion.show(todosView)
+    this.getRegion("todos").show(todosView)
+
+    const summarizationView = new SummarizationView({
+      collection: this.model.todos
+    })
+    this.getRegion("summarization").show(summarizationView)
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
@@ -54,6 +53,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
     options.regions = {
       addTodo: ".jsAddTodoRegion",
+      summarization: ".jsSummarizationRegion",
       todos: ".jsTodosRegion"
     }
 
@@ -62,8 +62,6 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   templateHelpers() {
     return {
-      numberOfCompletedTodos: this.model.todos.getCompleted().length,
-      numberOfTodos: this.model.todos.length,
       toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
     }
   }
