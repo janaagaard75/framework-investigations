@@ -1,19 +1,17 @@
 import KeyCode from "./KeyCode"
 import TodoCollection from "./TodoCollection"
 import TypedItemView from "./TypedItemView"
+import TodoModel from "./TodoModel"
 
-// TODO: Is this dummy model really necessary?
-class DummyModel extends Backbone.Model { }
-
-interface AddTodoViewOptions extends Backbone.ViewOptions<DummyModel> {
+interface AddTodoViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
-export default class AddTodoView extends TypedItemView<DummyModel> {
+export default class AddTodoView extends TypedItemView<TodoModel> {
   constructor(options: AddTodoViewOptions) {
     super(options)
 
-    // TODO: Is this line necessary?
+    // TODO: Is this line necessary, or is this already done by Backbone or Marionette?
     this.collection = options.collection
 
     this.setUi({
@@ -35,6 +33,12 @@ export default class AddTodoView extends TypedItemView<DummyModel> {
     if (e.which === KeyCode.Enter) {
       const newTodoTitle: string = this.newTodoTitleElement.val().trim()
       console.info(`New todo title: ${newTodoTitle}.`)
+
+      // const newTodo = new TodoModel({
+      //   title: newTodoTitle
+      // })
+
+      // this.collection.add(newTodo)
     }
   }
 }
