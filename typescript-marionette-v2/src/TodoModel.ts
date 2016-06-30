@@ -24,7 +24,7 @@ export default class Todo extends Backbone.Model {
     this.set("completed", newValue)
   }
 
-  // TODO: Come up with a better word than title for this property.
+  // TODO: Come up with a better word than title for this property. Description, perhaps?
   get title(): string {
     return this.get("title")
   }
