@@ -38,8 +38,13 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
   }
 
   private addTodo() {
+    const title = this.titleElement.val().trim()
+    if (title === "") {
+      return
+    }
+
     const newTodo = new TodoModel({
-      title: this.titleElement.val().trim()
+      title: title
     })
     this.collection.add(newTodo)
 
