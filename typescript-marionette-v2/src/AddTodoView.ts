@@ -15,31 +15,29 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     this.collection = options.collection
 
     this.setUi({
-      newTodoTitle: ".jsTitleInput"
+      todoTitle: ".jsTitleInput"
     })
 
     this.setEvents({
-      "keypress @ui.newTodoTitle": this.newTodoTitleKeypress
+      "keypress @ui.todoTitle": this.todoTitleKeypress
     })
   }
 
   template = require("./AddTodoView.ejs")
 
-  private get newTodoTitleElement(): JQuery {
-    return this.ui.newTodoTitle
+  private get todoTitleElement(): JQuery {
+    return this.ui.todoTitle
   }
 
   private addTodo() {
-    const newTodoTitle: string = this.newTodoTitleElement.val().trim()
-
     const newTodo = new TodoModel({
-      title: newTodoTitle
+      title: this.todoTitleElement.val().trim()
     })
 
     this.collection.add(newTodo)
   }
 
-  private newTodoTitleKeypress(e: JQueryKeyEventObject) {
+  private todoTitleKeypress(e: JQueryKeyEventObject) {
     switch (e.which) {
       case KeyCode.Enter:
         this.addTodo()
