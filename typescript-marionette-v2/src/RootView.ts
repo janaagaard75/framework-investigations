@@ -32,7 +32,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
     return this.getRegion("todos")
   }
 
-  /** Returns a throlleded version of the render method. */
+  /** Returns a throttled version of the render method. */
   private getThrottledRender() {
     return _.throttle(this.render, 10, { leading: false })
   }
