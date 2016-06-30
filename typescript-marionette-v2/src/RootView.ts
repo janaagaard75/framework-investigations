@@ -24,6 +24,15 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   template = require("./RootView.ejs")
 
+  private get addTodoRegion() {
+    return this.getRegion("addTodo")
+  }
+
+  private get todosRegion() {
+    return this.getRegion("todos")
+  }
+
+  /** Returns a throlleded version of the render method. */
   private getThrottledRender() {
     return _.throttle(this.render, 10, { leading: false })
   }
@@ -32,13 +41,12 @@ export default class RootView extends TypedLayoutView<RootModel> {
     const addTodoView = new AddTodoView({
       collection: this.model.todos
     })
-    // Note to self: showChildView is just a shorthand for getRegion("todos").show(todosView).
-    this.showChildView("addTodo", addTodoView)
+    this.addTodoRegion.show(addTodoView)
 
     const todosView = new TodosView({
       collection: this.model.todos
     })
-    this.showChildView("todos", todosView)
+    this.todosRegion.show(todosView)
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
