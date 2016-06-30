@@ -1,5 +1,6 @@
 import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
+import AddTodoView from "./AddTodoView"
 import RootModel from "./RootModel"
 import TodosView from "./TodosView"
 import TypedLayoutView from "./TypedLayoutView"
@@ -28,18 +29,24 @@ export default class RootView extends TypedLayoutView<RootModel> {
   }
 
   onRender() {
+    const addTodoView = new AddTodoView({
+      collection: this.model.todos
+    })
+    // Note to self: showChildView is just a shorthand for getRegion("todos").show(todosView).
+    this.showChildView("addTodo", addTodoView)
+
     const todosView = new TodosView({
       collection: this.model.todos
     })
-
-    // Note to self: This is a shorthand notation for this.getRegion("todos").show(todosView)
     this.showChildView("todos", todosView)
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
     options.el = ".jsRootPlaceholder"
 
+    // TODO: Consider postfixing with Region instead of Placeholder.
     options.regions = {
+      addTodo: ".jsAddTodoPlaceholder",
       todos: ".jsTodosPlaceholder"
     }
 

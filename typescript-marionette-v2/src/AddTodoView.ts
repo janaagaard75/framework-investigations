@@ -15,7 +15,7 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     this.collection = options.collection
 
     this.setUi({
-      newTodoTitle: ".jsNewTodoTitle"
+      newTodoTitle: ".jsTitleInput"
     })
 
     this.setEvents({
@@ -29,16 +29,21 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     return this.ui.newTodoTitle
   }
 
+  private addTodo() {
+    const newTodoTitle: string = this.newTodoTitleElement.val().trim()
+
+    const newTodo = new TodoModel({
+      title: newTodoTitle
+    })
+
+    this.collection.add(newTodo)
+  }
+
   private newTodoTitleKeypress(e: JQueryKeyEventObject) {
-    if (e.which === KeyCode.Enter) {
-      const newTodoTitle: string = this.newTodoTitleElement.val().trim()
-      console.info(`New todo title: ${newTodoTitle}.`)
-
-      // const newTodo = new TodoModel({
-      //   title: newTodoTitle
-      // })
-
-      // this.collection.add(newTodo)
+    switch (e.which) {
+      case KeyCode.Enter:
+        this.addTodo()
+        break
     }
   }
 }
