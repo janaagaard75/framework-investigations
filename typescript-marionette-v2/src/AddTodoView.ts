@@ -11,9 +11,6 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
   constructor(options: AddTodoViewOptions) {
     super(options)
 
-    // TODO: Is this line necessary, or is this already done by Backbone or Marionette?
-    this.collection = options.collection
-
     this.setUi({
       addButton: ".jsAddButton",
       titleInput: ".jsTitleInput"
