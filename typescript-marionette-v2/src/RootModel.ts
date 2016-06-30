@@ -9,7 +9,6 @@ import TodoCollection from "./TodoCollection"
 export default class RootModel extends Backbone.Model {
   defaults() {
     return {
-      title: "Todos",
       todos: TodoCollection
     }
   }
