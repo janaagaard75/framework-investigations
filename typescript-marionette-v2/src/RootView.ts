@@ -48,6 +48,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
     this.getRegion("summarization").show(summarizationView)
   }
 
+  // TODO: Is it possible to define the signature for this method?
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
     options.el = ".jsRootViewElement"
 
