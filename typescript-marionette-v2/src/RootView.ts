@@ -42,12 +42,11 @@ export default class RootView extends TypedLayoutView<RootModel> {
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
-    options.el = ".jsRootPlaceholder"
+    options.el = ".jsRootViewElement"
 
-    // TODO: Consider postfixing with Region instead of Placeholder.
     options.regions = {
-      addTodo: ".jsAddTodoPlaceholder",
-      todos: ".jsTodosPlaceholder"
+      addTodo: ".jsAddTodoRegion",
+      todos: ".jsTodosRegion"
     }
 
     return options
