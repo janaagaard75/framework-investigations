@@ -16,20 +16,20 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
 
     this.setUi({
       addButton: ".jsAddButton",
-      todoTitle: ".jsTitleInput"
+      titleInput: ".jsTitleInput"
     })
 
     this.setEvents({
       "click @ui.addButton": this.addButtonClicked,
       // Keypress is not triggered by the Escape key.
-      "keyup @ui.todoTitle": this.todoTitleKeyup
+      "keyup @ui.titleInput": this.titleInputKeyup
     })
   }
 
   template = require("./AddTodoView.ejs")
 
-  private get todoTitleElement(): JQuery {
-    return this.ui.todoTitle
+  private get titleElement(): JQuery {
+    return this.ui.titleInput
   }
 
   private addButtonClicked(e: JQueryMouseEventObject) {
@@ -39,17 +39,21 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
 
   private addTodo() {
     const newTodo = new TodoModel({
-      title: this.todoTitleElement.val().trim()
+      title: this.titleElement.val().trim()
     })
     this.collection.add(newTodo)
 
-    this.todoTitleElement.val("")
+    this.clearTitle()
   }
 
-  private todoTitleKeyup(e: JQueryKeyEventObject) {
+  private clearTitle() {
+    this.titleElement.val("")
+  }
+
+  private titleInputKeyup(e: JQueryKeyEventObject) {
     switch (e.which) {
       case KeyCode.Escape:
-        console.info("Escape pressed.")
+        this.clearTitle()
         break
     }
   }
