@@ -24,6 +24,7 @@ export default class FilterView extends TypedItemView<TodoModel> {
   completedClicked(e: JQueryMouseEventObject) {
     e.preventDefault()
     console.info("Completed clicked.")
+    // TODO: Need to trigger the navigate method on the router. But how? Make the router a singleton?
   }
 
   template = require("./FilterView.ejs")
