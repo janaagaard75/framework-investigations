@@ -9,6 +9,21 @@ interface FilterViewOptions extends Backbone.ViewOptions<TodoModel> {
 export default class FilterView extends TypedItemView<TodoModel> {
   constructor(options: FilterViewOptions) {
     super(options)
+
+    this.setUi({
+      active: ".jsActive",
+      all: ".jsAll",
+      completed: ".jsCompleted"
+    })
+
+    this.setEvents({
+      "click @ui.completed": this.completedClicked
+    })
+  }
+
+  completedClicked(e: JQueryMouseEventObject) {
+    e.preventDefault()
+    console.info("Completed clicked.")
   }
 
   template = require("./FilterView.ejs")
