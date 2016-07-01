@@ -4,13 +4,14 @@
 import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import RootView from "./RootView"
+import Router from "./Router"
 import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 
 export default class App extends Marionette.Application {
   rootView: RootView
 
-  initialize() {
+  private getInitialModel(): RootModel {
     const rootModel = new RootModel()
 
     rootModel.todos = new TodoCollection()
@@ -24,8 +25,14 @@ export default class App extends Marionette.Application {
       title: "Lave mad"
     }))
 
+    return rootModel
+  }
+
+  initialize() {
+    console.info("Initializing app")
+
     this.rootView = new RootView({
-      model: rootModel
+      model: this.getInitialModel()
     })
 
     this.rootView.render()
