@@ -9,7 +9,7 @@ export default class TodoCollection extends Backbone.Collection<TodoModel> {
   }
 
   getActive(): Array<TodoModel> {
-    return this.reject(todo => todo.completed)
+    return this.filter(todo => !todo.completed)
   }
 
   getCompleted(): Array<TodoModel> {
