@@ -1,6 +1,7 @@
 import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
 import AddTodoView from "./AddTodoView"
+import FilterView from "./FilterView"
 import RootModel from "./RootModel"
 import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
@@ -32,6 +33,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
   }
 
   onRender() {
+    // TODO: Consider instantiating the views directly in the call to show() to avoid the intermediate variable.
     const addTodoView = new AddTodoView({
       collection: this.model.todos
     })
@@ -46,6 +48,11 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.todos
     })
     this.getRegion("summarization").show(summarizationView)
+
+    const filterView = new FilterView({
+      collection: this.model.todos
+    })
+    this.getRegion("filterTodos").show(filterView)
   }
 
   // TODO: Is it possible to define the signature for this method?
@@ -54,6 +61,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
     options.regions = {
       addTodo: ".jsAddTodoRegion",
+      filterTodos: ".jsFilterTodosRegion",
       summarization: ".jsSummarizationRegion",
       todos: ".jsTodosRegion"
     }
