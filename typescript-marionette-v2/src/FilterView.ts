@@ -1,3 +1,4 @@
+import Router from "./Router"
 import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TypedItemView from "./TypedItemView"
@@ -17,14 +18,25 @@ export default class FilterView extends TypedItemView<TodoModel> {
     })
 
     this.setEvents({
+      "click @ui.active": this.activeClicked,
+      "click @ui.all": this.allClicked,
       "click @ui.completed": this.completedClicked
     })
   }
 
+  activeClicked(e: JQueryMouseEventObject) {
+    e.preventDefault()
+    Router.instance.navigateTo("active")
+  }
+
+  allClicked(e: JQueryMouseEventObject) {
+    e.preventDefault()
+    Router.instance.navigateTo("")
+  }
+
   completedClicked(e: JQueryMouseEventObject) {
     e.preventDefault()
-    console.info("Completed clicked.")
-    // TODO: Need to trigger the navigate method on the router. But how? Make the router a singleton?
+    Router.instance.navigateTo("completed")
   }
 
   template = require("./FilterView.ejs")

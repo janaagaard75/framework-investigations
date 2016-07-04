@@ -29,11 +29,7 @@ export default class App extends Marionette.Application {
   }
 
   initialize() {
-    // TODO: Fix the tslint warning.
-    new Router()
-    Backbone.history.start({
-      pushState: true
-    })
+    Router.instantiate()
 
     this.rootView = new RootView({
       model: this.getInitialModel()
