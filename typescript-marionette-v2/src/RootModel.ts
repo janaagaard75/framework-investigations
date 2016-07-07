@@ -15,14 +15,6 @@ export default class RootModel extends Backbone.Model {
 
   localStorage = new Store("todos-typescript-marionette-v2")
 
-  get title(): string {
-    return this.get("title")
-  }
-
-  set title(title: string) {
-    this.set("title", title)
-  }
-
   get todos(): TodoCollection {
     return this.get("todos")
   }
