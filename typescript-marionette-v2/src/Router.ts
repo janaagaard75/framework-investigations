@@ -1,9 +1,13 @@
 import * as Marionette from "backbone.marionette"
+import RootModel from "./RootModel"
+import TodosFilter from "./TodosFilter"
 
 type Fragment = "" | "active" | "completed"
 
 class RouterInstance extends Marionette.AppRouter {
-  constructor() {
+  constructor(
+    private rootModel: RootModel
+  ) {
     super({
       routes: {
         "": "all",
@@ -14,15 +18,15 @@ class RouterInstance extends Marionette.AppRouter {
   }
 
   all() {
-    console.info("'all' route triggered.")
+    this.rootModel.todosFilter = TodosFilter.All
   }
 
   active() {
-    console.info("'active' route triggered.")
+    this.rootModel.todosFilter = TodosFilter.Active
   }
 
   completed() {
-    console.info("'completed' route triggered.")
+    this.rootModel.todosFilter = TodosFilter.Completed
   }
 
   navigateTo(fragment: Fragment) {
@@ -33,20 +37,28 @@ class RouterInstance extends Marionette.AppRouter {
 }
 
 export default class Router {
-  private static routerInstance: RouterInstance = null
+  private static routerInstance: RouterInstance
+  private static initialized = false
 
   static get instance(): RouterInstance {
-    this.instantiate()
+    if (!this.initialized) {
+      throw new Error("Router.initialize has not been called.")
+    }
+
     return this.routerInstance
   }
 
-  static instantiate() {
-    if (this.routerInstance === null) {
-      this.routerInstance = new RouterInstance()
-
-      Backbone.history.start({
-        pushState: true
-      })
+  static initialize(rootModel: RootModel) {
+    if (this.initialized) {
+      throw new Error("Router.initialize has already been called.")
     }
+
+    this.routerInstance = new RouterInstance(rootModel)
+
+    Backbone.history.start({
+      pushState: true
+    })
+
+    this.initialized = true
   }
 }

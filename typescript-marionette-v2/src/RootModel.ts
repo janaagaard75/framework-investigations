@@ -3,13 +3,15 @@
 // declare module "backbone.localstorage" {
 //     export = Backbone.LocalStorage;
 // }
+import TodosFilter from "./TodosFilter"
 import Store = require("backbone.localstorage")
 import TodoCollection from "./TodoCollection"
 
 export default class RootModel extends Backbone.Model {
   defaults() {
     return {
-      todos: TodoCollection
+      todos: TodoCollection,
+      todosFilter: TodosFilter.All
     }
   }
 
@@ -21,5 +23,13 @@ export default class RootModel extends Backbone.Model {
 
   set todos(todos: TodoCollection) {
     this.set("todos", todos)
+  }
+
+  get todosFilter(): TodosFilter {
+    return this.get("todosFilter")
+  }
+
+  set todosFilter(filter: TodosFilter) {
+    this.set("todosFilter", filter)
   }
 }

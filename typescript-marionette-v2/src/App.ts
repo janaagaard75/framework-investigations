@@ -9,7 +9,7 @@ import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 
 export default class App extends Marionette.Application {
-  rootView: RootView
+  private rootView: RootView
 
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
@@ -29,10 +29,12 @@ export default class App extends Marionette.Application {
   }
 
   initialize() {
-    Router.instantiate()
+    const rootModel = this.getInitialModel()
+
+    Router.initialize(rootModel)
 
     this.rootView = new RootView({
-      model: this.getInitialModel()
+      model: rootModel
     })
 
     this.rootView.render()
