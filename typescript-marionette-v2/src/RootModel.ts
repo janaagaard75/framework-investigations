@@ -18,11 +18,11 @@ export default class RootModel extends Backbone.Model {
   localStorage = new Store("todos-typescript-marionette-v2")
 
   get filter(): Filter {
-    return this.get("todosFilter")
+    return this.get("filter")
   }
 
   set filter(filter: Filter) {
-    this.set("todosFilter", filter)
+    this.set("fitler", filter)
   }
 
   get todos(): TodoCollection {
