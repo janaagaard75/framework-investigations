@@ -65,9 +65,9 @@
     "no-var-keyword": true,
     "no-var-requires": true,
     "object-literal-sort-keys": true,
-    "typedef": [
+    "one-variable-per-declaration": [
       true,
-      "parameter"
+      "ignore-for-loop"
     ],
     "quotemark": [
       true,
@@ -86,6 +86,10 @@
     ],
     "triple-equals": [
       true
+    ],
+    "typedef": [
+      true,
+      "parameter"
     ],
     "typedef-whitespace": [
       true,
