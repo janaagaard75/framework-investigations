@@ -3,33 +3,21 @@
 // declare module "backbone.localstorage" {
 //     export = Backbone.LocalStorage;
 // }
-import Filter from "./Filter"
+
+import FilteredTodosModel from "./FilteredTodosModel"
 import Store = require("backbone.localstorage")
-import TodoCollection from "./TodoCollection"
 
 export default class RootModel extends Backbone.Model {
   defaults() {
     return {
-      todos: TodoCollection,
-      todosFilter: Filter.All
+      filteredTodos: new FilteredTodosModel()
     }
   }
 
+  // TODO: Stored the model in local storage.
   localStorage = new Store("todos-typescript-marionette-v2")
 
-  get filter(): Filter {
-    return this.get("filter")
-  }
-
-  set filter(filter: Filter) {
-    this.set("fitler", filter)
-  }
-
-  get todos(): TodoCollection {
-    return this.get("todos")
-  }
-
-  set todos(todos: TodoCollection) {
-    this.set("todos", todos)
+  get filteredTodos(): FilteredTodosModel {
+    return this.get("filteredTodos")
   }
 }
