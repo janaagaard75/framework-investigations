@@ -7,7 +7,6 @@ import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
 interface TodosViewOptions extends TypedCompositeViewOptions<TodoModel, TodoCollection> { }
 
 export default class TodosView extends TypedCompositeView<TodoModel, TodoCollection, TodoView> {
-  // TODO: The view either needs to know about the current filter or it should only be fed with the todos to show.
   constructor(options: TypedCompositeViewOptions<TodoModel, TodoCollection>) {
     super(TodosView.setDefaultOptions(options))
   }
@@ -26,3 +25,20 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
   //   return child.completed
   // }
 }
+
+// TODO: Create a Backbone model that contains both a filter and and list of todos.
+//
+// RootModel
+// - FilteredTodos
+//   - Filter
+//   - TodoCollection
+//
+// TodosView will extend TypedLayoutView instead of TypedCompositeView.
+
+// TODO: What about controllers?
+
+//            View
+//           /     \
+//    ItemView     CollectionView
+//        |             |
+//   LayoutView    CompositeView
