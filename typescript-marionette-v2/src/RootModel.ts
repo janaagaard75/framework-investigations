@@ -25,27 +25,6 @@ export default class RootModel extends Backbone.Model {
     this.set("fitler", filter)
   }
 
-  // TODO: Filtering a collection does not return a new collection, but an array.
-  // get filteredTodos(): TodoCollection {
-  //   const filtered = this.todos.filter(todo =>  {
-  //     switch (this.filter) {
-  //       case Filter.Active:
-  //         return !todo.completed
-
-  //       case Filter.All:
-  //         return true
-
-  //       case Filter.Completed:
-  //         return todo.completed
-
-  //       default:
-  //         throw Error("Unknown filter state.")
-  //     }
-  //   })
-
-  //   return filtered
-  // }
-
   get todos(): TodoCollection {
     return this.get("todos")
   }
