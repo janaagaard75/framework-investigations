@@ -18,15 +18,15 @@ class RouterInstance extends Marionette.AppRouter {
   }
 
   all() {
-    this.rootModel.filter = Filter.All
+    this.rootModel.filteredTodos.filter = Filter.All
   }
 
   active() {
-    this.rootModel.filter = Filter.Active
+    this.rootModel.filteredTodos.filter = Filter.Active
   }
 
   completed() {
-    this.rootModel.filter = Filter.Completed
+    this.rootModel.filteredTodos.filter = Filter.Completed
   }
 
   navigateTo(fragment: Fragment) {
