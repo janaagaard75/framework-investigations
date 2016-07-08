@@ -5,7 +5,6 @@ import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import RootView from "./RootView"
 import Router from "./Router"
-import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 
 export default class App extends Marionette.Application {
@@ -14,14 +13,12 @@ export default class App extends Marionette.Application {
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
 
-    rootModel.todos = new TodoCollection()
-
-    rootModel.todos.add(new TodoModel({
+    rootModel.filteredTodos.todos.add(new TodoModel({
       completed: true,
       title: "Handle ind"
     }))
 
-    rootModel.todos.add(new TodoModel({
+    rootModel.filteredTodos.todos.add(new TodoModel({
       title: "Lave mad"
     }))
 
