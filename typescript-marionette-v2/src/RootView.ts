@@ -22,7 +22,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
     })
 
     // TODO: Move the toogleTodos checkbox to a separate view and remove this listener.
-    this.listenTo(this.model.todos, "change:completed", this.getThrottledRender())
+    this.listenTo(this.model.filteredTodos.todos, "change:completed", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
@@ -33,26 +33,23 @@ export default class RootView extends TypedLayoutView<RootModel> {
   }
 
   onRender() {
-    // TODO: Consider instantiating the views directly in the call to show() to avoid the intermediate variable.
-    const addTodoView = new AddTodoView({
-      collection: this.model.todos
-    })
-    this.getRegion("addTodo").show(addTodoView)
+    this.getRegion("addTodo").show(new AddTodoView({
+      collection: this.model.filteredTodos.todos
+    }))
 
-    const todosView = new TodosView({
-      collection: this.model.todos
-    })
-    this.getRegion("todos").show(todosView)
+    this.getRegion("todos").show(new TodosView({
+      collection: this.model.filteredTodos.todos,
+      // TODO: This will not work, because fitler is now by value and not by reference.
+      filter: this.model.filteredTodos.filter
+    }))
 
-    const summarizationView = new SummarizationView({
-      collection: this.model.todos
-    })
-    this.getRegion("summarization").show(summarizationView)
+    this.getRegion("summarization").show(new SummarizationView({
+      collection: this.model.filteredTodos.todos
+    }))
 
-    const filterView = new FilterView({
-      collection: this.model.todos
-    })
-    this.getRegion("filterTodos").show(filterView)
+    this.getRegion("filterTodos").show(new FilterView({
+      collection: this.model.filteredTodos.todos
+    }))
   }
 
   // TODO: Is it possible to define the signature for this method?
@@ -71,14 +68,15 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   templateHelpers() {
     return {
-      toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
+      toggleAllChecked: this.model.filteredTodos.todos.allCompleted() ? "checked" : ""
     }
   }
 
   private toggleAllClicked() {
-    const markTodosCompleted = !this.model.todos.allCompleted()
+    const markTodosCompleted = !this.model.filteredTodos.todos.allCompleted()
 
-    this.model.todos.each(todo => {
+    // TODO: This should probably only affect the visible todos, and not all of them.
+    this.model.filteredTodos.todos.each(todo => {
       todo.completed = markTodosCompleted
     })
   }
