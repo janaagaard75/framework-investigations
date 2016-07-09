@@ -15,6 +15,7 @@ export default class FilterModel extends Backbone.Model {
     return this.get("filter")
   }
 
+  // TODO: Cleanup
   // set filter(newFilter: Filter) {
   //   this.set("filter", newFilter)
   // }
