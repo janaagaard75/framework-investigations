@@ -13,6 +13,11 @@ abstract class TypedCompositeView<
 
   collection: TCollection
 
+  /** Returns a throttled version of the render method. */
+  protected getThrottledRender() {
+    return _.throttle(this.render, 10, { leading: false })
+  }
+
   // TODO: Figure out how to define a template for the setDefaultOptions method.
 }
 

@@ -3,6 +3,11 @@ import TagName from "./TagName"
 import UiHash from "./UiHash"
 
 export default class TypedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
+  /** Returns a throttled version of the render method. */
+  protected getThrottledRender() {
+    return _.throttle(this.render, 10, { leading: false })
+  }
+
   /** Call setEvents in the constructor in the initialize method. */
   protected setEvents(events: Backbone.EventsHash) {
     this.events = <any>events
