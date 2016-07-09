@@ -1,20 +1,21 @@
-import Filter from "./Filter"
+import FilterModel from "./FilterModel"
 import TodoCollection from "./TodoCollection"
 
 export default class FilteredTodosModel extends Backbone.Model {
   defaults() {
     return {
-      filter: Filter.All,
+      filter: FilterModel.All,
       todos: new TodoCollection()
     }
   }
 
-  get filter(): Filter {
-    return this.get("filter")
+  get filter(): FilterModel {
+    const filter = this.get("filter")
+    return filter
   }
 
-  set filter(filter: Filter) {
-    this.set("fitler", filter)
+  set filter(filter: FilterModel) {
+    this.set("filter", filter)
   }
 
   get todos(): TodoCollection {
