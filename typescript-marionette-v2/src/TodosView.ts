@@ -19,7 +19,6 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
 
   template = require("./TodosView.ejs")
 
-  // TODO: Can this method be defined in TypedCompositeView even though it's static?
   private static setDefaultOptions(filteredTodos: FilteredTodosModel): TypedCompositeViewOptions<TodoModel, TodoCollection> {
     const options = {
       childViewContainer: ".jsChildViewContainer",
