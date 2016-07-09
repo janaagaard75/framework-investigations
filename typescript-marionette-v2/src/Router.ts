@@ -1,8 +1,10 @@
 import * as Marionette from "backbone.marionette"
-import Filter from "./Filter"
+import FilterModel from "./FilterModel"
 import RootModel from "./RootModel"
 
 type Fragment = "" | "active" | "completed"
+
+// TODO: Take a look at the simpler singleton construction from one of the other projects.
 
 class RouterInstance extends Marionette.AppRouter {
   constructor(
@@ -18,15 +20,15 @@ class RouterInstance extends Marionette.AppRouter {
   }
 
   all() {
-    this.rootModel.filteredTodos.filter = Filter.All
+    this.rootModel.filteredTodos.filter = FilterModel.All
   }
 
   active() {
-    this.rootModel.filteredTodos.filter = Filter.Active
+    this.rootModel.filteredTodos.filter = FilterModel.Active
   }
 
   completed() {
-    this.rootModel.filteredTodos.filter = Filter.Completed
+    this.rootModel.filteredTodos.filter = FilterModel.Completed
   }
 
   navigateTo(fragment: Fragment) {
