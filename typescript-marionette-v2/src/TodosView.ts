@@ -35,7 +35,7 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
   }
 
   filter(child: TodoModel, index: number, collection: TodoCollection): boolean {
-    switch (this.filteredTodos.filter.filter) {
+    switch (this.filteredTodos.filter) {
       case Filter.Active:
         return !child.completed
 
