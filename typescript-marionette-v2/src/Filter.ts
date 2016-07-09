@@ -1,4 +1,4 @@
-enum Filter {
+const enum Filter {
   Active,
   All,
   Completed
