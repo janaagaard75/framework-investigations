@@ -13,6 +13,7 @@ abstract class TypedCompositeView<
 
   collection: TCollection
 
+  // TODO: This method is shared across views. Is it possible to define it just once? Would it be possible to extend Marionette's View class in a typesafe way?
   /** Returns a throttled version of the render method. */
   protected getThrottledRender() {
     return _.throttle(this.render, 10, { leading: false })
