@@ -12,20 +12,13 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
   ) {
     super(TodosView.setDefaultOptions(filteredTodos))
 
+    this.listenTo(this.filteredTodos.todos, "change:completed", this.getThrottledRender())
     this.listenTo(this.filteredTodos, "change:filter", this.render)
   }
 
   childView = TodoView
 
   template = require("./TodosView.ejs")
-
-  private static setDefaultOptions(filteredTodos: FilteredTodosModel): TypedCompositeViewOptions<TodoModel, TodoCollection> {
-    const options = {
-      childViewContainer: ".jsChildViewContainer",
-      collection: filteredTodos.todos
-    }
-    return options
-  }
 
   filter(child: TodoModel, index: number, collection: TodoCollection): boolean {
     switch (this.filteredTodos.filter) {
@@ -41,6 +34,14 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
       default:
         throw new Error(`Unsupported filter ${this.filteredTodos.filter}.`)
     }
+  }
+
+  private static setDefaultOptions(filteredTodos: FilteredTodosModel): TypedCompositeViewOptions<TodoModel, TodoCollection> {
+    const options = {
+      childViewContainer: ".jsChildViewContainer",
+      collection: filteredTodos.todos
+    }
+    return options
   }
 }
 

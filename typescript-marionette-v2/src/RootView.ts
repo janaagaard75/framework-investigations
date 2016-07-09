@@ -20,17 +20,9 @@ export default class RootView extends TypedLayoutView<RootModel> {
     this.setEvents({
       "click @ui.toggleAll": this.toggleAllClicked
     })
-
-    // TODO: Move the toogleTodos checkbox to a separate view and remove this listener.
-    this.listenTo(this.model.filteredTodos.todos, "change:completed", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
-
-  /** Returns a throttled version of the render method. */
-  private getThrottledRender() {
-    return _.throttle(this.render, 10, { leading: false })
-  }
 
   onRender() {
     this.getRegion("addTodo").show(new AddTodoView({
@@ -48,7 +40,6 @@ export default class RootView extends TypedLayoutView<RootModel> {
     }))
   }
 
-  // TODO: Is it possible to define the signature for this method?
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
     options.el = ".jsRootViewElement"
 
