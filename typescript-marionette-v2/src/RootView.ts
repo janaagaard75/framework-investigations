@@ -23,6 +23,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
     // TODO: Move the toogleTodos checkbox to a separate view and remove this listener.
     this.listenTo(this.model.filteredTodos.todos, "change:completed", this.getThrottledRender())
+    this.listenTo(this.model.filteredTodos.filter, "change:completed", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
@@ -37,11 +38,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.filteredTodos.todos
     }))
 
-    this.getRegion("todos").show(new TodosView({
-      collection: this.model.filteredTodos.todos,
-      // TODO: This will not work, because fitler is now by value and not by reference.
-      filter: this.model.filteredTodos.filter
-    }))
+    this.getRegion("todos").show(new TodosView(this.model.filteredTodos))
 
     this.getRegion("summarization").show(new SummarizationView({
       collection: this.model.filteredTodos.todos
