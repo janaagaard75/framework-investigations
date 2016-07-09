@@ -6,19 +6,13 @@ import TodoView from "./TodoView"
 import TypedCompositeView from "./TypedCompositeView"
 import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
 
-// interface TodosViewOptions extends TypedCompositeViewOptions<TodoModel, TodoCollection> {
-//   filter: Filter
-// }
-
 export default class TodosView extends TypedCompositeView<TodoModel, TodoCollection, TodoView> {
-  // constructor(options: TodosViewOptions) {
-  //   super(TodosView.setDefaultOptions(options))
-  // }
-
   constructor(
     private filteredTodos: FilteredTodosModel
   ) {
     super(TodosView.setDefaultOptions(filteredTodos))
+
+    this.listenTo(this.filteredTodos, "change:filter", this.render)
   }
 
   childView = TodoView
@@ -50,8 +44,6 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
     }
   }
 }
-
-// TODO: TodosView will extend TypedItemView or TypedLayoutView instead of TypedCompositeView.
 
 //            View
 //           /     \

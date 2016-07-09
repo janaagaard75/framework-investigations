@@ -23,7 +23,6 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
     // TODO: Move the toogleTodos checkbox to a separate view and remove this listener.
     this.listenTo(this.model.filteredTodos.todos, "change:completed", this.getThrottledRender())
-    this.listenTo(this.model.filteredTodos, "change:filter", this.getThrottledRender())
   }
 
   template = require("./RootView.ejs")
