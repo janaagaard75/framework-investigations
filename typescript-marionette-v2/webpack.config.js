@@ -4,9 +4,7 @@ var nodeModulesPath = path.resolve(__dirname, "node_modules");
 var webpack = require("webpack")
 
 module.exports = {
-  // TODO: Choose between source-map and eval-source-map.
   devtool: "source-map",
-  //devtool: "eval-source-map",
   devServer: {
     historyApiFallback: true
   },
