@@ -3,7 +3,6 @@ import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TypedItemView from "./TypedItemView"
 
-// TODO: Add a TypedItemViewOptions interface, for consistency.
 interface FilterViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection
 }
