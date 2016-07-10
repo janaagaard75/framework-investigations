@@ -9,8 +9,7 @@ Todo app written in TypeScript and using Marionette. Created to learn about comb
 
 ## Run
 
-    webpack-dev-server --inline
-    http://localhost:8080/
+    Use `npm run` commands.
 
 ## Notes
 
