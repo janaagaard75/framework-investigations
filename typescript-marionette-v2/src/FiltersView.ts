@@ -24,6 +24,8 @@ export default class FiltersView extends TypedItemView<TodoModel> {
     })
   }
 
+  template = require("./FiltersView.ejs")
+
   activeClicked(e: JQueryMouseEventObject) {
     e.preventDefault()
     Router.instance.navigateTo("active")
@@ -38,6 +40,4 @@ export default class FiltersView extends TypedItemView<TodoModel> {
     e.preventDefault()
     Router.instance.navigateTo("completed")
   }
-
-  template = require("./FiltersView.ejs")
 }
