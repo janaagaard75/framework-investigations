@@ -9,6 +9,7 @@ export default class FilteredTodosModel extends Backbone.Model {
     }
   }
 
+  // TODO: Rename property to activeFilter.
   get filter(): Filter {
     const filter = this.get("filter")
     return filter
