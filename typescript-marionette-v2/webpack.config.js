@@ -15,7 +15,6 @@ module.exports = {
     loaders: [
       {
         test: /\.ejs$/,
-        // TODO: Test the ejs-compiled-loader.
         loader: "ejs-loader"
       },
       {
