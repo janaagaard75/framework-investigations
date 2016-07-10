@@ -3,8 +3,7 @@ interface TodoAttributes {
   title: string
 }
 
-// TODO: Rename to TodoModel.
-export default class Todo extends Backbone.Model {
+export default class TodoModel extends Backbone.Model {
   constructor(attributes: TodoAttributes, options?: any) {
     super(attributes, options)
   }
