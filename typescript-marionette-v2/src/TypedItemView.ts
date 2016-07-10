@@ -3,7 +3,7 @@ import TagName from "./TagName"
 import UiHash from "./UiHash"
 
 export default class TypedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
-  /** Returns a throttled version of the render method. */
+  /** Returns a throttled version of the render method. Use it when listening for an event that might be triggered rapidly one after the other. */
   protected getThrottledRender() {
     return _.throttle(this.render, 10, { leading: false })
   }
