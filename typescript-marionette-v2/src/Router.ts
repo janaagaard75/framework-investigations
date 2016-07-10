@@ -4,8 +4,6 @@ import RootModel from "./RootModel"
 
 type Fragment = "" | "active" | "completed"
 
-// TODO: Take a look at the simpler singleton construction from one of the other projects.
-
 class RouterInstance extends Marionette.AppRouter {
   constructor(
     private rootModel: RootModel
