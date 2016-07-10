@@ -3,12 +3,12 @@ import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TypedItemView from "./TypedItemView"
 
-interface FilterViewOptions extends Backbone.ViewOptions<TodoModel> {
+interface FiltersViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
-export default class FilterView extends TypedItemView<TodoModel> {
-  constructor(options: FilterViewOptions) {
+export default class FiltersView extends TypedItemView<TodoModel> {
+  constructor(options: FiltersViewOptions) {
     super(options)
 
     this.setUi({
@@ -39,5 +39,5 @@ export default class FilterView extends TypedItemView<TodoModel> {
     Router.instance.navigateTo("completed")
   }
 
-  template = require("./FilterView.ejs")
+  template = require("./FiltersView.ejs")
 }

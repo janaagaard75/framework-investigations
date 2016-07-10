@@ -1,7 +1,6 @@
-import * as _ from "underscore"
 import * as Marionette from "backbone.marionette"
 import AddTodoView from "./AddTodoView"
-import FilterView from "./FilterView"
+import FiltersView from "./FiltersView"
 import RootModel from "./RootModel"
 import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
@@ -35,7 +34,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.filteredTodos.todos
     }))
 
-    this.getRegion("filterTodos").show(new FilterView({
+    this.getRegion("filterTodos").show(new FiltersView({
       collection: this.model.filteredTodos.todos
     }))
   }
