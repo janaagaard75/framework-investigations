@@ -9,7 +9,7 @@ Todo app written in TypeScript and using Marionette. Created to learn about comb
 
 ## Run
 
-    Use `npm run` commands.
+Use `npm run` commands.
 
 ## Notes
 
