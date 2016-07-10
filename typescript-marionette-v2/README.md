@@ -4,12 +4,13 @@ Todo app written in TypeScript and using Marionette. Created to learn about comb
 
 ## Set Up
 
-    npm install --global webpack webpack-dev-server
-    npm install --global typescript tslint
+    npm install
 
 ## Run
 
     Use `npm run` commands.
+
+`npm run lint` does not yet work. Install tslint globally and run the command manually.
 
 ## Notes
 
