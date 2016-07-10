@@ -3,16 +3,17 @@ interface TodoAttributes {
   title: string
 }
 
+// TODO: Rename to TodoModel.
 export default class Todo extends Backbone.Model {
   constructor(attributes: TodoAttributes, options?: any) {
     super(attributes, options)
   }
 
   defaults() {
+    // No need to set defaults for required attributes.
     return {
       completed: false,
-      created: Date.now(),
-      title: ""
+      created: Date.now()
     }
   }
 
