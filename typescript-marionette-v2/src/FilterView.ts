@@ -44,4 +44,5 @@ export default class FilterView extends TypedItemView<FilterModel> {
 //   Filters: FilterCollection
 //   Todos: TodoCollection
 
-// How is this issue with data that needs to be readable in multiple places solved in Angular?
+// In Angular most data is retrieved through services, and since the service layer caches very efficiently, there is no penalty in requesting the same data more that once.
+// Idea: Make RootModel a singleton. This means that RootModel data will not be passed around between the views. A view will initialize it's own model or collection in the constructor.
