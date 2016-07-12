@@ -29,3 +29,11 @@ typings/global/backbone.localstorage/index.d.ts
     declare module "backbone.localstorage" {
       export = Backbone.LocalStorage;
     }
+
+typings/global/marionette/index.d.ts
+
+    interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
+        childView?: string,
+        collection?: Backbone.Collection<TModel>,
+        template?: any
+    }
