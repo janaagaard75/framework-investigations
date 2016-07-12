@@ -8,6 +8,7 @@ interface FilterViewOptions extends Backbone.ViewOptions<FilterModel> {
   name: string
 }
 
+// TODO: Why is this not automatically redrawn when the model changes?
 export default class FilterView extends TypedItemView<FilterModel> {
   constructor(
     private options: FilterViewOptions
@@ -25,22 +26,6 @@ export default class FilterView extends TypedItemView<FilterModel> {
 
   template = require("./FilterView.ejs")
 
-  private filterClicked() {
-    // TODO: Implement
-  }
-
-  private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
-    this.setTagName(options, "span")
-    return options
-  }
-
-  templateHelpers() {
-    return {
-      active: this.isActive(),
-      name: this.options.name
-    }
-  }
-
   private isActive(): boolean {
     switch (this.model.filter) {
       case Filter.Active:
@@ -54,6 +39,22 @@ export default class FilterView extends TypedItemView<FilterModel> {
 
       default:
         throw new Error(`The filter ${this.model.filter} is not supported.`)
+    }
+  }
+
+  private filterClicked() {
+    // TODO: Implement
+  }
+
+  private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
+    this.setTagName(options, "span")
+    return options
+  }
+
+  templateHelpers() {
+    return {
+      active: this.isActive(),
+      name: this.options.name
     }
   }
 }
