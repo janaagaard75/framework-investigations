@@ -14,8 +14,11 @@ Use `npm run` commands.
 
 ## Notes
 
-* backbone-global definition types file is required by Marionette.
-* The Marionette definition file was apparently updated to exported as "backbone.marionette" instead of just "marionette".
+backbone-global definition types file is required by Marionette.
+
+The Marionette definition file was apparently updated to exported as "backbone.marionette" instead of just "marionette".
+
+The raison d'être for Backbone's Model classes is to be able to watch for changes, kinda like Knockout's observables. A collection is needed when the system needs to be able to detect changes made in a list of things. If the list of things doesn't change dynamically, there is no need to use a Backbone Collection - an array will do fine.
 
 ### Updates required to type definition files
 
