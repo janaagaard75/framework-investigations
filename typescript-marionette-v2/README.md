@@ -26,14 +26,26 @@ Backbone's event listeners relies on the models staying the same. So it's only p
 
 typings/global/backbone.localstorage/index.d.ts
 
+At the bottom of the file add
+
     declare module "backbone.localstorage" {
-      export = Backbone.LocalStorage;
+        export = Backbone.LocalStorage;
     }
 
 typings/global/marionette/index.d.ts
+
+In interface CollectionViewOptions add this property
+
+    childViewContainer?: any
+
+Above CompositeView add this interface
 
     interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
         childView?: string,
         collection?: Backbone.Collection<TModel>,
         template?: any
     }
+
+And in CompositeView change the constructor to
+
+    constructor(options?: CompositeViewOptions<TModel>);
