@@ -22,6 +22,8 @@ The raison d'être for Backbone's Model classes is to be able to watch for chang
 
 Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model - it's not possible to replace a model object with another.
 
+The views don't automatically listen for changes. The changes to listen for has to be set up manually for each view.
+
 ### Updates required to type definition files
 
 typings/global/backbone.localstorage/index.d.ts
