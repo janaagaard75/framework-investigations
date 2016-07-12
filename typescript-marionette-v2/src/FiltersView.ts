@@ -3,9 +3,13 @@ import Router from "./Router"
 import TodoModel from "./TodoModel"
 import TypedLayoutView from "./TypedLayoutView"
 
+interface FiltersViewOptions extends Backbone.ViewOptions<TodoModel> {
+}
+
+// TODO: How do I get rid of the TodoModel? It's not used.
 export default class FiltersView extends TypedLayoutView<TodoModel> {
-  constructor() {
-    super()
+  constructor(options: FiltersViewOptions) {
+    super(options)
 
     this.setUi({
       active: ".jsActive",
@@ -55,6 +59,7 @@ export default class FiltersView extends TypedLayoutView<TodoModel> {
   onShow() {
     this.filters.forEach(filter => {
       this.addRegion(filter.name, ".js-" + filter.name).show(new FilterView({
+        active: true, // TODO
         fragment: filter.fragment,
         name: filter.name
       }))
