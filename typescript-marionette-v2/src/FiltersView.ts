@@ -58,7 +58,7 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
 
   onShow() {
     this.filters.forEach(filter => {
-      this.addRegion(filter.name, ".js-" + filter.name).show(new FilterView({
+      this.addRegion(filter.name, ".js" + filter.name).show(new FilterView({
         active: true, // TODO
         fragment: filter.fragment,
         name: filter.name
