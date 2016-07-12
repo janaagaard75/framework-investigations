@@ -1,3 +1,3 @@
-type TagName = "div" | "li"
+type TagName = "div" | "li" | "span"
 
 export default TagName

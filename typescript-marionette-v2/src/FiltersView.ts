@@ -1,8 +1,9 @@
+import FilterView from "./FilterView"
 import Router from "./Router"
 import TodoModel from "./TodoModel"
-import TypedItemView from "./TypedItemView"
+import TypedLayoutView from "./TypedLayoutView"
 
-export default class FiltersView extends TypedItemView<TodoModel> {
+export default class FiltersView extends TypedLayoutView<TodoModel> {
   constructor() {
     super()
 
@@ -19,6 +20,21 @@ export default class FiltersView extends TypedItemView<TodoModel> {
     })
   }
 
+  private filters = [
+    {
+      fragment: "",
+      name: "All"
+    },
+    {
+      fragment: "active",
+      name: "Active"
+    },
+    {
+      fragment: "completed",
+      name: "Completed"
+    }
+  ]
+
   template = require("./FiltersView.ejs")
 
   activeClicked(e: JQueryMouseEventObject) {
@@ -34,5 +50,20 @@ export default class FiltersView extends TypedItemView<TodoModel> {
   completedClicked(e: JQueryMouseEventObject) {
     e.preventDefault()
     Router.instance.navigateTo("completed")
+  }
+
+  onShow() {
+    this.filters.forEach(filter => {
+      this.addRegion(filter.name, ".js-" + filter.name).show(new FilterView({
+        fragment: filter.fragment,
+        name: filter.name
+      }))
+    })
+  }
+
+  templateHelpers() {
+    return {
+      filters: this.filters
+    }
   }
 }
