@@ -16,3 +16,11 @@ Use `npm run` commands.
 
 * backbone-global definition types file is required by Marionette.
 * The Marionette definition file was apparently updated to exported as "backbone.marionette" instead of just "marionette".
+
+### Updates required to type definition files
+
+typings/global/backbone.localstorage/index.d.ts
+
+    declare module "backbone.localstorage" {
+      export = Backbone.LocalStorage;
+    }
