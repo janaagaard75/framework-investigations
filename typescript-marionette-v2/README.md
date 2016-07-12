@@ -20,6 +20,8 @@ The Marionette definition file was apparently updated to exported as "backbone.m
 
 The raison d'être for Backbone's Model classes is to be able to watch for changes, kinda like Knockout's observables. A collection is needed when the system needs to be able to detect changes made in a list of things. If the list of things doesn't change dynamically, there is no need to use a Backbone Collection - an array will do fine.
 
+Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model - it's not possible to replace a model object with another.
+
 ### Updates required to type definition files
 
 typings/global/backbone.localstorage/index.d.ts
