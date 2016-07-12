@@ -27,5 +27,12 @@ Backbone's event listeners relies on the models staying the same. So it's only p
 typings/global/backbone.localstorage/index.d.ts
 
     declare module "backbone.localstorage" {
-      export = Backbone.LocalStorage;
+        export = Backbone.LocalStorage;
+    }
+
+typings/global/marionette/index.d.ts
+
+    interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
+        childViewOptions?: any
+        collection: Backbone.Collection<TModel>
     }
