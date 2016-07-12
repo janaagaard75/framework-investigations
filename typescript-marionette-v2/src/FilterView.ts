@@ -1,9 +1,10 @@
+import Filter from "./Filter"
 import FilterModel from "./FilterModel"
 import TypedItemView from "./TypedItemView"
 
 interface FilterViewOptions extends Backbone.ViewOptions<FilterModel> {
-  active: boolean,
   fragment: string,
+  model: FilterModel,
   name: string
 }
 
@@ -35,8 +36,24 @@ export default class FilterView extends TypedItemView<FilterModel> {
 
   templateHelpers() {
     return {
-      active: this.options.active,
+      active: this.isActive(),
       name: this.options.name
+    }
+  }
+
+  private isActive(): boolean {
+    switch (this.model.filter) {
+      case Filter.Active:
+        return this.options.name === "Active"
+
+      case Filter.All:
+        return this.options.name === "All"
+
+      case Filter.Completed:
+        return this.options.name === "Completed"
+
+      default:
+        throw new Error(`The filter ${this.model.filter} is not supported.`)
     }
   }
 }
