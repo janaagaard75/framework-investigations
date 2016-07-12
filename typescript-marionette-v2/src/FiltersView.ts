@@ -1,15 +1,10 @@
 import Router from "./Router"
-import TodoCollection from "./TodoCollection"
 import TodoModel from "./TodoModel"
 import TypedItemView from "./TypedItemView"
 
-interface FiltersViewOptions extends Backbone.ViewOptions<TodoModel> {
-  collection: TodoCollection
-}
-
 export default class FiltersView extends TypedItemView<TodoModel> {
-  constructor(options: FiltersViewOptions) {
-    super(options)
+  constructor() {
+    super()
 
     this.setUi({
       active: ".jsActive",

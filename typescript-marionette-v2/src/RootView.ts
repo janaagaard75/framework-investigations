@@ -37,9 +37,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.todos
     }))
 
-    this.getRegion("filterTodos").show(new FiltersView({
-      collection: this.model.todos
-    }))
+    this.getRegion("filterTodos").show(new FiltersView())
   }
 
   private static setDefaultOptions(options: RootViewOptions): RootViewOptions {
