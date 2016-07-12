@@ -13,12 +13,12 @@ export default class App extends Marionette.Application {
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
 
-    rootModel.filteredTodos.todos.add(new TodoModel({
+    rootModel.todos.add(new TodoModel({
       completed: true,
       title: "Handle ind"
     }))
 
-    rootModel.filteredTodos.todos.add(new TodoModel({
+    rootModel.todos.add(new TodoModel({
       title: "Lave mad"
     }))
 

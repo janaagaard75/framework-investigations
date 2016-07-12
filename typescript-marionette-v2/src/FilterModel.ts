@@ -1,5 +1,7 @@
+import Filter from "./Filter"
+
 interface FilterModelAttributes {
-  active: boolean
+  filter: Filter
 }
 
 export default class FilterModel extends Backbone.Model {
@@ -7,7 +9,13 @@ export default class FilterModel extends Backbone.Model {
     super(attributes, options)
   }
 
-  get active(): boolean {
-    return this.get("active")
+  get filter(): Filter {
+    return this.get("filter")
   }
+
+  set filter(newFilter: Filter) {
+    this.set("filter", newFilter)
+  }
+
+  // TODO: Consider adding attributes for the three kinds of filters. That way other classes will only have to import FilterModel and not also Filter.
 }

@@ -25,17 +25,20 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   onRender() {
     this.getRegion("addTodo").show(new AddTodoView({
-      collection: this.model.filteredTodos.todos
+      collection: this.model.todos
     }))
 
-    this.getRegion("todos").show(new TodosView(this.model.filteredTodos))
+    this.getRegion("todos").show(new TodosView({
+      activeFilter: this.model.activeFilter,
+      collection: this.model.todos
+    }))
 
     this.getRegion("summarization").show(new SummarizationView({
-      collection: this.model.filteredTodos.todos
+      collection: this.model.todos
     }))
 
     this.getRegion("filterTodos").show(new FiltersView({
-      collection: this.model.filteredTodos.todos
+      collection: this.model.todos
     }))
   }
 
@@ -54,15 +57,15 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   templateHelpers() {
     return {
-      toggleAllChecked: this.model.filteredTodos.todos.allCompleted() ? "checked" : ""
+      toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
     }
   }
 
   private toggleAllClicked() {
-    const markTodosCompleted = !this.model.filteredTodos.todos.allCompleted()
+    const markTodosCompleted = !this.model.todos.allCompleted()
 
     // TODO: This should probably only affect the visible todos, and not all of them.
-    this.model.filteredTodos.todos.each(todo => {
+    this.model.todos.each(todo => {
       todo.completed = markTodosCompleted
     })
   }

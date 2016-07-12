@@ -1,5 +1,6 @@
 import * as Marionette from "backbone.marionette"
 import Filter from "./Filter"
+import FilterModel from "./FilterModel"
 import RootModel from "./RootModel"
 
 type Fragment = "" | "active" | "completed"
@@ -18,15 +19,15 @@ class RouterInstance extends Marionette.AppRouter {
   }
 
   all() {
-    this.rootModel.filteredTodos.filter = Filter.All
+    this.rootModel.activeFilter.filter = Filter.All
   }
 
   active() {
-    this.rootModel.filteredTodos.filter = Filter.Active
+    this.rootModel.activeFilter.filter = Filter.Active
   }
 
   completed() {
-    this.rootModel.filteredTodos.filter = Filter.Completed
+    this.rootModel.activeFilter.filter = Filter.Completed
   }
 
   navigateTo(fragment: Fragment) {
