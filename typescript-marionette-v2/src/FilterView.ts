@@ -8,7 +8,6 @@ interface FilterViewOptions extends Backbone.ViewOptions<FilterModel> {
   name: string
 }
 
-// TODO: Why is this not automatically redrawn when the model changes?
 export default class FilterView extends TypedItemView<FilterModel> {
   constructor(
     private options: FilterViewOptions
@@ -22,6 +21,9 @@ export default class FilterView extends TypedItemView<FilterModel> {
     this.setEvents({
       "click @ui.filterLink": this.filterClicked
     })
+
+    // TODO: Why is is necessary to listen for this event manually?
+    this.listenTo(this.model, "change:filter", this.getThrottledRender())
   }
 
   template = require("./FilterView.ejs")
