@@ -1,13 +1,13 @@
+import FilterModel from "./FilterModel"
 import FilterView from "./FilterView"
 import Router from "./Router"
-import TodoModel from "./TodoModel"
 import TypedLayoutView from "./TypedLayoutView"
 
-interface FiltersViewOptions extends Backbone.ViewOptions<TodoModel> {
+interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
+  model: FilterModel
 }
 
-// TODO: How do I get rid of the TodoModel? It's not used.
-export default class FiltersView extends TypedLayoutView<TodoModel> {
+export default class FiltersView extends TypedLayoutView<FilterModel> {
   constructor(options: FiltersViewOptions) {
     super(options)
 

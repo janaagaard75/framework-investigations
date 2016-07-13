@@ -1,10 +1,4 @@
 <div>
-  <!-- TODO: Hightlight the currently active filter. -->
-  <a href class="jsAll">All</a>
-  <a href class="jsActive">Active</a>
-  <a href class="jsCompleted">Completed</a>
-</div>
-<div>
   <% _.each(filters, function (filter) { %>
     <span class="js-<%- filter.name %>"></span>
   <% }) %>
