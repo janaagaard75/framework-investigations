@@ -8,7 +8,9 @@ interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
 }
 
 export default class FiltersView extends TypedLayoutView<FilterModel> {
-  constructor(options: FiltersViewOptions) {
+  constructor(
+    private options: FiltersViewOptions
+  ) {
     super(options)
 
     this.setUi({
@@ -59,8 +61,8 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
   onShow() {
     this.filters.forEach(filter => {
       this.addRegion(filter.name, ".js-" + filter.name).show(new FilterView({
-        active: true, // TODO
         fragment: filter.fragment,
+        model: this.options.model,
         name: filter.name
       }))
     })
