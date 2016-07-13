@@ -3,8 +3,8 @@ import TypedItemView from "./TypedItemView"
 
 interface FilterViewOptions extends Backbone.ViewOptions<FilterModel> {
   fragment: string,
-  name: string,
-  model: FilterModel
+  model: FilterModel,
+  name: string
 }
 
 export default class FilterView extends TypedItemView<FilterModel> {
