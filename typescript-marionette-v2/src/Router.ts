@@ -1,9 +1,7 @@
 import * as Marionette from "backbone.marionette"
 import Filter from "./Filter"
-import FilterModel from "./FilterModel"
+import Fragment from "./Fragment"
 import RootModel from "./RootModel"
-
-type Fragment = "" | "active" | "completed"
 
 class RouterInstance extends Marionette.AppRouter {
   constructor(
