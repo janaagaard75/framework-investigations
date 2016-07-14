@@ -40,8 +40,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
 
   templateHelpers() {
     return {
-      active: this.isActive(),
-      name: this.model.name // TODO: Is this necessary?
+      active: this.isActive()
     }
   }
 }
