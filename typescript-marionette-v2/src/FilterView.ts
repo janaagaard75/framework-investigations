@@ -22,8 +22,7 @@ export default class FilterView extends TypedItemView<FilterModel> {
       "click @ui.filterLink": this.filterClicked
     })
 
-    // TODO: Why is is necessary to listen for this event manually?
-    this.listenTo(this.model, "change:filter", this.getThrottledRender())
+    this.listenTo(this.model, "change:filter", this.render)
   }
 
   template = require("./FilterView.ejs")

@@ -8,7 +8,9 @@ interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
 }
 
 export default class FiltersView extends TypedLayoutView<FilterModel> {
-  constructor(options: FiltersViewOptions) {
+  constructor(
+    private options: FiltersViewOptions
+  ) {
     super(options)
 
     // TODO: Delete these UI and events, since it will be handled by FilterView.
