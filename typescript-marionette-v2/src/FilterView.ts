@@ -48,7 +48,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
       "click @ui.filterLink": this.filterClicked
     })
 
-    this.listenTo(this.model, "change:filter", this.render)
+    this.listenTo(this.model.activeFilter, "change:filter", this.render)
   }
 
   template = require("./FilterView.ejs")
