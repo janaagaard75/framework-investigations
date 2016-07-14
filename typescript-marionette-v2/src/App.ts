@@ -13,14 +13,17 @@ export default class App extends Marionette.Application {
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
 
-    rootModel.todos.add(new TodoModel({
-      completed: true,
-      title: "Handle ind"
-    }))
+    // rootModel.todos.add(new TodoModel({
+    //   completed: true,
+    //   title: "Handle ind"
+    // }))
 
-    rootModel.todos.add(new TodoModel({
-      title: "Lave mad"
-    }))
+    // rootModel.todos.add(new TodoModel({
+    //   title: "Lave mad"
+    // }))
+
+    // TODO: This doesn't do anything. It has to be called on the collection of TODOs.
+    rootModel.fetch()
 
     return rootModel
   }

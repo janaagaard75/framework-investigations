@@ -1,6 +1,6 @@
 import Filter from "./Filter"
 import FilterModel from "./FilterModel"
-import Store = require("backbone.localstorage")
+import BackboneLocalStorage = require("backbone.localstorage")
 import TodoCollection from "./TodoCollection"
 
 export default class RootModel extends Backbone.Model {
@@ -14,7 +14,7 @@ export default class RootModel extends Backbone.Model {
   }
 
   // TODO: Stored the model in local storage.
-  localStorage = new Store("todos-typescript-marionette-v2")
+  localStorage = new BackboneLocalStorage("todos-typescript-marionette-v2")
 
   get activeFilter(): FilterModel {
     return this.get("activeFilter")
