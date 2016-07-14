@@ -17,8 +17,6 @@ abstract class TypedCompositeView<
   protected getThrottledRender() {
     return _.throttle(this.render, 10, { leading: false })
   }
-
-  // TODO: Figure out how to define a template for the setDefaultOptions method.
 }
 
 export default TypedCompositeView
