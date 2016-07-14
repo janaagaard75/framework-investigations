@@ -2,6 +2,7 @@ import Filter from "./Filter"
 import FilterModel from "./FilterModel"
 import Fragment from "./Fragment"
 
+// TODO: Figure out a rule for when several things belong to the same file. Either move this to a separate file or include Filter in FilterModel.ts.
 export interface FilterViewModelAttributes {
   activeFilter: FilterModel,
   filter: Filter,
