@@ -37,20 +37,34 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
 
   template = require("./FiltersView.ejs")
 
+  private static getFilterCssClass(filter: FilterViewModelAttributes): string {
+    const cssClass = `js${FiltersView.getFilterId(filter)}`
+    return cssClass
+  }
+
+  private static getFilterId(filterAttributes: FilterViewModelAttributes): string {
+    const filterId = `Filter${filterAttributes.filter}`
+    return filterId
+  }
+
   onShow() {
-    this.filters.forEach(filter => {
+    this.filters.forEach(filterAttributes => {
+      const regionName = FiltersView.getFilterId(filterAttributes);
+      const regionSelector = `.${FiltersView.getFilterCssClass(filterAttributes)}`
+
       this
-        .addRegion(filter.name, ".js" + filter.name)
+        .addRegion(regionName, regionSelector)
         .show(
         new FilterView({
-          model: new FilterViewModel(filter)
+          model: new FilterViewModel(filterAttributes)
         }))
     })
   }
 
   templateHelpers() {
     return {
-      filters: this.filters
+      filters: this.filters,
+      getFilterCssClass: FiltersView.getFilterCssClass
     }
   }
 }

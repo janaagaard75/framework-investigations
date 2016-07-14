@@ -1,5 +1,5 @@
 <div>
-  <% _.each(filters, function (filter) { %>
-    <span class="js<%- filter.name %>"></span>
+  <% _.each(filters, function (filterAttributes) { %>
+    <span class="<%- getFilterCssClass(filterAttributes) %>"></span>
   <% }) %>
 </div>
