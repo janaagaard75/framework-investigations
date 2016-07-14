@@ -8,11 +8,8 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    //"outDir": "dist",
-    //"outFile": "dist/bundle.js",
     "removeComments": true,
     "sourceMap": true,
-    "strictNullChecks": true,
     //"strictNullChecks": true,
     "target": "es5"
   },
