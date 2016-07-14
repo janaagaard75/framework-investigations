@@ -40,7 +40,7 @@ Declare a module a the bottom of the file.
 
 Add this property in `CollectionViewOptions`.
 
-    childViewContainer?: any
+    childViewContainer?: any;
 
 Add this interface above `CompositeView`.
 
