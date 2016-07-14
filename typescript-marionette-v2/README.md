@@ -1,8 +1,6 @@
 # TypeScript Marionette Todo App
 
-Todo app written in TypeScript and using Marionette. Created to learn about Backbone and Marionette
-and how it could be possible to use TypeScript with that framework. This is not meant as a
-reference implementation for building Marionette applications. Heavily inspired by TodoMVC.
+Todo app written in TypeScript and using Marionette. Created to learn about Backbone and Marionette and how it could be possible to use TypeScript with that framework. This is not meant as a reference implementation for building Marionette applications. Heavily inspired by TodoMVC.
 
 ## Set Up
 
@@ -25,6 +23,8 @@ The raison d'être for Backbone's Model classes is to be able to watch for chang
 Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model - it's not possible to replace a model object with another.
 
 The views don't automatically listen for changes. The changes to listen for has to be set up manually for each view.
+
+The views generally only accept a single model, so it can easily become necessary to create view models specific to each a view. This might be a consequence of the string typings that TypeScript introduce. FilterView.ts shows that this is quite verbose.
 
 ### Updates required to type definition files
 
