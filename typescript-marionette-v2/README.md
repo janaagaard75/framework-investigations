@@ -1,6 +1,8 @@
 # TypeScript Marionette Todo App
 
-Todo app written in TypeScript and using Marionette. Created to learn about combining these two technologies and the latest build tools. Heavily inspired by TodoMVC, but diverging from that project, especially by using Bootstrap instead of the default markup and CSS.
+Todo app written in TypeScript and using Marionette. Created to learn about Backbone and Marionette
+and how it could be possible to use TypeScript with that framework. This is not meant as a
+reference implementation for building Marionette applications. Heavily inspired by TodoMVC.
 
 ## Set Up
 
