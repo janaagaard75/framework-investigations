@@ -1,37 +1,5 @@
-import Filter from "./Filter"
-import FilterModel from "./FilterModel"
-import Fragment from "./Fragment"
+import FilterViewModel from "./FilterViewModel"
 import TypedItemView from "./TypedItemView"
-
-export interface FilterViewModelAttributes {
-  activeFilter: FilterModel,
-  filter: Filter,
-  fragment: Fragment,
-  name: string
-}
-
-// TODO: Consider moving this to it's own file.
-export class FilterViewModel extends Backbone.Model {
-  constructor(attributes: FilterViewModelAttributes, options?: any) {
-    super(attributes, options)
-  }
-
-  get activeFilter(): FilterModel {
-    return this.get("activeFilter")
-  }
-
-  get filter(): Filter {
-    return this.get("filter")
-  }
-
-  get fragment(): Fragment {
-    return this.get("fragment")
-  }
-
-  get name(): string {
-    return this.get("name")
-  }
-}
 
 interface FilterViewOptions extends Backbone.ViewOptions<FilterViewModel> {
   model: FilterViewModel

@@ -1,6 +1,7 @@
 import Filter from "./Filter"
 import FilterModel from "./FilterModel"
-import FilterView, { FilterViewModel, FilterViewModelAttributes } from "./FilterView"
+import FilterView from "./FilterView"
+import FilterViewModel, { FilterViewModelAttributes } from "./FilterViewModel"
 import Router from "./Router"
 import TypedLayoutView from "./TypedLayoutView"
 
