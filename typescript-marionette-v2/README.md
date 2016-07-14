@@ -26,6 +26,10 @@ The views don't automatically listen for changes. The changes to listen for has 
 
 The views generally only accept a single model, so it can easily become necessary to create view models specific to each a view. This might be a consequence of the string typings that TypeScript introduce. FilterView.ts shows that this is quite verbose.
 
+It's not possible to define a signature for setDefaultOptions because the method is static, and this makes it impossible to access the types defined on the class.
+
+Upgrading to TypeScript 2 results in errors in the type definition files.
+
 ### Updates required to type definition files
 
 #### In `typings/global/backbone.localstorage/index.d.ts`
