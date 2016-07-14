@@ -28,21 +28,21 @@ The views generally only accept a single model, so it can easily become necessar
 
 ### Updates required to type definition files
 
-#### `typings/global/backbone.localstorage/index.d.ts`
+#### In `typings/global/backbone.localstorage/index.d.ts`
 
-Add to the bottom of the file
+Declare a module a the bottom of the file.
 
     declare module "backbone.localstorage" {
         export = Backbone.LocalStorage;
     }
 
-#### `typings/global/marionette/index.d.ts`
+#### In `typings/global/marionette/index.d.ts`
 
-Add this property in `CollectionViewOptions`,
+Add this property in `CollectionViewOptions`.
 
     childViewContainer?: any
 
-Add this interface above `CompositeView`
+Add this interface above `CompositeView`.
 
     interface CompositeViewOptions<TModel extends Backbone.Model> extends CollectionViewOptions<TModel> {
         childView?: string,
@@ -50,6 +50,6 @@ Add this interface above `CompositeView`
         template?: any
     }
 
-Change the contructor in `CompositeView` to
+Change the contructor in `CompositeView`.
 
     constructor(options?: CompositeViewOptions<TModel>);
