@@ -3,7 +3,6 @@ import FilterModel from "./FilterModel"
 import Store = require("backbone.localstorage")
 import TodoCollection from "./TodoCollection"
 
-// TODO: There is no need for this class to be a Backbone Model. A POJO is fine.
 export default class RootModel extends Backbone.Model {
   defaults() {
     return {
