@@ -10,6 +10,7 @@ export interface FilterViewModelAttributes {
   name: string
 }
 
+// TODO: Consider moving this to it's own file.
 export class FilterViewModel extends Backbone.Model {
   constructor(attributes: FilterViewModelAttributes, options?: any) {
     super(attributes, options)
