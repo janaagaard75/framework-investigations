@@ -1,5 +1,6 @@
+import Filter from "./Filter"
 import FilterModel from "./FilterModel"
-import FilterView from "./FilterView"
+import FilterView, { FilterViewModel, FilterViewModelAttributes } from "./FilterView"
 import Router from "./Router"
 import TypedLayoutView from "./TypedLayoutView"
 
@@ -27,16 +28,22 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
     })
   }
 
-  private filters = [
+  private filters: Array<FilterViewModelAttributes> = [
     {
+      activeFilter: this.model,
+      filter: Filter.All,
       fragment: "",
       name: "All"
     },
     {
+      activeFilter: this.model,
+      filter: Filter.Active,
       fragment: "active",
       name: "Active"
     },
     {
+      activeFilter: this.model,
+      filter: Filter.Completed,
       fragment: "completed",
       name: "Completed"
     }
@@ -61,11 +68,12 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
 
   onShow() {
     this.filters.forEach(filter => {
-      this.addRegion(filter.name, ".js" + filter.name).show(new FilterView({
-        fragment: filter.fragment,
-        model: this.model,
-        name: filter.name
-      }))
+      this
+        .addRegion(filter.name, ".js" + filter.name)
+        .show(
+        new FilterView({
+          model: new FilterViewModel(filter)
+        }))
     })
   }
 

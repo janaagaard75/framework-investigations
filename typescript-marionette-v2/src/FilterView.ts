@@ -1,17 +1,43 @@
 import Filter from "./Filter"
 import FilterModel from "./FilterModel"
+import Fragment from "./Fragment"
 import TypedItemView from "./TypedItemView"
 
-interface FilterViewOptions extends Backbone.ViewOptions<FilterModel> {
-  fragment: string,
-  model: FilterModel,
+export interface FilterViewModelAttributes {
+  activeFilter: FilterModel,
+  filter: Filter,
+  fragment: Fragment,
   name: string
 }
 
-export default class FilterView extends TypedItemView<FilterModel> {
-  constructor(
-    private options: FilterViewOptions
-  ) {
+export class FilterViewModel extends Backbone.Model {
+  constructor(attributes: FilterViewModelAttributes, options?: any) {
+    super(attributes, options)
+  }
+
+  get activeFilter(): FilterModel {
+    return this.get("activeFilter")
+  }
+
+  get filter(): Filter {
+    return this.get("filter")
+  }
+
+  get fragment(): Fragment {
+    return this.get("fragment")
+  }
+
+  get name(): string {
+    return this.get("name")
+  }
+}
+
+interface FilterViewOptions extends Backbone.ViewOptions<FilterViewModel> {
+  model: FilterViewModel
+}
+
+export default class FilterView extends TypedItemView<FilterViewModel> {
+  constructor(options: FilterViewOptions) {
     super(FilterView.setDefaultOptions(options))
 
     this.setUi({
@@ -28,23 +54,13 @@ export default class FilterView extends TypedItemView<FilterModel> {
   template = require("./FilterView.ejs")
 
   private isActive(): boolean {
-    switch (this.model.filter) {
-      case Filter.Active:
-        return this.options.name === "Active"
-
-      case Filter.All:
-        return this.options.name === "All"
-
-      case Filter.Completed:
-        return this.options.name === "Completed"
-
-      default:
-        throw new Error(`The filter ${this.model.filter} is not supported.`)
-    }
+    const isActive = this.model.filter === this.model.activeFilter.filter
+    return isActive
   }
 
   private filterClicked() {
     // TODO: Implement
+    window.console.info(`Filter ${this.model.filter} clicked.`)
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
@@ -55,7 +71,7 @@ export default class FilterView extends TypedItemView<FilterModel> {
   templateHelpers() {
     return {
       active: this.isActive(),
-      name: this.options.name
+      name: this.model.name // TODO: Is this necessary?
     }
   }
 }
