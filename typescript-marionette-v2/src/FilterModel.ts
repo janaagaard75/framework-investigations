@@ -16,6 +16,4 @@ export default class FilterModel extends Backbone.Model {
   set filter(newFilter: Filter) {
     this.set("filter", newFilter)
   }
-
-  // TODO: Consider adding attributes for the three kinds of filters. That way other classes will only have to import FilterModel and not also Filter.
 }
