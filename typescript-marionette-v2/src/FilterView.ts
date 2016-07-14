@@ -1,4 +1,5 @@
 import FilterViewModel from "./FilterViewModel"
+import Router from "./Router"
 import TypedItemView from "./TypedItemView"
 
 interface FilterViewOptions extends Backbone.ViewOptions<FilterViewModel> {
@@ -27,9 +28,9 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
     return isActive
   }
 
-  private filterClicked() {
-    // TODO: Implement
-    window.console.info(`Filter ${this.model.filter} clicked.`)
+  private filterClicked(e: JQueryMouseEventObject) {
+    e.preventDefault()
+    Router.instance.navigateTo(this.model.fragment)
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {

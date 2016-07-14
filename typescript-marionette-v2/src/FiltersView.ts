@@ -10,23 +10,8 @@ interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
 }
 
 export default class FiltersView extends TypedLayoutView<FilterModel> {
-  constructor(
-    private options: FiltersViewOptions
-  ) {
+  constructor(options: FiltersViewOptions) {
     super(options)
-
-    // TODO: Delete these UI and events, since it will be handled by FilterView.
-    this.setUi({
-      active: ".jsActive",
-      all: ".jsAll",
-      completed: ".jsCompleted"
-    })
-
-    this.setEvents({
-      "click @ui.active": this.activeClicked,
-      "click @ui.all": this.allClicked,
-      "click @ui.completed": this.completedClicked
-    })
   }
 
   private filters: Array<FilterViewModelAttributes> = [
@@ -51,21 +36,6 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
   ]
 
   template = require("./FiltersView.ejs")
-
-  activeClicked(e: JQueryMouseEventObject) {
-    e.preventDefault()
-    Router.instance.navigateTo("active")
-  }
-
-  allClicked(e: JQueryMouseEventObject) {
-    e.preventDefault()
-    Router.instance.navigateTo("")
-  }
-
-  completedClicked(e: JQueryMouseEventObject) {
-    e.preventDefault()
-    Router.instance.navigateTo("completed")
-  }
 
   onShow() {
     this.filters.forEach(filter => {
