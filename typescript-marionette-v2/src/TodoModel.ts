@@ -34,5 +34,6 @@ export default class TodoModel extends Backbone.Model {
 
   toggle(): void {
     this.completed = !this.completed
+    this.save()
   }
 }

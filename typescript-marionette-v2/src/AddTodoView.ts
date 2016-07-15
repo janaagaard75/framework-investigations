@@ -43,8 +43,8 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
     const newTodo = new TodoModel({
       title: title
     })
-    // TODO: Calling create here should automagically save the todo. But this does not work, since localStorage has been set on the RootModel and not on the TodoCollection. Consider removing the active filter from the root model and instead making it a computed value based on the current URL.
-    this.collection.add(newTodo)
+
+    this.collection.create(newTodo)
 
     this.clearTitle()
   }

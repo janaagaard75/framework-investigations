@@ -5,7 +5,6 @@ import * as Marionette from "backbone.marionette"
 import RootModel from "./RootModel"
 import RootView from "./RootView"
 import Router from "./Router"
-import TodoModel from "./TodoModel"
 
 export default class App extends Marionette.Application {
   private rootView: RootView
@@ -13,17 +12,8 @@ export default class App extends Marionette.Application {
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
 
-    // rootModel.todos.add(new TodoModel({
-    //   completed: true,
-    //   title: "Handle ind"
-    // }))
-
-    // rootModel.todos.add(new TodoModel({
-    //   title: "Lave mad"
-    // }))
-
-    // TODO: This doesn't do anything. It has to be called on the collection of TODOs.
-    rootModel.fetch()
+    // TODO: Try to move this to TodoCollection
+    rootModel.todos.fetch()
 
     return rootModel
   }
