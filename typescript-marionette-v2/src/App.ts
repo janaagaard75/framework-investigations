@@ -11,8 +11,6 @@ export default class App extends Marionette.Application {
 
   private getInitialModel(): RootModel {
     const rootModel = new RootModel()
-
-    // TODO: Try to move this to TodoCollection
     rootModel.todos.fetch()
 
     return rootModel
