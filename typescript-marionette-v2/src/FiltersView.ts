@@ -1,8 +1,8 @@
 import Filter from "./Filter"
 import FilterModel from "./FilterModel"
 import FilterView from "./FilterView"
-import FilterViewModel, { FilterViewModelAttributes } from "./FilterViewModel"
-import Router from "./Router"
+import FilterViewModel from "./FilterViewModel"
+import FilterViewModelAttributes from "./FilterViewModelAttributes"
 import TypedLayoutView from "./TypedLayoutView"
 
 interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
@@ -49,7 +49,7 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
 
   onShow() {
     this.filters.forEach(filterAttributes => {
-      const regionName = FiltersView.getFilterId(filterAttributes);
+      const regionName = FiltersView.getFilterId(filterAttributes)
       const regionSelector = `.${FiltersView.getFilterCssClass(filterAttributes)}`
 
       this
