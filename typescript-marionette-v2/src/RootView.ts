@@ -19,6 +19,8 @@ export default class RootView extends TypedLayoutView<RootModel> {
     this.setEvents({
       "click @ui.toggleAll": this.toggleAllClicked
     })
+
+    // TODO: Add a listener for todos being toggled on and off. If they are all togged on, the main checkbox also has to be toggled on.
   }
 
   template = require("./RootView.ejs")
