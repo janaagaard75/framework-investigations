@@ -1,7 +1,7 @@
 import * as Marionette from "backbone.marionette"
 import AddTodoView from "./AddTodoView"
 import FiltersView from "./FiltersView"
-import RootModel from "./RootModel"
+import RootModel from "./model/RootModel"
 import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
 import TypedLayoutView from "./TypedLayoutView"

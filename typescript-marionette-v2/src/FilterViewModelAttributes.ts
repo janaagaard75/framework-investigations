@@ -1,5 +1,5 @@
-import Filter from "./Filter"
-import FilterModel from "./FilterModel"
+import Filter from "./model/Filter"
+import FilterModel from "./model/FilterModel"
 import Fragment from "./Fragment"
 
 interface FilterViewModelAttributes {

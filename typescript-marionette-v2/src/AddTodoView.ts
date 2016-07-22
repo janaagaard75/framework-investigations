@@ -1,7 +1,7 @@
 import KeyCode from "./KeyCode"
-import TodoCollection from "./TodoCollection"
+import TodoCollection from "./model/TodoCollection"
 import TypedItemView from "./TypedItemView"
-import TodoModel from "./TodoModel"
+import TodoModel from "./model/TodoModel"
 
 interface AddTodoViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection

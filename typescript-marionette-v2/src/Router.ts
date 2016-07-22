@@ -1,7 +1,7 @@
 import * as Marionette from "backbone.marionette"
-import Filter from "./Filter"
+import Filter from "./model/Filter"
 import Fragment from "./Fragment"
-import RootModel from "./RootModel"
+import RootModel from "./model/RootModel"
 
 class RouterInstance extends Marionette.AppRouter {
   constructor(

@@ -2,7 +2,7 @@
 /// <reference path="../typings/index.d.ts"/>
 
 import * as Marionette from "backbone.marionette"
-import RootModel from "./RootModel"
+import RootModel from "./model/RootModel"
 import RootView from "./RootView"
 import Router from "./Router"
 
