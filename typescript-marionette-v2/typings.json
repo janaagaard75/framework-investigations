@@ -5,6 +5,6 @@
     "jquery": "registry:dt/jquery#1.10.0+20160704162008",
     "marionette": "registry:dt/marionette#0.0.0+20160317120654",
     "require": "registry:dt/require#2.1.20+20160316155526",
-    "underscore": "registry:dt/underscore#1.7.0+20160622050840"
+    "underscore": "registry:dt/underscore#1.7.0+20160720002543"
   }
 }
