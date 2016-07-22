@@ -15,7 +15,7 @@ export default class TodoView extends TypedItemView<TodoModel> {
       "click @ui.toggle": this.toggleClicked
     })
 
-    // Listening for changed on the 'completed' attribute - not if the change event has completed.
+    // (Listening for changes to the 'completed' attribute - not if the change event has completed.)
     this.listenTo(this.model, "change:completed", this.render)
   }
 
