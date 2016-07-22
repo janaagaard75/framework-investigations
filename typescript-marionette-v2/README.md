@@ -14,21 +14,21 @@ Use `npm run` commands.
 
 ## Notes
 
-backbone-global definition types file is required by Marionette.
+The backbone-global definition types file is required by Marionette. Don't know why it isn't installed automatically as a dependency. The new npm types@ might solve this issue.
 
-The Marionette definition file was apparently updated to exported as "backbone.marionette" instead of just "marionette".
+The raison d'être for Backbone's Model classes is to be able to watch for changes, pretty much like Knockout's observables. The Collection class makes it possible to watch a list of elements. If the list of things doesn't change dynamically, there is no need to use a Backbone Collection - an array will do fine.
 
-The raison d'être for Backbone's Model classes is to be able to watch for changes, kinda like Knockout's observables. A collection is needed when the system needs to be able to detect changes made in a list of things. If the list of things doesn't change dynamically, there is no need to use a Backbone Collection - an array will do fine.
+Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model. If a model is replaced with another obejct, listeners will have to be setup again. So change the properties of a model instead of replacing it with a new object.
 
-Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model - it's not possible to replace a model object with another.
+The views don't automatically listen for changes. It's pretty simple to listen for changes using Backbone's listenTo.
 
-The views don't automatically listen for changes. The changes to listen for has to be set up manually for each view.
-
-The views generally only accept a single model, so it can easily become necessary to create view models specific to each a view. This might be a consequence of the string typings that TypeScript introduce. FilterView.ts shows that this is quite verbose.
+The views generally only accept a single model, so it can easily becomes necessary to create view models specific to each a view. FilterView.ts shows that this is quite verbose.
 
 It's not possible to define a signature for setDefaultOptions because the method is static, and this makes it impossible to access the types defined on the class.
 
 Upgrading to TypeScript 2 results in errors in the type definition files.
+
+Marionette does not have components. A "component" is composed of mutiple views and behaviors. It's probably possible to combine the abstractions to creator other components.
 
 ### Updates required to type definition files
 
