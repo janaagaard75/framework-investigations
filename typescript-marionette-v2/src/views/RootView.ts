@@ -4,7 +4,7 @@ import FiltersView from "./FiltersView"
 import RootModel from "../model/RootModel"
 import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
-import TypedLayoutView from "../TypedLayoutView"
+import TypedLayoutView from "./typedViews/TypedLayoutView"
 
 interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> { }
 

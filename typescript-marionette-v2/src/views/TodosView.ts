@@ -3,8 +3,8 @@ import FilterModel from "../model/FilterModel"
 import TodoCollection from "../model/TodoCollection"
 import TodoModel from "../model/TodoModel"
 import TodoView from "./TodoView"
-import TypedCompositeView from "../TypedCompositeView"
-import TypedCompositeViewOptions from "../TypedCompositeViewOptions"
+import TypedCompositeView from "./typedViews/TypedCompositeView"
+import TypedCompositeViewOptions from "./typedViews/TypedCompositeViewOptions"
 
 interface TodosViewOptions extends TypedCompositeViewOptions<TodoModel, TodoCollection> {
   activeFilter: FilterModel

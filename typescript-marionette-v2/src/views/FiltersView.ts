@@ -3,7 +3,7 @@ import FilterModel from "../model/FilterModel"
 import FilterView from "./FilterView"
 import FilterViewModel from "./FilterViewModel"
 import FilterViewModelAttributes from "./FilterViewModelAttributes"
-import TypedLayoutView from "../TypedLayoutView"
+import TypedLayoutView from "./typedViews/TypedLayoutView"
 
 interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
   model: FilterModel
