@@ -14,6 +14,9 @@ export default class TodoView extends TypedItemView<TodoModel> {
     this.setEvents({
       "click @ui.toggle": this.toggleClicked
     })
+
+    // Listening for changed on the 'completed' attribute - not if the change event has completed.
+    this.listenTo(this.model, "change:completed", this.render)
   }
 
   template = require("./TodoView.ejs")

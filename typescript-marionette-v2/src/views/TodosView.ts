@@ -17,8 +17,6 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
     super(TodosView.setDefaultOptions(options))
 
     this.listenTo(this.options.activeFilter, "change", this.render)
-    // Listening for changed on the 'completed' attribute - not if the change event has completed.
-    this.listenTo(this.options.collection, "change:completed", this.getThrottledRender())
   }
 
   childView = TodoView
