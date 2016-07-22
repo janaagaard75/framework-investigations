@@ -1,10 +1,10 @@
-import Filter from "./model/Filter"
-import FilterModel from "./model/FilterModel"
-import TodoCollection from "./model/TodoCollection"
-import TodoModel from "./model/TodoModel"
+import Filter from "../model/Filter"
+import FilterModel from "../model/FilterModel"
+import TodoCollection from "../model/TodoCollection"
+import TodoModel from "../model/TodoModel"
 import TodoView from "./TodoView"
-import TypedCompositeView from "./TypedCompositeView"
-import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
+import TypedCompositeView from "../TypedCompositeView"
+import TypedCompositeViewOptions from "../TypedCompositeViewOptions"
 
 interface TodosViewOptions extends TypedCompositeViewOptions<TodoModel, TodoCollection> {
   activeFilter: FilterModel

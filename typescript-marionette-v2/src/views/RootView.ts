@@ -1,10 +1,10 @@
 import * as Marionette from "backbone.marionette"
 import AddTodoView from "./AddTodoView"
 import FiltersView from "./FiltersView"
-import RootModel from "./model/RootModel"
+import RootModel from "../model/RootModel"
 import SummarizationView from "./SummarizationView"
 import TodosView from "./TodosView"
-import TypedLayoutView from "./TypedLayoutView"
+import TypedLayoutView from "../TypedLayoutView"
 
 interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> { }
 

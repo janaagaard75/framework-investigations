@@ -1,5 +1,5 @@
-import TypedItemView from "./TypedItemView"
-import TodoModel from "./model/TodoModel"
+import TypedItemView from "../TypedItemView"
+import TodoModel from "../model/TodoModel"
 
 interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> { }
 

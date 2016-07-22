@@ -1,7 +1,7 @@
-import Filter from "./model/Filter"
-import FilterModel from "./model/FilterModel"
+import Filter from "../model/Filter"
+import FilterModel from "../model/FilterModel"
 import FilterViewModelAttributes from "./FilterViewModelAttributes"
-import Fragment from "./Fragment"
+import Fragment from "../Fragment"
 
 export default class FilterViewModel extends Backbone.Model {
   constructor(attributes: FilterViewModelAttributes, options?: any) {

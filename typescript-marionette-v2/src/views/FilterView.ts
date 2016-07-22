@@ -1,6 +1,6 @@
 import FilterViewModel from "./FilterViewModel"
-import Router from "./Router"
-import TypedItemView from "./TypedItemView"
+import Router from "../Router"
+import TypedItemView from "../TypedItemView"
 
 interface FilterViewOptions extends Backbone.ViewOptions<FilterViewModel> {
   model: FilterViewModel

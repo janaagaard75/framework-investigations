@@ -1,6 +1,6 @@
-import TodoCollection from "./model/TodoCollection"
-import TodoModel from "./model/TodoModel"
-import TypedItemView from "./TypedItemView"
+import TodoCollection from "../model/TodoCollection"
+import TodoModel from "../model/TodoModel"
+import TypedItemView from "../TypedItemView"
 
 interface SummarizationViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection

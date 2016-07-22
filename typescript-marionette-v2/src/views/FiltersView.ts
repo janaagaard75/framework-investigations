@@ -1,9 +1,9 @@
-import Filter from "./model/Filter"
-import FilterModel from "./model/FilterModel"
+import Filter from "../model/Filter"
+import FilterModel from "../model/FilterModel"
 import FilterView from "./FilterView"
 import FilterViewModel from "./FilterViewModel"
 import FilterViewModelAttributes from "./FilterViewModelAttributes"
-import TypedLayoutView from "./TypedLayoutView"
+import TypedLayoutView from "../TypedLayoutView"
 
 interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
   model: FilterModel

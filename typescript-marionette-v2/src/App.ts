@@ -3,7 +3,7 @@
 
 import * as Marionette from "backbone.marionette"
 import RootModel from "./model/RootModel"
-import RootView from "./RootView"
+import RootView from "./views/RootView"
 import Router from "./Router"
 
 export default class App extends Marionette.Application {

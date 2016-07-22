@@ -1,6 +1,6 @@
-import Filter from "./model/Filter"
-import FilterModel from "./model/FilterModel"
-import Fragment from "./Fragment"
+import Filter from "../model/Filter"
+import FilterModel from "../model/FilterModel"
+import Fragment from "../Fragment"
 
 interface FilterViewModelAttributes {
   activeFilter: FilterModel,
