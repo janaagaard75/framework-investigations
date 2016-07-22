@@ -8,6 +8,8 @@ import TypedLayoutView from "./typedViews/TypedLayoutView"
 
 interface RootViewOptions extends Marionette.LayoutViewOptions<RootModel> { }
 
+// TODO: Add the possibility to delete completed todos.
+
 export default class RootView extends TypedLayoutView<RootModel> {
   constructor(options: RootViewOptions) {
     super(RootView.setDefaultOptions(options))
@@ -20,7 +22,8 @@ export default class RootView extends TypedLayoutView<RootModel> {
       "click @ui.toggleAll": this.toggleAllClicked
     })
 
-    // TODO: Add a listener for todos being toggled on and off. If they are all togged on, the main checkbox also has to be toggled on.
+    // Listening for clicks on the checkboxes and for add or removal of todos. Whenever one of these things happen, verify if the check all checkbox should be checked.
+    this.listenTo(this.model.todos, "checkboxClicked update", this.todosChanged)
   }
 
   template = require("./RootView.ejs")
@@ -61,6 +64,11 @@ export default class RootView extends TypedLayoutView<RootModel> {
     return {
       toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
     }
+  }
+
+  private todosChanged(eventSource: Backbone.Model, options: any) {
+    // TODO: Fix the error in the console. It might help to move the toggle all checkbox to a separate view.
+    this.render()
   }
 
   private toggleAllClicked() {

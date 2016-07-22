@@ -8,11 +8,11 @@ export default class TodoView extends TypedItemView<TodoModel> {
     super(TodoView.setDefaultOptions(options))
 
     this.setUi({
-      toggle: ".jsToggle"
+      checkbox: ".jsCheckbox"
     })
 
     this.setEvents({
-      "click @ui.toggle": this.toggleClicked
+      "click @ui.checkbox": this.checkboxClicked
     })
 
     // (Listening for changes to the 'completed' attribute - not if the change event has completed.)
@@ -20,6 +20,11 @@ export default class TodoView extends TypedItemView<TodoModel> {
   }
 
   template = require("./TodoView.ejs")
+
+  private checkboxClicked() {
+    this.model.toggle()
+    this.model.collection.trigger("checkboxClicked")
+  }
 
   templateHelpers() {
     return {
@@ -30,9 +35,5 @@ export default class TodoView extends TypedItemView<TodoModel> {
   private static setDefaultOptions(options: TodoViewOptions): TodoViewOptions {
     options = this.setTagName(options, "li")
     return options
-  }
-
-  private toggleClicked() {
-    this.model.toggle()
   }
 }
