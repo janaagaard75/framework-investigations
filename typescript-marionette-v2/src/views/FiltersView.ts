@@ -52,10 +52,8 @@ export default class FiltersView extends TypedLayoutView<FilterModel> {
       const regionName = FiltersView.getFilterId(filterAttributes)
       const regionSelector = `.${FiltersView.getFilterCssClass(filterAttributes)}`
 
-      this
-        .addRegion(regionName, regionSelector)
-        .show(
-        new FilterView({
+      this.addRegion(regionName, regionSelector)
+        .show(new FilterView({
           model: new FilterViewModel(filterAttributes)
         }))
     })
