@@ -22,13 +22,20 @@ Backbone's event listeners relies on the models staying the same. So it's only p
 
 The views don't automatically listen for changes. It's pretty simple to listen for changes using Backbone's listenTo.
 
-The views generally only accept a single model, so it can easily becomes necessary to create view models specific to each a view. FilterView.ts shows that this is quite verbose.
+The views generally only accept a single model, so it can easily becomes necessary to create view models specific to each a view. FilterView.ts and ToogleAllView.ts shows that this is quite verbose
 
 It's not possible to define a signature for setDefaultOptions because the method is static, and this makes it impossible to access the types defined on the class.
 
 Upgrading to TypeScript 2 results in errors in the type definition files.
 
 Marionette does not have components. A "component" is composed of mutiple views and behaviors. It's probably possible to combine the abstractions to creator other components.
+
+             View
+            /    \
+     ItemView    CollectionView
+         |             |
+    LayoutView   CompositeView
+
 
 ### Updates required to type definition files
 

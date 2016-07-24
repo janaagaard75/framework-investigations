@@ -44,9 +44,3 @@ export default class TodosView extends TypedCompositeView<TodoModel, TodoCollect
     return options
   }
 }
-
-//            View
-//           /     \
-//    ItemView     CollectionView
-//        |             |
-//   LayoutView    CompositeView
