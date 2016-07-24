@@ -4,13 +4,10 @@ import FilterView from "./FilterView"
 import FilterViewModel from "./FilterViewModel"
 import FilterViewModelAttributes from "./FilterViewModelAttributes"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
-
-interface FiltersViewOptions extends Backbone.ViewOptions<FilterModel> {
-  model: FilterModel
-}
+import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
 export default class FiltersView extends TypedLayoutView<FilterModel> {
-  constructor(options: FiltersViewOptions) {
+  constructor(options: TypedLayoutViewOptions<FilterModel>) {
     super(options)
   }
 
