@@ -1,5 +1,5 @@
-<div>
+<ul class="nav nav-pills">
   <% _.each(filters, function (filterAttributes) { %>
-    <span class="<%- getFilterCssClass(filterAttributes) %>"></span>
+    <li class="<%- getFilterCssClass(filterAttributes) %> <%- getActiveCssClass(filterAttributes) %>"></li>
   <% }) %>
 </div>
