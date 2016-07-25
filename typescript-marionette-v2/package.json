@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
-    "lint": "tslint src/*.ts",
+    "lint": "tslint src/**/*.ts",
     "serve": "webpack-dev-server --content-base dist/ -d --inline",
     "setup": "npm install && typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
