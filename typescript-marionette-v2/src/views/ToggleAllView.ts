@@ -16,12 +16,19 @@ export default class ToggleAllView extends TypedLayoutView<ToggleAllViewModel> {
       "click @ui.toggleAll": this.toggleAllClicked
     })
 
-    // Listening for clicks on the checkboxes and for add or removal of todos. Whenever one of these things happen, verify if the check all checkbox should be checked.
-    // TODO: Should only render when the value of toggleAllChecked has changed.
-    this.listenTo(this.model.todos, "checkboxClicked update", this.render)
+    this.listenTo(this.model.todos, "checkboxClicked update", this.renderIfNecessary)
   }
 
   template = require("./ToggleAllView.ejs")
+
+  private renderIfNecessary() {
+    const currentState = this.ui.toggleAll.prop("checked")
+    const newState = this.model.todos.allCompleted()
+
+    if (newState !== currentState) {
+      this.render()
+    }
+  }
 
   templateHelpers() {
     return {
