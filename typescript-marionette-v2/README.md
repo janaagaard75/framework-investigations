@@ -38,6 +38,8 @@ It feels wrong to define the top level tag using the tagName property. This shou
          |             |
     LayoutView   CompositeView
 
+There really is a lot of boilerplate code needed. The lag of computed values means that it's not simply possible to watch for changes to TodoCollection.allCompleted(), but instead clicks on each checkbox is watched and a manual update-if-necessary is implemented.
+
 TODO: Add Bootstrap to the build phase.
 
 ### Updates required to type definition files
