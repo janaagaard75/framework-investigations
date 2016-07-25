@@ -11,7 +11,7 @@
   "devDependencies": {
     "ejs-loader": "0.3.0",
     "html-webpack-plugin": "2.22.0",
-    "jquery": "2.2.4",
+    "jquery": "3.1.0",
     "source-map-loader": "0.1.5",
     "ts-loader": "0.8.2",
     "tslint": "3.13.0",
