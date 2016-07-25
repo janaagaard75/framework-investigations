@@ -5,10 +5,13 @@ Todo app written in TypeScript and using Marionette. Created to learn about Back
 ## Set Up
 
     npm install
+    typings install
+
+Make the manual changes to the type definition files listed below.
 
 ## Run
 
-Use `npm run` commands.
+    npm run serve
 
 `npm run lint` only works if tslint is installed globally.
 
