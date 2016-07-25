@@ -34,7 +34,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
-    // TODO: Remove this span - it's not allowed by Bootstrap's CSS.
+    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. Is it possible to move the li-element from FiltersView into FilterView? Alternatively delete FilterView and let FiltersView handle everything.
     this.setTagName(options, "span")
     return options
   }

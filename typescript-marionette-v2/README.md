@@ -38,6 +38,7 @@ It feels wrong to define the top level tag using the tagName property. This shou
          |             |
     LayoutView   CompositeView
 
+TODO: Add Bootstrap to the build phase.
 
 ### Updates required to type definition files
 
