@@ -34,6 +34,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
+    // TODO: Remove this span - it's not allowed by Bootstrap's CSS.
     this.setTagName(options, "span")
     return options
   }
