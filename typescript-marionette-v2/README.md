@@ -10,13 +10,21 @@ Todo app written in TypeScript and using Marionette. Created to learn about Back
 
 Use `npm run` commands.
 
-`npm run lint` does not yet work. Install tslint globally and run the command manually.
+`npm run lint` only works if tslint is installed globally.
 
 ## Notes
 
+Marionette's view hierarchy. LayoutView and CompositeItemView and CollectionView can always be replaced by the more advanced LayoutView and CompositeView, so there doesn't seem any reason to use the two former, except, perhaps, for some  performance considerations.
+
+             View
+            /    \
+     ItemView    CollectionView
+         |             |
+    LayoutView   CompositeView
+
 The backbone-global definition types file is required by Marionette. Don't know why it isn't installed automatically as a dependency. The new npm types@ might solve this issue.
 
-The raison d'être for Backbone's Model classes is to be able to watch for changes, pretty much like Knockout's observables. The Collection class makes it possible to watch a list of elements. If the list of things doesn't change dynamically, there is no need to use a Backbone Collection - an array will do fine.
+The raison d'être for Backbone's Model classes is to be able to watch for changes, pretty much like Knockout's observables. The Collection class makes it possible to watch a list of elements. If the list of things doesn't change dynamically, it might be possible to just use an array, but a collection is probably needed if a CollectionView is desired.
 
 Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model. If a model is replaced with another obejct, listeners will have to be setup again. So change the properties of a model instead of replacing it with a new object.
 
@@ -32,19 +40,13 @@ Marionette does not have components. A "component" is composed of mutiple views 
 
 It feels wrong to define the top level tag using the tagName property. This should not be necessary. Setting attributes with dynamic values becomes difficult because the methods used to determine the values have to be static. FilterView adds a redundant span element to the DOM. tagName et al can be defined as functions, but the definition type file does not support that.
 
-             View
-            /    \
-     ItemView    CollectionView
-         |             |
-    LayoutView   CompositeView
-
 There really is a lot of boilerplate code needed. The lag of computed values means that it's not simply possible to watch for changes to TodoCollection.allCompleted(), but instead clicks on each checkbox is watched and a manual update-if-necessary is implemented.
 
-TODO: Add Bootstrap to the build phase.
+## Updates required to type definition files
 
-### Updates required to type definition files
+Should probably create pull requests for these.
 
-#### In `typings/global/backbone.localstorage/index.d.ts`
+### In `typings/global/backbone.localstorage/index.d.ts`
 
 Declare a module a the bottom of the file.
 
@@ -52,7 +54,7 @@ Declare a module a the bottom of the file.
         export = Backbone.LocalStorage;
     }
 
-#### In `typings/global/marionette/index.d.ts`
+### In `typings/global/marionette/index.d.ts`
 
 Add this property in `CollectionViewOptions`.
 
@@ -69,3 +71,8 @@ Add this interface above `CompositeView`.
 Change the contructor in `CompositeView`.
 
     constructor(options?: CompositeViewOptions<TModel>);
+
+## To do
+
+- Add Bootstrap as an npm modules and include it in the build phase.
+- The TODOs in the code.
