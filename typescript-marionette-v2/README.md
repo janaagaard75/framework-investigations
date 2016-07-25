@@ -30,6 +30,8 @@ Upgrading to TypeScript 2 results in errors in the type definition files.
 
 Marionette does not have components. A "component" is composed of mutiple views and behaviors. It's probably possible to combine the abstractions to creator other components.
 
+It feels wrong to define the top level tag using the tagName property. This should not be necessary. Setting attributes with dynamic values becomes difficult because the methods used to determine the values have to be static. FilterView adds a redundant span element to the DOM.
+
              View
             /    \
      ItemView    CollectionView
