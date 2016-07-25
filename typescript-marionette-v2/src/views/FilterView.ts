@@ -34,7 +34,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
-    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. Is it possible to move the li-element from FiltersView into FilterView? Alternatively delete FilterView and let FiltersView handle everything.
+    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. 1) Is it possible to move the li-element from FiltersView into FilterView? 2) Alternatively delete FilterView and let FiltersView handle everything. This should work, but feels like a less elegang solution. 3) Make the list of filters a Backbone Collection and us a Marionette CollectionView.
     this.setTagName(options, "span")
     return options
   }
