@@ -34,8 +34,8 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
   }
 
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
-    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. 1) Is it possible to move the li-element from FiltersView into FilterView? 2) Alternatively delete FilterView and let FiltersView handle everything. This should work, but feels like a less elegang solution. 3) Make the list of filters a Backbone Collection and us a Marionette CollectionView.
-    this.setTagName(options, "span")
+    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. 1) Is it possible to move the li-element from FiltersView into FilterView? Setting the tag name in here to li results in double li elements. The li elements in FilterView is required to have an element to bind the regions to. 2) Alternatively delete FilterView and let FiltersView handle everything. This should work, but feels like a less elegang solution, since we have to manually distinguish between the links being clicked. 3) Make the list of filters a Backbone Collection and use a Marionette CollectionView. This probably gives the cleanest code, but it feel wrong to create Backbone classes for static data. A collection FilterViewModels are required.
+    this.setTagName(options, "li")
     return options
   }
 
