@@ -1,7 +1,7 @@
 {
   "author": "Jan Aagaard",
   "description": "TodoMVC written in TypeScript using React and RxJs.",
-  "main": "index.js",
+  "main": "index.html",
   "name": "typescript-react-rxjs",
   "keywords": [
     "react",
