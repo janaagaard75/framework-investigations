@@ -15,11 +15,13 @@
     "url": "https://github.com/janaagaard75/TodoMvcTypeScript.git"
   },
   "scripts": {
+    "build": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
     "lint": "tslint src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "ts-loader": "0.8.2",
     "tslint": "3.14.0",
     "typescript": "2.0.0"
   }
