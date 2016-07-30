@@ -15,6 +15,10 @@
       "spaces"
     ],
     "label-position": true,
+    "linebreak-style": [
+      true,
+      "LF"
+    ],
     "max-line-length": [
       false
     ],
