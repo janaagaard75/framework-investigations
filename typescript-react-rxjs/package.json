@@ -10,8 +10,15 @@
     "typescript"
   ],
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janaagaard75/TodoMvcTypeScript.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "typescript": "^2.0.0"
+  }
 }
