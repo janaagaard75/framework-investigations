@@ -1,0 +1,17 @@
+{
+  "author": "Jan Aagaard",
+  "description": "TodoMVC written in TypeScript using React and RxJs.",
+  "main": "index.js",
+  "name": "typescript-react-rxjs",
+  "keywords": [
+    "react",
+    "rxjs",
+    "todomvc",
+    "typescript"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0"
+}
