@@ -11,12 +11,14 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
     super(FilterView.setDefaultOptions(options))
 
     this.setUi({
-      filterLink: ".jsFilter"
+      filterLink: ".jsFilterLink"
     })
 
     this.setEvents({
       "click @ui.filterLink": this.filterClicked
     })
+
+    this.className = this.isActive() ? "active" : ""
 
     this.listenTo(this.model.activeFilter, "change:filter", this.render)
   }
@@ -24,7 +26,7 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
   template = require("./FilterView.ejs")
 
   private isActive(): boolean {
-    const isActive = this.model.filter === this.model.activeFilter.filter
+    const isActive = (this.model.filter === this.model.activeFilter.filter)
     return isActive
   }
 
@@ -33,9 +35,18 @@ export default class FilterView extends TypedItemView<FilterViewModel> {
     Router.instance.navigateTo(this.model.fragment)
   }
 
+  render() {
+    if (this.isActive()) {
+      this.$el.addClass("active")
+    } else {
+      this.$el.removeClass("active")
+    }
+
+    return super.render()
+  }
+
   private static setDefaultOptions(options: FilterViewOptions): FilterViewOptions {
-    // TODO: Remove this span - it's not allowed by Bootstrap's CSS. 1) Is it possible to move the li-element from FiltersView into FilterView? 2) Alternatively delete FilterView and let FiltersView handle everything. This should work, but feels like a less elegang solution. 3) Make the list of filters a Backbone Collection and us a Marionette CollectionView.
-    this.setTagName(options, "span")
+    this.setTagName(options, "li")
     return options
   }
 
