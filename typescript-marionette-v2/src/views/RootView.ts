@@ -12,8 +12,6 @@ import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
 interface RootViewOptions extends TypedLayoutViewOptions<RootModel> { }
 
-// TODO: Add the possibility to delete completed todos.
-
 export default class RootView extends TypedLayoutView<RootModel> {
   constructor(options: RootViewOptions) {
     super(RootView.setDefaultOptions(options))
