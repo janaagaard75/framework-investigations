@@ -6,6 +6,7 @@ interface SummarizationViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
+// TODO: TodoModel isn't used for anything in here.
 export default class SummarizationView extends TypedItemView<TodoModel> {
   constructor(options: SummarizationViewOptions) {
     super(options)
