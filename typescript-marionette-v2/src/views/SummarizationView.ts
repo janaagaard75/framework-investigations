@@ -6,7 +6,8 @@ interface SummarizationViewOptions extends Backbone.ViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
-// TODO: TodoModel isn't used for anything in here.
+// TODO: TodoModel isn't used for anything in here. Need a ViewModel like for ClearCompletedView.
+// TODO: Move the ViewModels to a separate folder?
 export default class SummarizationView extends TypedItemView<TodoModel> {
   constructor(options: SummarizationViewOptions) {
     super(options)
