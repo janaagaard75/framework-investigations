@@ -3,9 +3,7 @@ import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
 export default class ToggleAllView extends TypedLayoutView<ToggleAllViewModel> {
-  constructor(
-    options: TypedLayoutViewOptions<ToggleAllViewModel>
-  ) {
+  constructor(options: TypedLayoutViewOptions<ToggleAllViewModel>) {
     super(options)
 
     this.setUi({
