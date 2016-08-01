@@ -1,4 +1,6 @@
 import AddTodoView from "./AddTodoView"
+import ClearCompletedView from "./ClearCompletedView"
+import ClearCompletedViewModel from "./ClearCompletedViewModel"
 import FiltersView from "./FiltersView"
 import RootModel from "../model/RootModel"
 import SummarizationView from "./SummarizationView"
@@ -24,10 +26,14 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.todos
     }))
 
-    this.getRegion("toggleAll").show(new ToggleAllView({
-      model: new ToggleAllViewModel({
+    this.getRegion("clearCompleted").show(new ClearCompletedView({
+      model: new ClearCompletedViewModel({
         todos: this.model.todos
       })
+    }))
+
+    this.getRegion("filterTodos").show(new FiltersView({
+      activeFilter: this.model.activeFilter
     }))
 
     this.getRegion("todos").show(new TodosView({
@@ -35,12 +41,14 @@ export default class RootView extends TypedLayoutView<RootModel> {
       collection: this.model.todos
     }))
 
-    this.getRegion("summarization").show(new SummarizationView({
-      collection: this.model.todos
+    this.getRegion("toggleAll").show(new ToggleAllView({
+      model: new ToggleAllViewModel({
+        todos: this.model.todos
+      })
     }))
 
-    this.getRegion("filterTodos").show(new FiltersView({
-      activeFilter: this.model.activeFilter
+    this.getRegion("summarization").show(new SummarizationView({
+      collection: this.model.todos
     }))
   }
 
@@ -49,6 +57,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
     options.regions = {
       addTodo: ".jsAddTodoRegion",
+      clearCompleted: ".jsClearCompletedRegion",
       filterTodos: ".jsFilterTodosRegion",
       summarization: ".jsSummarizationRegion",
       todos: ".jsTodosRegion",
