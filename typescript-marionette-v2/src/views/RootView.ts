@@ -40,7 +40,7 @@ export default class RootView extends TypedLayoutView<RootModel> {
     }))
 
     this.getRegion("filterTodos").show(new FiltersView({
-      model: this.model.activeFilter
+      activeFilter: this.model.activeFilter
     }))
   }
 
