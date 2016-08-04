@@ -5,8 +5,8 @@ interface FilterModelAttributes {
 }
 
 export default class FilterModel extends Backbone.Model {
-  constructor(attributes: FilterModelAttributes, options?: any) {
-    super(attributes, options)
+  constructor(attributes: FilterModelAttributes) {
+    super(attributes)
   }
 
   get filter(): Filter {

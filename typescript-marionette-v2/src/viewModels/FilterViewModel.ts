@@ -4,8 +4,8 @@ import FilterViewModelAttributes from "./FilterViewModelAttributes"
 import Fragment from "../Fragment"
 
 export default class FilterViewModel extends Backbone.Model {
-  constructor(attributes: FilterViewModelAttributes, options?: any) {
-    super(attributes, options)
+  constructor(attributes: FilterViewModelAttributes) {
+    super(attributes)
   }
 
   get activeFilter(): FilterModel {

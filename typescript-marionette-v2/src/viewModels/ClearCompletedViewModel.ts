@@ -5,9 +5,8 @@ interface ClearCompletedViewModelAttributes {
 }
 
 export default class ClearCompletedViewModel extends Backbone.Model {
-  // TODO: Is there any reason to include the options parameter?
-  constructor(attributes: ClearCompletedViewModelAttributes, options?: any) {
-    super(attributes, options)
+  constructor(attributes: ClearCompletedViewModelAttributes) {
+    super(attributes)
   }
 
   get todos(): TodoCollection {

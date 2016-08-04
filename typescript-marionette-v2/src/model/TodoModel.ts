@@ -4,8 +4,8 @@ interface TodoAttributes {
 }
 
 export default class TodoModel extends Backbone.Model {
-  constructor(attributes: TodoAttributes, options?: any) {
-    super(attributes, options)
+  constructor(attributes: TodoAttributes) {
+    super(attributes)
   }
 
   defaults() {

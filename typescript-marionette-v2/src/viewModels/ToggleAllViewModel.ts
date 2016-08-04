@@ -5,8 +5,8 @@ class ToggleAllViewModelAttributes {
 }
 
 export default class ToggleAllViewModel extends Backbone.Model {
-  constructor(attributes: ToggleAllViewModelAttributes, options?: any) {
-    super(attributes, options)
+  constructor(attributes: ToggleAllViewModelAttributes) {
+    super(attributes)
   }
 
   get todos(): TodoCollection {
