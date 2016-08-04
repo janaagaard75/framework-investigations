@@ -23,7 +23,6 @@ export default class ClearCompletedView extends TypedLayoutView<ClearCompletedVi
     this.model.todos.getCompleted().forEach(todo => {
       todo.destroy()
     })
-    // TODO: Is it necessary to call save() here?
     // TODO: SummarizedView has to re-render.
   }
 
