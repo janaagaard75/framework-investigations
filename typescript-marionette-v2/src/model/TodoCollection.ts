@@ -6,7 +6,7 @@ export default class TodoCollection extends Backbone.Collection<TodoModel> {
   localStorage = new BackboneLocalStorage("todos-typescript-marionette-v2")
   model = TodoModel
 
-  allCompleted(): boolean {
+  allAreCompleted(): boolean {
     return this.all(todo => todo.completed)
   }
 

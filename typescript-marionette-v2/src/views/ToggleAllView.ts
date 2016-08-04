@@ -21,7 +21,7 @@ export default class ToggleAllView extends TypedLayoutView<TodosViewModel> {
 
   private renderIfNecessary() {
     const currentState = this.ui.toggleAll.prop("checked")
-    const newState = this.model.todos.allCompleted()
+    const newState = this.model.todos.allAreCompleted()
 
     if (newState !== currentState) {
       this.render()
@@ -30,12 +30,12 @@ export default class ToggleAllView extends TypedLayoutView<TodosViewModel> {
 
   templateHelpers() {
     return {
-      toggleAllChecked: this.model.todos.allCompleted() ? "checked" : ""
+      toggleAllChecked: this.model.todos.allAreCompleted() ? "checked" : ""
     }
   }
 
   private toggleAllClicked() {
-    const markTodosCompleted = !this.model.todos.allCompleted()
+    const markTodosCompleted = !this.model.todos.allAreCompleted()
 
     // TODO: This should probably only affect the visible todos, and not all of them. Affecting all todos is the behaviour that TodoMVC has.
     this.model.todos.each(todo => {
