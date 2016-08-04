@@ -1,6 +1,6 @@
 import TodoCollection from "../model/TodoCollection"
 
-class TodosViewModelAttributes {
+interface TodosViewModelAttributes {
   todos: TodoCollection
 }
 
