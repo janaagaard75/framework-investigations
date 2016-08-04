@@ -1,28 +1,24 @@
-import TodoCollection from "../model/TodoCollection"
-import TodoModel from "../model/TodoModel"
+import SummarizationViewModel from "./SummarizationViewModel"
 import TypedItemView from "./typedViews/TypedItemView"
+import TypedItemViewOptions from "./typedViews/TypedItemViewOptions"
 
-interface SummarizationViewOptions extends Backbone.ViewOptions<TodoModel> {
-  collection: TodoCollection
+interface SummarizationViewOptions extends TypedItemViewOptions<SummarizationViewModel> {
 }
 
-// TODO: TodoModel isn't used for anything in here. Need a ViewModel like for ClearCompletedView.
-// TODO: Move the ViewModels to a separate folder?
-export default class SummarizationView extends TypedItemView<TodoModel> {
+// TODO: Move the view models to a separate folder?
+export default class SummarizationView extends TypedItemView<SummarizationViewModel> {
   constructor(options: SummarizationViewOptions) {
     super(options)
 
     this.listenTo(this.collection, "change:completed update", this.getThrottledRender())
   }
 
-  collection: TodoCollection
-
   template = require("./SummarizationView.ejs")
 
   templateHelpers() {
     return {
-      numberOfCompletedTodos: this.collection.getCompleted().length,
-      numberOfTodos: this.collection.length
+      numberOfCompletedTodos: this.model.todos.getCompleted().length,
+      numberOfTodos: this.model.todos.length
     }
   }
 }

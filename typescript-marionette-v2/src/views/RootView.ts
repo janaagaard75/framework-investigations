@@ -4,6 +4,7 @@ import ClearCompletedViewModel from "./ClearCompletedViewModel"
 import FiltersView from "./FiltersView"
 import RootModel from "../model/RootModel"
 import SummarizationView from "./SummarizationView"
+import SummarizationViewModel from "./SummarizationViewModel"
 import TodosView from "./TodosView"
 import ToggleAllView from "./ToggleAllView"
 import ToggleAllViewModel from "./ToggleAllViewModel"
@@ -46,7 +47,9 @@ export default class RootView extends TypedLayoutView<RootModel> {
     }))
 
     this.getRegion("summarization").show(new SummarizationView({
-      collection: this.model.todos
+      model: new SummarizationViewModel({
+        todos: this.model.todos
+      })
     }))
   }
 
