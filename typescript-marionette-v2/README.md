@@ -17,7 +17,7 @@ Make the manual changes to the type definition files listed below.
 
 ## Notes
 
-Marionette's view hierarchy. LayoutView and CompositeItemView and CollectionView can always be replaced by the more advanced LayoutView and CompositeView, so there doesn't seem any reason to use the two former, except, perhaps, for some  performance considerations.
+This is Marionette's view hierarchy. LayoutView and CompositeItemView and CollectionView can always be replaced by the more advanced LayoutView and CompositeView, so there doesn't seem any reason to use the two former, except, perhaps, for some  performance considerations.
 
              View
             /    \
@@ -27,23 +27,25 @@ Marionette's view hierarchy. LayoutView and CompositeItemView and CollectionView
 
 The backbone-global definition types file is required by Marionette. Don't know why it isn't installed automatically as a dependency. The new npm types@ might solve this issue.
 
-The raison d'être for Backbone's Model classes is to be able to watch for changes, pretty much like Knockout's observables. The Collection class makes it possible to watch a list of elements. If the list of things doesn't change dynamically, it might be possible to just use an array, but a collection is probably needed if a CollectionView is desired.
+The raison d'être for Backbone's model classes is to be able to watch for changes, pretty much like Knockout's observables. The Collection class makes it possible to watch a list of elements.
 
-Backbone's event listeners relies on the models staying the same. So it's only possible to change the properties of a model. If a model is replaced with another obejct, listeners will have to be setup again. So change the properties of a model instead of replacing it with a new object.
+Bootstrap's tabs require a strict hierarchy ul > li > a elements in the html markup. Implementing that using a nice view hierarchy requires using a proper Backbone Collection, which seems overkill when the tabs are static. Don't know how much overhead this adds to the solution.
 
-The views don't automatically listen for changes. It's pretty simple to listen for changes using Backbone's listenTo.
+Backbone's event listeners relies on the references to the models staying the same. So it's only possible to change the properties of a model. If a model is replaced with another obejct, listeners will have to be setup again. So change the properties of a model instead of replacing it with a new object.
 
-The views generally only accept a single model, so it can easily becomes necessary to create view models specific to each a view. FilterView.ts and ToogleAllView.ts shows that this is quite verbose
+The views don't automatically listen for change. It's simple to listen for changes using Backbone's listenTo, but doing the manual hookups feels very old school when having used Angular.
+
+The views generally only accept a single model, so it can easily becomes necessary to create view models specific to each a view. FilterView.ts and TodosViewModels.ts shows that this is a bit verbose.
 
 It's not possible to define a signature for setDefaultOptions because the method is static, and this makes it impossible to access the types defined on the class.
 
 Upgrading to TypeScript 2 results in errors in the type definition files.
 
-Marionette does not have components. A "component" is composed of mutiple views and behaviors. It's probably possible to combine the abstractions to creator other components.
+The fact that Marionette does not have components makes it harder to divide the code up natually than with Angular or React.
 
 It feels wrong to define the top level tag using the tagName property. This should not be necessary. Setting attributes with dynamic values becomes difficult because the methods used to determine the values have to be static. FilterView adds a redundant span element to the DOM. tagName et al can be defined as functions, but the definition type file does not support that.
 
-There really is a lot of boilerplate code needed. The lag of computed values means that it's not simply possible to watch for changes to TodoCollection.allCompleted(), but instead clicks on each checkbox is watched and a manual update-if-necessary is implemented.
+There really is a lot of boilerplate code needed. Example: Listening for clicks on each checkbox and manually doing an update-if-necessary. If the framework had proper computed values it would have been possible to simply listen for for changes to TodoCollection.allAreCompleted().
 
 ## Updates required to type definition files
 
