@@ -1,5 +1,6 @@
 import TodoCollection from "../model/TodoCollection"
 
+// TODO: Consider using just a single view model for AddTodoViewModel, ClearCompletedViewModel etc., since they are all the same.
 interface AddTodoViewModelAttributes {
   todos: TodoCollection
 }
