@@ -77,4 +77,5 @@ Change the contructor in `CompositeView`.
 
 ## To do
 
-- Add Bootstrap as an npm modules and include it in the build phase.
+- Add Bootstrap as an npm module and include it in the build phase.
+- The compiler does not required neither Backbone nor Marionette to be imported, but the transpiled code does not work if Marionette is missing.

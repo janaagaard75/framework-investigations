@@ -1,4 +1,3 @@
-// TODO: Why does the compiler not complain when Marionette is missing, but it fails at run time?
 import * as Marionette from "backbone.marionette"
 import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
 
