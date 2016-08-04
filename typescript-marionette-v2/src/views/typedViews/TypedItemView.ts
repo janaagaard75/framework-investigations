@@ -3,7 +3,8 @@ import TagName from "./TagName"
 import TypedItemViewOptions from "./TypedItemViewOptions"
 import UiHash from "./UiHash"
 
-export default class TypedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
+/** ItemView where it's required to supply a model to the view. */
+abstract class TypedItemView<TModel extends Backbone.Model> extends Marionette.ItemView<TModel> {
   constructor(options: TypedItemViewOptions<TModel>) {
     super(options)
   }
@@ -28,3 +29,5 @@ export default class TypedItemView<TModel extends Backbone.Model> extends Marion
     this.ui = ui
   }
 }
+
+export default TypedItemView

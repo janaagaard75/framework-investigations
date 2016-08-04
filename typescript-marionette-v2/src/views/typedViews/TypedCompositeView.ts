@@ -2,6 +2,7 @@
 import * as Marionette from "backbone.marionette"
 import TypedCompositeViewOptions from "./TypedCompositeViewOptions"
 
+/** CompositeView where it's required to supply a collection to the view. */
 abstract class TypedCompositeView<
   TModel extends Backbone.Model,
   TCollection extends Backbone.Collection<TModel>,

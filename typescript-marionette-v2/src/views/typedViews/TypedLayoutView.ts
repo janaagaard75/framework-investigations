@@ -3,7 +3,8 @@ import TagName from "./TagName"
 import TypedLayoutViewOptions from "./TypedLayoutViewOptions"
 import UiHash from "./UiHash"
 
-export default class TypedLayoutView<TModel extends Backbone.Model> extends Marionette.LayoutView<TModel> {
+/** LayoutView where it's required to supply a collection to the view. */
+abstract class TypedLayoutView<TModel extends Backbone.Model> extends Marionette.LayoutView<TModel> {
   constructor(options: TypedLayoutViewOptions<TModel>) {
     super(options)
   }
@@ -28,3 +29,5 @@ export default class TypedLayoutView<TModel extends Backbone.Model> extends Mari
     this.ui = ui
   }
 }
+
+export default TypedLayoutView
