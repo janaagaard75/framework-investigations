@@ -2,7 +2,7 @@ import * as Marionette from "backbone.marionette"
 import Filter from "../model/Filter"
 import FilterModel from "../model/FilterModel"
 import FilterView from "./FilterView"
-import FilterViewModel from "./FilterViewModel"
+import FilterViewModel from "../viewModels/FilterViewModel"
 
 class FilterViewModelCollection extends Backbone.Collection<FilterViewModel> {
 }

@@ -1,4 +1,4 @@
-import ClearCompletedViewModel from "./ClearCompletedViewModel"
+import ClearCompletedViewModel from "../viewModels/ClearCompletedViewModel"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 

@@ -1,4 +1,4 @@
-import ToggleAllViewModel from "./ToggleAllViewModel"
+import ToggleAllViewModel from "../viewModels/ToggleAllViewModel"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 

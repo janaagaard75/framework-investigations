@@ -1,12 +1,14 @@
 import KeyCode from "./KeyCode"
 import TodoCollection from "../model/TodoCollection"
 import TypedItemView from "./typedViews/TypedItemView"
+import TypedItemViewOptions from "./typedViews/TypedItemViewOptions"
 import TodoModel from "../model/TodoModel"
 
-interface AddTodoViewOptions extends Backbone.ViewOptions<TodoModel> {
+interface AddTodoViewOptions extends TypedItemViewOptions<TodoModel> {
   collection: TodoCollection
 }
 
+// TODO: TodoModel isn't used for anything here - need a view model.
 export default class AddTodoView extends TypedItemView<TodoModel> {
   constructor(options: AddTodoViewOptions) {
     super(options)

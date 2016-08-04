@@ -19,7 +19,7 @@ export default class TypedItemView<TModel extends Backbone.Model> extends Marion
     this.delegateEvents()
   }
 
-  protected static setTagName(options: Backbone.ViewOptions<any>, tagName: TagName): Backbone.ViewOptions<any> {
+  protected static setTagName(options: TypedItemViewOptions<any>, tagName: TagName): TypedItemViewOptions<any> {
     options.tagName = tagName
     return options
   }

@@ -1,7 +1,8 @@
-import TypedItemView from "./typedViews/TypedItemView"
 import TodoModel from "../model/TodoModel"
+import TypedItemView from "./typedViews/TypedItemView"
+import TypedItemViewOptions from "./typedViews/TypedItemViewOptions"
 
-interface TodoViewOptions extends Backbone.ViewOptions<TodoModel> { }
+interface TodoViewOptions extends TypedItemViewOptions<TodoModel> { }
 
 export default class TodoView extends TypedItemView<TodoModel> {
   constructor(options: TodoViewOptions) {

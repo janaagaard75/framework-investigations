@@ -19,7 +19,7 @@ export default class TypedLayoutView<TModel extends Backbone.Model> extends Mari
     this.delegateEvents()
   }
 
-  protected static setTagName(options: Marionette.LayoutViewOptions<any>, tagName: TagName): Marionette.LayoutViewOptions<any> {
+  protected static setTagName(options: TypedLayoutViewOptions<any>, tagName: TagName): TypedLayoutViewOptions<any> {
     options.tagName = tagName
     return options
   }
