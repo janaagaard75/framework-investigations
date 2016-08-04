@@ -12,7 +12,7 @@ export default class SummarizationView extends TypedItemView<TodoModel> {
   constructor(options: SummarizationViewOptions) {
     super(options)
 
-    this.listenTo(this.collection, "change:completed", this.getThrottledRender())
+    this.listenTo(this.collection, "change:completed update", this.getThrottledRender())
   }
 
   collection: TodoCollection
