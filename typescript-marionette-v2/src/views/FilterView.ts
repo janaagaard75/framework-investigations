@@ -1,4 +1,4 @@
-import FilterViewModel from "./FilterViewModel"
+import FilterViewModel from "../viewModels/FilterViewModel"
 import Router from "../Router"
 import TypedItemView from "./typedViews/TypedItemView"
 
