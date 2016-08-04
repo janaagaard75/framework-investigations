@@ -1,11 +1,11 @@
-import AddTodoViewModel from "../viewModels/AddTodoViewModel"
 import KeyCode from "./KeyCode"
+import TodosViewModel from "../viewModels/TodosViewModel"
 import TypedItemView from "./typedViews/TypedItemView"
 import TypedItemViewOptions from "./typedViews/TypedItemViewOptions"
 import TodoModel from "../model/TodoModel"
 
-export default class AddTodoView extends TypedItemView<AddTodoViewModel> {
-  constructor(options: TypedItemViewOptions<AddTodoViewModel>) {
+export default class AddTodoView extends TypedItemView<TodosViewModel> {
+  constructor(options: TypedItemViewOptions<TodosViewModel>) {
     super(options)
 
     this.setUi({
@@ -41,7 +41,7 @@ export default class AddTodoView extends TypedItemView<AddTodoViewModel> {
       title: title
     })
 
-    this.collection.create(newTodo)
+    this.model.todos.create(newTodo)
 
     this.clearTitle()
   }

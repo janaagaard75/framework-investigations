@@ -1,9 +1,9 @@
-import ClearCompletedViewModel from "../viewModels/ClearCompletedViewModel"
+import TodosViewModel from "../viewModels/TodosViewModel"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
-export default class ClearCompletedView extends TypedLayoutView<ClearCompletedViewModel> {
-  constructor(options: TypedLayoutViewOptions<ClearCompletedViewModel>) {
+export default class ClearCompletedView extends TypedLayoutView<TodosViewModel> {
+  constructor(options: TypedLayoutViewOptions<TodosViewModel>) {
     super(options)
 
     this.setUi({

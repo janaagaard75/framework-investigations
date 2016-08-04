@@ -1,11 +1,11 @@
 import TodoCollection from "../model/TodoCollection"
 
-class ToggleAllViewModelAttributes {
+class TodosViewModelAttributes {
   todos: TodoCollection
 }
 
-export default class ToggleAllViewModel extends Backbone.Model {
-  constructor(attributes: ToggleAllViewModelAttributes) {
+export default class TodosViewModel extends Backbone.Model {
+  constructor(attributes: TodosViewModelAttributes) {
     super(attributes)
   }
 

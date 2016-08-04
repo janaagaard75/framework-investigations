@@ -1,9 +1,9 @@
-import ToggleAllViewModel from "../viewModels/ToggleAllViewModel"
+import TodosViewModel from "../viewModels/TodosViewModel"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
-export default class ToggleAllView extends TypedLayoutView<ToggleAllViewModel> {
-  constructor(options: TypedLayoutViewOptions<ToggleAllViewModel>) {
+export default class ToggleAllView extends TypedLayoutView<TodosViewModel> {
+  constructor(options: TypedLayoutViewOptions<TodosViewModel>) {
     super(options)
 
     this.setUi({

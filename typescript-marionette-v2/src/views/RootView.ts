@@ -1,14 +1,11 @@
 import AddTodoView from "./AddTodoView"
-import AddTodoViewModel from "../viewModels/AddTodoViewModel"
 import ClearCompletedView from "./ClearCompletedView"
-import ClearCompletedViewModel from "../viewModels/ClearCompletedViewModel"
 import FiltersView from "./FiltersView"
 import RootModel from "../model/RootModel"
 import SummarizationView from "./SummarizationView"
-import SummarizationViewModel from "../viewModels/SummarizationViewModel"
 import TodosView from "./TodosView"
+import TodosViewModel from "../viewModels/TodosViewModel"
 import ToggleAllView from "./ToggleAllView"
-import ToggleAllViewModel from "../viewModels/ToggleAllViewModel"
 import TypedLayoutView from "./typedViews/TypedLayoutView"
 import TypedLayoutViewOptions from "./typedViews/TypedLayoutViewOptions"
 
@@ -23,13 +20,13 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   onRender() {
     this.getRegion("addTodo").show(new AddTodoView({
-      model: new AddTodoViewModel({
+      model: new TodosViewModel({
         todos: this.model.todos
       })
     }))
 
     this.getRegion("clearCompleted").show(new ClearCompletedView({
-      model: new ClearCompletedViewModel({
+      model: new TodosViewModel({
         todos: this.model.todos
       })
     }))
@@ -44,13 +41,13 @@ export default class RootView extends TypedLayoutView<RootModel> {
     }))
 
     this.getRegion("toggleAll").show(new ToggleAllView({
-      model: new ToggleAllViewModel({
+      model: new TodosViewModel({
         todos: this.model.todos
       })
     }))
 
     this.getRegion("summarization").show(new SummarizationView({
-      model: new SummarizationViewModel({
+      model: new TodosViewModel({
         todos: this.model.todos
       })
     }))
