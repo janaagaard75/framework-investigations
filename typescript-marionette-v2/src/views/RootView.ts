@@ -1,4 +1,5 @@
 import AddTodoView from "./AddTodoView"
+import AddTodoViewModel from "../viewModels/AddTodoViewModel"
 import ClearCompletedView from "./ClearCompletedView"
 import ClearCompletedViewModel from "../viewModels/ClearCompletedViewModel"
 import FiltersView from "./FiltersView"
@@ -22,7 +23,9 @@ export default class RootView extends TypedLayoutView<RootModel> {
 
   onRender() {
     this.getRegion("addTodo").show(new AddTodoView({
-      collection: this.model.todos
+      model: new AddTodoViewModel({
+        todos: this.model.todos
+      })
     }))
 
     this.getRegion("clearCompleted").show(new ClearCompletedView({

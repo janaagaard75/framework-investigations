@@ -1,16 +1,11 @@
+import AddTodoViewModel from "../viewModels/AddTodoViewModel"
 import KeyCode from "./KeyCode"
-import TodoCollection from "../model/TodoCollection"
 import TypedItemView from "./typedViews/TypedItemView"
 import TypedItemViewOptions from "./typedViews/TypedItemViewOptions"
 import TodoModel from "../model/TodoModel"
 
-interface AddTodoViewOptions extends TypedItemViewOptions<TodoModel> {
-  collection: TodoCollection
-}
-
-// TODO: TodoModel isn't used for anything here - need a view model.
-export default class AddTodoView extends TypedItemView<TodoModel> {
-  constructor(options: AddTodoViewOptions) {
+export default class AddTodoView extends TypedItemView<AddTodoViewModel> {
+  constructor(options: TypedItemViewOptions<AddTodoViewModel>) {
     super(options)
 
     this.setUi({
@@ -20,7 +15,7 @@ export default class AddTodoView extends TypedItemView<TodoModel> {
 
     this.setEvents({
       "click @ui.addButton": this.addButtonClicked,
-      // Keypress is not triggered by the Escape key.
+      // Keypress is not triggered by the Escape key, so using keyup instead.
       "keyup @ui.titleInput": this.titleInputKeyup
     })
   }
