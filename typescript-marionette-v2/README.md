@@ -78,4 +78,3 @@ Change the contructor in `CompositeView`.
 ## To do
 
 - Add Bootstrap as an npm modules and include it in the build phase.
-- The TODOs in the code.
