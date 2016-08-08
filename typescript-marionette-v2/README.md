@@ -83,3 +83,4 @@ Change the contructor in `CompositeView`.
 
 - Add Bootstrap as an npm module and include it in the build phase.
 - The compiler does not required neither Backbone nor Marionette to be imported, but the transpiled code does not work if Marionette is missing.
+- Toggling todos affects all todos, including currently hidden ones. This is how the standard TodoMVC app works, bit feels a weird.

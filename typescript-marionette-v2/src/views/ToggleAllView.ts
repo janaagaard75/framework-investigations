@@ -37,7 +37,6 @@ export default class ToggleAllView extends TypedLayoutView<TodosViewModel> {
   private toggleAllClicked() {
     const markTodosCompleted = !this.model.todos.allAreCompleted()
 
-    // TODO: This should probably only affect the visible todos, and not all of them. Affecting all todos is the behaviour that TodoMVC has.
     this.model.todos.each(todo => {
       todo.completed = markTodosCompleted
     })
