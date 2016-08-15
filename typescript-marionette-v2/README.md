@@ -53,9 +53,9 @@ Missed features:
 
 * Computed values and filtered collections with events.
 * Components.
+* Better documentation.
 * Controllers.
 * Built-in event watchers.
-* Better documentation.
 
 ## Updates required to type definition files
 
