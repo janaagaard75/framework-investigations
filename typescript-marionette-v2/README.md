@@ -49,6 +49,14 @@ There really is a lot of boilerplate code needed. Example: Listening for clicks 
 
 Type safety is only partial because a lot of the properties in Backbone/Marionette are optional. Example: An ItemView may have a collection, so the property is there. Solving this would require creating different ItemView classes in the type definition file.
 
+Missed features:
+
+* Computed values and filtered collections with events.
+* Components.
+* Controllers.
+* Built-in event watchers.
+* Better documentation.
+
 ## Updates required to type definition files
 
 Should probably create pull requests for these.
