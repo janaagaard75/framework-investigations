@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "object-assign": "registry:npm/object-assign#4.0.1+20160301180549",
+    "react": "registry:npm/react#15.0.1+20160601175240",
+    "react-dom": "registry:npm/react-dom#15.0.1+20160826174104",
+    "react-redux": "registry:npm/react-redux#4.4.0+20160614222153",
+    "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
+  },
+  "globalDependencies": {
+    "classnames": "registry:dt/classnames#0.0.0+20160316155526",
+    "expect": "registry:global/expect#1.13.4+20160211003958",
+    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
+    "jsdom": "registry:dt/jsdom#2.0.0+20160316155526",
+    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
+    "node": "registry:dt/node#6.0.0+20160831021119",
+    "redux": "registry:dt/redux#3.5.2+20160703092728",
+    "redux-actions": "registry:dt/redux-actions#0.8.0+20160521154116"
+  }
+}

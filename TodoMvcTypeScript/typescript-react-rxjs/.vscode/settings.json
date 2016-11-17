@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "editor.tabSize": 2,
+    "eslint.enable": false,
+    "jscs.enable": false,
+    "jshint.enable": false,
+    "search.exclude": {
+        "dist": true,
+        "typings": true
+    },
+    "tslint.enable": true
+}

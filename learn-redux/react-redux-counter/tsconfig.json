@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ES5",
+    "module": "commonjs",
+    "jsx": "react"
+  },
+  "filesGlob": [
+    "./**/*.ts"
+  ],
+  "files": [
+    "typings/tsd.d.ts",
+    "app/index.tsx",
+    "app/src/containers/App.ts",
+    "app/src/components/Counter.tsx",
+    "app/src/constants/ActionTypes.ts",
+    "app/src/actions/counter.ts",
+    "app/src/reducers/rootReducer.ts",
+    "app/src/reducers/counter.ts",
+    "app/src/store/configureStore.ts",
+    "app/test/setup.ts",
+    "app/test/components/Counter.spec.tsx"
+  ]
+}

@@ -1,0 +1,1 @@
+export type Filter = 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED'

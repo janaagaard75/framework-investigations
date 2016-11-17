@@ -1,0 +1,29 @@
+{
+  "author": "Jan Aagaard",
+  "description": "TodoMVC written in TypeScript using React and RxJs.",
+  "main": "index.html",
+  "name": "typescript-react-rxjs",
+  "keywords": [
+    "react",
+    "rxjs",
+    "todomvc",
+    "typescript"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janaagaard75/TodoMvcTypeScript.git"
+  },
+  "scripts": {
+    "build": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
+    "lint": "tslint src/**/*.ts",
+    "start": "webpack-dev-server --content-base dist/ -d --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "ts-loader": "0.8.2",
+    "tslint": "3.14.0",
+    "typescript": "2.0.0"
+  }
+}

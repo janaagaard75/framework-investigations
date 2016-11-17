@@ -1,0 +1,46 @@
+{
+  "name": "05_react_redux_counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "tsd install && webpack",
+    "clean": "find -E . -regex './app/.+\\.(js|map)$' -type f | xargs rm && rm -rf ./build",
+    "start": "test -e ./build/index.html || webpack && webpack-dev-server --progress --colors --hot --inline",
+    "prod": "NODE_ENV=prod webpack",
+    "pretest": "tsc",
+    "test": "istanbul cover _mocha -- ./app/test/**/*.spec.js --require ./app/test/setup.js",
+    "posttest": "cd ./docs/coverage && remap-istanbul -i coverage.json -o html-report -t html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "css-loader": "^0.20.2",
+    "html-webpack-plugin": "^1.6.2",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "normalize.css": "^3.0.3",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4",
+    "redux-actions": "^0.8.0",
+    "redux-logger": "^2.0.4",
+    "redux-thunk": "^1.0.0",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.5.6",
+    "typescript": "^1.6.2",
+    "webpack": "^1.12.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.0",
+    "jsdom": "^7.0.2",
+    "mocha": "^2.3.3",
+    "power-assert": "^1.1.0",
+    "redux-devtools": "^2.1.5",
+    "remap-istanbul": "^0.3.1",
+    "webpack-dev-server": "^1.12.0"
+  }
+}

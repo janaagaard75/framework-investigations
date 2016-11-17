@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "removeComments": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    // "strictNullChecks": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "typings/globals",
+    "webpack.config.js"
+  ]
+}
