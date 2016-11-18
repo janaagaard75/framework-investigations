@@ -21,9 +21,9 @@ export class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextI
     }
   }
 
-  handleSubmit(e) {
-    const text = e.target.value.trim()
-    if (e.which === 13) {
+  handleSubmit(e: Event) {
+    const text = (e.target as HTMLInputElement).value.trim()
+    if ((e as KeyboardEvent).which === 13) {
       this.props.onSave(text)
       if (this.props.newTodo) {
         this.setState({ text: '' })
@@ -31,13 +31,13 @@ export class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextI
     }
   }
 
-  handleChange(e) {
-    this.setState({ text: e.target.value })
+  handleChange(e: Event) {
+    this.setState({ text: (e.target as HTMLInputElement).value })
   }
 
-  handleBlur(e) {
+  handleBlur(e: Event) {
     if (!this.props.newTodo) {
-      this.props.onSave(e.target.value)
+      this.props.onSave((e.target as HTMLInputElement).value)
     }
   }
 
