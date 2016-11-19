@@ -9,7 +9,7 @@
   "scripts": {
     "build:dev": "rimraf dist && webpack",
     "build": "rimraf dist && webpack -p",
-    "lint": "tslint 'client/**/*.ts' 'client/**/*.tsx' 'test/**/*.ts' 'test/**/*.tsx'",
+    "lint": "tslint client/**/* test/**/*",
     "start": "webpack-dev-server",
     "oldbuild:prod": "rimraf build && cross-env NODE_ENV=production webpack --config webpack/webpack-production.config.js --progress --profile --colors",
     "oldbuild:dev": "node webpack/dev-server.js",
