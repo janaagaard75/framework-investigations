@@ -3,8 +3,6 @@ import { Filter } from './Filter'
 import { Todo } from './Todo'
 import { Todos } from './Todos'
 
-// TODO: This should be named rootStore or reduxState to avoid confusion with React's state.
-
 interface RootStoreProperties {
   todos: Todos
   visibilityFilter: Filter
