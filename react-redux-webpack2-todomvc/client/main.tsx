@@ -1,7 +1,7 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Store, createStore } from 'redux'
+import { createStore, Store } from 'redux'
 import { Provider } from 'react-redux'
+import * as React from 'react'
+import { render } from 'react-dom'
 
 import { ConnectedApp } from './App'
 import { rootReducer } from './rootReducer'
@@ -17,7 +17,7 @@ const initialState: GlobalReduxState = {}
 
 const store: Store<GlobalReduxState> = createStore<GlobalReduxState>(rootReducer, initialState)
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <ConnectedApp />
   </Provider>,
