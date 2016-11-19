@@ -31,4 +31,5 @@ const addTodoFactory = ({ dispatch }) => {
   )
 }
 
+// tslint:disable-next-line variable-name
 export const AddTodo = connect()(addTodoFactory)

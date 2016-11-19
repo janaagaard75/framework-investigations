@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-// TODO: Figure out what to do about the casing.
+// tslint:disable-next-line variable-name
 export const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps

@@ -27,6 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+// tslint:disable-next-line variable-name
 export const VisibleTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
