@@ -9,14 +9,14 @@
   "version": "0.0.0",
   "dependencies": {
     "@types/immutable": "3.8.5",
-    "@types/react": "0.14.41",
+    "@types/react": "0.14.49",
     "@types/react-dom": "0.14.18",
     "@types/react-redux": "4.4.32",
     "@types/redux": "3.6.31",
     "immutable": "3.8.1",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
-    "react-redux": "4.4.5",
+    "react": "15.4.0",
+    "react-dom": "15.4.0",
+    "react-redux": "4.4.6",
     "redux": "3.6.0"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "jsdom": "9.8.3",
     "mocha": "3.1.2",
     "node-libs-browser": "1.0.0",
-    "react-addons-test-utils": "15.3.2",
+    "react-addons-test-utils": "15.4.0",
     "serve-favicon": "2.3.2",
     "ts-loader": "1.2.2",
     "ts-node": "1.7.0",
