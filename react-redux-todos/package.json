@@ -36,16 +36,16 @@
     "node-libs-browser": "1.0.0",
     "react-addons-test-utils": "15.3.2",
     "serve-favicon": "2.3.2",
-    "ts-loader": "0.9.5",
-    "ts-node": "1.6.0",
+    "ts-loader": "1.2.2",
+    "ts-node": "1.7.0",
     "tslint": "3.15.1",
     "tslint-eslint-rules": "2.1.0",
     "tslint-microsoft-contrib": "2.0.13",
     "tslint-react": "1.1.0",
     "typescript": "2.0.10",
-    "webpack": "1.13.2",
+    "webpack": "1.13.3",
     "webpack-dev-middleware": "1.8.4",
-    "webpack-hot-middleware": "2.13.0"
+    "webpack-hot-middleware": "2.13.2"
   },
   "scripts": {
     "build": "webpack",
