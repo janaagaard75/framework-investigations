@@ -52,4 +52,5 @@ const mapStateToProps = (state: GlobalReduxState): AppStateProps => {
   }
 }
 
+// tslint:disable-next-line variable-name
 export const ConnectedApp = connect(mapStateToProps)(App)

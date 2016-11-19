@@ -1,5 +1,5 @@
-import * as React from 'react'
 import * as classNames from 'classnames'
+import * as React from 'react'
 
 interface TodoTextInputProps {
   editing?: boolean
@@ -14,7 +14,7 @@ interface TodoTextInputState {
 }
 
 export class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextInputState> {
-  constructor(props, context) {
+  constructor(props: TodoTextInputProps, context?: any) {
     super(props, context)
     this.state = {
       text: this.props.text || ''

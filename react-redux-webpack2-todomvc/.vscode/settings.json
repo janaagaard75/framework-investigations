@@ -4,5 +4,6 @@
     "build/": true,
     "dist/": true
   },
+  "tslint.enable": true,
   "typescript.tsdk": "./node_modules/typescript/lib"
 }

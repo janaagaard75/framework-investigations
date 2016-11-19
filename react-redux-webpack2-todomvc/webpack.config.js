@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require("path")
+const path = require('path')
 const webpack = require('webpack')
 
 const nodeEnv = process.env.NODE_ENV || 'development';
@@ -9,7 +9,7 @@ const outputDir = path.join(__dirname, 'dist')
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: "client/index.ejs"
+    template: 'client/index.ejs'
   }),
   new webpack.DefinePlugin({
     'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
@@ -52,18 +52,18 @@ module.exports = {
     compress: true,
     port: 9000
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   entry: {
-    "client": "./client/main.tsx"
+    "client": './client/main.tsx'
   },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true
             }
@@ -72,16 +72,16 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: "ts-loader"
+        loader: 'ts-loader'
       }
     ]
   },
   output: {
-    filename: "[name].[hash:8].js",
+    filename: '[name].[hash:8].js',
     path: outputDir
   },
   plugins: plugins,
   resolve: {
-    extensions: [".js", ".ts", ".tsx"]
+    extensions: ['.js', '.ts', '.tsx']
   }
 }
