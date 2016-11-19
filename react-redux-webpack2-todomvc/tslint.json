@@ -57,7 +57,6 @@
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
     "no-unnecessary-bind": true,
-    "no-unnecessary-semicolons": true,
     "no-unused-expression": true,
     "no-unused-imports": true,
     "no-unused-variable": [
