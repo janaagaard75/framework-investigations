@@ -1,13 +1,17 @@
-![https://travis-ci.org/jaysoo/todomvc-redux-react-typescript](https://api.travis-ci.org/jaysoo/todomvc-redux-react-typescript.svg)
+<!-- ![https://travis-ci.org/jaysoo/todomvc-redux-react-typescript](https://api.travis-ci.org/jaysoo/todomvc-redux-react-typescript.svg) -->
 
 This is an implementation of [TodoMVC](http://todomvc.com/) built using:
 
-- [React](http://facebook.github.io/react/)
-- [Redux](https://github.com/rackt/redux)
-- [Redux TypeScript Actions](https://github.com/aikoven/redux-typescript-actions)
-- [TypeScript](http://www.typescriptlang.org/)
-- TypeScript's built-in type definition files
-- [Webpack 2](http://webpack.js.org/), currently in beta
+* [React](http://facebook.github.io/react/)
+* [Redux](https://github.com/rackt/redux)
+* [TypeScript](http://www.typescriptlang.org/)
+* [Webpack 2](http://webpack.js.org/), currently in beta
+
+Other packages:
+
+* [Redux TypeScript Actions](https://github.com/aikoven/redux-typescript-actions)
+* [TypeScript 2's built-in support for type definition files](https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/).
+* [Yarn](https://yarnpkg.com/).
 
 It is based on an initial implementation by Jack Hsu <jack.hsu@gmail.com>, that was adapted from the [redux TodoMVC example](https://github.com/rackt/redux/tree/master/examples/todomvc). Jack has a blog post about his implementation: http://jaysoo.ca/2015/09/26/typed-react-and-redux/.
 
