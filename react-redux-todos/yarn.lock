@@ -19,9 +19,9 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/immutable@3.8.4":
-  version "3.8.4"
-  resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.4.tgz#43749fb97123835bacc4a90c9a4974a42a2304c2"
+"@types/immutable@3.8.5":
+  version "3.8.5"
+  resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.5.tgz#f89f3e25c86b1c572e919bd2733ac743801b6c76"
 
 "@types/jquery@*":
   version "2.0.34"
@@ -38,13 +38,17 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-0.0.29.tgz#fbcfd330573b912ef59eeee14602bface630754b"
 
-"@types/mocha@2.2.32":
-  version "2.2.32"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.32.tgz#dda0da6eaf2195d2ff808f42a1725b1a19e7ed69"
+"@types/mocha@2.2.33":
+  version "2.2.33"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.33.tgz#d79a0061ec270379f4d9e225f4096fb436669def"
 
-"@types/node@*", "@types/node@6.0.45":
+"@types/node@*":
   version "6.0.45"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.45.tgz#c4842a9d653d767831e4ff495b6008cc0d579966"
+
+"@types/node@6.0.48":
+  version "6.0.48"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.48.tgz#86ccc15f66b73cbbc5eb3483398936c585122b3c"
 
 "@types/react-dom@0.14.18":
   version "0.14.18"
@@ -90,9 +94,9 @@
   dependencies:
     "@types/source-map" "*"
 
-"@types/webpack@1.12.35":
-  version "1.12.35"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-1.12.35.tgz#803024d0918eb23effa8dbe9209829c856652a52"
+"@types/webpack@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-2.0.0.tgz#e7934a1c0bb628e1940f090c0afd2682817c1def"
   dependencies:
     "@types/uglify-js" "*"
 
@@ -1294,9 +1298,9 @@ jsbn@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.0.tgz#650987da0dd74f4ebf5a11377a2aa2d273e97dfd"
 
-jsdom@9.8.0:
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-9.8.0.tgz#8766594cf994549d8a809cf6dca0246aceef9305"
+jsdom@9.8.3:
+  version "9.8.3"
+  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-9.8.3.tgz#fde29c109c32a1131e0b6c65914e64198f97c370"
   dependencies:
     abab "^1.0.0"
     acorn "^2.4.0"
