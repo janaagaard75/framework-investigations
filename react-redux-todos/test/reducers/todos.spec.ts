@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import { addTodo } from '../../src/actions/addTodo'
 import { Todo } from '../../src/model/Todo'
 import { Todos } from '../../src/model/Todos'
-import { todosReducer } from '../../src/reducers/todos'
+import { todosReducer } from '../../src/reducers/todosReducer'
 import { toggleTodo } from '../../src/actions/toggleTodo'
 
 describe('todos reducer', () => {
