@@ -8,8 +8,8 @@ export class App extends React.Component<any, any> {
     return (
       <div>
         <AddTodo dispatch/>
-        <VisibleTodoList />
-        <Footer />
+        <VisibleTodoList/>
+        <Footer/>
       </div>
     )
   }
