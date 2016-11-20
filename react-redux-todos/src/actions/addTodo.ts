@@ -1,3 +1,4 @@
-import { createActionCreator } from './createActionCreator'
+import actionCreatorFactory from 'redux-typescript-actions'
 
-export const addTodo = createActionCreator<string>('ADD_TODO')
+// TODO: Prefix these action creators with 'create'.
+export const addTodo = actionCreatorFactory()<string>('ADD_TODO')

@@ -1,7 +1,8 @@
+import { Action as ReduxAction } from 'redux'
+import { isType } from 'redux-typescript-actions'
 import { List } from 'immutable'
-import { Action } from '../actions/Action'
+
 import { addTodo } from '../actions/addTodo'
-import { isType } from './isType'
 import { Todo } from '../model/Todo'
 import { Todos } from '../model/Todos'
 import { toggleTodo } from '../actions/toggleTodo'
@@ -16,8 +17,8 @@ const getNextId = (state: Todos): number => {
   return nextId
 }
 
-// TODO: Consider re-introducing the Todo reducer, to emphasise how the reducer hierarchy works.
-export const todosReducer = (state: Todos = List<Todo>(), action: Action<any>): Todos => {
+// TODO: Consider re-introducing the Todo reducer to emphasise how the reducer hierarchy works.
+export const todosReducer = (state: Todos = List<Todo>(), action: ReduxAction): Todos => {
   if (isType(action, addTodo)) {
     const newTodo: Todo = new Todo({
       completed: false,

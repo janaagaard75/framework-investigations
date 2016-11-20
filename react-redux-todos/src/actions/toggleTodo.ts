@@ -1,3 +1,3 @@
-import { createActionCreator } from './createActionCreator'
+import actionCreatorFactory from 'redux-typescript-actions'
 
-export const toggleTodo = createActionCreator<number>('TOGGLE_TODO')
+export const toggleTodo = actionCreatorFactory()<number>('TOGGLE_TODO')

@@ -1,3 +1,4 @@
-import { createActionCreator } from './createActionCreator'
+import actionCreatorFactory from 'redux-typescript-actions'
+import { Filter } from '../model/Filter'
 
-export const setVisibilityFilter = createActionCreator<any>('SET_VISIBILITY_FILTER')
+export const setVisibilityFilter = actionCreatorFactory()<Filter>('SET_VISIBILITY_FILTER')

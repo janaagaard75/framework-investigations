@@ -14,8 +14,8 @@ describe('todo actions', () => {
   })
 
   it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
-    expect(setVisibilityFilter('active')).to.deep.equal({
-      payload: 'active',
+    expect(setVisibilityFilter('SHOW_ACTIVE')).to.deep.equal({
+      payload: 'SHOW_ACTIVE',
       type: 'SET_VISIBILITY_FILTER'
     })
   })

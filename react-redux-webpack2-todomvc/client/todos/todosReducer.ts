@@ -1,6 +1,6 @@
-import { Action, isType } from 'redux-typescript-actions'
 import { Action as ReduxAction } from 'redux'
 import { assign } from 'lodash'
+import { isType } from 'redux-typescript-actions'
 
 import { Todo, Todos } from './model'
 import {
