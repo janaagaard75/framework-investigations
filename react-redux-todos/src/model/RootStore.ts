@@ -9,7 +9,6 @@ interface RootStoreProperties {
 }
 
 const rootStorestateRecord = Record({
-  // TODO: Consider using Immutable.Map<number, Todo>.
   // TODO: This should be defined in Todos, so that this files doesn't have to import List and Todo. This could be solved by avoiding defaults. Would undefined be okay?
   todos: List<Todo>(),
   visibilityFilter: 'SHOW_ALL'
