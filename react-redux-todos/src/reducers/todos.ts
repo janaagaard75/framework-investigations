@@ -7,6 +7,25 @@ import { Todo } from '../model/Todo'
 import { Todos } from '../model/Todos'
 import { toggleTodo } from '../actions/toggleTodo'
 
+const todoReducer = (state: Todo, action: ReduxAction): Todo => {
+  if (isType(action, toggleTodo)) {
+    if (state.id === action.payload) {
+      // TODO: It should be easier to do this. Perhaps with a setter on the Todo class.
+      const toggledTodo = new Todo({
+        completed: !state.completed,
+        id: state.id,
+        text: state.text
+      })
+
+      return toggledTodo
+    }
+
+    return state
+  }
+
+  return state
+}
+
 const getNextId = (state: Todos): number => {
   const initialMaxId = -1
   const currentMaxId = state.reduce(
@@ -17,7 +36,6 @@ const getNextId = (state: Todos): number => {
   return nextId
 }
 
-// TODO: Consider re-introducing the Todo reducer to emphasise how the reducer hierarchy works.
 export const todosReducer = (state: Todos = List<Todo>(), action: ReduxAction): Todos => {
   if (isType(action, addTodo)) {
     const newTodo: Todo = new Todo({
@@ -36,12 +54,7 @@ export const todosReducer = (state: Todos = List<Todo>(), action: ReduxAction): 
         return (todo.id === action.payload)
       }),
       todo => {
-        const toggledTodo = new Todo({
-          completed: !todo.completed,
-          id: todo.id,
-          text: todo.text
-        })
-
+        const toggledTodo = todoReducer(todo, action)
         return toggledTodo
       }
     )
