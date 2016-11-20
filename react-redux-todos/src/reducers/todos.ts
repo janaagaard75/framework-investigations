@@ -4,27 +4,9 @@ import { List } from 'immutable'
 
 import { addTodo } from '../actions/addTodo'
 import { Todo } from '../model/Todo'
+import { todoReducer } from './todoReducer'
 import { Todos } from '../model/Todos'
 import { toggleTodo } from '../actions/toggleTodo'
-
-const todoReducer = (state: Todo, action: ReduxAction): Todo => {
-  if (isType(action, toggleTodo)) {
-    if (state.id === action.payload) {
-      // TODO: It should be easier to do this. Perhaps with a setter on the Todo class.
-      const toggledTodo = new Todo({
-        completed: !state.completed,
-        id: state.id,
-        text: state.text
-      })
-
-      return toggledTodo
-    }
-
-    return state
-  }
-
-  return state
-}
 
 const getNextId = (state: Todos): number => {
   const initialMaxId = -1
