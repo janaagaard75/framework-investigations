@@ -2,11 +2,11 @@ import { Action as ReduxAction } from 'redux'
 import { isType } from 'redux-typescript-actions'
 import { List } from 'immutable'
 
-import { addTodo } from '../actions/addTodo'
+import { createAddTodo } from '../actions/createAddTodo'
+import { createToggleTodo } from '../actions/createToggleTodo'
 import { Todo } from '../model/Todo'
 import { todoReducer } from './todoReducer'
 import { Todos } from '../model/Todos'
-import { toggleTodo } from '../actions/toggleTodo'
 
 const getNextId = (state: Todos): number => {
   const initialMaxId = -1
@@ -19,7 +19,7 @@ const getNextId = (state: Todos): number => {
 }
 
 export const todosReducer = (state: Todos = List<Todo>(), action: ReduxAction): Todos => {
-  if (isType(action, addTodo)) {
+  if (isType(action, createAddTodo)) {
     const newTodo: Todo = new Todo({
       completed: false,
       id: getNextId(state),
@@ -30,7 +30,7 @@ export const todosReducer = (state: Todos = List<Todo>(), action: ReduxAction): 
     return newState
   }
 
-  if (isType(action, toggleTodo)) {
+  if (isType(action, createToggleTodo)) {
     const newState = state.update(
       state.findIndex(todo => {
         return (todo.id === action.payload)

@@ -1,7 +1,8 @@
 // tslint:disable-next-line no-unused-variable
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/addTodo'
+
+import { createAddTodo } from '../actions/createAddTodo'
 
 const addTodoFactory = ({ dispatch }) => {
   let input
@@ -14,7 +15,7 @@ const addTodoFactory = ({ dispatch }) => {
           if (!input.value.trim()) {
             return
           }
-          dispatch(addTodo(input.value))
+          dispatch(createAddTodo(input.value))
           input.value = ''
         }}
       >

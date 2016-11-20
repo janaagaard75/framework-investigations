@@ -1,10 +1,11 @@
 import { List } from 'immutable'
 import { expect } from 'chai'
-import { addTodo } from '../../src/actions/addTodo'
+
+import { createAddTodo } from '../../src/actions/createAddTodo'
+import { createToggleTodo } from '../../src/actions/createToggleTodo'
 import { Todo } from '../../src/model/Todo'
 import { Todos } from '../../src/model/Todos'
 import { todosReducer } from '../../src/reducers/todosReducer'
-import { toggleTodo } from '../../src/actions/toggleTodo'
 
 describe('todos reducer', () => {
   it('should handle initial state', () => {
@@ -17,7 +18,7 @@ describe('todos reducer', () => {
 
   it('should handle ADD_TODO', () => {
     const stateBefore: Todos = List<Todo>()
-    const addTodoAction = addTodo('Run the tests')
+    const addTodoAction = createAddTodo('Run the tests')
     const actualStateAfter: Todos = todosReducer(stateBefore, addTodoAction)
     const expectedStateAfter: Todos = List<Todo>([
       new Todo({
@@ -36,7 +37,7 @@ describe('todos reducer', () => {
           text: 'Use Redux'
         })
       ]),
-        addTodo('Run the tests')
+        createAddTodo('Run the tests')
       )
     ).to.equal(List<Todo>([
       new Todo({
@@ -64,7 +65,7 @@ describe('todos reducer', () => {
           text: 'Run the tests'
         })
       ]),
-        addTodo('Fix the tests')
+        createAddTodo('Fix the tests')
       )
     ).to.equal(List<Todo>([
       new Todo({
@@ -125,10 +126,10 @@ describe('todos reducer', () => {
       })
     ])
 
-    const actualIntermediateState: Todos = todosReducer(initialState, toggleTodo(0))
+    const actualIntermediateState: Todos = todosReducer(initialState, createToggleTodo(0))
     expect(actualIntermediateState).to.equal(expectedIntermediateState)
 
-    const actualFinalState: Todos = todosReducer(actualIntermediateState, toggleTodo(1))
+    const actualFinalState: Todos = todosReducer(actualIntermediateState, createToggleTodo(1))
     expect(actualFinalState).to.equal(expectedFinalState)
   })
 })
