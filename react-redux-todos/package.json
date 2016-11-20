@@ -50,9 +50,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "lint": "tslint --exclude src/typings/chai-immutable.d.ts 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts' 'test/**/*.tsx' || true",
+    "lint": "tslint --exclude src/typings/chai-immutable.d.ts 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts' 'test/**/*.tsx'",
     "start": "ts-node src/server.ts",
-    "test": "cross-env NODE_END=test mocha --require ts-node/register --require ./test/setup.ts --recursive test/**/*.spec.* || true",
+    "test": "cross-env NODE_END=test mocha --require ts-node/register --require ./test/setup.ts --recursive test/**/*.spec.*",
     "test:watch": "npm test -- --watch"
   }
 }
