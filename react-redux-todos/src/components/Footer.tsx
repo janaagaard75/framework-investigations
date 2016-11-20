@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FilterLink } from '../containers/FilterLink'
 
-export class Footer extends React.Component<any, any> {
+export class Footer extends React.Component<void, void> {
   render() {
     return (
       <p>

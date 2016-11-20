@@ -6,7 +6,7 @@ interface LinkPropTypes {
   onClick: () => void
 }
 
-export class Link extends React.Component<LinkPropTypes, any> {
+export class Link extends React.Component<LinkPropTypes, void> {
   render() {
     if (this.props.active) {
       return <span>{this.props.children}</span>

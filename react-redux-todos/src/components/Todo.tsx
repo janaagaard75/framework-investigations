@@ -6,7 +6,7 @@ interface TodoPropTypes {
   text: string
 }
 
-export class Todo extends React.Component<TodoPropTypes, any> {
+export class Todo extends React.Component<TodoPropTypes, void> {
   render() {
     return (
       <li

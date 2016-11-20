@@ -10,7 +10,7 @@ interface TodoListPropTypes {
   onTodoClick: (id: number) => void
 }
 
-export class TodoList extends React.Component<TodoListPropTypes, any> {
+export class TodoList extends React.Component<TodoListPropTypes, void> {
   render() {
     return (
       <ul>
