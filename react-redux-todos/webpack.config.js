@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/main'
   ],
   module: {
     loaders: [

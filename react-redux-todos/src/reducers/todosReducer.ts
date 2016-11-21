@@ -17,7 +17,7 @@ const getNextId = (state: Todos): number => {
   return nextId
 }
 
-// TODO: The default value is defined both here and in the RootStore. One play should be enough.
+// TODO: The default value is defined both here and in main.tsx. Fix this.
 export const todosReducer = (state: Todos = [], action: ReduxAction): Todos => {
   if (isType(action, createAddTodo)) {
     const newTodo: Todo = new Todo({

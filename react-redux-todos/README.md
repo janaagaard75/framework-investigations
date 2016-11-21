@@ -31,6 +31,8 @@ Type definitions use the more verbose `Array<foo>` syntax to distinguish from in
 
 Always define a variable containing the value being returned from a function, because that makes it easier to step debug the code.
 
+Using TypeScript's readonly for the Redux store, so no need for Immutable or similar library.
+
 # TODOs
 
 * Make test runner watcher work.
