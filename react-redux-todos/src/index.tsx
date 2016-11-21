@@ -2,12 +2,14 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, Store } from 'redux'
 
 import { App } from './components/App'
 import { rootReducer } from './reducers/rootReducer'
+import { RootStore } from './model/RootStore'
 
-let store = createStore(rootReducer)
+const initialState = new RootStore([], 'SHOW_ALL')
+const store: Store<RootStore> = createStore<RootStore>(rootReducer, initialState)
 
 render(
   <Provider store={store}>

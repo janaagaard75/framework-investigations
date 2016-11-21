@@ -19,10 +19,6 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/immutable@3.8.5":
-  version "3.8.5"
-  resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.5.tgz#f89f3e25c86b1c572e919bd2733ac743801b6c76"
-
 "@types/jquery@*":
   version "2.0.34"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.34.tgz#27615b369f30e572336126514e74672dda6e3d04"
@@ -405,10 +401,6 @@ center-align@^0.1.1:
   dependencies:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
-
-chai-immutable@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/chai-immutable/-/chai-immutable-1.6.0.tgz#9ec00bdd67948b13b20fcbb89cbf4af2ce6f9247"
 
 chai@3.5.0:
   version "3.5.0"
@@ -1126,10 +1118,6 @@ iconv-lite@0.4.13, iconv-lite@^0.4.13, iconv-lite@~0.4.13:
 ieee754@^1.1.4:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
-
-immutable@3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
 indexof@0.0.1:
   version "0.0.1"

@@ -1,25 +1,17 @@
-import { Record } from 'immutable'
-
-// TODO: Consider using https://github.com/rangle/typed-immutable-record.
 interface TodoProperties {
   completed: boolean
   id: number
   text: string
 }
 
-// TODO: Is it possible to avoid having default values?
-const todoRecord = Record({
-  completed: false,
-  id: 0,
-  text: ''
-})
-
-export class Todo extends todoRecord implements TodoProperties {
-  constructor(todo: TodoProperties) {
-    super(todo)
+export class Todo {
+  constructor(properties: TodoProperties) {
+    this.completed = properties.completed
+    this.id = properties.id
+    this.text = properties.text
   }
 
-  completed: boolean
-  id: number
-  text: string
+  public readonly completed: boolean
+  public readonly id: number
+  public readonly text: string
 }

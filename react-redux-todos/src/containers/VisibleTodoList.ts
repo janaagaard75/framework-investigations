@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { createToggleTodo } from '../actions/createToggleTodo'
 import { Filter } from '../model/Filter'
 import { TodoList } from '../components/TodoList'
-import { Todos } from '../model/Todos'
 
-// TODO: Add types on the parameters.
 const getVisibleTodos = (todos, filter: Filter) => {
   switch (filter) {
     case 'SHOW_ALL':
