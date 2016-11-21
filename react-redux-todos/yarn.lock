@@ -38,13 +38,17 @@
   version "2.2.33"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.33.tgz#d79a0061ec270379f4d9e225f4096fb436669def"
 
-"@types/node@*", "@types/node@6.0.48":
+"@types/node@*":
   version "6.0.48"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.48.tgz#86ccc15f66b73cbbc5eb3483398936c585122b3c"
 
-"@types/react-dom@0.14.18":
-  version "0.14.18"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-0.14.18.tgz#af4fb4092f433667f5f094e762b32c294e0010dc"
+"@types/node@6.0.49":
+  version "6.0.49"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.49.tgz#c644f7305e0d64bd797c939af833f22d150e1d33"
+
+"@types/react-dom@0.14.19":
+  version "0.14.19"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-0.14.19.tgz#698a14335e32fb1bc61db65f5647c9668a7fc2eb"
   dependencies:
     "@types/react" "*"
 
@@ -55,9 +59,13 @@
     "@types/react" "*"
     "@types/redux" "*"
 
-"@types/react@*", "@types/react@0.14.49":
+"@types/react@*":
   version "0.14.49"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.49.tgz#983b773c91d341488e06d57ba677301b2cd9b846"
+
+"@types/react@0.14.50":
+  version "0.14.50"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.50.tgz#3f3f69db5661c8be3df99bde688e11300ef8131e"
 
 "@types/redux@*":
   version "3.6.31"
