@@ -13,9 +13,7 @@ export type GlobalReduxState = {
   todos?: Array<Todo>
 }
 
-const initialState: GlobalReduxState = {}
-
-const store: Store<GlobalReduxState> = createStore<GlobalReduxState>(rootReducer, initialState)
+const store: Store<GlobalReduxState> = createStore<GlobalReduxState>(rootReducer)
 
 render(
   <Provider store={store}>
