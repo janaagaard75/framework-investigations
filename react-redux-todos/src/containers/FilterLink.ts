@@ -1,16 +1,21 @@
-import { connect } from 'react-redux'
+import { connect, Dispatch } from 'react-redux'
 
 import { createSetVisibilityFilter } from '../actions/createSetVisibilityFilter'
+import { Filter } from '../model/Filter'
 import { Link } from '../components/Link'
 import { RootStore } from '../model/RootStore'
 
-const mapStateToProps = (state: RootStore, ownProps) => {
+interface OwnProps {
+  filter: Filter
+}
+
+const mapStateToProps = (state: RootStore, ownProps: OwnProps) => {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: OwnProps) => {
   return {
     onClick: () => {
       dispatch(createSetVisibilityFilter(ownProps.filter))

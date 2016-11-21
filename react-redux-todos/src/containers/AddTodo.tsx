@@ -3,6 +3,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 
 import { createAddTodo } from '../actions/createAddTodo'
+import { RootStore } from '../model/RootStore'
 
 const addTodoFactory = ({ dispatch }) => {
   let input
