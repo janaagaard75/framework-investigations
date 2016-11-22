@@ -1,32 +1,72 @@
-var path = require('path')
-var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+
+const nodeEnv = process.env.NODE_ENV || 'development'
+const isProduction = nodeEnv === 'production'
+
+const outputDir = path.join(__dirname, 'dist')
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: 'src/index.html'
+  }),
+  new webpack.DefinePlugin({
+    'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
+  })
+]
+
+if (isProduction) {
+  plugins.push(
+    new BabiliPlugin()
+  )
+} else {
+  plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+  )
+}
 
 module.exports = {
+  devServer: {
+    compress: true,
+    contentBase: outputDir,
+    port: 9000
+  },
   devtool: 'source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/main'
-  ],
+  entry: {
+    'client': './src/main.tsx'
+  },
   module: {
-    loaders: [
+    rules: [
       {
-        exclude: /node_modules/,
-        include: __dirname,
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         loader: 'ts-loader',
         test: /\.tsx?$/
       }
     ]
   },
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/static/'
+    filename: '[name].[hash:8].js',
+    path: outputDir
   },
-  plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: plugins,
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'app')
+    ]
   }
 }

@@ -10,6 +10,13 @@
     ],
     "arrow-parens": false,
     "eofline": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "member-ordering": [
+      false
+    ],
     "ordered-imports": [
       false
     ],
@@ -39,6 +46,9 @@
       "check-type"
     ]
   },
+  "align": [
+    false
+  ],
   "jsRules": {
     "eofline": false,
     "quotemark": [
