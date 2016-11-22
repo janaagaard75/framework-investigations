@@ -40,6 +40,7 @@
     ]
   },
   "jsRules": {
+    "eofline": false,
     "quotemark": [
       true,
       "single"
