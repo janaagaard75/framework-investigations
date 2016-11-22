@@ -27,7 +27,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['', '.ts', '.tsx', '.js']
   }
 }

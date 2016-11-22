@@ -44,6 +44,10 @@
       true,
       "single"
     ],
+    "semicolon": [
+      true,
+      "never"
+    ],
     "trailing-comma": [
       false
     ]
