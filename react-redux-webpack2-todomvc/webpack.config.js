@@ -39,11 +39,11 @@ if (isProduction) {
         comments: false
       },
     })
-  );
+  )
 } else {
   plugins.push(
     new webpack.HotModuleReplacementPlugin()
-  );
+  )
 }
 
 module.exports = {
