@@ -35,10 +35,10 @@
     "serve-favicon": "2.3.2",
     "ts-loader": "1.2.2",
     "ts-node": "1.7.0",
-    "tslint": "3.15.1",
-    "tslint-eslint-rules": "2.1.0",
+    "tslint": "4.0.1",
+    "tslint-eslint-rules": "3.0.0",
     "tslint-microsoft-contrib": "2.0.13",
-    "tslint-react": "1.1.0",
+    "tslint-react": "2.0.0",
     "typescript": "2.0.10",
     "webpack": "1.13.3",
     "webpack-dev-middleware": "1.8.4",
@@ -46,7 +46,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "lint": "tslint 'src/**/*.ts' 'src/**/*.tsx' 'test/**/*.ts' 'test/**/*.tsx'",
+    "lint": "tslint src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx",
     "start": "ts-node src/server.ts",
     "test": "cross-env NODE_END=test mocha --require ts-node/register --require ./test/setup.ts --recursive test/**/*.spec.*",
     "test:watch": "npm test -- --watch"

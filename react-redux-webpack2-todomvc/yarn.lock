@@ -1494,10 +1494,6 @@ diff@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-1.4.0.tgz#7f28d2eb9ee7b15a97efd89ce63dcfdaa3ccbabf"
 
-diff@^2.2.1:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-2.2.3.tgz#60eafd0d28ee906e4e8ff0a52c1229521033bf99"
-
 diff@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.0.1.tgz#a52d90cc08956994be00877bff97110062582c35"
@@ -2006,7 +2002,7 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
-glob@7.0.5, glob@^7.0.3, glob@^7.0.5:
+glob@7.0.5, glob@^7.0.5:
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.5.tgz#b4202a69099bbb4d292a7c1b95b6682b67ebdc95"
   dependencies:
@@ -4516,20 +4512,20 @@ ts-loader@1.2.2:
     object-assign "^4.1.0"
     semver "^5.0.1"
 
-tslint-eslint-rules@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-2.2.1.tgz#ffc5f264ddfb52da27961f281d8f2db6b397c95a"
+tslint-eslint-rules@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-3.0.0.tgz#42c17e06b4d467cee4268606c6fd455db5822d67"
   dependencies:
     doctrine "^0.7.2"
-    tslint "^3.15.1"
+    tslint "^4.0.0"
 
 tslint-microsoft-contrib@2.0.13:
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/tslint-microsoft-contrib/-/tslint-microsoft-contrib-2.0.13.tgz#30ed7e1a03261eea091354eaca3afe7b25e04ca7"
 
-tslint@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-4.0.0.tgz#387a3e1ee07e82197cf2b13f58908a5e1967dff5"
+tslint@4.0.1, tslint@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-4.0.1.tgz#42ae8ac2b994331a6f61c5809916df86411fd880"
   dependencies:
     colors "^1.1.2"
     diff "^3.0.1"
@@ -4539,18 +4535,6 @@ tslint@4.0.0:
     resolve "^1.1.7"
     underscore.string "^3.3.4"
     update-notifier "^1.0.2"
-
-tslint@^3.15.1:
-  version "3.15.1"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-3.15.1.tgz#da165ca93d8fdc2c086b51165ee1bacb48c98ea5"
-  dependencies:
-    colors "^1.1.2"
-    diff "^2.2.1"
-    findup-sync "~0.3.0"
-    glob "^7.0.3"
-    optimist "~0.6.0"
-    resolve "^1.1.7"
-    underscore.string "^3.3.4"
 
 tty-browserify@0.0.0:
   version "0.0.0"
