@@ -38,5 +38,14 @@
       "check-separator",
       "check-type"
     ]
+  },
+  "jsRules": {
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "trailing-comma": [
+      false
+    ]
   }
 }

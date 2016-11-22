@@ -10,16 +10,16 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
         exclude: /node_modules/,
-        include: __dirname
+        include: __dirname,
+        loader: 'ts-loader',
+        test: /\.tsx?$/
       }
     ]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
     publicPath: '/static/'
   },
   plugins: [
@@ -28,6 +28,6 @@ module.exports = {
   ],
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ["", ".ts", ".tsx", ".js"]
+    extensions: ['', '.ts', '.tsx', '.js']
   }
 }
