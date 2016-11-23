@@ -4,7 +4,7 @@ import { Footer } from './Footer'
 import { VisibleTodoList } from '../containers/VisibleTodoList'
 
 export class App extends React.Component<void, void> {
-  render() {
+  public render() {
     return (
       <div>
         <AddTodo dispatch/>

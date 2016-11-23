@@ -7,7 +7,7 @@ interface LinkPropTypes {
 }
 
 export class Link extends React.Component<LinkPropTypes, void> {
-  render() {
+  public render() {
     if (this.props.active) {
       return <span>{this.props.children}</span>
     }

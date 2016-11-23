@@ -7,7 +7,7 @@ interface TodoPropTypes {
 }
 
 export class Todo extends React.Component<TodoPropTypes, void> {
-  render() {
+  public render() {
     return (
       <li
         onClick={this.props.onClick}

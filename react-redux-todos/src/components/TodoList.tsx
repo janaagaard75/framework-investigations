@@ -11,7 +11,7 @@ interface TodoListPropTypes {
 }
 
 export class TodoList extends React.Component<TodoListPropTypes, void> {
-  render() {
+  public render() {
     return (
       <ul>
         {this.props.todos.map(todo =>
