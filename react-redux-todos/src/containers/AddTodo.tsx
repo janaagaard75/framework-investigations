@@ -33,5 +33,6 @@ const addTodoFactory = ({ dispatch }) => {
   )
 }
 
+// TODO: Add types to the connect method: TStateProps, TDispatchProps, TOwnProps and maybe also TMergedProps.
 // tslint:disable-next-line variable-name
 export const AddTodo = connect()(addTodoFactory)

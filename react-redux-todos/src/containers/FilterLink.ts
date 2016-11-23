@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: FilterLinkP
   }
 }
 
+// TODO: Add types to the connect method: TStateProps, TDispatchProps, TOwnProps and maybe also TMergedProps. Adding the merged properties might fix the build issue in Link.tsx.
 // tslint:disable-next-line variable-name
 export const FilterLink = connect(
   mapStateToProps,
