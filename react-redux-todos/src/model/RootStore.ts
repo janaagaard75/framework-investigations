@@ -1,10 +1,17 @@
 import { Filter } from './Filter'
 import { Todos } from './Todos'
 
-// TODO: Consider using named parameters in the constructor.
+interface RootStoreProperties {
+  todos: Todos,
+  visibilityFilter: Filter
+}
+
 export class RootStore {
-  constructor(
-    public readonly todos: Todos,
-    public readonly visibilityFilter: Filter
-  ) { }
+  constructor(properties: RootStoreProperties) {
+    this.todos = properties.todos
+    this.visibilityFilter = properties.visibilityFilter
+  }
+
+  public readonly todos: Todos
+  public readonly visibilityFilter: Filter
 }

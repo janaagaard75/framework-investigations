@@ -8,7 +8,11 @@ import { App } from './components/App'
 import { rootReducer } from './reducers/rootReducer'
 import { RootStore } from './model/RootStore'
 
-const initialState = new RootStore([], 'SHOW_ALL')
+const initialState = new RootStore({
+  todos: [],
+  visibilityFilter: 'SHOW_ALL'
+})
+
 const store: Store<RootStore> = createStore<RootStore>(rootReducer, initialState)
 
 render(
