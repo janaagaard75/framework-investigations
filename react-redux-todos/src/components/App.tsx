@@ -6,8 +6,9 @@ import { VisibleTodoList } from '../containers/VisibleTodoList'
 export class App extends React.Component<void, void> {
   public render() {
     return (
+      // TODO: This was <AddTodo dispatch/> - what was the dispatch about?
       <div>
-        <AddTodo dispatch/>
+        <AddTodo/>
         <VisibleTodoList/>
         <Footer/>
       </div>
