@@ -13,7 +13,7 @@ export class Link extends React.Component<LinkPropTypes, void> {
     }
 
     return (
-      // TODO: Figure out how to remove the href="#". Possibly by using a span element instead. This would alremove remove the need for the call to preventDefault.
+      // TODO: Figure out how to remove the href="#". Possibly by using a span element instead. This would also remove the need for the call to preventDefault.
       <a
         href="#"
         onClick={e => {
