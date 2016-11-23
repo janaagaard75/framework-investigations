@@ -19,7 +19,7 @@ app.use(webpackHotMiddleware(compiler))
 app.use(favicon(__dirname + '/favicon.ico'))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+  res.sendFile(__dirname + '/../dist/index.html')
 })
 
 app.listen(port, (error) => {
