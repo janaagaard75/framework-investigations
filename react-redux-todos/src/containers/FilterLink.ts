@@ -18,18 +18,6 @@ interface OwnProps {
   filter: Filter
 }
 
-interface LinkPropTypes {
-  active: boolean,
-  children: React.ReactChildren,
-  onClick: () => void
-}
-
-interface MergedProps {
-  active: boolean,
-  filter: Filter,
-  onClick: () => void
-}
-
 const mapStateToProps = (state: RootStore, ownProps: OwnProps): StateProps => {
   return {
     active: ownProps.filter === state.visibilityFilter
@@ -44,9 +32,9 @@ const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: OwnProps): 
   }
 }
 
-// TODO: Add types to the connect method: TStateProps, TDispatchProps, TOwnProps and maybe also TMergedProps. Adding the merged properties might fix the build issue in Link.tsx.
+// TODO: 'as any' is required to make it build. Hopefully this will soon get fixed, so it's no longer necessary.
 // tslint:disable-next-line variable-name
-export const FilterLink = connect<StateProps, DispatchProps, OwnProps, LinkPropTypes>(
+export const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Link)
+)(Link) as any
