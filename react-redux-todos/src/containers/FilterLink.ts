@@ -6,17 +6,17 @@ import { Filter } from '../model/Filter'
 import { Link } from '../components/Link'
 import { RootStore } from '../model/RootStore'
 
-interface OwnProps {
+interface FilterLinkProps {
   filter: Filter
 }
 
-const mapStateToProps = (state: RootStore, ownProps: OwnProps) => {
+const mapStateToProps = (state: RootStore, ownProps: FilterLinkProps) => {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: OwnProps) => {
+const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: FilterLinkProps) => {
   return {
     onClick: () => {
       dispatch(createSetVisibilityFilter(ownProps.filter))
