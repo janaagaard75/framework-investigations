@@ -6,17 +6,37 @@ import { Filter } from '../model/Filter'
 import { Link } from '../components/Link'
 import { RootStore } from '../model/RootStore'
 
-interface FilterLinkProps {
+interface StateProps {
+  active: boolean
+}
+
+interface DispatchProps {
+  onClick: () => void
+}
+
+interface OwnProps {
   filter: Filter
 }
 
-const mapStateToProps = (state: RootStore, ownProps: FilterLinkProps) => {
+interface LinkPropTypes {
+  active: boolean,
+  children: React.ReactChildren,
+  onClick: () => void
+}
+
+interface MergedProps {
+  active: boolean,
+  filter: Filter,
+  onClick: () => void
+}
+
+const mapStateToProps = (state: RootStore, ownProps: OwnProps): StateProps => {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: FilterLinkProps) => {
+const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: OwnProps): DispatchProps => {
   return {
     onClick: () => {
       dispatch(createSetVisibilityFilter(ownProps.filter))
@@ -26,7 +46,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: FilterLinkP
 
 // TODO: Add types to the connect method: TStateProps, TDispatchProps, TOwnProps and maybe also TMergedProps. Adding the merged properties might fix the build issue in Link.tsx.
 // tslint:disable-next-line variable-name
-export const FilterLink = connect(
+export const FilterLink = connect<StateProps, DispatchProps, OwnProps, LinkPropTypes>(
   mapStateToProps,
   mapDispatchToProps
 )(Link)
