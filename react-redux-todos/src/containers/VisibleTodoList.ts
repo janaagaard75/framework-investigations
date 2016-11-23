@@ -16,6 +16,9 @@ const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
 
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
+
+    default:
+      throw new Error(`The value ${filter} for filter is not supported.`)
   }
 }
 
