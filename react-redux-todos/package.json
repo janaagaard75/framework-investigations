@@ -53,7 +53,7 @@
     "lint": "tslint src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx",
     "start": "webpack-dev-server",
     "start:server-ts": "ts-node src/server.ts",
-    "test": "cross-env NODE_END=test mocha --require ts-node/register --require ./test/setup.ts --recursive test/**/*.spec.*",
+    "test": "cross-env NODE_ENV=test mocha --require ts-node/register --require ./test/setup.ts --recursive test/**/*.spec.*",
     "test:watch": "npm test -- --watch"
   }
 }
