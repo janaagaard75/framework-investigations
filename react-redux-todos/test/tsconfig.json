@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    //"noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist/",
+    "removeComments": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2015",
+    "types": [
+      "mocha",
+      "node"
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "webpack.config.js"
+  ]
+}
