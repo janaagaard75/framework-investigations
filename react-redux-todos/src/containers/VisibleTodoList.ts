@@ -7,6 +7,21 @@ import { RootStore } from '../model/RootStore'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
+// TODO: Consider merging these two function into one.
+const getFilter = (location: Location): Filter => {
+  switch (location.pathname) {
+    default:
+    case '/':
+      return 'SHOW_ALL'
+
+    case '/active':
+      return 'SHOW_ACTIVE'
+
+    case '/completed':
+      return 'SHOW_COMPLETED'
+  }
+}
+
 const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
   switch (filter) {
     case 'SHOW_ALL':
@@ -23,9 +38,23 @@ const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
   }
 }
 
-const mapStateToProps = (state: RootStore) => {
+// TODO: Consider moving these interfaces to TodoList.
+interface StateProps {
+  todos: Todos
+}
+
+interface DispatchProps {
+  onTodoClick: (id: number) => void
+}
+
+interface OwnProps {
+  location: Location
+}
+
+const mapStateToProps = (state: RootStore, ownProps: OwnProps) => {
+  const activeFilter = getFilter(ownProps.location)
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos: getVisibleTodos(state.todos, activeFilter)
   }
 }
 
@@ -38,7 +67,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootStore>) => {
 }
 
 // tslint:disable-next-line variable-name
-export const VisibleTodoList = connect(
+export const VisibleTodoList = connect<StateProps, DispatchProps, OwnProps>(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)

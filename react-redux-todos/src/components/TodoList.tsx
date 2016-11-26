@@ -2,12 +2,13 @@ import * as React from 'react'
 import { Todo } from './Todo'
 
 interface TodoListPropTypes {
+  location: Location,
+  onTodoClick: (id: number) => void,
   todos: Array<{
     completed: boolean,
     id: number,
     text: string
-  }>,
-  onTodoClick: (id: number) => void
+  }>
 }
 
 export class TodoList extends React.Component<TodoListPropTypes, void> {
