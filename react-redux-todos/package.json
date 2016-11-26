@@ -11,6 +11,7 @@
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "4.4.6",
+    "react-router": "3.0.0",
     "redux": "3.6.0",
     "redux-typescript-actions": "1.1.0"
   },
@@ -23,6 +24,7 @@
     "@types/react": "0.14.50",
     "@types/react-dom": "0.14.19",
     "@types/react-redux": "4.4.33",
+    "@types/react-router": "2.0.39",
     "@types/serve-favicon": "2.2.28",
     "@types/webpack": "2.0.0",
     "babili-webpack-plugin": "0.0.7",
