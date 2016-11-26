@@ -3,7 +3,7 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, Store } from 'redux'
-import { hashHistory, Route, Router } from 'react-router'
+import { browserHistory, Route, Router } from 'react-router'
 
 import { App } from './components/App'
 import { rootReducer } from './reducers/rootReducer'
@@ -13,7 +13,7 @@ const store: Store<RootStore> = createStore<RootStore>(rootReducer)
 
 render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route component={App}>
         <Route path="/"/>
         <Route path="/active"/>
