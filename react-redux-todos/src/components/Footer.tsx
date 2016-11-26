@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FilterLink } from '../containers/FilterLink'
+import { Link } from 'react-router'
 
 export class Footer extends React.Component<void, void> {
   public render() {
@@ -7,17 +7,11 @@ export class Footer extends React.Component<void, void> {
       <p>
         Show:
         {' '}
-        <FilterLink filter="SHOW_ALL">
-          All
-        </FilterLink>
+        <Link to="/" activeClassName="selected">All</Link>
         {', '}
-        <FilterLink filter="SHOW_ACTIVE">
-          Active
-        </FilterLink>
+        <Link to="/active" activeClassName="selected">Active</Link>
         {', '}
-        <FilterLink filter="SHOW_COMPLETED">
-          Completed
-        </FilterLink>
+        <Link to="/completed" activeClassName="selected">Completed</Link>
       </p>
     )
   }
