@@ -15,6 +15,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route component={App}>
+        {/* TODO: Consider using a router parameter instead. */}
         <Route path="/"/>
         <Route path="/active"/>
         <Route path="/completed"/>

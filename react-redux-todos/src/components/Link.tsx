@@ -1,3 +1,4 @@
+// TODO: Might get deprecated.
 import * as React from 'react'
 
 interface LinkPropTypes {

@@ -1,3 +1,4 @@
+// TODO: Might get deprecated.
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
