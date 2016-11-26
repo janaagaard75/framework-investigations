@@ -1,0 +1,5 @@
+*.log
+assets/
+coverage/
+db.json
+node_modules/
