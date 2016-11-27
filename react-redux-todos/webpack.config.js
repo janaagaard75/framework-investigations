@@ -31,6 +31,7 @@ module.exports = {
   devServer: {
     compress: true,
     contentBase: outputDir,
+    historyApiFallback: true,
     port: 9000
   },
   devtool: 'source-map',
