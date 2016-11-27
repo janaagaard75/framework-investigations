@@ -10,6 +10,14 @@ const outputDir = path.join(__dirname, 'dist')
 
 const plugins = [
   new HtmlWebpackPlugin({
+    minify: {
+      collapseInlineTagWhitespace: true,
+      collapseWhitespace: true,
+      minifyCSS: true,
+      removeComments: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    },
     template: 'src/index.html'
   }),
   new webpack.DefinePlugin({
