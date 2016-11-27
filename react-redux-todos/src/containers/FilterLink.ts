@@ -1,4 +1,4 @@
-// TODO: Might get deprecated.
+// TODO: The file is currently not used. It might get deprecated.
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 

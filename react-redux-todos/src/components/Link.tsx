@@ -1,4 +1,4 @@
-// TODO: Might get deprecated.
+// TODO: This file is currently not used. It might get deprecated.
 import * as React from 'react'
 
 interface LinkPropTypes {
