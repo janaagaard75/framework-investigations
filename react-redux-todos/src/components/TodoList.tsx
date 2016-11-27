@@ -1,15 +1,12 @@
 import * as React from 'react'
 
 import { Todo } from './Todo'
+import { Todos } from '../model/Todos'
 
 interface TodoListPropTypes {
   location: Location,
   onTodoClick: (id: number) => void,
-  todos: Array<{
-    completed: boolean,
-    id: number,
-    text: string
-  }>
+  todos: Todos
 }
 
 export class TodoList extends React.Component<TodoListPropTypes, void> {
