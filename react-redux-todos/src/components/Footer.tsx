@@ -8,11 +8,11 @@ export class Footer extends React.Component<void, void> {
         {/* TODO: Consider making the active link unclickable. See http://stackoverflow.com/questions/35963070/react-router-how-to-disable-a-link-if-its-active. Might change if a route paraemter is introduced.  */}
         Show:
         {' '}
-        <Link to="/" activeClassName="selected">All</Link>
+        <Link to="/" activeClassName="active">All</Link>
         {', '}
-        <Link to="/active" activeClassName="selected">Active</Link>
+        <Link to="/active" activeClassName="active">Active</Link>
         {', '}
-        <Link to="/completed" activeClassName="selected">Completed</Link>
+        <Link to="/completed" activeClassName="active">Completed</Link>
       </p>
     )
   }
