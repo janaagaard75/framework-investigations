@@ -1,4 +1,3 @@
-// tslint:disable-next-line no-unused-variable // TODO: Remove these lines - they're no longer needed.
 import * as React from 'react'
 import { combineReducers } from 'redux'
 import { render } from 'react-dom'
