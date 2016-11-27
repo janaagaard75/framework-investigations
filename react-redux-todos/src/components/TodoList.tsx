@@ -4,7 +4,6 @@ import { Todo } from './Todo'
 import { Todos } from '../model/Todos'
 
 interface TodoListPropTypes {
-  location: Location,
   onTodoClick: (id: number) => void,
   todos: Todos
 }

@@ -7,9 +7,8 @@ import { RootStore } from '../model/RootStore'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
-// TODO: Consider merging these two function into one.
-const getFilter = (location: Location): Filter => {
-  switch (location.pathname) {
+const getFilter = (pathname: string): Filter => {
+  switch (pathname) {
     default:
     case '/':
       return 'SHOW_ALL'
@@ -34,11 +33,11 @@ const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
       return todos.filter(t => !t.completed)
 
     default:
-      throw new Error(`The value ${filter} for filter is not supported.`)
+      throw new Error(`'${filter}' is not a supported value for filter.`)
   }
 }
 
-// TODO: Consider moving these interfaces to TodoList.
+// The combination of StateProps, DispatchProps and OwnProps have to match TodoList's properties.
 interface StateProps {
   todos: Todos
 }
@@ -47,14 +46,12 @@ interface DispatchProps {
   onTodoClick: (id: number) => void
 }
 
-interface OwnProps {
-  location: Location
-}
-
-const mapStateToProps = (state: RootStore, ownProps: OwnProps) => {
-  const activeFilter = getFilter(ownProps.location)
+const mapStateToProps = (state: RootStore) => {
+  // TODO: Add definition type to routing.
+  const activeFilter = getFilter(state.routing.locationBeforeTransitions.pathname)
+  const visibleTodos = getVisibleTodos(state.todos, activeFilter)
   return {
-    todos: getVisibleTodos(state.todos, activeFilter)
+    todos: visibleTodos
   }
 }
 
@@ -67,7 +64,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootStore>) => {
 }
 
 // tslint:disable-next-line variable-name
-export const VisibleTodoList = connect<StateProps, DispatchProps, OwnProps>(
+export const VisibleTodoList = connect<StateProps, DispatchProps, any>(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)
