@@ -8,12 +8,9 @@ import { todoReducer } from './todoReducer'
 import { Todos } from '../model/Todos'
 
 const getNextId = (state: Todos): number => {
-  const initialMaxId = -1
-  const currentMaxId = state.reduce(
-    (previousMaxId, currentTodo) => Math.max(previousMaxId, currentTodo.id),
-    initialMaxId
-  )
-  const nextId = currentMaxId + 1
+  const ids = state.map(todo => todo.id)
+  const maximumId = Math.max(...ids)
+  const nextId = maximumId + 1
   return nextId
 }
 
