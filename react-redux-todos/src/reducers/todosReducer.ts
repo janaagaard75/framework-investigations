@@ -7,12 +7,12 @@ import { Todo } from '../model/Todo'
 import { todoReducer } from './todoReducer'
 import { Todos } from '../model/Todos'
 
-const getNextId = (state: Todos): number => {
-  if (state.length === 0) {
+const getNextId = (todos: Todos): number => {
+  if (todos.length === 0) {
     return 1
   }
 
-  const ids = state.map(todo => todo.id)
+  const ids = todos.map(todo => todo.id)
   const maximumId = Math.max(...ids)
   const nextId = maximumId + 1
   return nextId
