@@ -8,7 +8,7 @@ export class App extends Component<void, void> {
   public render() {
     return (
       <div>
-        <AddTodo/>
+        <AddTodo dispatch/>
         <VisibleTodoList/>
         <Footer/>
       </div>

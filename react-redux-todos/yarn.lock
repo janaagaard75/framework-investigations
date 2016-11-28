@@ -52,9 +52,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-redux@4.4.33":
-  version "4.4.33"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.33.tgz#423b4a637bb07a2ad2736d6a2795cd78c1fcb18d"
+"@types/react-redux@4.4.34":
+  version "4.4.34"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.34.tgz#8082e7679110cd4b9126b1361e7bf826fdbf4203"
   dependencies:
     "@types/react" "*"
     "@types/redux" "*"
@@ -67,16 +67,27 @@
     "@types/react-router" "*"
     "@types/redux" "*"
 
-"@types/react-router@*", "@types/react-router@2.0.39":
+"@types/react-router@*":
   version "2.0.39"
   resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-2.0.39.tgz#b0ae3c3dd98670c010a2b62b3c1ef6a57dda804a"
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@0.14.50":
+"@types/react-router@2.0.41":
+  version "2.0.41"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-2.0.41.tgz#4c2510dfa2d85651af2126aed681c70dbe2f0303"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react@*":
   version "0.14.50"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.50.tgz#3f3f69db5661c8be3df99bde688e11300ef8131e"
+
+"@types/react@0.14.51":
+  version "0.14.51"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.51.tgz#7bb70a087632a91cc2121dd5aecc2da268b74afe"
 
 "@types/redux@*":
   version "3.6.31"
