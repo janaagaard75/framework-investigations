@@ -20,10 +20,6 @@
     "member-ordering": [
       false
     ],
-    "no-unused-variable": [
-      true,
-      "react"
-    ],
     "ordered-imports": [
       false
     ],
