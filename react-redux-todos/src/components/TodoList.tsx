@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Component } from 'react'
 
 import { Todo } from './Todo'
 import { Todos } from '../model/Todos'
@@ -8,7 +9,7 @@ interface TodoListPropTypes {
   todos: Todos
 }
 
-export class TodoList extends React.Component<TodoListPropTypes, void> {
+export class TodoList extends Component<TodoListPropTypes, void> {
   public render() {
     return (
       <ul>

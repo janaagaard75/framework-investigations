@@ -1,41 +1,34 @@
-// TODO: The file is currently not used. It might get deprecated.
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
-import { createSetVisibilityFilter } from '../actions/createSetVisibilityFilter'
-import { Filter } from '../model/Filter'
-import { Link } from '../components/Link'
+import { LinkUnlessActive } from '../components/LinkUnlessActive'
 import { RootState } from '../model/RootState'
 
+// TODO: Clean up.
 interface StateProps {
   active: boolean
 }
 
 interface DispatchProps {
-  onClick: () => void
 }
 
 interface OwnProps {
-  filter: Filter
+  to: string
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): StateProps => {
   return {
-    active: ownProps.filter === state.visibilityFilter
+    active: state.routing.locationBeforeTransitions.pathname === ownProps.to
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<RootState>, ownProps: OwnProps): DispatchProps => {
   return {
-    onClick: () => {
-      dispatch(createSetVisibilityFilter(ownProps.filter))
-    }
   }
 }
 
-// TODO: 'as any' is required to make it build. Hopefully this will soon get fixed, so it's no longer necessary.
 // tslint:disable-next-line variable-name
-export const FilterLink = connect(
+export const FilterLink = connect<StateProps, DispatchProps, OwnProps>(
   mapStateToProps,
   mapDispatchToProps
-)(Link) as any
+)(LinkUnlessActive)

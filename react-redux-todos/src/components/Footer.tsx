@@ -1,18 +1,19 @@
 import * as React from 'react'
-import { Link } from 'react-router'
+import { Component } from 'react'
 
-export class Footer extends React.Component<void, void> {
+import { FilterLink } from '../containers/FilterLink'
+
+export class Footer extends Component<void, void> {
   public render() {
     return (
       <p>
-        {/* TODO: Consider making the active link unclickable. See http://stackoverflow.com/questions/35963070/react-router-how-to-disable-a-link-if-its-active. Might change if a route paraemter is introduced.  */}
         Show:
         {' '}
-        <Link to="/" activeClassName="active">All</Link>
+        <FilterLink to="/">All</FilterLink>
         {', '}
-        <Link to="/active" activeClassName="active">Active</Link>
+        <FilterLink to="/active">Active</FilterLink>
         {', '}
-        <Link to="/completed" activeClassName="active">Completed</Link>
+        <FilterLink to="/completed">Completed</FilterLink>
       </p>
     )
   }

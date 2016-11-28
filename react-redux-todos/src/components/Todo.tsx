@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Component } from 'react'
 
 interface TodoPropTypes {
   onClick: () => void,
@@ -6,7 +7,7 @@ interface TodoPropTypes {
   text: string
 }
 
-export class Todo extends React.Component<TodoPropTypes, void> {
+export class Todo extends Component<TodoPropTypes, void> {
   public render() {
     return (
       <li
