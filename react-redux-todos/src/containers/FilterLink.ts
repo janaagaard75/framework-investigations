@@ -5,7 +5,7 @@ import { Dispatch } from 'redux'
 import { createSetVisibilityFilter } from '../actions/createSetVisibilityFilter'
 import { Filter } from '../model/Filter'
 import { Link } from '../components/Link'
-import { RootStore } from '../model/RootStore'
+import { RootState } from '../model/RootState'
 
 interface StateProps {
   active: boolean
@@ -19,13 +19,13 @@ interface OwnProps {
   filter: Filter
 }
 
-const mapStateToProps = (state: RootStore, ownProps: OwnProps): StateProps => {
+const mapStateToProps = (state: RootState, ownProps: OwnProps): StateProps => {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootStore>, ownProps: OwnProps): DispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<RootState>, ownProps: OwnProps): DispatchProps => {
   return {
     onClick: () => {
       dispatch(createSetVisibilityFilter(ownProps.filter))

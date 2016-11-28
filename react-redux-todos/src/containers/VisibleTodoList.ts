@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 
 import { createToggleTodo } from '../actions/createToggleTodo'
 import { Filter } from '../model/Filter'
-import { RootStore } from '../model/RootStore'
+import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
@@ -46,7 +46,7 @@ interface DispatchProps {
   onTodoClick: (id: number) => void
 }
 
-const mapStateToProps = (state: RootStore) => {
+const mapStateToProps = (state: RootState) => {
   // TODO: Add definition type to routing.
   const activeFilter = getFilter(state.routing.locationBeforeTransitions.pathname)
   const visibleTodos = getVisibleTodos(state.todos, activeFilter)
@@ -55,7 +55,7 @@ const mapStateToProps = (state: RootStore) => {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootStore>) => {
+const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {
   return {
     onTodoClick: (id: number) => {
       dispatch(createToggleTodo(id))

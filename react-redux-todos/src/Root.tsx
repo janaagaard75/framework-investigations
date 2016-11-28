@@ -11,17 +11,17 @@ import { Store } from 'redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import { App } from './components/App'
-import { RootStore } from './model/RootStore'
+import { RootState } from './model/RootState'
 import { todosReducer } from './reducers/todosReducer'
 import { visibilityFilterReducer } from './reducers/visibilityFilterReducer'
 
-const rootReducer = combineReducers<RootStore>({
+const rootReducer = combineReducers<RootState>({
   routing: routerReducer,
   todos: todosReducer,
   visibilityFilter: visibilityFilterReducer
 })
 
-const store: Store<RootStore> = createStore<RootStore>(rootReducer)
+const store: Store<RootState> = createStore<RootState>(rootReducer)
 
 const history = syncHistoryWithStore(browserHistory, store)
 
@@ -29,7 +29,7 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route component={App}>
-        {/* TODO: Consider using a router parameter instead. */}
+        {/* TODO: Consider using a route parameter instead. */}
         <Route path="/"/>
         <Route path="/active"/>
         <Route path="/completed"/>
