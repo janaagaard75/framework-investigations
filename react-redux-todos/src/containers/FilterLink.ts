@@ -7,6 +7,7 @@ interface StateProps {
   active: boolean
 }
 
+// TODO: Consider just using 'any' in the call to connect, and remove this interface.
 interface DispatchProps {
 }
 
