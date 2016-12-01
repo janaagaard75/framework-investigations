@@ -13,9 +13,9 @@ interface OwnProps {
   to: string
 }
 
-const mapStateToProps = (state: RootState, ownProps: OwnProps): StateProps => {
+const mapStateToProps = (rootState: RootState, ownProps: OwnProps): StateProps => {
   return {
-    active: state.routing.locationBeforeTransitions.pathname === ownProps.to
+    active: rootState.routing.locationBeforeTransitions.pathname === ownProps.to
   }
 }
 

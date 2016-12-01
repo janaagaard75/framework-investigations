@@ -48,10 +48,10 @@ interface DispatchProps {
 
 interface OwnProps { }
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (rootState: RootState) => {
   // TODO: Add definition type to routing.
-  const activeFilter = getFilter(state.routing.locationBeforeTransitions.pathname)
-  const visibleTodos = getVisibleTodos(state.todos, activeFilter)
+  const activeFilter = getFilter(rootState.routing.locationBeforeTransitions.pathname)
+  const visibleTodos = getVisibleTodos(rootState.todos, activeFilter)
   return {
     todos: visibleTodos
   }
