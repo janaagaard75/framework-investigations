@@ -93,7 +93,10 @@
     ],
     "ter-indent": [
       true,
-      2
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
     "ter-prefer-arrow-callback": [
       true
