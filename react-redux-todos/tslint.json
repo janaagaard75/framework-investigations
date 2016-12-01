@@ -57,6 +57,7 @@
       "check-separator",
       "check-type"
     ],
+    // ESLint rules for TSLint (tslint-eslint-rules).
     "array-bracket-spacing":
     [
       true,
