@@ -1,4 +1,4 @@
-import { Action as ReduxAction } from 'redux'
+import { Action } from 'redux'
 import { isType } from 'redux-typescript-actions'
 
 import { createAddTodo } from '../actions/createAddTodo'
@@ -18,7 +18,7 @@ const getNextId = (todos: Todos): number => {
   return nextId
 }
 
-export const todosReducer = (state: Todos = [], action: ReduxAction): Todos => {
+export const todosReducer = (state: Todos = [], action: Action): Todos => {
   if (isType(action, createAddTodo)) {
     const newTodo: Todo = new Todo({
       completed: false,
