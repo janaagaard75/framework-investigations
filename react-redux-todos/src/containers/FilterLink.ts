@@ -7,9 +7,7 @@ interface StateProps {
   active: boolean
 }
 
-// TODO: Consider just using 'any' in the call to connect, and remove this interface.
-interface DispatchProps {
-}
+interface DispatchProps { }
 
 interface OwnProps {
   to: string
@@ -21,7 +19,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps): StateProps => {
   }
 }
 
-// tslint:disable-next-line variable-name
 export const FilterLink = connect<StateProps, DispatchProps, OwnProps>(
   mapStateToProps
 )(LinkUnlessActive)

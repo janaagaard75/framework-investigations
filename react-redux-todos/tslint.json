@@ -48,6 +48,10 @@
         "singleline": "never"
       }
     ],
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
     "whitespace": [
       true,
       "check-branch",

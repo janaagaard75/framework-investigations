@@ -46,6 +46,8 @@ interface DispatchProps {
   onTodoClick: (id: number) => void
 }
 
+interface OwnProps { }
+
 const mapStateToProps = (state: RootState) => {
   // TODO: Add definition type to routing.
   const activeFilter = getFilter(state.routing.locationBeforeTransitions.pathname)
@@ -63,8 +65,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {
   }
 }
 
-// tslint:disable-next-line variable-name
-export const VisibleTodoList = connect<StateProps, DispatchProps, any>(
+export const VisibleTodoList = connect<StateProps, DispatchProps, OwnProps>(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)
