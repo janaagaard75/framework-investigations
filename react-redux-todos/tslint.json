@@ -56,12 +56,55 @@
       "check-module",
       "check-separator",
       "check-type"
-    ]
+    ],
+    "array-bracket-spacing":
+    [
+      true,
+      "never"
+    ],
+    "block-spacing":
+    [
+      true,
+      "always"
+    ],
+    "brace-style": [
+      true,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "no-constant-condition": true,
+    "no-control-regex": true,
+    "no-duplicate-case": true,
+    "no-empty-character-class": true,
+    "no-ex-assign": true,
+    "no-extra-boolean-cast": true,
+    "no-extra-semi": true,
+    "no-inner-declarations": true,
+    "no-invalid-regexp": true,
+    "no-irregular-whitespace": true,
+    "no-multi-spaces": true,
+    "no-regex-spaces": true,
+    "object-curly-spacing":
+    [
+      true,
+      "always"
+    ],
+    "ter-indent": [
+      true,
+      2
+    ],
+    "ter-prefer-arrow-callback": [
+      true
+    ],
+    "use-isnan": true,
+    "valid-typeof": true
   },
-  "align": [
-    false
-  ],
   "jsRules": {
+    "align": [
+      false
+    ],
     "eofline": false,
     "quotemark": [
       true,
@@ -74,48 +117,5 @@
     "trailing-comma": [
       false
     ]
-  },
-  "array-bracket-spacing":
-  [
-    true,
-    "never"
-  ],
-  "block-spacing":
-  [
-    true,
-    "always"
-  ],
-  "brace-style": [
-    true,
-    "stroustrup",
-    {
-      "allowSingleLine": true
-    }
-  ],
-  "no-constant-condition": true,
-  "no-control-regex": true,
-  "no-duplicate-case": true,
-  "no-empty-character-class": true,
-  "no-ex-assign": true,
-  "no-extra-boolean-cast": true,
-  "no-extra-semi": true,
-  "no-inner-declarations": true,
-  "no-invalid-regexp": true,
-  "no-irregular-whitespace": true,
-  "no-multi-spaces": true,
-  "no-regex-spaces": true,
-  "object-curly-spacing":
-  [
-    true,
-    "always"
-  ],
-  "ter-indent": [
-    true,
-    2
-  ],
-  "ter-prefer-arrow-callback": [
-    true
-  ],
-  "use-isnan": true,
-  "valid-typeof": true
+  }
 }
