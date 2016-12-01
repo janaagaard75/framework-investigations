@@ -6,6 +6,7 @@
   "search.exclude": {
     "dist/": true
   },
+  "tslint.autoFixOnSave": true,
   "tslint.enable": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
