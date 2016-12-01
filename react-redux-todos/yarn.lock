@@ -52,29 +52,22 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-redux@4.4.34":
-  version "4.4.34"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.34.tgz#8082e7679110cd4b9126b1361e7bf826fdbf4203"
+"@types/react-redux@4.4.35":
+  version "4.4.35"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.35.tgz#126c21a11956d03673257ccd179e43993fc8ad77"
   dependencies:
     "@types/react" "*"
-    "@types/redux" "*"
+    redux "^3.6.0"
 
-"@types/react-router-redux@4.0.34":
-  version "4.0.34"
-  resolved "https://registry.yarnpkg.com/@types/react-router-redux/-/react-router-redux-4.0.34.tgz#025946f7857a46eedeba14da042835250529f0f1"
+"@types/react-router-redux@4.0.35":
+  version "4.0.35"
+  resolved "https://registry.yarnpkg.com/@types/react-router-redux/-/react-router-redux-4.0.35.tgz#b753c9ab26d6904c5e1c7cc247d46d892d4ad56a"
   dependencies:
     "@types/history" "*"
     "@types/react-router" "*"
-    "@types/redux" "*"
+    redux "^3.6.0"
 
-"@types/react-router@*":
-  version "2.0.39"
-  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-2.0.39.tgz#b0ae3c3dd98670c010a2b62b3c1ef6a57dda804a"
-  dependencies:
-    "@types/history" "*"
-    "@types/react" "*"
-
-"@types/react-router@2.0.41":
+"@types/react-router@*", "@types/react-router@2.0.41":
   version "2.0.41"
   resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-2.0.41.tgz#4c2510dfa2d85651af2126aed681c70dbe2f0303"
   dependencies:
@@ -85,13 +78,9 @@
   version "0.14.50"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.50.tgz#3f3f69db5661c8be3df99bde688e11300ef8131e"
 
-"@types/react@0.14.51":
-  version "0.14.51"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.51.tgz#7bb70a087632a91cc2121dd5aecc2da268b74afe"
-
-"@types/redux@*":
-  version "3.6.31"
-  resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.31.tgz#40eafa7575db36b912ce0059b85de98c205b0708"
+"@types/react@0.14.52":
+  version "0.14.52"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.52.tgz#3bdfe5c9fe7aca2c6600ee1b0363f4b7acc69c93"
 
 "@types/serve-favicon@2.2.28":
   version "2.2.28"
@@ -2867,7 +2856,7 @@ redux-typescript-actions@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/redux-typescript-actions/-/redux-typescript-actions-1.1.0.tgz#3489a36ea8e50c6dfdb86508bd4abb1769653e22"
 
-redux@3.6.0:
+redux@3.6.0, redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
@@ -3345,9 +3334,9 @@ tsconfig@^5.0.2:
     strip-bom "^2.0.0"
     strip-json-comments "^2.0.0"
 
-tslint-eslint-rules@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-3.0.0.tgz#42c17e06b4d467cee4268606c6fd455db5822d67"
+tslint-eslint-rules@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-3.1.0.tgz#efe8c25f227ee62f4230372fc7ce24b4469fd9a2"
   dependencies:
     doctrine "^0.7.2"
     tslint "^4.0.0"
