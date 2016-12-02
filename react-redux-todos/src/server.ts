@@ -25,7 +25,8 @@ app.get('/', (req, res) => {
 app.listen(port, (error) => {
   if (error) {
     console.error(error)
-  } else {
+  }
+  else {
     // tslint:disable-next-line no-console
     console.info('Listening on http://localhost:%s/.', port, port)
   }
