@@ -19,7 +19,6 @@ app.use(webpackHotMiddleware(compiler))
 app.use(favicon(__dirname + '/favicon.ico'))
 
 app.get('/', (req, res) => {
-  req // TODO: Added to satify the TypeScript compiler. Figure out how to avoid this.
   res.sendFile(__dirname + '/../dist/index.html')
 })
 
