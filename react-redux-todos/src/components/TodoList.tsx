@@ -4,12 +4,12 @@ import { Component } from 'react'
 import { Todo } from './Todo'
 import { Todos } from '../model/Todos'
 
-interface TodoListPropTypes {
+interface TodoListProps {
   onTodoClick: (id: number) => void,
   todos: Todos
 }
 
-export class TodoList extends Component<TodoListPropTypes, void> {
+export class TodoList extends Component<TodoListProps, void> {
   public render() {
     return (
       <ul>

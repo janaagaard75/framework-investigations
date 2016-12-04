@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-interface TodoPropTypes {
+interface TodoProps {
   onClick: () => void,
   completed: boolean,
   text: string
 }
 
-export class Todo extends Component<TodoPropTypes, void> {
+export class Todo extends Component<TodoProps, void> {
   public render() {
     return (
       <li
