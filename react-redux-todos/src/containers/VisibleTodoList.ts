@@ -7,21 +7,8 @@ import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
-// TODO: Figure out a better/cleaner way to do this.
-const toFilter = (activeFilter: string): Filter => {
-  switch (activeFilter) {
-    default:
-      return 'SHOW_ALL'
-
-    case 'active':
-      return 'SHOW_ACTIVE'
-
-    case 'completed':
-      return 'SHOW_COMPLETED'
-  }
-}
-
 const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
+  // TODO: Figure out a better/cleaner way to do this.
   switch (filter) {
     case 'SHOW_ALL':
       return todos
