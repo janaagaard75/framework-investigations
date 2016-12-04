@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router'
 
-interface LinkUnlessActivePropTypes {
+interface LinkUnlessActiveProps {
   active: boolean
   to: string
 }
 
-export class LinkUnlessActive extends Component<LinkUnlessActivePropTypes, void> {
+export class LinkUnlessActive extends Component<LinkUnlessActiveProps, void> {
   public render() {
     if (this.props.active) {
       return (
