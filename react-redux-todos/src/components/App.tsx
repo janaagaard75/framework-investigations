@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { ConnectedAddTodo } from '../containers/ConnectedAddTodo'
+import { ConnectedAddTodo } from './ConnectedAddTodo'
 import { Component } from 'react'
 import { Filter } from '../model/Filter'
 import { Footer } from './Footer'
 import { RouterContext } from 'react-router'
-import { VisibleTodoList } from '../containers/VisibleTodoList'
+import { VisibleTodoList } from './VisibleTodoList'
 
 interface AppProps extends RouterContext.RouterContextProps { }
 

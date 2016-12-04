@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 
 import { Filter } from '../model/Filter'
-import { FilterLink } from '../containers/FilterLink'
+import { FilterLink } from './FilterLink'
 
 interface FooterProps {
   activeFilter: Filter
