@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 
-import { createAddTodo } from '../../src/actions/createAddTodo'
-import { createSetVisibilityFilter } from '../../src/actions/createSetVisibilityFilter'
-import { createToggleTodo } from '../../src/actions/createToggleTodo'
+import { createAddTodo } from '../../src/actions/actionCreators'
+import { createSetVisibilityFilter } from '../../src/actions/actionCreators'
+import { createToggleTodo } from '../../src/actions/actionCreators'
 
 describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {

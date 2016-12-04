@@ -1,7 +1,7 @@
 import { Action } from 'redux'
 import { isType } from 'redux-typescript-actions'
 
-import { createToggleTodo } from '../actions/createToggleTodo'
+import { createToggleTodo } from '../actions/actionCreators'
 import { Todo } from '../model/Todo'
 
 export const todoReducer = (state: Todo, action: Action): Todo => {

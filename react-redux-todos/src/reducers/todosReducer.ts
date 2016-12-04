@@ -1,8 +1,8 @@
 import { Action } from 'redux'
 import { isType } from 'redux-typescript-actions'
 
-import { createAddTodo } from '../actions/createAddTodo'
-import { createToggleTodo } from '../actions/createToggleTodo'
+import { createAddTodo } from '../actions/actionCreators'
+import { createToggleTodo } from '../actions/actionCreators'
 import { Todo } from '../model/Todo'
 import { todoReducer } from './todoReducer'
 import { Todos } from '../model/Todos'

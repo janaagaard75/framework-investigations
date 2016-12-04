@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
-import { createToggleTodo } from '../actions/createToggleTodo'
+import { createToggleTodo } from '../actions/actionCreators'
 import { Filter } from '../model/Filter'
 import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'

@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 
-import { createSetVisibilityFilter } from '../actions/createSetVisibilityFilter'
+import { createSetVisibilityFilter } from '../actions/actionCreators'
 import { Filter } from '../model/Filter'
 import { isType } from 'redux-typescript-actions'
 

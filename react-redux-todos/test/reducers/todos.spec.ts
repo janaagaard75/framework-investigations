@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 
-import { createAddTodo } from '../../src/actions/createAddTodo'
-import { createToggleTodo } from '../../src/actions/createToggleTodo'
+import { createAddTodo } from '../../src/actions/actionCreators'
+import { createToggleTodo } from '../../src/actions/actionCreators'
 import { Todo } from '../../src/model/Todo'
 import { Todos } from '../../src/model/Todos'
 import { todosReducer } from '../../src/reducers/todosReducer'

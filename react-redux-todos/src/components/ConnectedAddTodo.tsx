@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
 import { AddTodo } from '../components/AddTodo'
-import { createAddTodo } from '../actions/createAddTodo'
+import { createAddTodo } from '../actions/actionCreators'
 import { RootState } from '../model/RootState'
 
 interface ConnectedAddTodoDispatchProps {
