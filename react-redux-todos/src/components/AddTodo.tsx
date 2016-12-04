@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 
 interface AddTodoProps {
+  // TODO: Prefix these with create.
   addTodo: (text) => void
 }
 
