@@ -28,12 +28,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 render(
   <Provider store={store}>
     <Router history={history}>
-      <Route component={App}>
-        {/* TODO: Consider using a route parameter instead. */}
-        <Route path="/"/>
-        <Route path="/active"/>
-        <Route path="/completed"/>
-      </Route>
+      <Route component={App} path="/(:filter)"/>
     </Router>
   </Provider>,
   document.getElementById('root')

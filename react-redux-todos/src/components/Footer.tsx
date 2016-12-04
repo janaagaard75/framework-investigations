@@ -9,11 +9,11 @@ export class Footer extends Component<void, void> {
       <p>
         Show:
         {' '}
-        <FilterLink to="/">All</FilterLink>
+        <FilterLink filter="SHOW_ALL">All</FilterLink>
         {', '}
-        <FilterLink to="/active">Active</FilterLink>
+        <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>
         {', '}
-        <FilterLink to="/completed">Completed</FilterLink>
+        <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
       </p>
     )
   }

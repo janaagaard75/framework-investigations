@@ -7,16 +7,16 @@ import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
-const getFilter = (pathname: string): Filter => {
-  switch (pathname) {
+// TODO: Figure out a better/cleaner way to do this.
+const toFilter = (activeFilter: string): Filter => {
+  switch (activeFilter) {
     default:
-    case '/':
       return 'SHOW_ALL'
 
-    case '/active':
+    case 'active':
       return 'SHOW_ACTIVE'
 
-    case '/completed':
+    case 'completed':
       return 'SHOW_COMPLETED'
   }
 }
@@ -37,7 +37,6 @@ const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
   }
 }
 
-// The combination of StateProps, DispatchProps and OwnProps have to match TodoList's properties.
 interface StateProps {
   todos: Todos
 }
@@ -46,12 +45,12 @@ interface DispatchProps {
   onTodoClick: (id: number) => void
 }
 
-interface OwnProps { }
+interface OwnProps {
+  activeFilter: string
+}
 
-const mapStateToProps = (rootState: RootState) => {
-  // TODO: Add definition type to routing.
-  const activeFilter = getFilter(rootState.routing.locationBeforeTransitions.pathname)
-  const visibleTodos = getVisibleTodos(rootState.todos, activeFilter)
+const mapStateToProps = (rootState: RootState, ownProps: OwnProps) => {
+  const visibleTodos = getVisibleTodos(rootState.todos, toFilter(ownProps.activeFilter))
   return {
     todos: visibleTodos
   }
