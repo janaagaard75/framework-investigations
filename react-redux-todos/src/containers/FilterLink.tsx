@@ -14,7 +14,6 @@ interface OwnProps {
   filter: Filter
 }
 
-// export type MergedProps = StateProps & DispatchProps & OwnProps
 export type MergedProps = StateProps & OwnProps
 
 const isActive = (pathname: string, filter: Filter): boolean => {
