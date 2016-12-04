@@ -42,5 +42,3 @@ export class FilterLink extends Component<FilterLinkProps, void> {
     )
   }
 }
-
-// TODO: Consider moving the files in the comtainers folder into the components folder.
