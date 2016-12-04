@@ -48,8 +48,8 @@ const mapStateToProps = (rootState: RootState, ownProps: OwnProps): StateProps =
 }
 
 class FilterLinkComponent extends Component<MergedProps, void> {
-  constructor(props: MergedProps, options?: any) {
-    super(props, options)
+  constructor(props: MergedProps, context?: any) {
+    super(props, context)
   }
 
   public render() {
