@@ -40,3 +40,4 @@ Redux is difficult. Actions are really action creators. Convention of naming the
 # TODOs
 
 * Make test runner watcher work.
+* Choose between 'Props' and 'PropTypes'.
