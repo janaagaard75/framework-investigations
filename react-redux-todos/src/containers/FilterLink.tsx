@@ -1,34 +1,12 @@
 import * as React from 'react'
 import { Component } from 'react'
-import { connect } from 'react-redux'
 
 import { Filter } from '../model/Filter'
 import { LinkUnlessActive } from '../components/LinkUnlessActive'
-import { RootState } from '../model/RootState'
-
-interface StateProps {
-  active: boolean
-}
-
-interface OwnProps {
-  filter: Filter
-}
-
-export type MergedProps = StateProps & OwnProps
-
-const isActive = (pathname: string, filter: Filter): boolean => {
-  // TODO: Figure out a better way to associate pathname and filter.
-  return (
-    (pathname === '/' && filter === 'SHOW_ALL')
-    || (pathname === '/active' && filter === 'SHOW_ACTIVE')
-    || (pathname === '/completed' && filter === 'SHOW_COMPLETED')
-  )
-}
 
 const toPathname = (filter: Filter): string => {
   // TODO: Figure out a better way to associate pathname and filter.
   switch (filter) {
-    default:
     case 'SHOW_ALL':
       return '/'
 
@@ -37,30 +15,32 @@ const toPathname = (filter: Filter): string => {
 
     case 'SHOW_COMPLETED':
       return '/completed'
+
+    default:
+      throw new Error(`The filter '${filter}' is not supported.`)
   }
 }
 
-const mapStateToProps = (rootState: RootState, ownProps: OwnProps): StateProps => {
-  return {
-    // TODO: Pass down activeFilter instead of this.
-    active: isActive(rootState.routing.locationBeforeTransitions.pathname, ownProps.filter)
-  }
+interface FilterLinkProps {
+  activeFilter: Filter
+  filter: Filter
 }
 
-class FilterLinkComponent extends Component<MergedProps, void> {
-  constructor(props: MergedProps, context?: any) {
+export class FilterLink extends Component<FilterLinkProps, void> {
+  constructor(props: FilterLinkProps, context?: any) {
     super(props, context)
   }
 
   public render() {
-    const to = toPathname(this.props.filter)
+    const isActive = (this.props.filter === this.props.activeFilter)
+    const pathname = toPathname(this.props.filter)
 
     return (
-      <LinkUnlessActive active={this.props.active} to={to}>
+      <LinkUnlessActive active={isActive} to={pathname}>
         {this.props.children}
       </LinkUnlessActive>
     )
   }
 }
 
-export const FilterLink = connect<StateProps, {}, OwnProps>(mapStateToProps)(FilterLinkComponent)
+// TODO: Consider moving the files in the comtainers folder into the components folder.

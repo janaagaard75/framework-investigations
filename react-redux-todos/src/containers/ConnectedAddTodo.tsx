@@ -5,13 +5,9 @@ import { AddTodo } from '../components/AddTodo'
 import { createAddTodo } from '../actions/createAddTodo'
 import { RootState } from '../model/RootState'
 
-interface ConnectedAddTodoStateProps { }
-
 interface ConnectedAddTodoDispatchProps {
   addTodo: (text: string) => void
 }
-
-interface ConntedAddTodoOwnProps { }
 
 const mapDispatchToProps = (dispatch: Dispatch<RootState>): ConnectedAddTodoDispatchProps => {
   return {
@@ -19,7 +15,8 @@ const mapDispatchToProps = (dispatch: Dispatch<RootState>): ConnectedAddTodoDisp
   }
 }
 
-export const ConnectedAddTodo = connect<ConnectedAddTodoStateProps, ConnectedAddTodoDispatchProps, ConntedAddTodoOwnProps>(
+export const ConnectedAddTodo = connect<{}, ConnectedAddTodoDispatchProps, {}>(
+  // TODO: Isn't there a better way to do this?
   // tslint:disable-next-line no-empty
   () => { return { } },
   mapDispatchToProps

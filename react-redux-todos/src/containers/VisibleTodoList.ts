@@ -46,11 +46,11 @@ interface DispatchProps {
 }
 
 interface OwnProps {
-  activeFilter: string
+  activeFilter: Filter
 }
 
 const mapStateToProps = (rootState: RootState, ownProps: OwnProps) => {
-  const visibleTodos = getVisibleTodos(rootState.todos, toFilter(ownProps.activeFilter))
+  const visibleTodos = getVisibleTodos(rootState.todos, ownProps.activeFilter)
   return {
     todos: visibleTodos
   }

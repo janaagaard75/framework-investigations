@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ConnectedAddTodo } from '../containers/ConnectedAddTodo'
 import { Component } from 'react'
+import { Filter } from '../model/Filter'
 import { Footer } from './Footer'
 import { RouterContext } from 'react-router'
 import { VisibleTodoList } from '../containers/VisibleTodoList'
@@ -8,14 +9,30 @@ import { VisibleTodoList } from '../containers/VisibleTodoList'
 interface AppProps extends RouterContext.RouterContextProps { }
 
 export class App extends Component<AppProps, void> {
+  private toFilter(filterString: string): Filter {
+    switch (filterString) {
+      case undefined:
+        return 'SHOW_ALL'
+
+      case 'active':
+        return 'SHOW_ACTIVE'
+
+      case 'completed':
+        return 'SHOW_COMPLETED'
+
+      default:
+        throw new Error(`The filterString '${filterString}' is not supported.`)
+    }
+  }
+
   public render() {
     // tslint:disable-next-line no-string-literal
-    const activeFilter = this.props.params['filter']
+    const activeFilter = this.toFilter(this.props.params['filter'])
     return (
       <div>
         <ConnectedAddTodo/>
         <VisibleTodoList activeFilter={activeFilter}/>
-        <Footer/>
+        <Footer activeFilter={activeFilter}/>
       </div>
     )
   }
