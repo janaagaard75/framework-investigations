@@ -7,6 +7,18 @@ import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
 
+interface StateProps {
+  todos: Todos
+}
+
+interface DispatchProps {
+  onTodoClick: (id: number) => void
+}
+
+interface OwnProps {
+  activeFilter: Filter
+}
+
 const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
   // TODO: Figure out a better/cleaner way to do this.
   switch (filter) {
@@ -22,18 +34,6 @@ const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
     default:
       throw new Error(`'${filter}' is not a supported value for filter.`)
   }
-}
-
-interface StateProps {
-  todos: Todos
-}
-
-interface DispatchProps {
-  onTodoClick: (id: number) => void
-}
-
-interface OwnProps {
-  activeFilter: Filter
 }
 
 const mapStateToProps = (rootState: RootState, ownProps: OwnProps) => {
