@@ -6,4 +6,4 @@ export const createAddTodo = actionCreatorFactory()<string>('ADD_TODO')
 export const createSetVisibilityFilter = actionCreatorFactory()<Filter>('SET_VISIBILITY_FILTER')
 export const createToggleTodo = actionCreatorFactory()<number>('TOGGLE_TODO')
 
-// TODO: Introduce an asynchroneous action to see how that plays out.
+// TODO: Introduce an asynchronous action to see how that plays out.
