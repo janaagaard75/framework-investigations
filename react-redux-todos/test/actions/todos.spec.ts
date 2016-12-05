@@ -5,6 +5,7 @@ import { createSetVisibilityFilter } from '../../src/actions/actionCreators'
 import { createToggleTodo } from '../../src/actions/actionCreators'
 import { Filter } from '../../src/model/Filter'
 
+// TODO: Fix the tests. They are no longer correct after the filter was converted to an enumeration.
 describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {
     const actual = createAddTodo('Use Redux')
