@@ -3,6 +3,7 @@ import { expect } from 'chai'
 import { createAddTodo } from '../../src/actions/actionCreators'
 import { createSetVisibilityFilter } from '../../src/actions/actionCreators'
 import { createToggleTodo } from '../../src/actions/actionCreators'
+import { Filter } from '../../src/model/Filter'
 
 describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {
@@ -16,7 +17,7 @@ describe('todo actions', () => {
   })
 
   it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
-    expect(createSetVisibilityFilter('SHOW_ACTIVE')).to.deep.equal({
+    expect(createSetVisibilityFilter(Filter.ShowActive)).to.deep.equal({
       meta: {},
       payload: 'SHOW_ACTIVE',
       type: 'SET_VISIBILITY_FILTER'

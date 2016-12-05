@@ -18,11 +18,11 @@ export class Footer extends Component<FooterProps, void> {
       <p>
         Show:
         {' '}
-        <FilterLink filter="SHOW_ALL" activeFilter={this.props.activeFilter}>All</FilterLink>
+        <FilterLink filter={Filter.ShowAll} activeFilter={this.props.activeFilter}>All</FilterLink>
         {', '}
-        <FilterLink filter="SHOW_ACTIVE" activeFilter={this.props.activeFilter}>Active</FilterLink>
+        <FilterLink filter={Filter.ShowActive} activeFilter={this.props.activeFilter}>Active</FilterLink>
         {', '}
-        <FilterLink filter="SHOW_COMPLETED" activeFilter={this.props.activeFilter}>Completed</FilterLink>
+        <FilterLink filter={Filter.ShowCompleted} activeFilter={this.props.activeFilter}>Completed</FilterLink>
       </p>
     )
   }

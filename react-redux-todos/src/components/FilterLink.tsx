@@ -7,13 +7,13 @@ import { LinkUnlessActive } from '../components/LinkUnlessActive'
 const toPathname = (filter: Filter): string => {
   // TODO: Figure out a better way to associate pathname and filter.
   switch (filter) {
-    case 'SHOW_ALL':
+    case Filter.ShowAll:
       return '/'
 
-    case 'SHOW_ACTIVE':
+    case Filter.ShowActive:
       return '/active'
 
-    case 'SHOW_COMPLETED':
+    case Filter.ShowCompleted:
       return '/completed'
 
     default:

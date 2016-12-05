@@ -10,13 +10,13 @@ import { Todos } from '../model/Todos'
 const getVisibleTodos = (todos: Todos, filter: Filter): Todos => {
   // TODO: Figure out a better/cleaner way to do this.
   switch (filter) {
-    case 'SHOW_ALL':
+    case Filter.ShowAll:
       return todos
 
-    case 'SHOW_COMPLETED':
+    case Filter.ShowCompleted:
       return todos.filter(t => t.completed)
 
-    case 'SHOW_ACTIVE':
+    case Filter.ShowActive:
       return todos.filter(t => !t.completed)
 
     default:

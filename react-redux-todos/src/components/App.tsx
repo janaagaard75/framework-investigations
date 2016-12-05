@@ -12,13 +12,13 @@ export class App extends Component<AppProps, void> {
   private toFilter(filterString: string): Filter {
     switch (filterString) {
       case undefined:
-        return 'SHOW_ALL'
+        return Filter.ShowAll
 
       case 'active':
-        return 'SHOW_ACTIVE'
+        return Filter.ShowActive
 
       case 'completed':
-        return 'SHOW_COMPLETED'
+        return Filter.ShowCompleted
 
       default:
         throw new Error(`The filterString '${filterString}' is not supported.`)
