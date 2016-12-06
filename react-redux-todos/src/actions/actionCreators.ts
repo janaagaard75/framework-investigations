@@ -4,10 +4,10 @@ import { TypedDispatch } from '../model/TypedDispatch'
 
 const createActionCreator = actionCreatorFactory()
 
-export const createAddTodo = createActionCreator<{text: string}>('ADD_TODO')
-export const createToggleTodo = createActionCreator<{id: number}>('TOGGLE_TODO')
+export const createAddTodo = createActionCreator<{ text: string }>('ADD_TODO')
+export const createToggleTodo = createActionCreator<{ id: number }>('TOGGLE_TODO')
 
-export const createAddTodoStarted = createActionCreator<{text: string, timeoutId: NodeJS.Timer}>('ADD_TODO_STARTED')
+export const createAddTodoStarted = createActionCreator<{ text: string, timeoutId: NodeJS.Timer }>('ADD_TODO_STARTED')
 export const createAddTodoDone = createActionCreator<string>('ADD_TODO_DONE')
 
 export const createAddTodoAsynchronously = (dispatch: TypedDispatch, text: string) => {
