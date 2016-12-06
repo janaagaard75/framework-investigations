@@ -10,7 +10,6 @@ describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {
     const actual = createAddTodo('Use Redux')
     const expected = {
-      meta: {},
       payload: 'Use Redux',
       type: 'ADD_TODO'
     }
@@ -19,15 +18,13 @@ describe('todo actions', () => {
 
   it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
     expect(createSetVisibilityFilter(Filter.ShowActive)).to.deep.equal({
-      meta: {},
-      payload: 'SHOW_ACTIVE',
+      payload: Filter.ShowActive,
       type: 'SET_VISIBILITY_FILTER'
     })
   })
 
   it('toggleTodo should create TOGGLE_TODO action', () => {
     expect(createToggleTodo(1)).to.deep.equal({
-      meta: {},
       payload: 1,
       type: 'TOGGLE_TODO'
     })
