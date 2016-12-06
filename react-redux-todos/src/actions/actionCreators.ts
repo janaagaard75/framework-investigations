@@ -1,24 +1,21 @@
 import actionCreatorFactory from 'redux-typescript-actions'
 
-import { Filter } from '../model/Filter'
 import { TypedDispatch } from '../model/TypedDispatch'
 
-const actionCreator = actionCreatorFactory()
+const createActionCreator = actionCreatorFactory()
 
-export const createAddTodo = actionCreator<{text: string}>('ADD_TODO')
-// TODO: createSetVisibilityFilter is not used. Should it be?
-export const createSetVisibilityFilter = actionCreator<Filter>('SET_VISIBILITY_FILTER')
-export const createToggleTodo = actionCreator<{id: number}>('TOGGLE_TODO')
+export const createAddTodo = createActionCreator<{text: string}>('ADD_TODO')
+export const createToggleTodo = createActionCreator<{id: number}>('TOGGLE_TODO')
 
-export const createAddTodoStarted = actionCreator<NodeJS.Timer>('ADD_TODO_STARTED')
-export const createAddTodoDone = actionCreator<string>('ADD_TODO_DONE')
+export const createAddTodoStarted = createActionCreator<{text: string, timeoutId: NodeJS.Timer}>('ADD_TODO_STARTED')
+export const createAddTodoDone = createActionCreator<string>('ADD_TODO_DONE')
 
-export const createAsyncAddTodo = (dispatch: TypedDispatch) => {
+export const createAddTodoAsynchronously = (dispatch: TypedDispatch, text: string) => {
   const timeoutId = setTimeout(() => {
     dispatch(createAddTodoDone)
   }, 3 * 1000)
 
-  dispatch(createAddTodoStarted(timeoutId))
+  dispatch(createAddTodoStarted({ text: text, timeoutId: timeoutId }))
 }
 
 // TODO: Introduce an asynchronous action to see how that plays out.

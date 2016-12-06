@@ -13,12 +13,10 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { App } from './components/App'
 import { RootState } from './model/RootState'
 import { todosReducer } from './reducers/todosReducer'
-import { visibilityFilterReducer } from './reducers/visibilityFilterReducer'
 
 const rootReducer = combineReducers<RootState>({
   routing: routerReducer,
-  todos: todosReducer,
-  visibilityFilter: visibilityFilterReducer
+  todos: todosReducer
 })
 
 const store: Store<RootState> = createStore<RootState>(rootReducer)
