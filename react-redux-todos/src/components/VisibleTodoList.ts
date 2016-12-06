@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 
 import { createToggleTodo } from '../actions/actionCreators'
 import { Filter } from '../model/Filter'
 import { RootState } from '../model/RootState'
 import { TodoList } from '../components/TodoList'
 import { Todos } from '../model/Todos'
+import { TypedDispatch } from '../model/TypedDispatch'
 
 interface StateProps {
   todos: Todos
@@ -43,7 +43,7 @@ const mapStateToProps = (rootState: RootState, ownProps: OwnProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {
+const mapDispatchToProps = (dispatch: TypedDispatch) => {
   return {
     onTodoClick: (id: number) => {
       dispatch(createToggleTodo(id))

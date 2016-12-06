@@ -1,15 +1,14 @@
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 
 import { AddTodo } from '../components/AddTodo'
 import { createAddTodo } from '../actions/actionCreators'
-import { RootState } from '../model/RootState'
+import { TypedDispatch } from '../model/TypedDispatch'
 
 interface ConnectedAddTodoDispatchProps {
   addTodo: (text: string) => void
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<RootState>): ConnectedAddTodoDispatchProps => {
+const mapDispatchToProps = (dispatch: TypedDispatch): ConnectedAddTodoDispatchProps => {
   return {
     addTodo: (text: string) => dispatch(createAddTodo(text))
   }
