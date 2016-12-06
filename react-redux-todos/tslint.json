@@ -27,6 +27,7 @@
     "no-unused-new": true,
     "no-unused-variable": [
       true,
+      "check-parameters",
       "react"
     ],
     "object-literal-shorthand": false,
