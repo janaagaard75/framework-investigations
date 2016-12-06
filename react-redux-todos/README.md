@@ -37,6 +37,8 @@ Redux is difficult. Actions are really action creators. Convention of naming the
 
 2 spaces for indents, Stroustrup style for braces, no semicolons. Still considering using double quotes for strings. Prefer fat arrows for functions.
 
+Redux-Saga doesn't seem to be compatible with TypeScript because of the use of the special function* syntax. Haven't tested this, though. Redux Promise Middelware relies on adding suffixes to the action IDs, and that won't play well with Redux TypeScript Action. The documentation for redux-promise seems kinda thin.
+
 # TODOs
 
 * Make test runner watcher work.
