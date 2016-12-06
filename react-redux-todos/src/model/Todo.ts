@@ -1,3 +1,9 @@
+enum TodoState {
+  Adding,
+  Active,
+  Completed
+}
+
 interface TodoProperties {
   completed: boolean
   id: number

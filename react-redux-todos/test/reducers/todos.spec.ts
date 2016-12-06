@@ -17,7 +17,7 @@ describe('todos reducer', () => {
 
   it('should handle ADD_TODO', () => {
     const stateBefore: Todos = []
-    const addTodoAction = createAddTodo({ text: 'Run the tests' })
+    const addTodoAction = createAddTodo('Run the tests')
     const actualStateAfter: Todos = todosReducer(stateBefore, addTodoAction)
     const expectedStateAfter: Todos = [
       new Todo({
@@ -36,7 +36,7 @@ describe('todos reducer', () => {
           text: 'Use Redux'
         })
       ],
-        createAddTodo({ text: 'Run the tests' })
+        createAddTodo('Run the tests')
       )
     ).to.deep.equal([
       new Todo({
@@ -64,7 +64,7 @@ describe('todos reducer', () => {
           text: 'Run the tests'
         })
       ],
-        createAddTodo({ text: 'Fix the tests' })
+        createAddTodo('Fix the tests')
       )
     ).to.deep.equal([
       new Todo({
@@ -125,10 +125,10 @@ describe('todos reducer', () => {
       })
     ]
 
-    const actualIntermediateState: Todos = todosReducer(initialState, createToggleTodo({ id: 1 }))
+    const actualIntermediateState: Todos = todosReducer(initialState, createToggleTodo(1))
     expect(actualIntermediateState).to.deep.equal(expectedIntermediateState)
 
-    const actualFinalState: Todos = todosReducer(actualIntermediateState, createToggleTodo({ id: 2 }))
+    const actualFinalState: Todos = todosReducer(actualIntermediateState, createToggleTodo(2))
     expect(actualFinalState).to.deep.equal(expectedFinalState)
   })
 })
