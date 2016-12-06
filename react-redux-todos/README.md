@@ -40,3 +40,9 @@ Redux is difficult. Actions are really action creators. Convention of naming the
 # TODOs
 
 * Make test runner watcher work.
+* Create an asynchronous task to figure out how to handle these.
+  * Where to put code?
+  * Multiple tasks running at the same time.
+  * Retux Thunk?
+* Add styling to the application.
+  * How can css be modularized?
