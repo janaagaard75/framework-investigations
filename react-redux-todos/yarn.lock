@@ -78,6 +78,12 @@
   version "0.14.53"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.53.tgz#ac638d6cce8bf196bfda871e8e6162f593d43e36"
 
+"@types/redux-thunk@^2.1.32":
+  version "2.1.32"
+  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.32.tgz#27fac368ced9ea170bf15e5fa4a21d9201f73102"
+  dependencies:
+    redux "^3.6.0"
+
 "@types/serve-favicon@2.2.28":
   version "2.2.28"
   resolved "https://registry.yarnpkg.com/@types/serve-favicon/-/serve-favicon-2.2.28.tgz#f5aae24eafeeb202dfb7983e27c152a8810eaab5"
@@ -2840,6 +2846,10 @@ readdirp@^2.0.0:
     minimatch "^3.0.2"
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
+
+redux-thunk@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"
 
 redux-typescript-actions@1.2.0:
   version "1.2.0"
