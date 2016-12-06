@@ -74,9 +74,9 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@0.14.52":
-  version "0.14.52"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.52.tgz#3bdfe5c9fe7aca2c6600ee1b0363f4b7acc69c93"
+"@types/react@*", "@types/react@0.14.53":
+  version "0.14.53"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.53.tgz#ac638d6cce8bf196bfda871e8e6162f593d43e36"
 
 "@types/serve-favicon@2.2.28":
   version "2.2.28"
@@ -1735,8 +1735,8 @@ http-proxy-middleware@~0.17.1:
     micromatch "^2.3.11"
 
 http-proxy@^1.15.1:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.16.0.tgz#f9b52305e9f864811835277e4a486051b5d4a523"
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.16.1.tgz#734b32de6ca0e36e51b59c1e0115ff860d7668fd"
   dependencies:
     eventemitter3 "1.x.x"
     requires-port "1.x.x"
@@ -3249,8 +3249,8 @@ tapable@^0.1.8:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.1.10.tgz#29c35707c2b70e50d07482b5d202e8ed446dafd4"
 
 tapable@^0.2.3, tapable@~0.2.3:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.4.tgz#a7814605089d4ba896c33c7e3566e13dcd194aa5"
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.5.tgz#1ff6ce7ade58e734ca9bfe36ba342304b377a4d0"
 
 tar-pack@~3.3.0:
   version "3.3.0"
@@ -3305,9 +3305,9 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
 
-ts-loader@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-1.2.2.tgz#b4445a621e688e25db8c75afe6b7ccb635014e5c"
+ts-loader@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-1.3.0.tgz#a94128fcfda5528f19d7d23344265ed56111013f"
   dependencies:
     arrify "^1.0.0"
     colors "^1.0.3"
@@ -3347,10 +3347,6 @@ tslint-eslint-rules@3.1.0:
   dependencies:
     doctrine "^0.7.2"
     tslint "^4.0.0"
-
-tslint-microsoft-contrib@2.0.13:
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/tslint-microsoft-contrib/-/tslint-microsoft-contrib-2.0.13.tgz#30ed7e1a03261eea091354eaca3afe7b25e04ca7"
 
 tslint-react@2.0.0:
   version "2.0.0"
@@ -3443,8 +3439,8 @@ unzip-response@^1.0.2:
   resolved "https://registry.yarnpkg.com/unzip-response/-/unzip-response-1.0.2.tgz#b984f0877fc0a89c2c773cc1ef7b5b232b5b06fe"
 
 update-notifier@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-1.0.2.tgz#27c90519196dc15015be02a34ea52986feab8877"
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-1.0.3.tgz#8f92c515482bd6831b7c93013e70f87552c7cf5a"
   dependencies:
     boxen "^0.6.0"
     chalk "^1.0.0"
