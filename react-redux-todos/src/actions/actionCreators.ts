@@ -3,12 +3,10 @@ import actionCreatorFactory from 'redux-typescript-actions'
 import { Filter } from '../model/Filter'
 import { TypedDispatch } from '../model/TypedDispatch'
 
-// TODO: Consider always using named parameters for the type of the actions.
-
-export const createAddTodo = actionCreatorFactory()<string>('ADD_TODO')
+export const createAddTodo = actionCreatorFactory()<{text: string}>('ADD_TODO')
 // TODO: createSetVisibilityFilter is not used. Should it be?
 export const createSetVisibilityFilter = actionCreatorFactory()<Filter>('SET_VISIBILITY_FILTER')
-export const createToggleTodo = actionCreatorFactory()<number>('TOGGLE_TODO')
+export const createToggleTodo = actionCreatorFactory()<{id: number}>('TOGGLE_TODO')
 
 // TODO: Introduce an asynchronous action to see how that plays out.
 

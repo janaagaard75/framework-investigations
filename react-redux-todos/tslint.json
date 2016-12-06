@@ -29,6 +29,7 @@
       true,
       "react"
     ],
+    "object-literal-shorthand": false,
     "one-line": [
       false
     ],

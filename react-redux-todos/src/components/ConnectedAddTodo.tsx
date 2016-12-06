@@ -10,7 +10,7 @@ interface ConnectedAddTodoDispatchProps {
 
 const mapDispatchToProps = (dispatch: TypedDispatch): ConnectedAddTodoDispatchProps => {
   return {
-    addTodo: (text: string) => dispatch(createAddTodo(text))
+    addTodo: (text: string) => dispatch(createAddTodo({ text: text }))
   }
 }
 

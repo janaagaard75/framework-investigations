@@ -23,7 +23,7 @@ export const todosReducer = (state: Todos = [], action: Action): Todos => {
     const newTodo: Todo = new Todo({
       completed: false,
       id: getNextId(state),
-      text: action.payload
+      text: action.payload.text
     })
 
     const newState = state.concat(newTodo)
