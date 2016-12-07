@@ -4,9 +4,17 @@ import { render } from "react-dom"
 import { App } from "./components/App"
 import { TodoStore } from "./models/TodoStore"
 
-const store = new TodoStore()
+const storeUpdated = () => {
+  renderApp()
+}
 
-render(
-  <App store={store}/>,
-  document.getElementById("root")
-)
+const store = new TodoStore(storeUpdated)
+
+const renderApp = () => {
+  render(
+    <App store={store}/>,
+    document.getElementById("root")
+  )
+}
+
+renderApp()

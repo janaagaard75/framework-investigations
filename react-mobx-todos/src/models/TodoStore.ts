@@ -2,15 +2,18 @@ import { Todo } from "./Todo"
 import { Todos } from "./Todos"
 
 export class TodoStore {
-  constructor() {
+  constructor(
+    private updated: () => void
+  ) {
     this.todos = []
   }
 
-  public readonly todos: Todos
+  public todos: Todos
 
   public addTodo(text: string) {
     const newTodo = new Todo(this.getNextId(), text)
     this.todos.push(newTodo)
+    this.updated()
   }
 
   private getRandomInteger(min: number, max: number): number {
