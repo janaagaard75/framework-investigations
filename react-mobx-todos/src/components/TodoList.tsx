@@ -1,11 +1,12 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { Todo } from "./Todo"
-import { Todos } from "../model/Todos"
+import { Todo } from "../models/Todo"
+import { TodoItem } from "./TodoItem"
+import { Todos } from "../models/Todos"
 
 interface TodoListProps {
-  onTodoClick: (id: number) => void,
+  onTodoClick: (todo: Todo) => void,
   todos: Todos
 }
 
@@ -14,9 +15,9 @@ export class TodoList extends Component<TodoListProps, void> {
     return (
       <ul>
         {this.props.todos.map(todo =>
-          <Todo
+          <TodoItem
             key={todo.id}
-            onClick={() => this.props.onTodoClick(todo.id) }
+            onClick={() => this.props.onTodoClick(todo) }
             completed={todo.completed}
             text={todo.text}
           />

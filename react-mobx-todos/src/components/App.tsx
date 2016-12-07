@@ -2,14 +2,24 @@ import * as React from "react"
 import { Component } from "react"
 
 import { AddTodo } from "./AddTodo"
+import { Todo } from "../models/Todo"
 import { TodoList } from "./TodoList"
+import { TodoStore } from "../models/TodoStore"
 
-export class App extends Component<void, void> {
+interface AppProps {
+  store: TodoStore
+}
+
+export class App extends Component<AppProps, void> {
+  private handleOnTodoClick(todo: Todo) {
+    todo.toggle()
+  }
+
   public render() {
     return (
       <div>
-        <AddTodo/>
-        <TodoList/>
+        <AddTodo addTodo={this.props.store.addTodo}/>
+        <TodoList todos={this.props.store.todos} onTodoClick={this.handleOnTodoClick}/>
       </div>
     )
   }

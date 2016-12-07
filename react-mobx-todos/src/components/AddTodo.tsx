@@ -2,8 +2,7 @@ import * as React from "react"
 import { Component } from "react"
 
 interface AddTodoProps {
-  addTodo: (text) => void,
-  addTodoAsynchronously: (text) => void
+  addTodo: (text) => void
 }
 
 interface AddTodoState {

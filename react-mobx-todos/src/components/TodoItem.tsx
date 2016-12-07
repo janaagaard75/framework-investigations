@@ -7,7 +7,7 @@ interface TodoProps {
   text: string
 }
 
-export class Todo extends Component<TodoProps, void> {
+export class TodoItem extends Component<TodoProps, void> {
   public render() {
     return (
       <li
