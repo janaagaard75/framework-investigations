@@ -2,12 +2,12 @@ import * as React from "react"
 import { Component } from "react"
 
 import { AddTodo } from "./AddTodo"
+import { Store } from "../Store"
 import { Todo } from "../models/Todo"
 import { TodoList } from "./TodoList"
-import { TodoStore } from "../TodoStore"
 
 interface AppProps {
-  store: TodoStore
+  store: Store
 }
 
 export class App extends Component<AppProps, void> {

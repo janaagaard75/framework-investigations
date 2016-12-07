@@ -1,7 +1,7 @@
 import { Todo } from "./models/Todo"
 import { Todos } from "./models/Todos"
 
-export class TodoStore {
+export class Store {
   constructor(
     private storeUpdated: () => void
   ) {

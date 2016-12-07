@@ -2,13 +2,13 @@ import * as React from "react"
 import { render } from "react-dom"
 
 import { App } from "./components/App"
-import { TodoStore } from "./TodoStore"
+import { Store } from "./Store"
 
 const storeUpdated = () => {
   renderApp()
 }
 
-const store = new TodoStore(storeUpdated)
+const store = new Store(storeUpdated)
 
 const renderApp = () => {
   render(
