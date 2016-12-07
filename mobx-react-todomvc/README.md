@@ -8,8 +8,8 @@ This repository provides a reference implementation of the [TodoMVC](http://todo
 
 ## Running the example
 
-    npm install
-    npm start
+    yarn install
+    yarn start
     open http://localhost:3000
 
 The example requires node 4.0 or higher.
