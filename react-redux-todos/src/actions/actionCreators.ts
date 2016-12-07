@@ -25,10 +25,7 @@ export const createAddTodoAsynchronously = (dispatch: TypedDispatch, text: strin
   dispatch(createAddTodoStarted({ text, timeoutId }))
 }
 
-// TODO: Introduce an asynchronous action to see how that plays out.
-// It's possible to queue up adding multiple todos.
-// Adding a todo triggers ADD_TODO_STARTED. The global redux state is updated.
-// Once the timeout is done, the todo will be added to the state.
+// TODO: Update interface while adding todos.
 // How should the interface look while adding a todo asynchronously? Create an empty row while waiting? That would mean adding a new status to all the todos.
 // How should the interface look if something when wrong? A toaster message?
 // TODO: Simulate an error from time to time.

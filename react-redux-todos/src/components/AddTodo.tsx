@@ -4,8 +4,8 @@ import { Component } from 'react'
 interface AddTodoProps {
   // TODO: Prefix these with create?
   addTodo: (text) => void,
-  // TODO: Adding this should trigger a build error since addTodoAsynchronously is not missing in ConncetedAddTodo. But how to do this?
   addTodoAsynchronously: (text) => void
+  // TODO: Adding attributes here should trigger a build error in ConnectedAddTodo, but how?
 }
 
 interface AddTodoState {
