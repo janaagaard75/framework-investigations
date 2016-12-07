@@ -1,3 +1,4 @@
+const BabiliPlugin = require("babili-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 const webpack = require("webpack")
@@ -24,15 +25,15 @@ const plugins = [
   })
 ]
 
-// if (isProduction) {
-//   plugins.push(
-//     new BabiliPlugin()
-//   )
-// } else {
-//   plugins.push(
-//     new webpack.HotModuleReplacementPlugin()
-//   )
-// }
+if (isProduction) {
+  plugins.push(
+    new BabiliPlugin()
+  )
+} else {
+  plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+  )
+}
 
 module.exports = {
   devServer: {
