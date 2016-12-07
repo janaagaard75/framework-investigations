@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Jan Aagaard <jan@aagaard.net>",
   "license": "MIT",
+  "scripts": {
+    "fix": "tslint --fix src/**/*.ts src/**/*.tsx",
+    "lint": "tslint src/**/*.ts src/**/*.tsx"
+  },
   "dependencies": {
     "react": "15.4.1",
     "react-dom": "15.4.1"
