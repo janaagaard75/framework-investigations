@@ -19,7 +19,6 @@ export class TodoStore {
   public toggleTodo(todo: Todo) {
     todo.toggle()
     this.storeUpdated()
-    // TODO: Verify that React is only updating a single todo.
   }
 
   private getId(): number {

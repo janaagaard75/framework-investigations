@@ -11,20 +11,14 @@ interface AppProps {
 }
 
 export class App extends Component<AppProps, void> {
-  // TODO: Why not handle the toggle in TodoItem?
-  private handleOnTodoClick(todo: Todo) {
-    todo.toggle()
-  }
-
   public render() {
     return (
       <div>
         <AddTodo
-          addTodo={(text) => this.props.store.addTodo(text)}
+          addTodo={(text: string) => this.props.store.addTodo(text)}
         />
         <TodoList
-          // TODO: What about (todo) => this.handleOnTodoClick(todo)?
-          onTodoClick={this.handleOnTodoClick}
+          onTodoClick={(todo: Todo) => this.props.store.toggleTodo(todo)}
           todos={this.props.store.todos}
         />
       </div>
