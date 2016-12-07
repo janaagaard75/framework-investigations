@@ -74,8 +74,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     modules: [
-      'node_modules',
-      path.resolve(__dirname, 'app')
+      'node_modules'
     ]
   }
 }
