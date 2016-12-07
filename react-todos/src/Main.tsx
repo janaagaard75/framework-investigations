@@ -13,7 +13,7 @@ const store = new Store(storeUpdated)
 const renderApp = () => {
   render(
     <App store={store}/>,
-    document.getElementById("root")
+    document.getElementById("app")
   )
 }
 

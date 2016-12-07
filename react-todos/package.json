@@ -1,7 +1,7 @@
 {
   "name": "react-todos",
   "version": "0.0.0",
-  "description": "MobX + React + TypeScript",
+  "description": "React + TypeScript",
   "main": "index.js",
   "author": "Jan Aagaard <jan@aagaard.net>",
   "license": "MIT",

@@ -44,7 +44,7 @@ module.exports = {
   },
   devtool: "source-map",
   entry: {
-    "client": "./src/Root.tsx"
+    "client": "./src/Main.tsx"
   },
   module: {
     rules: [
