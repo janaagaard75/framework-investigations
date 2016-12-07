@@ -2,7 +2,7 @@ import * as React from "react"
 import { render } from "react-dom"
 
 import { App } from "./components/App"
-import { TodoStore } from "./models/TodoStore"
+import { TodoStore } from "./TodoStore"
 
 const storeUpdated = () => {
   renderApp()
