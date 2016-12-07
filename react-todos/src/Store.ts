@@ -16,11 +16,6 @@ export class Store {
     this.storeUpdated()
   }
 
-  public toggleTodo(todo: Todo) {
-    todo.toggle()
-    this.storeUpdated()
-  }
-
   private getId(): number {
     const nextId = this.getRandomInteger(1, Number.MAX_SAFE_INTEGER)
     return nextId
@@ -29,5 +24,10 @@ export class Store {
   private getRandomInteger(min: number, max: number): number {
     const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min
     return randomInteger
+  }
+
+  public toggleTodo(todo: Todo) {
+    todo.toggle()
+    this.storeUpdated()
   }
 }
