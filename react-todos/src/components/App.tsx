@@ -4,7 +4,7 @@ import { Component } from "react"
 import { AddTodo } from "./AddTodo"
 import { Todo } from "../models/Todo"
 import { TodoList } from "./TodoList"
-import { TodoStore } from "../models/TodoStore"
+import { TodoStore } from "../TodoStore"
 
 interface AppProps {
   store: TodoStore
