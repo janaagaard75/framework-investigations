@@ -1,5 +1,5 @@
 {
-  "name": "mobx-react-todos",
+  "name": "react-mobx-todos",
   "version": "0.0.0",
   "description": "MobX + React + TypeScript",
   "main": "index.js",
