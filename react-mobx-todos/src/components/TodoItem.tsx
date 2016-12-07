@@ -11,7 +11,7 @@ export class TodoItem extends Component<TodoProps, void> {
   public render() {
     return (
       <li
-        onClick={this.props.onClick}
+        onClick={() => this.props.onClick()}
         style={{
           cursor: "pointer",
           textDecoration: this.props.completed ? "line-through" : "none"

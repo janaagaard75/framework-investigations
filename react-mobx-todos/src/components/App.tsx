@@ -18,7 +18,7 @@ export class App extends Component<AppProps, void> {
   public render() {
     return (
       <div>
-        <AddTodo addTodo={this.props.store.addTodo}/>
+        <AddTodo addTodo={(text) => this.props.store.addTodo(text)}/>
         <TodoList todos={this.props.store.todos} onTodoClick={this.handleOnTodoClick}/>
       </div>
     )
