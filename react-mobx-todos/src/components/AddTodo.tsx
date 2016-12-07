@@ -2,7 +2,7 @@ import * as React from "react"
 import { Component } from "react"
 
 interface AddTodoProps {
-  addTodo: (text) => void
+  addTodo: (text: string) => void
 }
 
 interface AddTodoState {
