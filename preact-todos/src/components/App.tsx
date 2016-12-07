@@ -1,5 +1,4 @@
-import * as React from "react"
-import { Component } from "react"
+import { Component } from "preact"
 
 import { AddTodo } from "./AddTodo"
 import { Todo } from "../models/Todo"

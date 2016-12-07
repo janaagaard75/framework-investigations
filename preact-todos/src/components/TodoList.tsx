@@ -1,5 +1,4 @@
-import * as React from "react"
-import { Component } from "react"
+import { Component } from "preact"
 
 import { Todo } from "../models/Todo"
 import { TodoItem } from "./TodoItem"
@@ -16,7 +15,7 @@ export class TodoList extends Component<TodoListProps, void> {
       <ul>
         {this.props.todos.map(todo =>
           <TodoItem
-            key={todo.id}
+            key={todo.id.toString()}
             onClick={() => this.props.onTodoClick(todo) }
             completed={todo.completed}
             text={todo.text}

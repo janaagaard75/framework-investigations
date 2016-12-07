@@ -6,6 +6,6 @@
     "dist/": true
   },
   "tslint.enable": true,
-  "tslint.exclude": "dist",
+  "tslint.exclude": "/dist/**/*",
   "typescript.tsdk": "node_modules/typescript/lib"
 }

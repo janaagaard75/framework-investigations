@@ -48,7 +48,10 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: "ts-loader",
+        loaders: [
+          "babel-loader",
+          "awesome-typescript-loader"
+        ],
         test: /\.tsx?$/
       }
     ]

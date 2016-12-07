@@ -1,5 +1,4 @@
-import * as React from "react"
-import { Component } from "react"
+import { Component } from "preact"
 
 interface AddTodoProps {
   addTodo: (text: string) => void
@@ -10,19 +9,19 @@ interface AddTodoState {
 }
 
 export class AddTodo extends Component<AddTodoProps, AddTodoState> {
-  constructor(props: AddTodoProps, context?: any) {
-    super(props, context)
+  constructor(props: AddTodoProps) {
+    super(props)
 
     this.state = {
       text: ""
     }
   }
 
-  private handleChange(formEvent: React.FormEvent<HTMLInputElement>) {
-    this.setState({ text: formEvent.currentTarget.value })
+  private handleChange(formEvent: Event) {
+    this.setState({ text: (formEvent.currentTarget as HTMLInputElement).value })
   }
 
-  private handleSubmit(formEvent: React.FormEvent<HTMLFormElement>) {
+  private handleSubmit(formEvent: Event) {
     formEvent.preventDefault()
 
     const trimmedText = this.state.text.trim()
