@@ -20,8 +20,7 @@ export class TodoList extends Component<TodoListProps, void> {
           <TodoItem
             key={todo.id}
             onClick={() => this.props.onTodoClick(todo)}
-            completed={todo.completed}
-            text={todo.text}
+            todo={todo}
           />
         )}
       </ul>

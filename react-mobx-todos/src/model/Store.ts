@@ -18,8 +18,8 @@ export class Store {
   }
 
   private getId(): number {
-    const nextId = this.getRandomInteger(1, Number.MAX_SAFE_INTEGER)
-    return nextId
+    const randomId = this.getRandomInteger(1, Number.MAX_SAFE_INTEGER)
+    return randomId
   }
 
   private getRandomInteger(min: number, max: number): number {

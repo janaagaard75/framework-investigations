@@ -14,6 +14,14 @@ export class Todo {
   public readonly id: number
   public readonly text: string
 
+  public equals(other: Todo): boolean {
+    return (
+      this.completed === other.completed
+      && this.id === other.id
+      && this.text === other.text
+    )
+  }
+
   public toggle(): void {
     this.completed = !this.completed
   }
