@@ -21,7 +21,7 @@ const plugins = [
     template: "src/index.html"
   }),
   new webpack.DefinePlugin({
-    "process.env": { NODE_ENV: JSON.stringify(nodeEnv) }
+    "process.env.NODE_ENV": JSON.stringify(nodeEnv)
   })
 ]
 
