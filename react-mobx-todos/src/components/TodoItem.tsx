@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Component } from "react"
+import { observer } from "mobx-react"
 
 interface TodoProps {
   onClick: () => void,
@@ -7,6 +8,7 @@ interface TodoProps {
   text: string
 }
 
+@observer
 export class TodoItem extends Component<TodoProps, void> {
   public render() {
     return (

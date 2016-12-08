@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Component } from "react"
+import { observer } from "mobx-react"
 
 import { Todo } from "../models/Todo"
 import { TodoItem } from "./TodoItem"
@@ -10,6 +11,7 @@ interface TodoListProps {
   todos: Todos
 }
 
+@observer
 export class TodoList extends Component<TodoListProps, void> {
   public render() {
     return (

@@ -1,19 +1,18 @@
+import { observable } from "mobx"
+
 import { Todo } from "./models/Todo"
 import { Todos } from "./models/Todos"
 
 export class Store {
-  constructor(
-    private storeUpdated: () => void
-  ) {
+  constructor() {
     this.todos = []
   }
 
-  public todos: Todos
+  @observable public todos: Todos
 
   public addTodo(text: string) {
     const newTodo = new Todo(this.getId(), text)
     this.todos.push(newTodo)
-    this.storeUpdated()
   }
 
   private getId(): number {
@@ -28,6 +27,5 @@ export class Store {
 
   public toggleTodo(todo: Todo) {
     todo.toggle()
-    this.storeUpdated()
   }
 }
