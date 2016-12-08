@@ -17,7 +17,7 @@ export class TodoList extends Component<TodoListProps, void> {
         {this.props.todos.map(todo =>
           <TodoItem
             key={todo.id}
-            onClick={() => this.props.onTodoClick(todo) }
+            onClick={() => this.props.onTodoClick(todo)}
             completed={todo.completed}
             text={todo.text}
           />
