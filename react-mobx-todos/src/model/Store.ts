@@ -1,3 +1,4 @@
+import { action } from "mobx"
 import { observable } from "mobx"
 
 import { Todo } from "./Todo"
@@ -10,6 +11,7 @@ export class Store {
 
   @observable public todos: Todos
 
+  @action
   public addTodo(text: string) {
     const newTodo = new Todo(this.getId(), text)
     this.todos.push(newTodo)
@@ -25,6 +27,7 @@ export class Store {
     return randomInteger
   }
 
+  @action
   public toggleTodo(todo: Todo) {
     todo.toggle()
   }
