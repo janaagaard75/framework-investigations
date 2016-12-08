@@ -2,7 +2,10 @@
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"
   ],
-  "extends": "tslint:latest",
+  "extends": [
+    "tslint:latest",
+    "tslint-react"
+  ],
   "rules": {
     "align": [
       false
@@ -112,8 +115,9 @@
       true
     ],
     "use-isnan": true,
-    "valid-typeof": true
-    // TODO: Add tslint-react rules.
+    "valid-typeof": true,
+    // tslint-react rules.
+    "jsx-no-multiline-js": false
   },
   "jsRules": {
     "align": [

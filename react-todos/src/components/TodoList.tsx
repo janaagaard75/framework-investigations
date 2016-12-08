@@ -21,7 +21,7 @@ export class TodoList extends Component<TodoListProps, void> {
             completed={todo.completed}
             text={todo.text}
           />
-        ) }
+        )}
       </ul>
     )
   }
