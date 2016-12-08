@@ -2,9 +2,9 @@ import * as React from "react"
 import { Component } from "react"
 import { observer } from "mobx-react"
 
-import { Todo } from "../models/Todo"
+import { Todo } from "../model/Todo"
 import { TodoItem } from "./TodoItem"
-import { Todos } from "../models/Todos"
+import { Todos } from "../model/Todos"
 
 interface TodoListProps {
   onTodoClick: (todo: Todo) => void,

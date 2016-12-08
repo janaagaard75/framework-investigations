@@ -1,7 +1,7 @@
 import { observable } from "mobx"
 
-import { Todo } from "./models/Todo"
-import { Todos } from "./models/Todos"
+import { Todo } from "./Todo"
+import { Todos } from "./Todos"
 
 export class Store {
   constructor() {
