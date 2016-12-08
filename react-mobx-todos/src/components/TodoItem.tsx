@@ -2,14 +2,21 @@ import * as React from "react"
 import { Component } from "react"
 import { observer } from "mobx-react"
 
-interface TodoProps {
+interface TodoItemProps {
   onClick: () => void,
   completed: boolean,
   text: string
 }
 
 @observer
-export class TodoItem extends Component<TodoProps, void> {
+export class TodoItem extends Component<TodoItemProps, void> {
+  public shouldComponentUpdate(newProps: TodoItemProps) {
+    return (
+      this.props.completed !== newProps.completed
+      || this.props.text !== newProps.text
+    )
+  }
+
   public render() {
     return (
       <li
