@@ -2,7 +2,8 @@ import * as React from "react"
 import { Component } from "react"
 
 interface AddTodoProps {
-  addTodo: (text: string) => void
+  addTodo: (text: string) => void,
+  addTodoAsynchronously: (text: string) => void
 }
 
 interface AddTodoState {
@@ -18,6 +19,19 @@ export class AddTodo extends Component<AddTodoProps, AddTodoState> {
     }
   }
 
+  private handleAddTodoAsyncClick() {
+    const trimmedText = this.state.text.trim()
+    if (trimmedText.length === 0) {
+      return
+    }
+
+    this.props.addTodoAsynchronously(trimmedText)
+
+    this.setState({
+      text: ""
+    })
+  }
+
   private handleChange(formEvent: React.FormEvent<HTMLInputElement>) {
     this.setState({ text: formEvent.currentTarget.value })
   }
@@ -31,6 +45,7 @@ export class AddTodo extends Component<AddTodoProps, AddTodoState> {
     }
 
     this.props.addTodo(trimmedText)
+
     this.setState({
       text: ""
     })
@@ -46,6 +61,7 @@ export class AddTodo extends Component<AddTodoProps, AddTodoState> {
             onChange={formEvent => this.handleChange(formEvent)}
           />
           <button type="submit">Add Todo</button>
+          <button type="button" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</button>
         </form>
       </div>
     )

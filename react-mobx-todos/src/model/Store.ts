@@ -14,6 +14,12 @@ export class Store {
     this.todos.push(newTodo)
   }
 
+  public addTodoAsynchronously(text: string) {
+    setTimeout(() => {
+      this.addTodo(text)
+    }, 5 * 1000)
+  }
+
   private getNextId(): number {
     this.nextId++
     return this.nextId
