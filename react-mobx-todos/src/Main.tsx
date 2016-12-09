@@ -1,5 +1,5 @@
 import * as React from "react"
-// TODO: Figure out how to remove dev tools from the production build.
+// TODO: Figure out how to remove dev tools from the production bundle.
 import DevTools from "mobx-react-devtools"
 import { render } from "react-dom"
 import { useStrict } from "mobx"
