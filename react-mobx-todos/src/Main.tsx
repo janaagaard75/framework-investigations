@@ -16,14 +16,22 @@ const store = new Store()
 declare const process: any
 const includeDevTools = process.env.NODE_ENV === "development"
 
+class AppAndMore extends React.Component<void, void> {
+  public render() {
+    return (
+      <div>
+        <App store={store}/>
+        {includeDevTools &&
+          <DevTools/>
+        }
+      </div>
+    )
+  }
+}
+
 render(
   <Router history={browserHistory}>
-    <Route component={App} path="/(:filter)">
-      <App store={store}/>
-      {includeDevTools &&
-        <DevTools/>
-      }
-    </Route>
+    <Route component={AppAndMore} path="/(:filter)"/>
   </Router>,
   document.getElementById("app")
 )
