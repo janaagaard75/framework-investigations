@@ -5,26 +5,18 @@ import { Todo } from "./Todo"
 import { Todos } from "./Todos"
 
 export class Store {
-  constructor() {
-    this.todos = []
-  }
-
-  @observable public todos: Todos
+  private nextId = 0
+  @observable public todos: Todos = []
 
   @action
   public addTodo(text: string) {
-    const newTodo = new Todo(this.getId(), text)
+    const newTodo = new Todo(this.getNextId(), text)
     this.todos.push(newTodo)
   }
 
-  private getId(): number {
-    const randomId = this.getRandomInteger(1, Number.MAX_SAFE_INTEGER)
-    return randomId
-  }
-
-  private getRandomInteger(min: number, max: number): number {
-    const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min
-    return randomInteger
+  private getNextId(): number {
+    this.nextId++
+    return this.nextId
   }
 
   @action
