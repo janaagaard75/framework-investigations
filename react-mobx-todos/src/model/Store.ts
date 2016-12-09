@@ -18,6 +18,9 @@ export class Store {
     setTimeout(() => {
       this.addTodo(text)
     }, 5 * 1000)
+    // TODO: Update interface while adding todos.
+    // TODO: Random timeout durations.
+    // TODO: Simulate an error from time to time, both server error and timeouts.
   }
 
   private getNextId(): number {
