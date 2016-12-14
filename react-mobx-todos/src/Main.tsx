@@ -31,13 +31,13 @@ class ConnectedApp extends React.Component<void, void> {
   }
 }
 
-const AllTodos = new TypedRoute(
+export const AllTodos = new TypedRoute(
   ConnectedApp,
   "/",
   () => "/"
 )
 
-const FilteredTodos = new TypedRoute(
+export const FilteredTodos = new TypedRoute(
   ConnectedApp,
   "/:filter",
   (filter: Filter) => `${filter}`
