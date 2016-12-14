@@ -2,15 +2,14 @@ import * as React from "react"
 // TODO: Figure out how to remove dev tools from the production bundle.
 import DevTools from "mobx-react-devtools"
 import { browserHistory } from "react-router"
-import { Component } from "react"
 import { render } from "react-dom"
 import { Route } from "react-router"
 import { Router } from "react-router"
-import { RouterContext } from "react-router"
 import { useStrict } from "mobx"
 
 import { App } from "./components/App"
 import { Filter } from "./model/Filter"
+import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 import { TypedRoute } from "./model/TypedRoute"
 
@@ -20,9 +19,7 @@ const store = new Store()
 declare const process: any
 const includeDevTools = process.env.NODE_ENV === "development"
 
-interface ConnectedAppProps extends RouterContext.RouterContextProps { }
-
-class ConnectedApp extends Component<ConnectedAppProps, void> {
+class ConnectedApp extends RouteComponent<void> {
   public render() {
     return (
       <div>
