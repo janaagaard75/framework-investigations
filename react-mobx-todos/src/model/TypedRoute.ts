@@ -1,10 +1,8 @@
-import { ComponentClass } from "react"
-
-type NakedComponent = ComponentClass<void>
+import { RouteComponent } from "./RouteComponent"
 
 export class TypedRoute<LinkPath extends (...args: Array<any>) => string> {
   constructor(
-    public component: NakedComponent,
+    public component: RouteComponent,
     public routePath: string,
     public getLinkPath: LinkPath
   ) { }

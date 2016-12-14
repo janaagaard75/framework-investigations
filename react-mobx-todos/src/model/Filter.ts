@@ -1,4 +1,5 @@
 export enum Filter {
   active,
-  completed
+  completed,
+  ShowAll
 }

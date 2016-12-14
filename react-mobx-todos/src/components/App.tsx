@@ -1,17 +1,36 @@
 import * as React from "react"
 import { Component } from "react"
+import { RouterContext } from "react-router"
 
 import { AddTodo } from "./AddTodo"
+import { FilteredTodoList } from "./FilteredTodoList"
+import { Filter } from "../model/Filter"
 import { Filters } from "./Filters"
 import { Store } from "../model/Store"
 import { Todo } from "../model/Todo"
-import { TodoList } from "./TodoList"
 
 interface AppProps {
+  routerContext: RouterContext.RouterContextProps,
   store: Store
 }
 
 export class App extends Component<AppProps, void> {
+  private toFilter(filterString: string): Filter {
+    switch (filterString) {
+      case undefined:
+        return Filter.ShowAll
+
+      case "active":
+        return Filter.active
+
+      case "completed":
+        return Filter.completed
+
+      default:
+        throw new Error(`The filterString '${filterString}' is not supported.`)
+    }
+  }
+
   public render() {
     return (
       <div>
@@ -19,7 +38,9 @@ export class App extends Component<AppProps, void> {
           addTodo={(text: string) => this.props.store.addTodo(text)}
           addTodoAsynchronously={(text: string) => this.props.store.addTodoAsynchronously(text)}
         />
-        <TodoList
+        <FilteredTodoList
+          // tslint:disable-next-line no-string-literal
+          activeFilter={this.toFilter(this.props.routerContext.params["filter"])}
           onTodoClick={(todo: Todo) => this.props.store.toggleTodo(todo)}
           todos={this.props.store.todos}
         />
