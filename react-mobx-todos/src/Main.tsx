@@ -31,16 +31,17 @@ class ConnectedApp extends React.Component<void, void> {
   }
 }
 
-export const AllTodos = new TypedRoute(
+// Explicit types on the routes are required because there's a cyclic reference to them through Filters.tsx.
+export const AllTodos: TypedRoute<() => string> = new TypedRoute(
   ConnectedApp,
   "/",
   () => "/"
 )
 
-export const FilteredTodos = new TypedRoute(
+export const FilteredTodos: TypedRoute<(filter: Filter) => string> = new TypedRoute(
   ConnectedApp,
   "/:filter",
-  (filter: Filter) => `${filter}`
+  (filter: Filter) => `${Filter[filter]}`
 )
 
 const allRoutes = [
