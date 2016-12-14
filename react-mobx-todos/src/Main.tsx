@@ -8,7 +8,9 @@ import { Router } from "react-router"
 import { useStrict } from "mobx"
 
 import { App } from "./components/App"
+import { Filter } from "./model/Filter"
 import { Store } from "./model/Store"
+import { TypedRoute } from "./model/TypedRoute"
 
 useStrict(true)
 const store = new Store()
@@ -16,7 +18,7 @@ const store = new Store()
 declare const process: any
 const includeDevTools = process.env.NODE_ENV === "development"
 
-class AppAndMore extends React.Component<void, void> {
+class ConnectedApp extends React.Component<void, void> {
   public render() {
     return (
       <div>
@@ -29,9 +31,28 @@ class AppAndMore extends React.Component<void, void> {
   }
 }
 
+const AllTodos = new TypedRoute(
+  ConnectedApp,
+  "/",
+  () => "/"
+)
+
+const FilteredTodos = new TypedRoute(
+  ConnectedApp,
+  "/:filter",
+  (filter: Filter) => `${filter}`
+)
+
+const allRoutes = [
+  AllTodos,
+  FilteredTodos
+]
+
 render(
   <Router history={browserHistory}>
-    <Route component={AppAndMore} path="/(:filter)"/>
+    {allRoutes.map(route =>
+      <Route component={route.component} path={route.routePath}/>
+    )}
   </Router>,
   document.getElementById("app")
 )
