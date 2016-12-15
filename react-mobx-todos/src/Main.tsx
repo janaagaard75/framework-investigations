@@ -8,7 +8,7 @@ import { Router } from "react-router"
 import { useStrict } from "mobx"
 
 import { App } from "./components/App"
-import { Filter } from "./model/Filter"
+import { TodosFilter } from "./model/Filter"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 import { TypedRoute } from "./model/TypedRoute"
@@ -39,10 +39,10 @@ export const AllTodos: TypedRoute<() => string> = new TypedRoute(
   () => "/"
 )
 
-export const FilteredTodos: TypedRoute<(filter: Filter) => string> = new TypedRoute(
+export const FilteredTodos: TypedRoute<(filter: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   "/:filter",
-  (filter: Filter) => `${Filter[filter]}`
+  (filter: TodosFilter) => `${TodosFilter[filter]}`
 )
 
 const allRoutes = [

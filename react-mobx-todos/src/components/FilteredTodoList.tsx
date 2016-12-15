@@ -1,13 +1,13 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { Filter } from "../model/Filter"
+import { TodosFilter } from "../model/Filter"
 import { TodoList } from "./TodoList"
 import { Todo } from "../model/Todo"
 import { Todos } from "../model/Todos"
 
 interface Props {
-  activeFilter: Filter
+  activeFilter: TodosFilter
   onTodoClick: (todo: Todo) => void,
   todos: Todos
 }
@@ -15,14 +15,14 @@ interface Props {
 export class FilteredTodoList extends Component<Props, void> {
   private getVisibleTodos(): Todos {
     switch (this.props.activeFilter) {
-      case Filter.active:
+      case TodosFilter.active:
         return this.props.todos.filter(todo => !todo.completed)
 
-      case Filter.completed:
+      case TodosFilter.completed:
         return this.props.todos.filter(todo => todo.completed)
 
       // TODO: Handle the ShowAll case properly.
-      case Filter.ShowAll:
+      case TodosFilter.ShowAll:
         return this.props.todos
 
       default:

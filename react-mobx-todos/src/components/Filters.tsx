@@ -3,7 +3,7 @@ import { Component } from "react"
 import { Link } from "react-router"
 
 import { AllTodos } from "../Main"
-import { Filter } from "../model/Filter"
+import { TodosFilter } from "../model/Filter"
 import { FilteredTodos } from "../Main"
 
 export class Filters extends Component<void, void> {
@@ -12,9 +12,9 @@ export class Filters extends Component<void, void> {
       <p>
         <Link to={AllTodos.getLinkPath()}>All</Link>
         {" "}&middot;{" "}
-        <Link to={FilteredTodos.getLinkPath(Filter.active)}>Active</Link>
+        <Link to={FilteredTodos.getLinkPath(TodosFilter.active)}>Active</Link>
         {" "}&middot;{" "}
-        <Link to={FilteredTodos.getLinkPath(Filter.completed)}>Completed</Link>
+        <Link to={FilteredTodos.getLinkPath(TodosFilter.completed)}>Completed</Link>
       </p>
     )
   }

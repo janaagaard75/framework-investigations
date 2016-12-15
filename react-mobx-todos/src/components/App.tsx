@@ -4,7 +4,7 @@ import { RouterContext } from "react-router"
 
 import { AddTodo } from "./AddTodo"
 import { FilteredTodoList } from "./FilteredTodoList"
-import { Filter } from "../model/Filter"
+import { TodosFilter } from "../model/Filter"
 import { Filters } from "./Filters"
 import { Store } from "../model/Store"
 import { Todo } from "../model/Todo"
@@ -15,16 +15,16 @@ interface AppProps {
 }
 
 export class App extends Component<AppProps, void> {
-  private toFilter(filterString: string): Filter {
+  private toFilter(filterString: string): TodosFilter {
     switch (filterString) {
       case undefined:
-        return Filter.ShowAll
+        return TodosFilter.ShowAll
 
       case "active":
-        return Filter.active
+        return TodosFilter.active
 
       case "completed":
-        return Filter.completed
+        return TodosFilter.completed
 
       default:
         throw new Error(`The filterString '${filterString}' is not supported.`)
