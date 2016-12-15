@@ -8,9 +8,9 @@ import { Router } from "react-router"
 import { useStrict } from "mobx"
 
 import { App } from "./components/App"
-import { TodosFilter } from "./model/TodosFilter"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
+import { TodosFilter } from "./model/TodosFilter"
 import { TypedRoute } from "./model/TypedRoute"
 
 useStrict(true)
@@ -32,29 +32,34 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
-// TODO: Move routes to separate file.
-// Explicit types on the routes are required because there's a cyclic reference to them through Filters.tsx.
-export const AllTodos: TypedRoute<() => string> = new TypedRoute(
-  ConnectedApp,
-  "/",
-  () => "/"
-)
-
 export const FilteredTodos: TypedRoute<(filter: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
-  "/:filter",
-  (filter: TodosFilter) => `${TodosFilter[filter]}`
+  "/(:filter)",
+  (filter: TodosFilter) => {
+    switch (filter) {
+      case TodosFilter.ShowActive:
+        return "/active"
+
+      case TodosFilter.ShowAll:
+        return "/"
+
+      case TodosFilter.ShowCompleted:
+        return "/completed"
+
+      default:
+        throw new Error(`The filter '${filter} is not supported.`)
+    }
+  }
 )
 
 const allRoutes = [
-  AllTodos,
   FilteredTodos
 ]
 
 render(
   <Router history={browserHistory}>
     {allRoutes.map(route =>
-      <Route component={route.component} path={route.routePath}/>
+      <Route key={route.routePath} component={route.component} path={route.routePath}/>
     )}
   </Router>,
   document.getElementById("app")

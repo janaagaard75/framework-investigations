@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { TodosFilter } from "../model/TodosFilter"
-import { TodoList } from "./TodoList"
 import { Todo } from "../model/Todo"
+import { TodoList } from "./TodoList"
 import { Todos } from "../model/Todos"
+import { TodosFilter } from "../model/TodosFilter"
 
 interface Props {
   activeFilter: TodosFilter
@@ -18,12 +18,11 @@ export class FilteredTodoList extends Component<Props, void> {
       case TodosFilter.ShowActive:
         return this.props.todos.filter(todo => !todo.completed)
 
-      case TodosFilter.ShowCompleted:
-        return this.props.todos.filter(todo => todo.completed)
-
-      // TODO: Handle the ShowAll case properly.
       case TodosFilter.ShowAll:
         return this.props.todos
+
+      case TodosFilter.ShowCompleted:
+        return this.props.todos.filter(todo => todo.completed)
 
       default:
         throw new Error("Unsupported filter: " + this.props.activeFilter)

@@ -2,15 +2,14 @@ import * as React from "react"
 import { Component } from "react"
 import { Link } from "react-router"
 
-import { AllTodos } from "../Main"
-import { TodosFilter } from "../model/TodosFilter"
 import { FilteredTodos } from "../Main"
+import { TodosFilter } from "../model/TodosFilter"
 
 export class Filters extends Component<void, void> {
   public render() {
     return (
       <p>
-        <Link to={AllTodos.getLinkPath()}>All</Link>
+        <Link to={FilteredTodos.getLinkPath(TodosFilter.ShowAll)}>All</Link>
         {" "}&middot;{" "}
         <Link to={FilteredTodos.getLinkPath(TodosFilter.ShowActive)}>Active</Link>
         {" "}&middot;{" "}
