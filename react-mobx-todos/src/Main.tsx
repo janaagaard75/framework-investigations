@@ -8,7 +8,7 @@ import { Router } from "react-router"
 import { useStrict } from "mobx"
 
 import { App } from "./components/App"
-import { TodosFilter } from "./model/Filter"
+import { TodosFilter } from "./model/TodosFilter"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 import { TypedRoute } from "./model/TypedRoute"
@@ -32,6 +32,7 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
+// TODO: Move routes to separate file.
 // Explicit types on the routes are required because there's a cyclic reference to them through Filters.tsx.
 export const AllTodos: TypedRoute<() => string> = new TypedRoute(
   ConnectedApp,

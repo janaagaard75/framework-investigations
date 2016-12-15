@@ -3,7 +3,7 @@ import { Component } from "react"
 import { Link } from "react-router"
 
 import { AllTodos } from "../Main"
-import { TodosFilter } from "../model/Filter"
+import { TodosFilter } from "../model/TodosFilter"
 import { FilteredTodos } from "../Main"
 
 export class Filters extends Component<void, void> {

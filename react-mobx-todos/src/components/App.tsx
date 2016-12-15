@@ -4,7 +4,7 @@ import { RouterContext } from "react-router"
 
 import { AddTodo } from "./AddTodo"
 import { FilteredTodoList } from "./FilteredTodoList"
-import { TodosFilter } from "../model/Filter"
+import { TodosFilter } from "../model/TodosFilter"
 import { Filters } from "./Filters"
 import { Store } from "../model/Store"
 import { Todo } from "../model/Todo"

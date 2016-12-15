@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { TodosFilter } from "../model/Filter"
+import { TodosFilter } from "../model/TodosFilter"
 import { TodoList } from "./TodoList"
 import { Todo } from "../model/Todo"
 import { Todos } from "../model/Todos"
