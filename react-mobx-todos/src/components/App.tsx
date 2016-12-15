@@ -21,10 +21,10 @@ export class App extends Component<AppProps, void> {
         return TodosFilter.ShowAll
 
       case "active":
-        return TodosFilter.active
+        return TodosFilter.ShowActive
 
       case "completed":
-        return TodosFilter.completed
+        return TodosFilter.ShowCompleted
 
       default:
         throw new Error(`The filterString '${filterString}' is not supported.`)

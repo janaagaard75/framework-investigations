@@ -15,10 +15,10 @@ interface Props {
 export class FilteredTodoList extends Component<Props, void> {
   private getVisibleTodos(): Todos {
     switch (this.props.activeFilter) {
-      case TodosFilter.active:
+      case TodosFilter.ShowActive:
         return this.props.todos.filter(todo => !todo.completed)
 
-      case TodosFilter.completed:
+      case TodosFilter.ShowCompleted:
         return this.props.todos.filter(todo => todo.completed)
 
       // TODO: Handle the ShowAll case properly.

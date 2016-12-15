@@ -12,9 +12,9 @@ export class Filters extends Component<void, void> {
       <p>
         <Link to={AllTodos.getLinkPath()}>All</Link>
         {" "}&middot;{" "}
-        <Link to={FilteredTodos.getLinkPath(TodosFilter.active)}>Active</Link>
+        <Link to={FilteredTodos.getLinkPath(TodosFilter.ShowActive)}>Active</Link>
         {" "}&middot;{" "}
-        <Link to={FilteredTodos.getLinkPath(TodosFilter.completed)}>Completed</Link>
+        <Link to={FilteredTodos.getLinkPath(TodosFilter.ShowCompleted)}>Completed</Link>
       </p>
     )
   }

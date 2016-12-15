@@ -1,5 +1,5 @@
 export enum TodosFilter {
-  active,
-  completed,
-  ShowAll
+  ShowActive,
+  ShowAll,
+  ShowCompleted
 }
