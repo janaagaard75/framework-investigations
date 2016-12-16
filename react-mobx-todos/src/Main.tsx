@@ -32,6 +32,9 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
+// TODO: Merge the to/from conversion in a single file.
+// TodosFilter.ShowAll.path()
+// TodosFilter.fromPath(path: string)
 export const FilteredTodos: TypedRoute<(filter: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   "/(:filter)",
