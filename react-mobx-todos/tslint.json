@@ -118,7 +118,8 @@
     "valid-typeof": true,
     // tslint-react rules.
     "jsx-no-lambda": false,
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false
   },
   "jsRules": {
     "align": [

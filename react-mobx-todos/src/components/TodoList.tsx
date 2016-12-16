@@ -16,13 +16,13 @@ export class TodoList extends Component<TodoListProps, void> {
   public render() {
     return (
       <ul>
-        {this.props.todos.map(todo => (
+        {this.props.todos.map(todo =>
           <TodoItem
             key={todo.id}
             onClick={() => this.props.onTodoClick(todo)}
             todo={todo}
           />
-        ))}
+        )}
       </ul>
     )
   }
