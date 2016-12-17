@@ -11,6 +11,7 @@ import { App } from "./components/App"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 import { TodosFilter } from "./model/TodosFilter"
+import { toPath } from "./model/TodosFilter"
 import { TypedRoute } from "./model/TypedRoute"
 
 useStrict(true)
@@ -32,27 +33,10 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
-// TODO: Merge the to/from conversion in a single file.
-// TodosFilter.ShowAll.path()
-// TodosFilter.fromPath(path: string)
 export const FilteredTodos: TypedRoute<(filter: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   "/(:filter)",
-  (filter: TodosFilter) => {
-    switch (filter) {
-      case TodosFilter.ShowActive:
-        return "/active"
-
-      case TodosFilter.ShowAll:
-        return "/"
-
-      case TodosFilter.ShowCompleted:
-        return "/completed"
-
-      default:
-        throw new Error(`The filter '${filter} is not supported.`)
-    }
-  }
+  (filter: TodosFilter) => "/" + toPath(filter)
 )
 
 const allRoutes = [
