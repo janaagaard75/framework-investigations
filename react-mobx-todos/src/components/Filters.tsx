@@ -11,7 +11,7 @@ export class Filters extends Component<void, void> {
       <p>
         {allFilters.map(filter =>
           // TODO: Figure out how to put an element between the links.
-          <Link key={filter.filter} to={FilteredTodos.getLinkPath(filter)}>{filter.label}</Link>
+          <Link key={filter.path} to={FilteredTodos.getLinkPath(filter)}>{filter.label}</Link>
         )}
       </p>
     )

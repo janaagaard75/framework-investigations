@@ -1,16 +1,9 @@
 import { Todo } from "./Todo"
 
-enum Filter {
-  ShowActive,
-  ShowAll,
-  ShowCompleted
-}
-
 type Path = "" | "active" | "completed"
 
 export class TodosFilter {
   constructor(
-    public readonly filter: Filter,
     public readonly path: Path,
     public readonly label: string,
     public filterTodos: (todos: Array<Todo>) => Array<Todo>
@@ -18,21 +11,18 @@ export class TodosFilter {
 }
 
 export const ShowActive = new TodosFilter(
-  Filter.ShowActive,
   "active",
   "Active",
   (todos: Array<Todo>) => todos
 )
 
 export const ShowAll = new TodosFilter(
-  Filter.ShowAll,
   "",
   "All",
   (todos: Array<Todo>) => todos
 )
 
 export const ShowCompleted = new TodosFilter(
-  Filter.ShowCompleted,
   "completed",
   "Completed",
   (todos: Array<Todo>) => todos
