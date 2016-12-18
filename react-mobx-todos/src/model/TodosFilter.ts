@@ -37,8 +37,8 @@ export const allFilters = [
 // TODO: Consider using Path or router params as input type.
 export const toFilter = (path: string): TodosFilter => {
   // TODO: Figure out how to avoid this annyoing fix.
-  const fixedPath: string = path || ""
-  const matchingFilter = allFilters.find(filter => filter.path === fixedPath)
+  const definedPath: string = path || ""
+  const matchingFilter = allFilters.find(filter => filter.path === definedPath)
 
   if (matchingFilter === undefined) {
     throw new Error(`The path '${path}' is not supported.`)
