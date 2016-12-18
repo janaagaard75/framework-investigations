@@ -13,7 +13,7 @@ export class TodosFilter {
 export const ShowActive = new TodosFilter(
   "active",
   "Active",
-  (todos: Array<Todo>) => todos
+  (todos: Array<Todo>) => todos.filter(todo => !todo.completed)
 )
 
 export const ShowAll = new TodosFilter(
@@ -25,7 +25,7 @@ export const ShowAll = new TodosFilter(
 export const ShowCompleted = new TodosFilter(
   "completed",
   "Completed",
-  (todos: Array<Todo>) => todos
+  (todos: Array<Todo>) => todos.filter(todo => todo.completed)
 )
 
 export const allFilters = [
