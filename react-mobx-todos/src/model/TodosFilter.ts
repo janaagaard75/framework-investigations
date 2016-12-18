@@ -1,37 +1,58 @@
-export enum TodosFilter {
+import { Todo } from "./Todo"
+
+enum Filter {
   ShowActive,
   ShowAll,
   ShowCompleted
 }
 
-export const toFilter = (path: string): TodosFilter => {
-  switch (path) {
-    case "":
-      return TodosFilter.ShowAll
+type Path = "" | "active" | "completed"
 
-    case "active":
-      return TodosFilter.ShowActive
-
-    case "completed":
-      return TodosFilter.ShowCompleted
-
-    default:
-      throw new Error(`The path '${path} is not supported.`)
-  }
+export class TodosFilter {
+  constructor(
+    public readonly filter: Filter,
+    public readonly path: Path,
+    public readonly label: string,
+    public filterTodos: (todos: Array<Todo>) => Array<Todo>
+  ) { }
 }
 
-export const toPath = (filter: TodosFilter): string => {
-  switch (filter) {
-    case TodosFilter.ShowActive:
-      return "active"
+export const ShowActive = new TodosFilter(
+  Filter.ShowActive,
+  "active",
+  "Active",
+  (todos: Array<Todo>) => todos
+)
 
-    case TodosFilter.ShowAll:
-      return ""
+export const ShowAll = new TodosFilter(
+  Filter.ShowAll,
+  "",
+  "All",
+  (todos: Array<Todo>) => todos
+)
 
-    case TodosFilter.ShowCompleted:
-      return "completed"
+export const ShowCompleted = new TodosFilter(
+  Filter.ShowCompleted,
+  "completed",
+  "Completed",
+  (todos: Array<Todo>) => todos
+)
 
-    default:
-      throw new Error(`The filter '${filter} is not supported.`)
+export const allFilters = [
+  ShowAll,
+  ShowActive,
+  ShowCompleted
+]
+
+// TODO: Consider to use Path as input type.
+export const toFilter = (path: string): TodosFilter => {
+  // TODO: Figure out how to avoid this annyoing fix.
+  const fixedPath: string = path || ""
+  const matchingFilter = allFilters.find(filter => filter.path === fixedPath)
+
+  if (matchingFilter === undefined) {
+    throw new Error(`The path '${path}' is not supported.`)
   }
+
+  return matchingFilter
 }

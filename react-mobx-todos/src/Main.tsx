@@ -11,7 +11,6 @@ import { App } from "./components/App"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 import { TodosFilter } from "./model/TodosFilter"
-import { toPath } from "./model/TodosFilter"
 import { TypedRoute } from "./model/TypedRoute"
 
 useStrict(true)
@@ -33,10 +32,10 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
-export const FilteredTodos: TypedRoute<(filter: TodosFilter) => string> = new TypedRoute(
+export const FilteredTodos: TypedRoute<(filterAndPath: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   "/(:filter)",
-  (filter: TodosFilter) => "/" + toPath(filter)
+  (filterAndPath: TodosFilter) => "/" + filterAndPath.path
 )
 
 const allRoutes = [
