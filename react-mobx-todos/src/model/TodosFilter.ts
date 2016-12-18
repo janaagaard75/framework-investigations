@@ -34,7 +34,7 @@ export const allFilters = [
   ShowCompleted
 ]
 
-// TODO: Consider to use Path as input type.
+// TODO: Consider using Path or router params as input type.
 export const toFilter = (path: string): TodosFilter => {
   // TODO: Figure out how to avoid this annyoing fix.
   const fixedPath: string = path || ""
