@@ -1,4 +1,6 @@
+// tslint:disable object-literal-sort-keys
 const BabiliPlugin = require("babili-webpack-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 const webpack = require("webpack")
@@ -9,6 +11,7 @@ const isProduction = nodeEnv === "production"
 const outputDir = path.join(__dirname, "dist")
 
 const plugins = [
+  new ExtractTextPlugin("bundle.[contenthash:8].css"),
   new HtmlWebpackPlugin({
     minify: {
       collapseInlineTagWhitespace: true,
@@ -49,8 +52,25 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: "ts-loader",
-        test: /\.tsx?$/
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loaders: [
+            {
+              loader: "css-loader"
+            },
+            // {
+            //   loader: "postcss-loader"
+            // },
+            {
+              loader: "sass-loader"
+            }
+          ]
+        })
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader"
       }
     ]
   },

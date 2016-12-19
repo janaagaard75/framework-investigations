@@ -13,6 +13,8 @@ import { Store } from "./model/Store"
 import { TodosFilter } from "./model/TodosFilter"
 import { TypedRoute } from "./model/TypedRoute"
 
+import "./main.scss"
+
 useStrict(true)
 const store = new Store()
 
