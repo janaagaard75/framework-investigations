@@ -55,15 +55,26 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: "style-loader",
-          loaders: [
+          loader: [
             {
-              loader: "css-loader"
+              loader: "css-loader",
+              options: {
+                sourceMap: true
+              }
             },
             // {
-            //   loader: "postcss-loader"
+            //   loader: "postcss-loader",
+            //   options: {
+            //     sourceMap: "inline"
+            //   }
             // },
             {
-              loader: "sass-loader"
+              loader: "sass-loader",
+              options: {
+                outputStyle: "expanded",
+                sourceMap: true,
+                sourceMapContents: true
+              }
             }
           ]
         })
@@ -76,6 +87,7 @@ module.exports = {
   },
   output: {
     filename: "[name].[hash:8].js",
+    sourceMapFilename: "[file].map",
     path: outputDir
   },
   plugins: plugins,
