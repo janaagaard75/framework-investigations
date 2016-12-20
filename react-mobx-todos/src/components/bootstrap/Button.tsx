@@ -4,36 +4,25 @@ import { Component } from "react"
 type Color = "default" | "secondary"
 
 // TODO: Consider using this trick: http://chenglou.github.io/react/docs/reusable-components.html#transferring-props-a-shortcut
-interface Props {
-  color: Color
-  onClick: (e: React.FormEvent<HTMLButtonElement>) => any
-  outline?: boolean,
-  type: "button" | "reset" | "submit"
+
+type Props = React.HTMLProps<JSX.Element> & {
+  color?: "default" | "secondary"
+  type?: "button" | "reset" | "submit"
 }
 
-export class Button extends Component<Props, void> {
-  constructor(props: Props, context?: any) {
-    super(props, context)
-
-    if (this.props.outline === undefined) {
-      this.outline = false
-    }
-    else {
-      this.outline = this.props.outline
-    }
+class Button extends Component<Props, void> {
+  public static defaultProps: Props = {
+    color: "default",
+    type: "button"
   }
-
-  public static defaultProps = {
-    outline: true
-  }
-
-  private outline: boolean
 
   public render() {
     return (
-      <button type={this.props.type} className="btn btn-default" onClick={this.props.onClick}>
+      <button {...this.props}>
         {this.props.children}
       </button>
     )
   }
 }
+
+export { Button }
