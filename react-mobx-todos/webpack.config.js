@@ -58,22 +58,14 @@ module.exports = {
           loader: [
             {
               loader: "css-loader",
-              options: {
+              query: {
                 sourceMap: true
               }
             },
-            // {
-            //   loader: "postcss-loader",
-            //   options: {
-            //     sourceMap: "inline"
-            //   }
-            // },
             {
               loader: "sass-loader",
-              options: {
-                outputStyle: "expanded",
+              query: {
                 sourceMap: true,
-                sourceMapContents: true
               }
             }
           ]
@@ -87,7 +79,6 @@ module.exports = {
   },
   output: {
     filename: "[name].[hash:8].js",
-    sourceMapFilename: "[file].map",
     path: outputDir
   },
   plugins: plugins,
