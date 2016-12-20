@@ -63,7 +63,7 @@ export class AddTodo extends Component<AddTodoProps, AddTodoState> {
             onChange={formEvent => this.handleChange(formEvent)}
           />
           <button type="submit">Add Todo</button>
-          <Button type="button" color={undefined} onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
+          <Button type="button" color="primary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
         </form>
       </div>
     )
