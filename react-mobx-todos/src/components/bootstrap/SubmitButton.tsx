@@ -5,7 +5,7 @@ interface Props {
   color: "primary" | "secondary"
 }
 
-export class Button extends Component<Props, void> {
+export class SubmitButton extends Component<Props, void> {
   constructor(props: Props, context?: any) {
     super(props, context)
   }
