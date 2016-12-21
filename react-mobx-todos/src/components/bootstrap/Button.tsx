@@ -3,7 +3,7 @@ import { Component } from "react"
 
 interface Props {
   color: "primary" | "secondary"
-  onClick: (e?: React.FormEvent<HTMLButtonElement>) => {}
+  onClick: (e?: React.FormEvent<HTMLButtonElement>) => void
 }
 
 export class Button extends Component<Props, void> {
