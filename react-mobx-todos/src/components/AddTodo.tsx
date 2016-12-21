@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { GenericButton } from "./bootstrap/GenericButton"
+import { Button } from "./bootstrap/Button"
+import { SubmitButton } from "./bootstrap/SubmitButton"
 
 interface AddTodoProps {
   addTodo: (text: string) => void,
@@ -62,8 +63,8 @@ export class AddTodo extends Component<AddTodoProps, AddTodoState> {
             value={this.state.text}
             onChange={formEvent => this.handleChange(formEvent)}
           />
-          <button type="submit">Add Todo</button>
-          <GenericButton type="button" color="default" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</GenericButton>
+          <SubmitButton color="primary">Add Todo</SubmitButton>
+          <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
         </form>
       </div>
     )
