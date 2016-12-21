@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Component } from "react"
 
-import { GenericButton } from "./bootstrap/Button"
+import { GenericButton } from "./bootstrap/GenericButton"
 
 interface AddTodoProps {
   addTodo: (text: string) => void,
