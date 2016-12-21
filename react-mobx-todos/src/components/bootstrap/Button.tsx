@@ -11,7 +11,7 @@ interface Props {
   type: "button" | "reset" | "submit"
 }
 
-export class Button extends Component<Props, void> {
+export class GenericButton extends Component<Props, void> {
   constructor(props: Props, context?: any) {
     super(props, context)
 
