@@ -3,6 +3,7 @@ import { Component } from "react"
 import { FormEvent } from "react"
 
 import { Button } from "./bootstrap/Button"
+import { TextInput } from "./bootstrap/TextInput"
 import { SubmitButton } from "./bootstrap/SubmitButton"
 
 interface Props {
@@ -59,11 +60,7 @@ export class AddTodo extends Component<Props, State> {
     return (
       <div>
         <form onSubmit={formEvent => this.handleSubmit(formEvent)}>
-          <input
-            type="text"
-            value={this.state.text}
-            onChange={formEvent => this.handleChange(formEvent)}
-          />
+          <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
           <SubmitButton color="primary">Add Todo</SubmitButton>
           <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
         </form>
