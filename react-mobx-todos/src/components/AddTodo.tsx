@@ -58,13 +58,11 @@ export class AddTodo extends Component<Props, State> {
 
   public render() {
     return (
-      <div>
-        <form onSubmit={formEvent => this.handleSubmit(formEvent)}>
-          <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
-          <SubmitButton color="primary">Add Todo</SubmitButton>
-          <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
-        </form>
-      </div>
+      <form onSubmit={formEvent => this.handleSubmit(formEvent)}>
+        <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
+        <SubmitButton color="primary">Add Todo</SubmitButton>
+        <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
+      </form>
     )
   }
 }
