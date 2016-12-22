@@ -4,17 +4,17 @@ import { Component } from "react"
 import { Button } from "./bootstrap/Button"
 import { SubmitButton } from "./bootstrap/SubmitButton"
 
-interface AddTodoProps {
+interface Props {
   addTodo: (text: string) => void,
   addTodoAsynchronously: (text: string) => void
 }
 
-interface AddTodoState {
+interface State {
   text: string
 }
 
-export class AddTodo extends Component<AddTodoProps, AddTodoState> {
-  constructor(props: AddTodoProps, context?: any) {
+export class AddTodo extends Component<Props, State> {
+  constructor(props: Props, context?: any) {
     super(props, context)
 
     this.state = {

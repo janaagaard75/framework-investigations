@@ -6,13 +6,13 @@ import { Todo } from "../model/Todo"
 import { TodoItem } from "./TodoItem"
 import { Todos } from "../model/Todos"
 
-interface TodoListProps {
+interface Props {
   onTodoClick: (todo: Todo) => void,
   todos: Todos
 }
 
 @observer
-export class TodoList extends Component<TodoListProps, void> {
+export class TodoList extends Component<Props, void> {
   public render() {
     return (
       <ul>

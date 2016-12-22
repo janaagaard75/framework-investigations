@@ -4,13 +4,13 @@ import { observer } from "mobx-react"
 
 import { Todo } from "../model/Todo"
 
-interface TodoItemProps {
+interface Props {
   onClick: () => void,
   todo: Todo
 }
 
 @observer
-export class TodoItem extends Component<TodoItemProps, void> {
+export class TodoItem extends Component<Props, void> {
   public render() {
     return (
       <li

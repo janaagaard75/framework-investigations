@@ -9,12 +9,12 @@ import { Store } from "../model/Store"
 import { Todo } from "../model/Todo"
 import { toFilter } from "../model/TodosFilter"
 
-interface AppProps {
+interface Props {
   routerContext: RouterContext.RouterContextProps,
   store: Store
 }
 
-export class App extends Component<AppProps, void> {
+export class App extends Component<Props, void> {
   public render() {
     return (
       <div>
