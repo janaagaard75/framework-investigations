@@ -17,7 +17,8 @@ interface Props {
 export class App extends Component<Props, void> {
   public render() {
     return (
-      <div>
+      <div className="container">
+        <h1>React + MobX + Bootstrap + TypeScript</h1>
         <AddTodo
           addTodo={(text: string) => this.props.store.addTodo(text)}
           addTodoAsynchronously={(text: string) => this.props.store.addTodoAsynchronously(text)}

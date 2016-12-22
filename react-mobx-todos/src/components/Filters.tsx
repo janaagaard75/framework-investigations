@@ -8,12 +8,13 @@ import { FilteredTodos } from "../Main"
 export class Filters extends Component<void, void> {
   public render() {
     return (
-      <p>
+      <ul className="nav nav-pills">
         {allFilters.map(filter =>
-          // TODO: Figure out how to put an element between the links.
-          <Link key={filter.path} to={FilteredTodos.getLinkPath(filter)}>{filter.label}</Link>
+          <li className="nav-item" key={filter.path}>
+            <Link className="nav-link" to={FilteredTodos.getLinkPath(filter)}>{filter.label}</Link>
+          </li>
         )}
-      </p>
+      </ul>
     )
   }
 }
