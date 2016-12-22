@@ -34,14 +34,14 @@ class ConnectedApp extends RouteComponent<void> {
   }
 }
 
-export const FilteredTodos: TypedRoute<(filterAndPath: TodosFilter) => string> = new TypedRoute(
+export const FilteredTodosRoute: TypedRoute<(filterAndPath: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   "/(:filter)",
   (filterAndPath: TodosFilter) => "/" + filterAndPath.path
 )
 
 const allRoutes = [
-  FilteredTodos
+  FilteredTodosRoute
 ]
 
 render(

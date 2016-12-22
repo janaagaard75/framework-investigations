@@ -3,7 +3,7 @@ import { Component } from "react"
 import { Link } from "react-router"
 
 import { allFilters } from "../model/TodosFilter"
-import { FilteredTodos } from "../Main"
+import { FilteredTodosRoute } from "../Main"
 import { TodosFilter } from "../model/TodosFilter"
 
 interface Props {
@@ -22,7 +22,7 @@ export class Filters extends Component<Props, void> {
           <li className="nav-item" key={filter.path}>
             <Link
               className={"nav-link" + (this.isActive(filter) ? " active" : "")}
-              to={FilteredTodos.getLinkPath(filter)}
+              to={FilteredTodosRoute.getLinkPath(filter)}
             >
               {filter.label}
             </Link>
