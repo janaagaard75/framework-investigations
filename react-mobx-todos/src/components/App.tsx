@@ -16,6 +16,9 @@ interface Props {
 
 export class App extends Component<Props, void> {
   public render() {
+    // tslint:disable-next-line no-string-literal
+    const activeFilter = toFilter(this.props.routerContext.params["filter"])
+
     return (
       <div className="container">
         <h1>React + MobX + Bootstrap + TypeScript</h1>
@@ -24,12 +27,11 @@ export class App extends Component<Props, void> {
           addTodoAsynchronously={(text: string) => this.props.store.addTodoAsynchronously(text)}
         />
         <FilteredTodoList
-          // tslint:disable-next-line no-string-literal
-          activeFilter={toFilter(this.props.routerContext.params["filter"])}
+          activeFilter={activeFilter}
           onTodoClick={(todo: Todo) => this.props.store.toggleTodo(todo)}
           todos={this.props.store.todos}
         />
-        <Filters/>
+        <Filters activeFilter={activeFilter}/>
       </div>
     )
   }
