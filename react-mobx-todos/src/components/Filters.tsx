@@ -20,7 +20,12 @@ export class Filters extends Component<Props, void> {
       <ul className="nav nav-pills">
         {allFilters.map(filter =>
           <li className="nav-item" key={filter.path}>
-            <Link className={"nav-link" + (this.isActive(filter) ? " active" : "")} to={FilteredTodos.getLinkPath(filter)}>{filter.label}</Link>
+            <Link
+              className={"nav-link" + (this.isActive(filter) ? " active" : "")}
+              to={FilteredTodos.getLinkPath(filter)}
+            >
+              {filter.label}
+            </Link>
           </li>
         )}
       </ul>
