@@ -16,8 +16,7 @@ export class GenericButton extends Component<Props, void> {
   }
 
   public render() {
-    // TODO: Clone the props to remove the color attribute.
-
+    // This construction adds color as an attribute to the button. :-/
     return (
       <button {...this.props} className={"btn btn-" + this.props.color}>
         {this.props.children}
