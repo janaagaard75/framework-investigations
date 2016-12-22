@@ -24,6 +24,12 @@ export class AddTodo extends Component<Props, State> {
     }
   }
 
+  private clearText() {
+    this.setState({
+      text: ""
+    })
+  }
+
   private handleAddTodoAsyncClick() {
     const trimmedText = this.state.text.trim()
     if (trimmedText.length === 0) {
@@ -31,10 +37,7 @@ export class AddTodo extends Component<Props, State> {
     }
 
     this.props.addTodoAsynchronously(trimmedText)
-
-    this.setState({
-      text: ""
-    })
+    this.clearText()
   }
 
   private handleChange(formEvent: FormEvent<HTMLInputElement>) {
@@ -50,10 +53,7 @@ export class AddTodo extends Component<Props, State> {
     }
 
     this.props.addTodo(trimmedText)
-
-    this.setState({
-      text: ""
-    })
+    this.clearText()
   }
 
   public render() {
