@@ -1,4 +1,5 @@
 import { action } from "mobx"
+import { computed } from "mobx"
 import { observable } from "mobx"
 
 import { Todo } from "./Todo"
@@ -18,8 +19,13 @@ export class Store {
     setTimeout(() => {
       this.addTodo(text)
     }, 5 * 1000)
-    // TODO: Update interface while adding todos.
+    // TODO: Update interface while adding todos. This should be a computed value. It might be necessary to add an internal state keeping track of todos in progress of being added.
     // TODO: Simulate an error from time to time, both server error and timeouts.
+  }
+
+  @computed
+  public get addTodoInProgress(): boolean {
+    return false
   }
 
   private getNextId(): number {
