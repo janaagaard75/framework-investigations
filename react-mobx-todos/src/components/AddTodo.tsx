@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Component } from "react"
+import { FormEvent } from "react"
 
 import { Button } from "./bootstrap/Button"
 import { SubmitButton } from "./bootstrap/SubmitButton"
@@ -35,11 +36,11 @@ export class AddTodo extends Component<Props, State> {
     })
   }
 
-  private handleChange(formEvent: React.FormEvent<HTMLInputElement>) {
+  private handleChange(formEvent: FormEvent<HTMLInputElement>) {
     this.setState({ text: formEvent.currentTarget.value })
   }
 
-  private handleSubmit(formEvent: React.FormEvent<HTMLFormElement>) {
+  private handleSubmit(formEvent: FormEvent<HTMLFormElement>) {
     formEvent.preventDefault()
 
     const trimmedText = this.state.text.trim()

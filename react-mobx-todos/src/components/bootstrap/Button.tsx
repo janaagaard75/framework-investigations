@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Component } from "react"
+import { FormEvent } from "react"
 
 interface Props {
   color: "primary" | "secondary"
-  onClick: (e?: React.FormEvent<HTMLButtonElement>) => void
+  onClick: (e?: FormEvent<HTMLButtonElement>) => void
 }
 
 export class Button extends Component<Props, void> {
