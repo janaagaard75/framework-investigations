@@ -21,7 +21,7 @@ export class App extends Component<Props, void> {
     const activeFilter = toFilter(this.props.routerContext.params["filter"])
 
     return (
-      <div className="container">
+      <div className="container-fluid">
         <h1>React + MobX + Bootstrap + TypeScript</h1>
         <AddTodo
           addTodo={(text: string) => this.props.store.addTodo(text)}
