@@ -1,5 +1,6 @@
 // tslint:disable object-literal-sort-keys
 const BabiliPlugin = require("babili-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
@@ -11,6 +12,11 @@ const isProduction = nodeEnv === "production"
 const outputDir = path.join(__dirname, "dist")
 
 const plugins = [
+  new CopyWebpackPlugin([
+    {
+      from: "src/favicon.ico"
+    }
+  ]),
   new ExtractTextPlugin("bundle.[contenthash:8].css"),
   new HtmlWebpackPlugin({
     minify: {
