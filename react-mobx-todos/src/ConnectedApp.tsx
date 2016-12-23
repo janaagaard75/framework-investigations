@@ -9,17 +9,24 @@ import { Store } from "./model/Store"
 
 declare const process: any
 
-useStrict(true)
-
 export class ConnectedApp extends RouteComponent<void> {
-  public render() {
-    const includeDevTools = process.env.NODE_ENV === "development"
-    const store = new Store()
+  constructor() {
+    super()
 
+    this.includeDevTools = process.env.NODE_ENV === "development"
+
+    useStrict(true)
+    this.store = new Store()
+  }
+
+  private includeDevTools: boolean
+  private store: Store
+
+  public render() {
     return (
       <div>
-        <App routerContext={this.props} store={store}/>
-        {includeDevTools &&
+        <App routerContext={this.props} store={this.store}/>
+        {this.includeDevTools &&
           <DevTools/>
         }
       </div>
