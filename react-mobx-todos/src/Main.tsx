@@ -19,10 +19,11 @@ useStrict(true)
 const store = new Store()
 
 declare const process: any
-const includeDevTools = process.env.NODE_ENV === "development"
 
 class ConnectedApp extends RouteComponent<void> {
   public render() {
+    const includeDevTools = process.env.NODE_ENV === "development"
+
     return (
       <div>
         <App routerContext={this.props} store={store}/>
