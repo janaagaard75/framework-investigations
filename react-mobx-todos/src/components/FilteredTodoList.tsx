@@ -20,7 +20,7 @@ export class FilteredTodoList extends Component<Props, void> {
 
   public render() {
     return (
-      <TodoList onTodoClick={() => this.props.onTodoClick} todos={this.getVisibleTodos()}/>
+      <TodoList onTodoClick={this.props.onTodoClick} todos={this.getVisibleTodos()}/>
     )
   }
 }
