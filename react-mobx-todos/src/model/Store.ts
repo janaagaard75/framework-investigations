@@ -7,7 +7,7 @@ import { Todos } from "./Todos"
 
 export class Store {
   private nextId = 0
-  private todosBeingAdded = 0
+  @observable private todosBeingAdded = 0
   @observable public todos: Todos = []
 
   @action
@@ -16,14 +16,20 @@ export class Store {
     this.todos.push(newTodo)
   }
 
+  @action
   public addTodoAsynchronously(text: string) {
     this.todosBeingAdded++
     setTimeout(() => {
-      this.addTodo(text)
-      this.todosBeingAdded--
+      this.addTodoAsyncDone(text)
     }, 5 * 1000)
     // TODO: Update interface while adding todos. This should be a computed value. It might be necessary to add an internal state keeping track of todos in progress of being added.
     // TODO: Simulate an error from time to time, both server errors and timeouts.
+  }
+
+  @action
+  private addTodoAsyncDone(text: string) {
+    this.addTodo(text)
+    this.todosBeingAdded--
   }
 
   @computed
