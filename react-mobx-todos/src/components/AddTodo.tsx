@@ -60,7 +60,9 @@ export class AddTodo extends Component<Props, State> {
     return (
       <form className="form-inline" onSubmit={formEvent => this.handleSubmit(formEvent)}>
         <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
+        {" "}
         <SubmitButton color="primary">Add Todo</SubmitButton>
+        {" "}
         <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
       </form>
     )
