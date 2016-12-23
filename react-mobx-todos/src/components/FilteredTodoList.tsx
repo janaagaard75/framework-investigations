@@ -14,12 +14,13 @@ interface Props {
 
 export class FilteredTodoList extends Component<Props, void> {
   private getVisibleTodos(): Todos {
-    return this.props.activeFilter.filterTodos(this.props.todos)
+    const visibleTodos = this.props.activeFilter.filterTodos(this.props.todos)
+    return visibleTodos
   }
 
   public render() {
     return (
-      <TodoList onTodoClick={this.props.onTodoClick} todos={this.getVisibleTodos()}/>
+      <TodoList onTodoClick={() => this.props.onTodoClick} todos={this.getVisibleTodos()}/>
     )
   }
 }
