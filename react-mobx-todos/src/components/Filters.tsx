@@ -3,7 +3,7 @@ import { Component } from "react"
 import { Link } from "react-router"
 
 import { allFilters } from "../model/TodosFilter"
-import { FilteredTodosRoute } from "../Main"
+import { FilteredTodosRoute } from "../routes"
 import { TodosFilter } from "../model/TodosFilter"
 
 interface Props {
