@@ -15,7 +15,7 @@ interface Props {
 export class TodoList extends Component<Props, void> {
   public render() {
     return (
-      <ul>
+      <ul className="list-group">
         {this.props.todos.map(todo =>
           <TodoItem
             key={todo.id}

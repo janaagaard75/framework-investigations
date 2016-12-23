@@ -14,6 +14,7 @@ export class TodoItem extends Component<Props, void> {
   public render() {
     return (
       <li
+        className="list-group-item"
         onClick={() => this.props.onClick()}
         style={{
           cursor: "pointer",
