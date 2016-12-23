@@ -22,7 +22,6 @@ export class Store {
     setTimeout(() => {
       this.addTodoAsyncDone(text)
     }, 5 * 1000)
-    // TODO: Update interface while adding todos. This should be a computed value. It might be necessary to add an internal state keeping track of todos in progress of being added.
     // TODO: Simulate an error from time to time, both server errors and timeouts.
   }
 
