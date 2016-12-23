@@ -87,6 +87,9 @@ module.exports = {
     filename: "[name].[hash:8].js",
     path: outputDir
   },
+  performance: {
+    hints: isProduction
+  },
   plugins: plugins,
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
