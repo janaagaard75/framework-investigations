@@ -1,0 +1,11 @@
+# The generated files.
+dist/
+
+# Node modules.
+node_modules/
+
+# Node Package Manager error log.
+npm-debug.log
+
+# TypeScript type definition files.
+typings/

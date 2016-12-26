@@ -1,0 +1,8 @@
+# Generated JavaScript
+js/
+
+# Node modules.
+node_modules/
+
+# Type definitions.
+typings/

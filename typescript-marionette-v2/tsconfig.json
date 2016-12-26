@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": true,
+    "module": "commonjs",
+    "newLine": "LF",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "removeComments": true,
+    "sourceMap": true,
+    //"strictNullChecks": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "typings/globals",
+    "webpack.config.js"
+  ]
+}

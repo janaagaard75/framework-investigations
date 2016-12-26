@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "jscs.enable": false,
+    "jshint.enable": false,
+    "search.exclude": {
+      "js/": true
+    },
+    "tslint.enable": true
+}

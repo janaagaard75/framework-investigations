@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "amd",
+        "newLine": "LF",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "out": "js/app.js",
+        "removeComments": true,
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "files": [
+		"node_modules/jquery/dist/jquery.js",
+		"node_modules/underscore/underscore.js",
+		"node_modules/backbone/backbone.js",
+		"node_modules/backbone.localstorage/backbone.localStorage.js",
+		"node_modules/requirejs/require.js",
+        "node_modules/todomvc-common/base.js",
+        "typings/browser.d.ts",
+        "src/App.ts",
+        "src/AppView.ts",
+        "src/KeyCode.ts",
+        "src/State.ts",
+        "src/Todo.ts",
+        "src/TodoList.ts",
+        "src/TodoRouter.ts",
+        "src/TodoView.ts"
+    ]
+}

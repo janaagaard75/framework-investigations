@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "typings/main.d.ts": true,
+        "typings/main/**": true
+    },
+    "jscs.enable": false,
+    "jshint.enable": false,
+    "search.exclude": {
+        "js/": true,
+        "typings/": true
+    },
+    "tslint.enable": true
+}

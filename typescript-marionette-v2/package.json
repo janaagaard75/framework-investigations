@@ -1,0 +1,42 @@
+{
+  "author": "Jan Aagaard",
+  "name": "typescript-marionette-v2",
+  "dependencies": {
+    "backbone": "1.3.3",
+    "backbone.localstorage": "1.1.16",
+    "backbone.marionette": "2.4.7",
+    "underscore": "1.8.3"
+  },
+  "description": "Todo app written in TypeScript using Marionette. Heavily inspired by TodoMVC.",
+  "devDependencies": {
+    "ejs-loader": "0.3.0",
+    "html-webpack-plugin": "2.22.0",
+    "jquery": "3.1.0",
+    "source-map-loader": "0.1.5",
+    "ts-loader": "0.8.2",
+    "tslint": "3.14.0",
+    "tslint-eslint-rules": "1.3.0",
+    "tslint-microsoft-contrib": "2.0.9",
+    "typescript": "1.8.10",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  },
+  "keywords": [
+    "typescript",
+    "marionette"
+  ],
+  "license": "ISC",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janaagaard75/TodoMvcTypeScript.git"
+  },
+  "scripts": {
+    "build": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe",
+    "install": "echo \"Run `typings install` and the apply the modifications specified in the readme.\" && exit 0",
+    "lint": "tslint src/**/*.ts",
+    "start": "webpack-dev-server --content-base dist/ -d --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0"
+}
