@@ -1,15 +1,21 @@
-FROM node:boron
+FROM risingstack/alpine:3.4-v7.4.0-4.2.0
 
-# Create app directory.
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /opt/app
 
-# Install app dependencies.
-COPY package.json /usr/src/app/
-RUN npm install
+# Install Yarn from the local .tgz.
+RUN mkdir -p /opt
+ADD latest.tar.gz /opt/
+RUN mv /opt/dist /opt/yarn
+ENV PATH "$PATH:/opt/yarn/bin"
+
+# Install packages using Yarn.
+ADD package.json /tmp/package.json
+RUN cd /tmp && yarn
+RUN mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
 
 # Bundle app source.
-COPY . /usr/src/app
+COPY . /opt/app
 
+# Start the app.
 EXPOSE 8080
 CMD [ "npm", "start" ]
