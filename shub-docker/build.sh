@@ -1,6 +1,6 @@
 #!/bin/bash
 
-imageName="janaagaard/shub-docker"
+imageName="janaagaard/film-filter-data"
 
 touch yarn.lock
 
