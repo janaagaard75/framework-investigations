@@ -11,9 +11,7 @@ ENV PATH "$PATH:/opt/yarn/bin"
 # Install packages using Yarn.
 ADD package.json /tmp/package.json
 RUN cd /tmp && yarn
-RUN mkdir -p /opt/app
-RUN cd /opt/app
-RUN ln -s /tmp/node_modules
+RUN mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
 
 # Bundle app source.
 COPY . /opt/app
