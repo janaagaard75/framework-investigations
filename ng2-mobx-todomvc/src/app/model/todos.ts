@@ -16,13 +16,11 @@ export class Todos {
   }
 
   @computed get filteredTodos(): Array<Todo> {
-    return this.currentFilter !== null
-      ? Todos.filterTodos(this.todos, this.currentFilter)
-      : this.todos;
+    return this.getFilteredTodos(this.currentFilter);
   }
 
   @computed get numberOfActiveTodos(): number {
-    return Todos.filterTodos(this.todos, false).length;
+    return this.getFilteredTodos(false).length;
   }
 
   @action addTodo(title: string): void {
@@ -30,7 +28,7 @@ export class Todos {
   }
 
   @action clearCompleted(): void {
-    this.todos = Todos.filterTodos(this.todos, false);
+    this.todos = this.getFilteredTodos(false);
   }
 
   @action completeAll(): void {
@@ -54,7 +52,11 @@ export class Todos {
     this.currentFilter = true;
   }
 
-  private static filterTodos(todos: Array<Todo>, value: Filter): Array<Todo> {
-    return todos.filter(todo => todo.completed === value);
+  private getFilteredTodos(filter: Filter): Array<Todo> {
+    if (filter === null) {
+      return this.todos;
+    }
+
+    return this.todos.filter(todo => todo.completed === filter);
   }
 }
