@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import todos from './stores/todos';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
-let counter = 0;
+import { Store } from './model/store';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,19 @@ let counter = 0;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title:string = '';
+  newTodoTitle: string;
 
-  todos = todos;
+  constructor(
+    private store: Store
+  ) {
+    this.newTodoTitle = '';
+
+    this.store.todos.addTodo('Buy Milk');
+    this.store.todos.addTodo('Write ng2-mobx connector');
+  }
 
   addTodo() {
-    todos.addTodo(this.title);
-    this.title = '';
+    this.store.todos.addTodo(this.newTodoTitle);
+    this.newTodoTitle = '';
   }
 }
