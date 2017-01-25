@@ -8,5 +8,8 @@ export class Store {
 
   constructor() {
     this.todos = new Todos();
+
+    this.todos.addTodo('Buy Milk');
+    this.todos.addTodo('Write ng2-mobx connector');
   }
 }

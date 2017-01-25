@@ -15,9 +15,6 @@ export class AppComponent {
     private store: Store
   ) {
     this.newTodoTitle = '';
-
-    this.store.todos.addTodo('Buy Milk');
-    this.store.todos.addTodo('Write ng2-mobx connector');
   }
 
   addTodo() {
