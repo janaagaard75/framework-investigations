@@ -3248,10 +3248,6 @@ mktemp@~0.3.4:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/mktemp/-/mktemp-0.3.5.tgz#a1504c706d0d2b198c6a0eb645f7fdaf8181f7de"
 
-mobx@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.0.2.tgz#ade8e83434f7a73868d2632603b6d17da530427c"
-
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -3283,10 +3279,6 @@ ncname@1.0.x:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
-
-ng2-mobx@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/ng2-mobx/-/ng2-mobx-1.2.2.tgz#3098c336a645f41a84ddde90105d92154680abc9"
 
 no-case@^2.2.0:
   version "2.3.1"
