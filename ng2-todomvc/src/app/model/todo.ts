@@ -1,8 +1,5 @@
-import { action } from 'mobx';
-import { observable as mobxObservable } from 'mobx';
-
 export class Todo {
-  @mobxObservable completed: boolean;
+  completed: boolean;
 
   constructor(
     public title: string
@@ -10,11 +7,11 @@ export class Todo {
     this.completed = false;
   }
 
-  @action toggle() {
+  toggle() {
     this.completed = !this.completed;
   }
 
-  @action complete() {
+  complete() {
     this.completed = true;
   }
 }

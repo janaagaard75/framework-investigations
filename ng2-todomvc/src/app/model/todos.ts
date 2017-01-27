@@ -1,54 +1,50 @@
-import { action } from 'mobx';
-import { computed } from 'mobx';
-import { observable as mobxObservable } from 'mobx';
-
 import { Todo } from './todo';
 
 type Filter = boolean | null;
 
 export class Todos {
-  @mobxObservable currentFilter: Filter;
-  @mobxObservable todos: Array<Todo>;
+  currentFilter: Filter;
+  todos: Array<Todo>;
 
   constructor() {
     this.currentFilter = null;
     this.todos = [];
   }
 
-  @computed get filteredTodos(): Array<Todo> {
+  get filteredTodos(): Array<Todo> {
     return this.getFilteredTodos(this.currentFilter);
   }
 
-  @computed get numberOfActiveTodos(): number {
+  get numberOfActiveTodos(): number {
     return this.getFilteredTodos(false).length;
   }
 
-  @action addTodo(title: string): void {
+  addTodo(title: string): void {
     this.todos.push(new Todo(title));
   }
 
-  @action clearCompleted(): void {
+  clearCompleted(): void {
     this.todos = this.getFilteredTodos(false);
   }
 
-  @action completeAll(): void {
+  completeAll(): void {
     this.todos.forEach(todo => todo.complete());
   }
 
-  @action removeTodo(todo: Todo): void {
+  removeTodo(todo: Todo): void {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
   }
 
-  @action showActive(): void {
+  showActive(): void {
      this.currentFilter = false;
   }
 
-  @action showAll(): void {
+  showAll(): void {
     this.currentFilter = null;
   }
 
-  @action showCompleted(): void {
+  showCompleted(): void {
     this.currentFilter = true;
   }
 

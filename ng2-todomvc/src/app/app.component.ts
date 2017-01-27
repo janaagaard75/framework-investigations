@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
 
 import { Store } from './model/store';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   newTodoTitle: string;
