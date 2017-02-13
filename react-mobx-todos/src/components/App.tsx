@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Component } from "react"
 import { RouterContext } from "react-router"
+import { RouteComponentProps } from "react-router"
 
 import { AddTodo } from "./AddTodo"
 import { FilteredTodoList } from "./FilteredTodoList"
@@ -10,15 +11,19 @@ import { Store } from "../model/Store"
 import { Todo } from "../model/Todo"
 import { toFilter } from "../model/TodosFilter"
 
+export interface ActiveFilterRouteProps {
+  filter: string
+}
+
 interface Props {
-  routerContext: RouterContext.RouterContextProps,
+  routeProps: RouteComponentProps<ActiveFilterRouteProps, void>,
   store: Store
 }
 
 export class App extends Component<Props, void> {
   public render() {
     // tslint:disable-next-line no-string-literal
-    const activeFilter = toFilter(this.props.routerContext.params["filter"])
+    const activeFilter = toFilter(this.props.routeProps.params.filter)
 
     return (
       <div className="container-fluid">

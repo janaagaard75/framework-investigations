@@ -3,13 +3,14 @@ import * as React from "react"
 import DevTools from "mobx-react-devtools"
 import { useStrict } from "mobx"
 
+import { ActiveFilterRouteProps } from "./components/App"
 import { App } from "./components/App"
 import { RouteComponent } from "./model/RouteComponent"
 import { Store } from "./model/Store"
 
 declare const process: any
 
-export class ConnectedApp extends RouteComponent<void> {
+export class ConnectedApp extends RouteComponent<ActiveFilterRouteProps, void, void> {
   constructor() {
     super()
 
@@ -25,7 +26,7 @@ export class ConnectedApp extends RouteComponent<void> {
   public render() {
     return (
       <div>
-        <App routerContext={this.props} store={this.store}/>
+        <App routeProps={this.props} store={this.store}/>
         {this.includeDevTools &&
           <DevTools/>
         }
