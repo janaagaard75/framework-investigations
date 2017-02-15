@@ -2,6 +2,7 @@ import { Todo } from "./Todo"
 
 type Path = "" | "active" | "completed"
 
+// TODO: Add a select method to the filter.
 export class TodosFilter {
   constructor(
     public readonly path: Path,
