@@ -27,7 +27,7 @@ export class App extends Component<Props, void> {
 
     return (
       <div className="container-fluid">
-        <h1>React + MobX + Bootstrap + TypeScript</h1>
+        <h1 className="mt-1">React + MobX + Bootstrap + TypeScript</h1>
         <AddTodo
           addTodo={(text: string) => this.props.store.addTodo(text)}
           addTodoAsynchronously={(text: string) => this.props.store.addTodoAsynchronously(text)}

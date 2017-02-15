@@ -58,7 +58,7 @@ export class AddTodo extends Component<Props, State> {
 
   public render() {
     return (
-      <form onSubmit={formEvent => this.handleSubmit(formEvent)}>
+      <form className="mt-1 mb-1" onSubmit={formEvent => this.handleSubmit(formEvent)}>
         <div className="input-group">
           <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
           <span className="input-group-btn">
