@@ -20,7 +20,6 @@ interface Props {
 
 export class App extends Component<Props, void> {
   public render() {
-    // tslint:disable-next-line no-string-literal
     const activeFilter = toFilter(this.props.routeProps.params.filter)
 
     return (
