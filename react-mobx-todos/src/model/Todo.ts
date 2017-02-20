@@ -18,8 +18,8 @@ export class Todo {
   public equals(other: Todo): boolean {
     return (
       this.completed === other.completed
-      && this.id === other.id
-      && this.text === other.text
+        && this.id === other.id
+        && this.text === other.text
     )
   }
 
