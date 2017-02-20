@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Component } from "react"
-import { RouterContext } from "react-router"
 import { RouteComponentProps } from "react-router"
 
 import { AddTodo } from "./AddTodo"
