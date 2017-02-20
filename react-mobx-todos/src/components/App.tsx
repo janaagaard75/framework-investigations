@@ -7,7 +7,6 @@ import { FilteredTodoList } from "./FilteredTodoList"
 import { Filters } from "./Filters"
 import { InProgress } from "./InProgress"
 import { Store } from "../model/Store"
-import { Todo } from "../model/Todo"
 import { toFilter } from "../model/TodosFilter"
 
 export interface ActiveFilterRouteProps {
@@ -33,7 +32,6 @@ export class App extends Component<Props, void> {
         />
         <FilteredTodoList
           activeFilter={activeFilter}
-          onTodoClick={(todo: Todo) => this.props.store.toggleTodo(todo)}
           todos={this.props.store.todos}
         />
         <InProgress store={this.props.store}/>

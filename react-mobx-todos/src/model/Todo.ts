@@ -1,3 +1,4 @@
+import { action } from "mobx"
 import { observable } from "mobx"
 
 export class Todo {
@@ -22,6 +23,7 @@ export class Todo {
     )
   }
 
+  @action
   public toggle(): void {
     this.completed = !this.completed
   }

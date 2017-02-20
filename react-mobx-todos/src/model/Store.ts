@@ -40,9 +40,4 @@ export class Store {
     this.nextId++
     return this.nextId
   }
-
-  @action
-  public toggleTodo(todo: Todo) {
-    todo.toggle()
-  }
 }

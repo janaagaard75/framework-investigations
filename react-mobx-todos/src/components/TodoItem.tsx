@@ -5,7 +5,6 @@ import { observer } from "mobx-react"
 import { Todo } from "../model/Todo"
 
 interface Props {
-  onClick: () => void,
   todo: Todo
 }
 
@@ -15,7 +14,7 @@ export class TodoItem extends Component<Props, void> {
     return (
       <li
         className="list-group-item"
-        onClick={() => this.props.onClick()}
+        onClick={() => this.props.todo.toggle()}
         style={{
           cursor: "pointer",
           textDecoration: this.props.todo.completed ? "line-through" : "none"
