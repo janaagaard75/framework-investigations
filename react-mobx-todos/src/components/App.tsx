@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Component } from "react"
+import { InjectedRouter } from "react-router"
 import { RouteComponentProps } from "react-router"
 
 import { AddTodo } from "./AddTodo"
@@ -14,7 +15,8 @@ export interface ActiveFilterRouteProps {
 }
 
 interface Props {
-  routeProps: RouteComponentProps<ActiveFilterRouteProps, void>,
+  routeProps: RouteComponentProps<ActiveFilterRouteProps, void>
+  router: InjectedRouter
   store: Store
 }
 

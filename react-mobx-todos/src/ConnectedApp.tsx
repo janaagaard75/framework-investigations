@@ -1,6 +1,7 @@
 import * as React from "react"
 // TODO: Figure out how to remove dev tools from the production bundle.
 import DevTools from "mobx-react-devtools"
+import { inject } from "mobx-react"
 import { useStrict } from "mobx"
 
 import { ActiveFilterRouteProps } from "./components/App"
@@ -10,6 +11,7 @@ import { Store } from "./model/Store"
 
 declare const process: any
 
+@inject("router")
 export class ConnectedApp extends RouteComponent<ActiveFilterRouteProps, void, void> {
   constructor() {
     super()
@@ -26,7 +28,7 @@ export class ConnectedApp extends RouteComponent<ActiveFilterRouteProps, void, v
   public render() {
     return (
       <div>
-        <App routeProps={this.props} store={this.store}/>
+        <App routeProps={this.props} store={this.store} router={this.props.router}/>
         {this.includeDevTools &&
           <DevTools/>
         }

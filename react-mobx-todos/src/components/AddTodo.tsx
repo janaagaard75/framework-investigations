@@ -7,7 +7,7 @@ import { TextInput } from "./bootstrap/TextInput"
 import { SubmitButton } from "./bootstrap/SubmitButton"
 
 interface Props {
-  addTodo: (text: string) => void,
+  addTodo: (text: string) => void
   addTodoAsynchronously: (text: string) => void
 }
 
