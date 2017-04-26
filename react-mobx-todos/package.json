@@ -17,15 +17,18 @@
     "bootstrap": "4.0.0-alpha.5",
     "mobx": "3.1.9",
     "mobx-react": "4.1.8",
+    "mobx-react-devtools": "4.2.11",
     "mobx-react-router": "4.0.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-router": "4.1.1"
+    "react-router": "4.1.1",
+    "react-router-dom": "4.1.1"
   },
   "devDependencies": {
     "@types/react": "15.0.23",
     "@types/react-dom": "15.5.0",
     "@types/react-router": "4.0.4",
+    "@types/react-router-dom": "4.0.4",
     "copy-webpack-plugin": "4.0.1",
     "cross-env": "4.0.0",
     "css-loader": "0.28.0",

@@ -9,18 +9,18 @@ import { InProgress } from "./InProgress"
 import { Store } from "../model/Store"
 import { toFilter } from "../model/TodosFilter"
 
-export interface ActiveFilterRouteProps {
+export interface ActiveFilterRouteParams {
   filter: string
 }
 
 interface Props {
-  routeProps: RouteComponentProps<ActiveFilterRouteProps, void>,
+  routeProps: RouteComponentProps<ActiveFilterRouteParams>,
   store: Store
 }
 
 export class App extends Component<Props, void> {
   public render() {
-    const activeFilter = toFilter(this.props.routeProps.params.filter)
+    const activeFilter = toFilter(this.props.routeProps.match.params.filter)
 
     return (
       <div className="container-fluid">
