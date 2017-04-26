@@ -63,7 +63,7 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          loader: [
+          use: [
             {
               loader: "css-loader",
               query: {
