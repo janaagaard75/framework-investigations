@@ -1,4 +1,4 @@
-import { RouteComponentClass } from "./RouteComponent"
+import { RouteComponentClass } from "./RouteComponentClass"
 
 // TODO: Is this still necessary now that the RouteComponent has become strongly typed?
 export class TypedRoute<LinkPath extends (...args: Array<any>) => string> {
