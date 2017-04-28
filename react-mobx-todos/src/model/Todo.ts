@@ -1,5 +1,5 @@
-import { action } from "mobx"
-import { observable } from "mobx"
+import { action } from 'mobx'
+import { observable } from 'mobx'
 
 export class Todo {
   constructor(

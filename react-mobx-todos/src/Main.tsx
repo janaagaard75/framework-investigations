@@ -1,11 +1,11 @@
-import * as React from "react"
-import { BrowserRouter } from "react-router-dom"
-import { render } from "react-dom"
-import { Route } from "react-router"
+import * as React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { render } from 'react-dom'
+import { Route } from 'react-router'
 
-import { allRoutes } from "./routes"
+import { allRoutes } from './routes'
 
-import "./main.scss"
+import './main.scss'
 
 render(
   <BrowserRouter>
@@ -13,5 +13,5 @@ render(
       <Route key={route.routePath} component={route.component} path={route.routePath}/>
     )}
   </BrowserRouter>,
-  document.getElementById("app")
+  document.getElementById('app')
 )

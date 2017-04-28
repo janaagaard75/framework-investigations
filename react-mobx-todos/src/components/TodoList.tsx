@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Component } from "react"
-import { observer } from "mobx-react"
+import * as React from 'react'
+import { Component } from 'react'
+import { observer } from 'mobx-react'
 
-import { TodoItem } from "./TodoItem"
-import { Todos } from "../model/Todos"
+import { TodoItem } from './TodoItem'
+import { Todos } from '../model/Todos'
 
 interface Props {
   todos: Todos

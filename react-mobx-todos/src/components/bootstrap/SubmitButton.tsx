@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Component } from "react"
+import * as React from 'react'
+import { Component } from 'react'
 
 interface Props {
-  color: "primary" | "secondary"
+  color: 'primary' | 'secondary'
 }
 
 export class SubmitButton extends Component<Props, void> {

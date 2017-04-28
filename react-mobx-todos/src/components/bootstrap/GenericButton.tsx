@@ -1,24 +1,24 @@
-import * as React from "react"
-import { Component } from "react"
+import * as React from 'react'
+import { Component } from 'react'
 
-type Color = "default" | "secondary"
+type Color = 'default' | 'secondary'
 
 interface Props {
   [index: string]: any
-  color?: "primary" | "secondary"
-  type?: "button" | "reset" | "submit"
+  color?: 'primary' | 'secondary'
+  type?: 'button' | 'reset' | 'submit'
 }
 
 export class GenericButton extends Component<Props, void> {
   public static defaultProps: Props = {
-    color: "primary",
-    type: "button"
+    color: 'primary',
+    type: 'button'
   }
 
   public render() {
     // This construction adds color as an attribute to the button. :-/
     return (
-      <button {...this.props} className={"btn btn-" + this.props.color}>
+      <button {...this.props} className={'btn btn-' + this.props.color}>
         {this.props.children}
       </button>
     )

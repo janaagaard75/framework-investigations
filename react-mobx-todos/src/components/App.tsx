@@ -1,13 +1,13 @@
-import * as React from "react"
-import { Component } from "react"
-import { RouteComponentProps } from "react-router"
+import * as React from 'react'
+import { Component } from 'react'
+import { RouteComponentProps } from 'react-router'
 
-import { AddTodo } from "./AddTodo"
-import { FilteredTodoList } from "./FilteredTodoList"
-import { Filters } from "./Filters"
-import { InProgress } from "./InProgress"
-import { Store } from "../model/Store"
-import { toFilter } from "../model/TodosFilter"
+import { AddTodo } from './AddTodo'
+import { FilteredTodoList } from './FilteredTodoList'
+import { Filters } from './Filters'
+import { InProgress } from './InProgress'
+import { Store } from '../model/Store'
+import { toFilter } from '../model/TodosFilter'
 
 export interface ActiveFilterRouteParams {
   filter: string

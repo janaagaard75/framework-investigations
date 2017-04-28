@@ -1,9 +1,9 @@
-import { action } from "mobx"
-import { computed } from "mobx"
-import { observable } from "mobx"
+import { action } from 'mobx'
+import { computed } from 'mobx'
+import { observable } from 'mobx'
 
-import { Todo } from "./Todo"
-import { Todos } from "./Todos"
+import { Todo } from './Todo'
+import { Todos } from './Todos'
 
 export class Store {
   private nextId = 0

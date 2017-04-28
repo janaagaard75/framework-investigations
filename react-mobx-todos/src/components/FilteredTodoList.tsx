@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Component } from "react"
+import * as React from 'react'
+import { Component } from 'react'
 
-import { TodoList } from "./TodoList"
-import { Todos } from "../model/Todos"
-import { TodosFilter } from "../model/TodosFilter"
+import { TodoList } from './TodoList'
+import { Todos } from '../model/Todos'
+import { TodosFilter } from '../model/TodosFilter'
 
 interface Props {
   activeFilter: TodosFilter

@@ -1,10 +1,10 @@
-import * as React from "react"
-import { Component } from "react"
-import { FormEvent } from "react"
+import * as React from 'react'
+import { Component } from 'react'
+import { FormEvent } from 'react'
 
-import { Button } from "./bootstrap/Button"
-import { TextInput } from "./bootstrap/TextInput"
-import { SubmitButton } from "./bootstrap/SubmitButton"
+import { Button } from './bootstrap/Button'
+import { TextInput } from './bootstrap/TextInput'
+import { SubmitButton } from './bootstrap/SubmitButton'
 
 interface Props {
   addTodo: (text: string) => void,
@@ -20,13 +20,13 @@ export class AddTodo extends Component<Props, State> {
     super(props, context)
 
     this.state = {
-      text: ""
+      text: ''
     }
   }
 
   private clearText() {
     this.setState({
-      text: ""
+      text: ''
     })
   }
 

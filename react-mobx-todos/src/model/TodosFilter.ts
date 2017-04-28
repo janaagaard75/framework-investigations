@@ -1,6 +1,6 @@
-import { Todo } from "./Todo"
+import { Todo } from './Todo'
 
-type Path = "" | "active" | "completed"
+type Path = '' | 'active' | 'completed'
 
 // TODO: Add a select method to the filter.
 export class TodosFilter {
@@ -12,20 +12,20 @@ export class TodosFilter {
 }
 
 export const ShowActive = new TodosFilter(
-  "active",
-  "Active",
+  'active',
+  'Active',
   (todos: Array<Todo>) => todos.filter(todo => !todo.completed)
 )
 
 export const ShowAll = new TodosFilter(
-  "",
-  "All",
+  '',
+  'All',
   (todos: Array<Todo>) => todos
 )
 
 export const ShowCompleted = new TodosFilter(
-  "completed",
-  "Completed",
+  'completed',
+  'Completed',
   (todos: Array<Todo>) => todos.filter(todo => todo.completed)
 )
 
@@ -38,7 +38,7 @@ export const allFilters = [
 // TODO: Consider using Path or router params as input type.
 export const toFilter = (path: string): TodosFilter => {
   // TODO: Figure out how to avoid this annyoing fix.
-  const definedPath: string = path || ""
+  const definedPath: string = path || ''
   const matchingFilter = allFilters.find(filter => filter.path === definedPath)
 
   if (matchingFilter === undefined) {

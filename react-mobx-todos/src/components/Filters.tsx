@@ -1,10 +1,10 @@
-import * as React from "react"
-import { Component } from "react"
-import { Link } from "react-router-dom"
+import * as React from 'react'
+import { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-import { allFilters } from "../model/TodosFilter"
-import { FilteredTodosRoute } from "../routes"
-import { TodosFilter } from "../model/TodosFilter"
+import { allFilters } from '../model/TodosFilter'
+import { FilteredTodosRoute } from '../routes'
+import { TodosFilter } from '../model/TodosFilter'
 
 interface Props {
   activeFilter: TodosFilter
@@ -21,7 +21,7 @@ export class Filters extends Component<Props, void> {
         {allFilters.map(filter =>
           <li className="nav-item" key={filter.path}>
             <Link
-              className={"nav-link" + (this.isActive(filter) ? " active" : "")}
+              className={'nav-link' + (this.isActive(filter) ? ' active' : '')}
               to={FilteredTodosRoute.getLinkPath(filter)}
             >
               {filter.label}

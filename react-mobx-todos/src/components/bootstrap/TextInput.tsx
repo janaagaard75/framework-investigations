@@ -1,6 +1,6 @@
-import * as React from "react"
-import { Component } from "react"
-import { FormEvent } from "react"
+import * as React from 'react'
+import { Component } from 'react'
+import { FormEvent } from 'react'
 
 interface Props {
   handleChange: (formEvent: FormEvent<HTMLInputElement>) => void
