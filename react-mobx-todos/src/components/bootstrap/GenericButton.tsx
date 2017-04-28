@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-type Color = 'default' | 'secondary'
-
 interface Props {
   [index: string]: any
   color?: 'primary' | 'secondary'
