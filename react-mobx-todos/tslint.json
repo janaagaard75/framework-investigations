@@ -27,7 +27,6 @@
       false
     ],
     "no-unused-expression": true,
-    "no-unused-new": true,
     "no-unused-variable": [
       true,
       "check-parameters",
