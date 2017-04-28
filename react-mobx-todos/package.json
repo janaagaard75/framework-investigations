@@ -42,7 +42,7 @@
     "tslint": "5.1.0",
     "tslint-eslint-rules": "4.0.0",
     "tslint-react": "3.0.0",
-    "typescript": "2.2.2",
+    "typescript": "2.3.1",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
     "uglifyjs-webpack-plugin": "0.4.3",
     "webpack": "2.4.1",
