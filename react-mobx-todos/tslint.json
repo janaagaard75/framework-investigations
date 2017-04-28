@@ -27,11 +27,6 @@
       false
     ],
     "no-unused-expression": true,
-    "no-unused-variable": [
-      true,
-      "check-parameters",
-      "react"
-    ],
     "object-literal-shorthand": false,
     "one-line": [
       false
