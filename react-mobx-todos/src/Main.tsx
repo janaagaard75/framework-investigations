@@ -13,5 +13,5 @@ render(
       <Route key={route.routePath} component={route.component} path={route.routePath}/>
     )}
   </BrowserRouter>,
-  document.getElementById('app')
+  document.getElementById('main')
 )
