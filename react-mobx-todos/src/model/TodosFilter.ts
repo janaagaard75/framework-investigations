@@ -10,17 +10,15 @@ export class TodosFilter {
     public readonly label: string,
     public filterTodos: (todos: Array<Todo>) => Array<Todo>
   ) { }
-}
 
-// TODO: Consider using Path or router params as input type.
-export const toFilter = (path: string): TodosFilter => {
-  // TODO: Figure out how to avoid this annyoing fix.
-  const definedPath: string = path || ''
-  const matchingFilter = allFilters.find(filter => filter.path === definedPath)
+  public static fromPath(path: string | undefined) {
+    const definedPath: string = path || ''
+    const matchingFilter = allFilters.find(filter => filter.path === definedPath)
 
-  if (matchingFilter === undefined) {
-    throw new Error(`The path '${path}' is not supported.`)
+    if (matchingFilter === undefined) {
+      throw new Error(`The path '${path}' is not supported.`)
+    }
+
+    return matchingFilter
   }
-
-  return matchingFilter
 }

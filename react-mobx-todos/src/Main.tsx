@@ -10,6 +10,7 @@ import { ConnectedApp } from './ConnectedApp'
 
 import './main.scss'
 
+// It would be easier to define two separate Routers for the two possible values for :filter, but keepting the parameterized construction as a showcase as to how paramters work.
 render(
   <BrowserRouter>
     <div>
