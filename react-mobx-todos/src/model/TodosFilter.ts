@@ -11,28 +11,28 @@ export class TodosFilter {
   ) { }
 }
 
-export const ShowActive = new TodosFilter(
+export const showActive = new TodosFilter(
   'active',
   'Active',
   (todos: Array<Todo>) => todos.filter(todo => !todo.completed)
 )
 
-export const ShowAll = new TodosFilter(
+export const showAll = new TodosFilter(
   '',
   'All',
   (todos: Array<Todo>) => todos
 )
 
-export const ShowCompleted = new TodosFilter(
+export const showCompleted = new TodosFilter(
   'completed',
   'Completed',
   (todos: Array<Todo>) => todos.filter(todo => todo.completed)
 )
 
 export const allFilters = [
-  ShowAll,
-  ShowActive,
-  ShowCompleted
+  showAll,
+  showActive,
+  showCompleted
 ]
 
 // TODO: Consider using Path or router params as input type.
