@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import { observer } from 'mobx-react'
 
 import { TodoList } from './TodoList'
 import { Todos } from '../model/Todos'
@@ -10,6 +11,7 @@ interface Props {
   todos: Todos
 }
 
+@observer
 export class FilteredTodoList extends Component<Props, void> {
   private getVisibleTodos(): Todos {
     const visibleTodos = this.props.activeFilter.filterTodos(this.props.todos)

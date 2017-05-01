@@ -9,7 +9,6 @@ interface Props {
   todos: Todos
 }
 
-// TODO: Should the observer be on FilteredTodoList?
 @observer
 export class TodoList extends Component<Props, void> {
   public render() {
