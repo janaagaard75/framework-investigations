@@ -1,4 +1,4 @@
-import { ActiveFilterRouteParams } from './components/App'
+import { ActiveFilterRouteParams } from './components/ActiveFilterRouteParams'
 import { ConnectedApp } from './ConnectedApp'
 import { TodosFilter } from './model/TodosFilter'
 import { TypedRoute } from './model/TypedRoute'

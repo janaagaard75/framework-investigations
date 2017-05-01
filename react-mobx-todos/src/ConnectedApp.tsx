@@ -3,7 +3,7 @@ import * as React from 'react'
 import DevTools from 'mobx-react-devtools'
 import { useStrict } from 'mobx'
 
-import { ActiveFilterRouteParams } from './components/App'
+import { ActiveFilterRouteParams } from './components/ActiveFilterRouteParams'
 import { App } from './components/App'
 import { RouteComponent } from './model/RouteComponent'
 import { Store } from './model/Store'

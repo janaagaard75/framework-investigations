@@ -2,16 +2,13 @@ import * as React from 'react'
 import { Component } from 'react'
 import { RouteComponentProps } from 'react-router'
 
+import { ActiveFilterRouteParams } from './ActiveFilterRouteParams'
 import { AddTodo } from './AddTodo'
 import { FilteredTodoList } from './FilteredTodoList'
 import { FilterLinks } from './FilterLinks'
 import { InProgress } from './InProgress'
 import { Store } from '../model/Store'
-import { toFilter } from '../model/TodosFilter'
-
-export interface ActiveFilterRouteParams {
-  filter: string
-}
+import { TodosFilter } from '../model/TodosFilter'
 
 interface Props {
   routeProps: RouteComponentProps<ActiveFilterRouteParams>,
@@ -20,7 +17,7 @@ interface Props {
 
 export class App extends Component<Props, void> {
   public render() {
-    const activeFilter = toFilter(this.props.routeProps.match.params.filter)
+    const activeFilter = TodosFilter.fromPath(this.props.routeProps.match.params.filter)
 
     return (
       <div className="container-fluid">
