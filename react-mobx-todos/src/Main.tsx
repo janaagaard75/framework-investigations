@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import { Route } from 'react-router'
 import { Switch } from 'react-router'
 
+// TODO: Use allRoutes.
 // import { allRoutes } from './routes'
 import { ConnectedApp } from './ConnectedApp'
 
