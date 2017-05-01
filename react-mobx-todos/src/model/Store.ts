@@ -6,9 +6,10 @@ import { Todo } from './Todo'
 import { Todos } from './Todos'
 
 export class Store {
+  @observable public todos: Todos = []
+
   private nextId = 0
   @observable private todosBeingAdded = 0
-  @observable public todos: Todos = []
 
   @action
   public addTodo(text: string) {
@@ -25,15 +26,15 @@ export class Store {
     // TODO: Simulate an error from time to time, both server errors and timeouts.
   }
 
+  @computed
+  public get addTodoInProgress(): boolean {
+    return this.todosBeingAdded > 0
+  }
+
   @action
   private addTodoAsyncDone(text: string) {
     this.addTodo(text)
     this.todosBeingAdded--
-  }
-
-  @computed
-  public get addTodoInProgress(): boolean {
-    return this.todosBeingAdded > 0
   }
 
   private getNextId(): number {
