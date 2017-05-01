@@ -1,4 +1,5 @@
 import { Todo } from './Todo'
+import { allFilters } from './allFilters'
 
 type Path = '' | 'active' | 'completed'
 
@@ -10,30 +11,6 @@ export class TodosFilter {
     public filterTodos: (todos: Array<Todo>) => Array<Todo>
   ) { }
 }
-
-export const showActive = new TodosFilter(
-  'active',
-  'Active',
-  (todos: Array<Todo>) => todos.filter(todo => !todo.completed)
-)
-
-export const showAll = new TodosFilter(
-  '',
-  'All',
-  (todos: Array<Todo>) => todos
-)
-
-export const showCompleted = new TodosFilter(
-  'completed',
-  'Completed',
-  (todos: Array<Todo>) => todos.filter(todo => todo.completed)
-)
-
-export const allFilters = [
-  showAll,
-  showActive,
-  showCompleted
-]
 
 // TODO: Consider using Path or router params as input type.
 export const toFilter = (path: string): TodosFilter => {

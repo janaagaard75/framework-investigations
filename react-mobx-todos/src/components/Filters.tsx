@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { allFilters } from '../model/TodosFilter'
+import { allFilters } from '../model/allFilters'
 import { FilteredTodosRoute } from '../routes'
 import { TodosFilter } from '../model/TodosFilter'
 
