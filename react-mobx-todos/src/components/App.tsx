@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router'
 
 import { AddTodo } from './AddTodo'
 import { FilteredTodoList } from './FilteredTodoList'
-import { Filters } from './FilterLinks'
+import { FilterLinks } from './FilterLinks'
 import { InProgress } from './InProgress'
 import { Store } from '../model/Store'
 import { toFilter } from '../model/TodosFilter'
@@ -34,7 +34,7 @@ export class App extends Component<Props, void> {
           todos={this.props.store.todos}
         />
         <InProgress store={this.props.store}/>
-        <Filters activeFilter={activeFilter}/>
+        <FilterLinks activeFilter={activeFilter}/>
       </div>
     )
   }

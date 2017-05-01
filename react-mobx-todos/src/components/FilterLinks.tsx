@@ -10,7 +10,7 @@ interface Props {
   activeFilter: TodosFilter
 }
 
-export class Filters extends Component<Props, void> {
+export class FilterLinks extends Component<Props, void> {
   private isActive(filter: TodosFilter): boolean {
     return filter.path === this.props.activeFilter.path
   }
