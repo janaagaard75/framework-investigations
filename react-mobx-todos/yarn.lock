@@ -3532,16 +3532,7 @@ ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@^2.8.5, uglify-js@~2.8.22:
-  version "2.8.22"
-  resolved "git://github.com/mishoo/UglifyJS2#5c6316a37d39a5641efe07e34945152a570909be"
-  dependencies:
-    source-map "~0.5.1"
-    yargs "~3.10.0"
-  optionalDependencies:
-    uglify-to-browserify "~1.0.0"
-
-"uglify-js@git+https://github.com/mishoo/UglifyJS2#harmony":
+uglify-js@^2.8.5, "uglify-js@git+https://github.com/mishoo/UglifyJS2#harmony", uglify-js@~2.8.22:
   version "2.8.22"
   resolved "git+https://github.com/mishoo/UglifyJS2#73d6438773a40aa5aa06354781334af79a67e42d"
   dependencies:
