@@ -61,7 +61,7 @@ export class AddTodo extends Component<Props, State> {
       <form className="mt-1 mb-1" onSubmit={formEvent => this.handleSubmit(formEvent)}>
         <div className="input-group">
           <TextInput text={this.state.text} handleChange={e => this.handleChange(e)}/>
-          <span className="input-group-btn">
+          <span className="input-group-btn" style={{ flexDirection: 'row' }}>
             <SubmitButton color="primary">Add Todo</SubmitButton>
             <Button color="secondary" onClick={() => this.handleAddTodoAsyncClick()}>Add Todo Asynchronously</Button>
           </span>
