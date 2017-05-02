@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { allFilters } from '../model/allFilters'
 import { FilteredTodosRoute } from '../routes'
 import { TodosFilter } from '../model/TodosFilter'
 
 interface Props {
   activeFilter: TodosFilter
+  filters: Array<TodosFilter>
 }
 
 export class FilterLinks extends Component<Props, void> {
@@ -18,7 +18,7 @@ export class FilterLinks extends Component<Props, void> {
   public render() {
     return (
       <ul className="nav nav-pills">
-        {allFilters.map(filter =>
+        {this.props.filters.map(filter =>
           <li className="nav-item" key={filter.path}>
             <Link
               className={'nav-link' + (this.isActive(filter) ? ' active' : '')}

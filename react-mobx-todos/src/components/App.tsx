@@ -17,7 +17,10 @@ interface Props {
 
 export class App extends Component<Props, void> {
   public render() {
-    const activeFilter = TodosFilter.fromPath(this.props.routeProps.match.params.filter)
+    const activeFilter = TodosFilter.fromPath(
+      this.props.store.allFilters,
+      this.props.routeProps.match.params.filter
+    )
 
     return (
       <div className="container-fluid">
@@ -31,7 +34,7 @@ export class App extends Component<Props, void> {
           todos={this.props.store.todos}
         />
         <InProgress store={this.props.store}/>
-        <FilterLinks activeFilter={activeFilter}/>
+        <FilterLinks activeFilter={activeFilter} filters={this.props.store.allFilters}/>
       </div>
     )
   }

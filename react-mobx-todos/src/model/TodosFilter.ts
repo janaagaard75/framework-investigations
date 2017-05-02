@@ -1,5 +1,4 @@
 import { Todo } from './Todo'
-import { allFilters } from './allFilters'
 
 type Path = '' | 'active' | 'completed'
 
@@ -11,7 +10,7 @@ export class TodosFilter {
     public filter: (todos: Array<Todo>) => Array<Todo>
   ) { }
 
-  public static fromPath(path: string | undefined): TodosFilter {
+  public static fromPath(allFilters: Array<TodosFilter>, path: string | undefined): TodosFilter {
     const definedPath: string = path || ''
     const matchingFilter = allFilters.find(filter => filter.path === definedPath)
 

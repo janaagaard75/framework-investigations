@@ -2,10 +2,28 @@ import { action } from 'mobx'
 import { computed } from 'mobx'
 import { observable } from 'mobx'
 
+import { TodosFilter } from './TodosFilter'
 import { Todo } from './Todo'
 import { Todos } from './Todos'
 
 export class Store {
+  public allFilters = [
+    new TodosFilter(
+      '',
+      'All',
+      (todos: Array<Todo>) => todos
+    ),
+    new TodosFilter(
+      'active',
+      'Active',
+      (todos: Array<Todo>) => todos.filter(todo => !todo.completed)
+    ),
+    new TodosFilter(
+      'completed',
+      'Completed',
+      (todos: Array<Todo>) => todos.filter(todo => todo.completed)
+    )
+  ]
   @observable public todos: Todos = []
 
   private nextId = 0
