@@ -14,7 +14,7 @@ interface Props {
 @observer
 export class FilteredTodoList extends Component<Props, void> {
   private getVisibleTodos(): Todos {
-    const visibleTodos = this.props.activeFilter.filterTodos(this.props.todos)
+    const visibleTodos = this.props.activeFilter.filter(this.props.todos)
     return visibleTodos
   }
 

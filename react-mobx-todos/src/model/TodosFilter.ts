@@ -8,7 +8,7 @@ export class TodosFilter {
   constructor(
     public readonly path: Path,
     public readonly label: string,
-    public filterTodos: (todos: Array<Todo>) => Array<Todo>
+    public filter: (todos: Array<Todo>) => Array<Todo>
   ) { }
 
   public static fromPath(path: string | undefined): TodosFilter {
