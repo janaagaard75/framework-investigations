@@ -6,12 +6,14 @@ import { TypedRoute } from './model/TypedRoute'
 export const AllTodosRoute = new TypedRoute(
   ConnectedApp,
   '/',
+  true,
   () => '/'
 )
 
 export const FilteredTodosRoute: TypedRoute<ActiveFilterRouteParams, (filterAndPath: TodosFilter) => string> = new TypedRoute(
   ConnectedApp,
   '/:filter',
+  false,
   (filterAndPath: TodosFilter) => '/' + filterAndPath.path
 )
 

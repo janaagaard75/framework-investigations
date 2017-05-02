@@ -4,9 +4,7 @@ import { render } from 'react-dom'
 import { Route } from 'react-router'
 import { Switch } from 'react-router'
 
-// TODO: Use allRoutes.
-// import { allRoutes } from './routes'
-import { ConnectedApp } from './ConnectedApp'
+import { allRoutes } from './routes'
 
 import './main.scss'
 
@@ -15,12 +13,17 @@ render(
   <BrowserRouter>
     <div>
       <Switch>
-        <Route exact={true} path="/" component={ConnectedApp}/>
-        <Route path="/:filter" component={ConnectedApp}/>
+        {allRoutes.map(route =>
+          <Route
+            component={route.component}
+            exact={route.exact}
+            key={route.routePath}
+            path={route.routePath}
+          />
+        )}
+        {/*<Route exact={true} path="/" component={ConnectedApp}/>
+        <Route path="/:filter" component={ConnectedApp}/>*/}
       </Switch>
-      {/*{allRoutes.map(route =>
-        <Route key={route.routePath} component={route.component} path={route.routePath}/>
-      )}*/}
     </div>
   </BrowserRouter>,
   document.getElementById('main')
