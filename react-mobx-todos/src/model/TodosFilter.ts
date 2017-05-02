@@ -11,7 +11,7 @@ export class TodosFilter {
     public filterTodos: (todos: Array<Todo>) => Array<Todo>
   ) { }
 
-  public static fromPath(path: string | undefined) {
+  public static fromPath(path: string | undefined): TodosFilter {
     const definedPath: string = path || ''
     const matchingFilter = allFilters.find(filter => filter.path === definedPath)
 
