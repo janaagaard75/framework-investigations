@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FilteredTodosRoute } from '../routes'
 import { TodosFilter } from '../model/TodosFilter'
 
 interface Props {
@@ -22,7 +21,7 @@ export class FilterLinks extends Component<Props, void> {
           <li className="nav-item" key={filter.path}>
             <Link
               className={'nav-link' + (this.isActive(filter) ? ' active' : '')}
-              to={FilteredTodosRoute.getLinkPath(filter)}
+              to={filter.path}
             >
               {filter.label}
             </Link>
