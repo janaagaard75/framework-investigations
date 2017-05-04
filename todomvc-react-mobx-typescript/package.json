@@ -1,0 +1,7 @@
+{
+  "name": "todomvc-react-mobx-typescript",
+  "version": "0.0.0",
+  "description": "TodoMVC using React and Mob-X written in TypeScript",
+  "author": "Jan Aagaard <jan@aagaard.net>",
+  "license": "MIT"
+}
