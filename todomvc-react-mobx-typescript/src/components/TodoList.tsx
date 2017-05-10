@@ -6,7 +6,7 @@ import { observer } from 'mobx-react'
 export class TodoList extends Component<{}, void> {
   public render() {
     return (
-      <ul>
+      <ul className="todo-list">
         <li className="completed">
           <div className="view">
             <input className="toggle" type="checkbox" defaultChecked={true} />
