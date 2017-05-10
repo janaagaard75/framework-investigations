@@ -45,6 +45,18 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.tsx?$/,
         loader: "ts-loader"
       }
