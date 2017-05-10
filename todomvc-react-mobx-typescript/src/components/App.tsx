@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { observer } from 'mobx-react'
 
+import { Header } from './Header'
 import { TodoList } from './TodoList'
 
 @observer
@@ -10,10 +11,7 @@ export class App extends Component<{}, void> {
     return (
       <div>
         <section className="todoapp">
-          <header className="header">
-            <h1>todos</h1>
-            <input className="new-todo" placeholder="What needs to be done?" autoFocus={true} />
-          </header>
+          <Header/>
           <section className="main">
             <TodoList />
           </section>
