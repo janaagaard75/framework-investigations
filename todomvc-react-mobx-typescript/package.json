@@ -1,0 +1,35 @@
+{
+  "name": "todomvc-react-mobx-typescript",
+  "version": "0.0.0",
+  "description": "TodoMVC using React and Mob-X written in TypeScript",
+  "author": "Jan Aagaard <jan@aagaard.net>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run build:dev",
+    "build:dev": "yarn install && rimraf dist && webpack -d",
+    "build:prod": "yarn install && rimraf dist && webpack -p",
+    "lint": "tslint src/**/*.ts src/**/*.tsx",
+    "start": "yarn install && webpack-dev-server"
+  },
+  "dependencies": {
+    "mobx": "3.1.9",
+    "mobx-react": "4.1.8",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "todomvc-app-css": "2.1.0",
+    "todomvc-common": "1.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "15.0.23",
+    "@types/react-dom": "15.5.0",
+    "html-webpack-plugin": "2.28.0",
+    "rimraf": "2.6.1",
+    "ts-loader": "2.0.3",
+    "tslint": "5.2.0",
+    "tslint-eslint-rules": "4.0.0",
+    "tslint-react": "3.0.0",
+    "typescript": "2.3.2",
+    "webpack": "2.5.0",
+    "webpack-dev-server": "2.4.5"
+  }
+}
