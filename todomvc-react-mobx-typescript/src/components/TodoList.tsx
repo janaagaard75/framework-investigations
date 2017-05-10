@@ -9,11 +9,11 @@ export class TodoList extends Component<{}, void> {
       <ul>
         <li className="completed">
           <div className="view">
-            <input className="toggle" type="checkbox" checked={true} />
+            <input className="toggle" type="checkbox" defaultChecked={true} />
             <label>Taste JavaScript</label>
             <button className="destroy" />
           </div>
-          <input className="edit" value="Create a TodoMVC template" />
+          <input className="edit" defaultValue="Create a TodoMVC template" />
         </li>
         <li>
           <div className="view">
@@ -21,7 +21,7 @@ export class TodoList extends Component<{}, void> {
             <label>Buy a unicorn</label>
             <button className="destroy" />
           </div>
-          <input className="edit" value="Rule the web" />
+          <input className="edit" defaultValue="Rule the web" />
         </li>
       </ul>
     )
