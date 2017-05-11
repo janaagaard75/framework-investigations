@@ -4,8 +4,9 @@ import { observer } from 'mobx-react'
 
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { Info } from './Info'
+import { Main } from './Main'
 import { Todo } from './Todo'
-import { TodoList } from './TodoList'
 
 @observer
 export class App extends Component<{}, void> {
@@ -20,16 +21,10 @@ export class App extends Component<{}, void> {
       <div>
         <section className="todoapp">
           <Header/>
-          <section className="main">
-            <TodoList todos={todos}/>
-          </section>
+          <Main todos={todos}/>
           <Footer/>
         </section>
-        <footer className="info">
-          <p>Double-click to edit a todo</p>
-          <p>Created by <a href="https://github.com/janaagaard75">Jan Aagaard</a></p>
-          <p>Part of <a href="http://todomvc.com/">TodoMVC</a></p>
-        </footer>
+        <Info/>
       </div>
     )
   }

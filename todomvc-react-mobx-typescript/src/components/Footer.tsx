@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-export class Footer extends Component<{}, void> {
+interface Props {
+
+}
+
+export class Footer extends Component<Props, void> {
   public render() {
     return (
       <footer className="footer">
