@@ -29,7 +29,7 @@ export class App extends Component<{}, void> {
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
           <Main todos={this.todos}/>
-          <Footer/>
+          <Footer todos={this.todos}/>
         </section>
         <Info/>
       </div>
