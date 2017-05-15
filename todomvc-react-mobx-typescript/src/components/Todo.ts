@@ -4,11 +4,11 @@ import { observable } from 'mobx'
 export class Todo {
   constructor(text: string, completed: boolean) {
     this._completed = completed
-    this.key = this.getRandomInteger().toString()
+    this.id = this.getRandomInteger().toString()
     this.text = text
   }
 
-  public readonly key: string
+  public readonly id: string
   public text: string
 
   @observable private _completed: boolean
