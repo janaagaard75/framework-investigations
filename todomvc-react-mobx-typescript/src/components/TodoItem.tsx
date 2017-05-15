@@ -24,10 +24,11 @@ export class TodoItem extends Component<Props, void> {
           <input
             checked={this.props.todo.completed}
             className="toggle"
+            id={this.props.todo.id}
             onChange={() => this.props.todo.toggleCompleted()}
             type="checkbox"
           />
-          <label>{this.props.todo.text}</label>
+          <label htmlFor={this.props.todo.id}>{this.props.todo.text}</label>
           <button className="destroy" />
         </div>
         <input className="edit" defaultValue={this.props.todo.text} />

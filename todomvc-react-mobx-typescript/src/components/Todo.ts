@@ -4,7 +4,7 @@ import { observable } from 'mobx'
 export class Todo {
   constructor(text: string, completed: boolean) {
     this._completed = completed
-    this.id = this.getRandomInteger().toString()
+    this.id = `todo${this.getRandomInteger()}`
     this.text = text
   }
 
