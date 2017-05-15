@@ -15,10 +15,9 @@ export class App extends Component<{}, void> {
     super(props, context)
 
     this.todos = [
-      new Todo('Taste JavaScript'),
-      new Todo('Buy a unicorn')
+      new Todo('Taste JavaScript', true),
+      new Todo('Buy a unicorn', false)
     ]
-    this.todos[0].completed = true
   }
 
   @observable private readonly todos: Array<Todo>
@@ -37,6 +36,6 @@ export class App extends Component<{}, void> {
   }
 
   private addTodo(text: string) {
-    this.todos.push(new Todo(text))
+    this.todos.push(new Todo(text, false))
   }
 }

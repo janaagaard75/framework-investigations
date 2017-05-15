@@ -1,17 +1,24 @@
+import { computed } from 'mobx'
 import { observable } from 'mobx'
 
 export class Todo {
-  constructor(text: string) {
+  constructor(text: string, completed: boolean) {
+    this._completed = completed
     this.key = this.getRandomInteger().toString()
     this.text = text
   }
 
-  @observable public completed: boolean
   public readonly key: string
   public text: string
 
+  @observable private _completed: boolean
+
+  @computed get completed(): boolean {
+    return this._completed
+  }
+
   public toggleCompleted() {
-    this.completed = !this.completed
+    this._completed = !this._completed
   }
 
   private getRandomInteger() {
