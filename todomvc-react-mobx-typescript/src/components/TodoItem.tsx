@@ -29,9 +29,9 @@ export class TodoItem extends Component<Props, void> {
             type="checkbox"
           />
           <label htmlFor={this.props.todo.id}>{this.props.todo.text}</label>
-          <button className="destroy" />
+          <button className="destroy"/>
         </div>
-        <input className="edit" defaultValue={this.props.todo.text} />
+        <input className="edit" defaultValue={this.props.todo.text}/>
       </li>
     )
   }
