@@ -5,7 +5,7 @@ import { FormEvent } from 'react'
 import { KeyboardEvent } from 'react'
 import { observer } from 'mobx-react'
 
-import { TodoModel } from './Todo'
+import { TodoModel } from './TodoModel'
 
 interface Props {
   deleteTodo: (todo: TodoModel) => void

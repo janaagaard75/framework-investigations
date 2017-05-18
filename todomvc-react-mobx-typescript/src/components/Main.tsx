@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-import { TodoModel } from './Todo'
+import { TodoModel } from './TodoModel'
 import { TodoList } from './TodoList'
 
 interface Props {

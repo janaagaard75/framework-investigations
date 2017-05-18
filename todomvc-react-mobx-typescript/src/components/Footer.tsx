@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import { TodoModel } from './Todo'
+import { TodoModel } from './TodoModel'
 
 interface Props {
   todos: Array<TodoModel>

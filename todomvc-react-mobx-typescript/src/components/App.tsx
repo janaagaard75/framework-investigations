@@ -7,7 +7,7 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
-import { TodoModel } from './Todo'
+import { TodoModel } from './TodoModel'
 
 @observer
 export class App extends Component<{}, void> {
