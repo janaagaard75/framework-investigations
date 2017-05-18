@@ -4,12 +4,14 @@ import { observable } from 'mobx'
 export class Todo {
   constructor(text: string, completed: boolean) {
     this._completed = completed
-    this.id = `todo${this.getRandomInteger()}`
+    this.id = `todo${Todo.getNextId()}`
     this.text = text
   }
 
   public readonly id: string
   public text: string
+
+  private static nextId = 0
 
   @observable private _completed: boolean
 
@@ -17,12 +19,12 @@ export class Todo {
     return this._completed
   }
 
-  public toggleCompleted() {
+  public toggleCompleted(): void {
     this._completed = !this._completed
   }
 
-  private getRandomInteger() {
-    const MAX_SAFE_INTEGER = 9007199254740991
-    return Math.floor(Math.random() * MAX_SAFE_INTEGER)
+  private static getNextId(): number {
+    this.nextId++
+    return this.nextId
   }
 }
