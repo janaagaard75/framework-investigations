@@ -5,6 +5,7 @@ import { Todo } from './Todo'
 import { TodoList } from './TodoList'
 
 interface Props {
+  deleteTodo: (todo: Todo) => void
   todos: Array<Todo>
 }
 
@@ -12,7 +13,10 @@ export class Main extends Component<Props, void> {
   public render() {
     return (
       <section className="main">
-        <TodoList todos={this.props.todos}/>
+        <TodoList
+          deleteTodo={this.props.deleteTodo}
+          todos={this.props.todos}
+        />
       </section>
     )
   }

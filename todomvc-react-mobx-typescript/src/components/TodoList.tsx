@@ -6,6 +6,7 @@ import { Todo } from './Todo'
 import { TodoItem } from './TodoItem'
 
 interface Props {
+  deleteTodo: (todo: Todo) => void
   todos: Array<Todo>
 }
 
@@ -15,7 +16,11 @@ export class TodoList extends Component<Props, void> {
     return (
       <ul className="todo-list">
         {this.props.todos.map(todo =>
-          <TodoItem key={todo.id} todo={todo}/>
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            deleteTodo={this.props.deleteTodo}
+          />
         )}
       </ul>
     )

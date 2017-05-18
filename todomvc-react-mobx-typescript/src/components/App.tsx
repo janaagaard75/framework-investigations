@@ -27,7 +27,10 @@ export class App extends Component<{}, void> {
       <div>
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
-          <Main todos={this.todos}/>
+          <Main
+            deleteTodo={todo => this.deleteTodo(todo)}
+            todos={this.todos}
+          />
           <Footer todos={this.todos}/>
         </section>
         <Info/>
@@ -37,5 +40,15 @@ export class App extends Component<{}, void> {
 
   private addTodo(text: string) {
     this.todos.push(new Todo(text, false))
+  }
+
+  private deleteTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo)
+
+    if (index === -1) {
+      return
+    }
+
+    this.todos.splice(index, 1)
   }
 }

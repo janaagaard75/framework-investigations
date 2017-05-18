@@ -8,6 +8,7 @@ import { observer } from 'mobx-react'
 import { Todo } from './Todo'
 
 interface Props {
+  deleteTodo: (todo: Todo) => void
   todo: Todo
 }
 
@@ -59,7 +60,10 @@ export class TodoItem extends Component<Props, State> {
           >
             {this.props.todo.text}
           </label>
-          <button className="destroy" />
+          <button
+            className="destroy"
+            onClick={() => this.deleteTodo()}
+          />
         </div>
         <input
           className="edit"
@@ -71,6 +75,10 @@ export class TodoItem extends Component<Props, State> {
         />
       </li>
     )
+  }
+
+  private deleteTodo() {
+    this.props.deleteTodo(this.props.todo)
   }
 
   private handleKeyDown(keyboardEvent: KeyboardEvent<HTMLInputElement>) {
