@@ -1,6 +1,7 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 import { Component } from 'react'
+import { FormEvent } from 'react'
 import { KeyboardEvent } from 'react'
 import { observer } from 'mobx-react'
 
@@ -11,7 +12,8 @@ interface Props {
 }
 
 interface State {
-  mode: 'edit' | 'view'
+  mode: 'edit' | 'view',
+  text: string
 }
 
 @observer
@@ -20,7 +22,8 @@ export class TodoItem extends Component<Props, State> {
     super(props, context)
 
     this.state = {
-      mode: 'view'
+      mode: 'view',
+      text: this.props.todo.text
     }
   }
 
@@ -60,10 +63,11 @@ export class TodoItem extends Component<Props, State> {
         </div>
         <input
           className="edit"
-          defaultValue={this.props.todo.text}
           onBlur={() => this.switchToViewMode()}
+          onChange={e => this.handleTextChanged(e)}
           onKeyDown={e => this.handleKeyDown(e)}
           ref={input => this.inputElement = input}
+          value={this.state.text}
         />
       </li>
     )
@@ -79,6 +83,10 @@ export class TodoItem extends Component<Props, State> {
       // TODO: Discard changes.
       this.switchToViewMode()
     }
+  }
+
+  private handleTextChanged(formEvent: FormEvent<HTMLInputElement>) {
+    this.setState({ text: formEvent.currentTarget.value })
   }
 
   private switchToEditMode() {
