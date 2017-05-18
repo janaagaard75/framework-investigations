@@ -7,7 +7,7 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
-import { Todo } from './Todo'
+import { TodoModel } from './Todo'
 
 @observer
 export class App extends Component<{}, void> {
@@ -15,12 +15,12 @@ export class App extends Component<{}, void> {
     super(props, context)
 
     this.todos = [
-      new Todo('Taste JavaScript', true),
-      new Todo('Buy a unicorn', false)
+      new TodoModel('Taste JavaScript', true),
+      new TodoModel('Buy a unicorn', false)
     ]
   }
 
-  @observable private readonly todos: Array<Todo>
+  @observable private readonly todos: Array<TodoModel>
 
   public render() {
     return (
@@ -39,10 +39,10 @@ export class App extends Component<{}, void> {
   }
 
   private addTodo(text: string) {
-    this.todos.push(new Todo(text, false))
+    this.todos.push(new TodoModel(text, false))
   }
 
-  private deleteTodo(todo: Todo) {
+  private deleteTodo(todo: TodoModel) {
     const index = this.todos.indexOf(todo)
 
     if (index === -1) {

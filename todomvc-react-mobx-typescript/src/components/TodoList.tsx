@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import { Todo } from './Todo'
+import { TodoModel } from './Todo'
 import { TodoItem } from './TodoItem'
 
 interface Props {
-  deleteTodo: (todo: Todo) => void
-  todos: Array<Todo>
+  deleteTodo: (todo: TodoModel) => void
+  todos: Array<TodoModel>
 }
 
 @observer

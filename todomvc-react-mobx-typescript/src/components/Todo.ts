@@ -1,10 +1,10 @@
 import { computed } from 'mobx'
 import { observable } from 'mobx'
 
-export class Todo {
+export class TodoModel {
   constructor(text: string, completed: boolean) {
     this._completed = completed
-    this.id = `todo${Todo.getNextId()}`
+    this.id = `todo${TodoModel.getNextId()}`
     this.text = text
   }
 

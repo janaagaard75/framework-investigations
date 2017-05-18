@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-import { Todo } from './Todo'
+import { TodoModel } from './Todo'
 import { TodoList } from './TodoList'
 
 interface Props {
-  deleteTodo: (todo: Todo) => void
-  todos: Array<Todo>
+  deleteTodo: (todo: TodoModel) => void
+  todos: Array<TodoModel>
 }
 
 export class Main extends Component<Props, void> {
