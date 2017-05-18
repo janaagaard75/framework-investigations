@@ -9,14 +9,27 @@ interface Props {
   todo: Todo
 }
 
+interface State {
+  mode: 'edit' | 'view'
+}
+
 @observer
-export class TodoItem extends Component<Props, void> {
+export class TodoItem extends Component<Props, State> {
+  constructor(props: Props, context?: any) {
+    super(props, context)
+
+    this.state = {
+      mode: 'view'
+    }
+  }
+
   public render() {
     return (
       <li
         className={
           classNames({
-            'completed': this.props.todo.completed
+            'completed': this.props.todo.completed,
+            'editing': this.state.mode === 'edit'
           })
         }
       >
@@ -28,11 +41,32 @@ export class TodoItem extends Component<Props, void> {
             onChange={() => this.props.todo.toggleCompleted()}
             type="checkbox"
           />
-          <label htmlFor={this.props.todo.id}>{this.props.todo.text}</label>
+          <label
+            htmlFor={this.props.todo.id}
+            onDoubleClick={() => this.switchToEditMode()}
+          >
+            {this.props.todo.text}
+          </label>
           <button className="destroy" />
         </div>
-        <input className="edit" defaultValue={this.props.todo.text} />
+        <input
+          className="edit"
+          defaultValue={this.props.todo.text}
+          onBlur={() => this.switchToViewMode()}
+        />
       </li>
     )
+  }
+
+  private switchToEditMode() {
+    this.setState({
+      mode: 'edit'
+    })
+  }
+
+  private switchToViewMode() {
+    this.setState({
+      mode: 'view'
+    })
   }
 }
