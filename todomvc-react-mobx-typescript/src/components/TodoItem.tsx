@@ -23,6 +23,14 @@ export class TodoItem extends Component<Props, State> {
     }
   }
 
+  private inputElement: HTMLInputElement
+
+  public componentDidUpdate(_previousProps: Props, previousState: State) {
+    if (previousState.mode === 'view' && this.state.mode === 'edit') {
+      this.inputElement.focus()
+    }
+  }
+
   public render() {
     return (
       <li
@@ -53,6 +61,7 @@ export class TodoItem extends Component<Props, State> {
           className="edit"
           defaultValue={this.props.todo.text}
           onBlur={() => this.switchToViewMode()}
+          ref={input => this.inputElement = input}
         />
       </li>
     )
