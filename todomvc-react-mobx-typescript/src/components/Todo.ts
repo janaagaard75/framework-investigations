@@ -21,6 +21,7 @@ export class Todo {
     this._completed = !this._completed
   }
 
+  // TODO: Use a counter instead.
   private getRandomInteger() {
     const MAX_SAFE_INTEGER = 9007199254740991
     return Math.floor(Math.random() * MAX_SAFE_INTEGER)
