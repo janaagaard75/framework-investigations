@@ -1,6 +1,7 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 import { Component } from 'react'
+import { KeyboardEvent } from 'react'
 import { observer } from 'mobx-react'
 
 import { Todo } from './Todo'
@@ -61,10 +62,23 @@ export class TodoItem extends Component<Props, State> {
           className="edit"
           defaultValue={this.props.todo.text}
           onBlur={() => this.switchToViewMode()}
+          onKeyDown={e => this.handleKeyDown(e)}
           ref={input => this.inputElement = input}
         />
       </li>
     )
+  }
+
+  private handleKeyDown(keyboardEvent: KeyboardEvent<HTMLInputElement>) {
+    if (keyboardEvent.key === 'Enter') {
+      // TODO: Save changes.
+      this.switchToViewMode()
+    }
+
+    if (keyboardEvent.key === 'Escape') {
+      // TODO: Discard changes.
+      this.switchToViewMode()
+    }
   }
 
   private switchToEditMode() {
