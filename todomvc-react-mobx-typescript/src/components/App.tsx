@@ -27,11 +27,15 @@ export class App extends Component<{}, void> {
       <div>
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
-          <Main
-            deleteTodo={todo => this.deleteTodo(todo)}
-            todos={this.todos}
-          />
-          <Footer todos={this.todos}/>
+          {this.todos.length >= 1 &&
+            <Main
+              deleteTodo={todo => this.deleteTodo(todo)}
+              todos={this.todos}
+            />
+          }
+          {this.todos.length >= 1 &&
+            <Footer/>
+          }
         </section>
         <Info/>
       </div>
