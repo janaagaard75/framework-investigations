@@ -15,7 +15,7 @@ export class TodoList extends Component<Props, void> {
     return (
       <ul className="todo-list">
         {this.props.todos.map(todo =>
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem key={todo.id} todo={todo}/>
         )}
       </ul>
     )
