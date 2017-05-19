@@ -28,12 +28,10 @@ export class App extends Component<{}, void> {
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
-            <Main
-              todos={this.todos}
-            />
+            <Main todos={this.todos} />
           }
           {this.todos.length >= 1 &&
-            <Footer/>
+            <Footer todos={this.todos}/>
           }
         </section>
         <Info/>
