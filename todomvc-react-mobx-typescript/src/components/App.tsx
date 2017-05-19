@@ -29,7 +29,6 @@ export class App extends Component<{}, void> {
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
             <Main
-              deleteTodo={todo => this.deleteTodo(todo)}
               todos={this.todos}
             />
           }
@@ -44,15 +43,5 @@ export class App extends Component<{}, void> {
 
   private addTodo(text: string) {
     this.todos.push(new TodoModel(text, false))
-  }
-
-  private deleteTodo(todo: TodoModel) {
-    const index = this.todos.indexOf(todo)
-
-    if (index === -1) {
-      return
-    }
-
-    this.todos.splice(index, 1)
   }
 }
