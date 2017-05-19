@@ -38,6 +38,7 @@ export class Main extends Component<Props, void> {
     }
 
     this.props.todos.forEach(todo => {
+      // TODO: Consider making completed writeable.
       if (!todo.completed) {
         todo.toggle()
       }
