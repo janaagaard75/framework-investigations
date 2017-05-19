@@ -18,9 +18,11 @@ export class Main extends Component<Props, void> {
     return (
       <section className="main">
         <input
-          className="toggle-all"
-          type="checkbox"
           checked={allTodosChecked}
+          className="toggle-all"
+          id="toggle-all"
+          onChange={() => this.toggleAllTodos()}
+          type="checkbox"
         />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <TodoList
@@ -29,5 +31,18 @@ export class Main extends Component<Props, void> {
         />
       </section>
     )
+  }
+
+  private toggleAllTodos() {
+    if (this.props.todos.every(todo => todo.completed) || this.props.todos.every(todo => !todo.completed)) {
+      this.props.todos.forEach(todo => todo.toggleCompleted())
+      return
+    }
+
+    this.props.todos.forEach(todo => {
+      if (!todo.completed) {
+        todo.toggleCompleted()
+      }
+    })
   }
 }
