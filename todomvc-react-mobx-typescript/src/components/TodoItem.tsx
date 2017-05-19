@@ -51,7 +51,7 @@ export class TodoItem extends Component<Props, State> {
             checked={this.props.todo.completed}
             className="toggle"
             id={this.props.todo.id}
-            onChange={() => this.props.todo.toggleCompleted()}
+            onChange={() => this.props.todo.toggle()}
             type="checkbox"
           />
           <label

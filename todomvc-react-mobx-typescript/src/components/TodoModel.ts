@@ -19,7 +19,7 @@ export class TodoModel {
     return this._completed
   }
 
-  public toggleCompleted(): void {
+  public toggle(): void {
     this._completed = !this._completed
   }
 

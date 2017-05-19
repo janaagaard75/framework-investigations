@@ -35,13 +35,13 @@ export class Main extends Component<Props, void> {
 
   private toggleAllTodos() {
     if (this.props.todos.every(todo => todo.completed) || this.props.todos.every(todo => !todo.completed)) {
-      this.props.todos.forEach(todo => todo.toggleCompleted())
+      this.props.todos.forEach(todo => todo.toggle())
       return
     }
 
     this.props.todos.forEach(todo => {
       if (!todo.completed) {
-        todo.toggleCompleted()
+        todo.toggle()
       }
     })
   }
