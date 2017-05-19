@@ -32,7 +32,7 @@ export class Main extends Component<Props, void> {
   }
 
   private toggleAllTodos() {
-    if (this.props.todos.every(todo => todo.completed) || this.props.todos.every(todo => !todo.completed)) {
+    if (this.allTodosHaveSameState()) {
       this.props.todos.forEach(todo => todo.toggle())
       return
     }
@@ -42,5 +42,17 @@ export class Main extends Component<Props, void> {
         todo.toggle()
       }
     })
+  }
+
+  private allTodosHaveSameState() {
+    if (this.props.todos.every(todo => todo.completed)) {
+      return true
+    }
+
+    if (this.props.todos.every(todo => !todo.completed)) {
+      return true
+    }
+
+    return false
   }
 }
