@@ -13,6 +13,8 @@ export class Main extends Component<Props, void> {
   public render() {
     return (
       <section className="main">
+        <input type="checkbox" className="toggle-all"/>
+        <label htmlFor="toggle-all">Mark all as complete</label>
         <TodoList
           deleteTodo={this.props.deleteTodo}
           todos={this.props.todos}
