@@ -6,6 +6,7 @@ import { TodoModel } from './TodoModel'
 import { TodoItem } from './TodoItem'
 
 interface Props {
+  deleteTodo: (todo: TodoModel) => void
   todos: Array<TodoModel>
 }
 
@@ -18,20 +19,10 @@ export class TodoList extends Component<Props, void> {
           <TodoItem
             key={todo.id}
             todo={todo}
-            deleteTodo={() => this.deleteTodo(todo)}
+            deleteTodo={() => this.props.deleteTodo(todo)}
           />
         )}
       </ul>
     )
-  }
-
-  private deleteTodo(todo: TodoModel) {
-    const index = this.props.todos.indexOf(todo)
-
-    if (index === -1) {
-      return
-    }
-
-    this.props.todos.splice(index, 1)
   }
 }

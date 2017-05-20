@@ -5,6 +5,7 @@ import { observer } from 'mobx-react'
 import { TodoModel } from './TodoModel'
 
 interface Props {
+  deleteTodo: (todo: TodoModel) => void
   todos: Array<TodoModel>
 }
 
@@ -32,9 +33,22 @@ export class Footer extends Component<Props, void> {
             <a href="#/completed">Completed</a>
           </li>
         </ul>
-        <button className="clear-completed">Clear completed</button>
+        <button
+          className="clear-completed"
+          onClick={() => this.deleteCompletedTodos()}
+        >
+          Clear completed
+        </button>
       </footer>
     )
+  }
+
+  private deleteCompletedTodos() {
+    for (let i = this.props.todos.length - 1; i >= 0; i--) {
+      if (this.props.todos[i].completed) {
+        this.props.deleteTodo(this.props.todos[i])
+      }
+    }
   }
 
   private pluralize(word: string, items: number) {

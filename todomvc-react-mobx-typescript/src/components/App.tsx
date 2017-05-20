@@ -28,10 +28,16 @@ export class App extends Component<{}, void> {
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
-            <Main todos={this.todos} />
+            <Main
+              deleteTodo={todo => this.deleteTodo(todo)}
+              todos={this.todos}
+            />
           }
           {this.todos.length >= 1 &&
-            <Footer todos={this.todos}/>
+            <Footer
+              deleteTodo={todo => this.deleteTodo(todo)}
+              todos={this.todos}
+            />
           }
         </section>
         <Info/>
@@ -41,5 +47,15 @@ export class App extends Component<{}, void> {
 
   private addTodo(text: string) {
     this.todos.push(new TodoModel(text, false))
+  }
+
+  private deleteTodo(todo: TodoModel) {
+    const index = this.todos.indexOf(todo)
+
+    if (index === -1) {
+      return
+    }
+
+    this.todos.splice(index, 1)
   }
 }
