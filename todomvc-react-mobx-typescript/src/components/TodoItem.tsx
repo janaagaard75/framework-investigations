@@ -83,13 +83,14 @@ export class TodoItem extends Component<Props, State> {
 
   private handleKeyDown(keyboardEvent: KeyboardEvent<HTMLInputElement>) {
     if (keyboardEvent.key === 'Enter') {
-      // TODO: Save changes.
+      this.props.todo.text = this.state.text
       this.switchToViewMode()
+      return
     }
 
     if (keyboardEvent.key === 'Escape') {
-      // TODO: Discard changes.
       this.switchToViewMode()
+      return
     }
   }
 
