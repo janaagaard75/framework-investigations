@@ -31,17 +31,6 @@ export class Main extends Component<Props, void> {
     )
   }
 
-  private toggleAllTodos() {
-    if (this.allTodosHaveSameState()) {
-      this.props.todos.forEach(todo => todo.toggle())
-      return
-    }
-
-    this.props.todos.forEach(todo => {
-      todo.completed = true
-    })
-  }
-
   private allTodosHaveSameState() {
     if (this.props.todos.every(todo => todo.completed)) {
       return true
@@ -52,5 +41,16 @@ export class Main extends Component<Props, void> {
     }
 
     return false
+  }
+
+  private toggleAllTodos() {
+    if (this.allTodosHaveSameState()) {
+      this.props.todos.forEach(todo => todo.toggle())
+      return
+    }
+
+    this.props.todos.forEach(todo => {
+      todo.completed = true
+    })
   }
 }
