@@ -34,12 +34,12 @@ export class Footer extends Component<Props, void> {
           </li>
         </ul>
         {this.completedTodos().length >= 0 &&
-        <button
-          className="clear-completed"
-          onClick={() => this.deleteCompletedTodos()}
-        >
-          Clear completed
-        </button>
+          <button
+            className="clear-completed"
+            onClick={() => this.deleteCompletedTodos()}
+          >
+            Clear completed
+          </button>
         }
       </footer>
     )
@@ -52,11 +52,7 @@ export class Footer extends Component<Props, void> {
   }
 
   private deleteCompletedTodos() {
-    for (let i = this.props.todos.length - 1; i >= 0; i--) {
-      if (this.props.todos[i].completed) {
-        this.props.deleteTodo(this.props.todos[i])
-      }
-    }
+    this.completedTodos().forEach(todo => this.props.deleteTodo(todo))
   }
 
   private pluralize(word: string, items: number) {
