@@ -67,7 +67,7 @@ export class TodoItem extends Component<Props, State> {
         </div>
         <input
           className="edit"
-          onBlur={() => this.handleBlur()}
+          onBlur={() => this.saveChangesAndSwitchToViewMode()}
           onChange={e => this.handleTextChanged(e)}
           onKeyDown={e => this.handleKeyDown(e)}
           ref={input => this.inputElement = input}
@@ -81,26 +81,25 @@ export class TodoItem extends Component<Props, State> {
     this.props.deleteTodo(this.props.todo)
   }
 
-  private handleBlur() {
-    this.props.todo.text = this.state.text
-    this.switchToViewMode()
-  }
-
   private handleKeyDown(keyboardEvent: KeyboardEvent<HTMLInputElement>) {
-    if (keyboardEvent.key === 'Enter') {
-      this.props.todo.text = this.state.text
-      this.switchToViewMode()
-      return
-    }
+    switch (keyboardEvent.key) {
+      case 'Enter':
+        this.saveChangesAndSwitchToViewMode()
+        return
 
-    if (keyboardEvent.key === 'Escape') {
-      this.switchToViewMode()
-      return
+      case 'Escape':
+        this.switchToViewMode()
+        return
     }
   }
 
   private handleTextChanged(formEvent: FormEvent<HTMLInputElement>) {
     this.setState({ text: formEvent.currentTarget.value })
+  }
+
+  private saveChangesAndSwitchToViewMode() {
+    this.props.todo.text = this.state.text
+    this.switchToViewMode()
   }
 
   private switchToEditMode() {
