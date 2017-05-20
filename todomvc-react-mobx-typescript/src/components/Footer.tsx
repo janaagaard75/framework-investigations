@@ -33,14 +33,22 @@ export class Footer extends Component<Props, void> {
             <a href="#/completed">Completed</a>
           </li>
         </ul>
+        {this.completedTodos().length >= 0 &&
         <button
           className="clear-completed"
           onClick={() => this.deleteCompletedTodos()}
         >
           Clear completed
         </button>
+        }
       </footer>
     )
+  }
+
+  // TODO: Consider adding @computed here.
+  private completedTodos(): Array<TodoModel> {
+    const completedTodos = this.props.todos.filter(todo => todo.completed)
+    return completedTodos
   }
 
   private deleteCompletedTodos() {
