@@ -67,7 +67,7 @@ export class TodoItem extends Component<Props, State> {
         </div>
         <input
           className="edit"
-          onBlur={() => this.switchToViewMode()}
+          onBlur={() => this.handleBlur()}
           onChange={e => this.handleTextChanged(e)}
           onKeyDown={e => this.handleKeyDown(e)}
           ref={input => this.inputElement = input}
@@ -79,6 +79,11 @@ export class TodoItem extends Component<Props, State> {
 
   private deleteTodo() {
     this.props.deleteTodo(this.props.todo)
+  }
+
+  private handleBlur() {
+    this.props.todo.text = this.state.text
+    this.switchToViewMode()
   }
 
   private handleKeyDown(keyboardEvent: KeyboardEvent<HTMLInputElement>) {
