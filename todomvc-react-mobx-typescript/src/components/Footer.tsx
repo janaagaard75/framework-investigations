@@ -18,6 +18,7 @@ export class Footer extends Component<Props, void> {
     const numberOfActiveTodos = this.props.todos.filter(todo => !todo.completed).length
     const pluralizedItems = this.pluralize('item', numberOfActiveTodos)
 
+    // TODO: Add proper routing.
     return (
       <footer className="footer">
         <span
