@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
+import { Filter } from './Filter'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
@@ -20,6 +21,7 @@ export class App extends Component<{}, void> {
     ]
   }
 
+  @observable private currentFilter: Filter = 'all'
   @observable private readonly todos: Array<TodoModel>
 
   public render() {
@@ -29,6 +31,7 @@ export class App extends Component<{}, void> {
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
             <Main
+              currentFilter={this.currentFilter}
               deleteTodo={todo => this.deleteTodo(todo)}
               todos={this.todos}
             />

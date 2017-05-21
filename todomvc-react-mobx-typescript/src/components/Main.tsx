@@ -2,10 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { observer } from 'mobx-react'
 
+import { Filter } from './Filter'
+import { FilteredTodoList } from './FilteredTodoList'
 import { TodoModel } from './TodoModel'
-import { TodoList } from './TodoList'
 
 interface Props {
+  currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
   todos: Array<TodoModel>
 }
@@ -25,7 +27,8 @@ export class Main extends Component<Props, void> {
           type="checkbox"
         />
         <label htmlFor="toggle-all">Mark all as complete</label>
-        <TodoList
+        <FilteredTodoList
+          currentFilter={this.props.currentFilter}
           deleteTodo={todo => this.props.deleteTodo(todo)}
           todos={this.props.todos}
         />
