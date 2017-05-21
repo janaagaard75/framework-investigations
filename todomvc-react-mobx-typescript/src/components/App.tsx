@@ -59,3 +59,5 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 }
+
+// TODO: What difference would it make if the todos were in App's state instead of being a private member?
