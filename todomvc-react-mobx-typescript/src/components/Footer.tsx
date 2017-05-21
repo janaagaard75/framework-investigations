@@ -3,10 +3,12 @@ import { Component } from 'react'
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 
+import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
 
 interface Props {
   deleteTodo: (todo: TodoModel) => void
+  setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
 }
 
@@ -25,13 +27,29 @@ export class Footer extends Component<Props, void> {
         </span>
         <ul className="filters">
           <li>
-            <a className="selected" href="#/">All</a>
+            <a
+              className="selected"
+              href="#/"
+              onClick={() => this.props.setCurrentFilter('all')}
+            >
+              All
+            </a>
           </li>
           <li>
-            <a href="#/active">Active</a>
+            <a
+              href="#/active"
+              onClick={() => this.props.setCurrentFilter('active')}
+            >
+              Active
+            </a>
           </li>
           <li>
-            <a href="#/completed">Completed</a>
+            <a
+              href="#/completed"
+              onClick={() => this.props.setCurrentFilter('completed')}
+            >
+              Completed
+            </a>
           </li>
         </ul>
         {this.completedTodos.length >= 0 &&

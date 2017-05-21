@@ -39,6 +39,7 @@ export class App extends Component<{}, void> {
           {this.todos.length >= 1 &&
             <Footer
               deleteTodo={todo => this.deleteTodo(todo)}
+              setCurrentFilter={(filter: Filter) => this.setCurrentFilter(filter)}
               todos={this.todos}
             />
           }
@@ -60,6 +61,10 @@ export class App extends Component<{}, void> {
     }
 
     this.todos.splice(index, 1)
+  }
+
+  private setCurrentFilter(filter: Filter) {
+    this.currentFilter = filter
   }
 }
 
