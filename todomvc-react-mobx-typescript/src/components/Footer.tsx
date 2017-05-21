@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 
 import { TodoModel } from './TodoModel'
@@ -33,7 +34,7 @@ export class Footer extends Component<Props, void> {
             <a href="#/completed">Completed</a>
           </li>
         </ul>
-        {this.completedTodos().length >= 0 &&
+        {this.getCompletedTodos().length >= 0 &&
           <button
             className="clear-completed"
             onClick={() => this.deleteCompletedTodos()}
@@ -45,14 +46,14 @@ export class Footer extends Component<Props, void> {
     )
   }
 
-  // TODO: Consider adding @computed here.
-  private completedTodos(): Array<TodoModel> {
+  @computed
+  private getCompletedTodos(): Array<TodoModel> {
     const completedTodos = this.props.todos.filter(todo => todo.completed)
     return completedTodos
   }
 
   private deleteCompletedTodos() {
-    this.completedTodos().forEach(todo => this.props.deleteTodo(todo))
+    this.getCompletedTodos().forEach(todo => this.props.deleteTodo(todo))
   }
 
   private pluralize(word: string, items: number) {
