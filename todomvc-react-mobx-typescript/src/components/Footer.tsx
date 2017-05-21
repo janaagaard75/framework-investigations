@@ -34,7 +34,7 @@ export class Footer extends Component<Props, void> {
             <a href="#/completed">Completed</a>
           </li>
         </ul>
-        {this.getCompletedTodos().length >= 0 &&
+        {this.completedTodos.length >= 0 &&
           <button
             className="clear-completed"
             onClick={() => this.deleteCompletedTodos()}
@@ -47,13 +47,13 @@ export class Footer extends Component<Props, void> {
   }
 
   @computed
-  private getCompletedTodos(): Array<TodoModel> {
+  private get completedTodos(): Array<TodoModel> {
     const completedTodos = this.props.todos.filter(todo => todo.completed)
     return completedTodos
   }
 
   private deleteCompletedTodos() {
-    this.getCompletedTodos().forEach(todo => this.props.deleteTodo(todo))
+    this.completedTodos.forEach(todo => this.props.deleteTodo(todo))
   }
 
   private pluralize(word: string, items: number) {
