@@ -8,6 +8,7 @@ import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
 
 interface Props {
+  currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
   setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
@@ -30,8 +31,8 @@ export class Footer extends Component<Props, void> {
         <ul className="filters">
           <li>
             <a
-              className="selected"
-              href="#/"
+              className={this.props.currentFilter === 'all' ? 'selected' : ''}
+              href=""
               onClick={e => this.navigate(e, 'all')}
             >
               All
@@ -39,7 +40,8 @@ export class Footer extends Component<Props, void> {
           </li>
           <li>
             <a
-              href="#/active"
+              className={this.props.currentFilter === 'active' ? 'selected' : ''}
+              href=""
               onClick={e => this.navigate(e, 'active')}
             >
               Active
@@ -47,7 +49,8 @@ export class Footer extends Component<Props, void> {
           </li>
           <li>
             <a
-              href="#/completed"
+              className={this.props.currentFilter === 'completed' ? 'selected' : ''}
+              href=""
               onClick={e => this.navigate(e, 'completed')}
             >
               Completed
