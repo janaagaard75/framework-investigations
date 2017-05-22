@@ -92,4 +92,5 @@ export class App extends Component<{}, void> {
   }
 }
 
+// TODO: Support deep linking.
 // TODO: What difference would it make if the todos were in App's state instead of being a private member?
