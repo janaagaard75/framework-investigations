@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { autorun } from 'mobx'
 import { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
@@ -19,6 +20,10 @@ export class App extends Component<{}, void> {
       new TodoModel('Taste JavaScript', true),
       new TodoModel('Buy a unicorn', false)
     ]
+
+    autorun(() => {
+      this.updatePath()
+    })
   }
 
   @observable private currentFilter: Filter = 'all'
@@ -63,12 +68,7 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 
-  private setCurrentFilter(filter: Filter) {
-    history.pushState({}, '', this.getPath(filter))
-    this.currentFilter = filter
-  }
-
-  private getPath(filter: Filter): string {
+  private static getPath(filter: Filter): string {
     switch (filter) {
       case 'active':
         return '/active'
@@ -79,6 +79,15 @@ export class App extends Component<{}, void> {
       case 'completed':
         return '/completed'
     }
+  }
+
+  private setCurrentFilter(filter: Filter) {
+    this.currentFilter = filter
+  }
+
+  private updatePath() {
+    const path = App.getPath(this.currentFilter)
+    history.pushState({}, '', path)
   }
 }
 
