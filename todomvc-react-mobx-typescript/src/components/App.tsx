@@ -64,7 +64,21 @@ export class App extends Component<{}, void> {
   }
 
   private setCurrentFilter(filter: Filter) {
+    history.pushState({}, '', this.getPath(filter))
     this.currentFilter = filter
+  }
+
+  private getPath(filter: Filter): string {
+    switch (filter) {
+      case 'active':
+        return '/active'
+
+      case 'all':
+        return '/'
+
+      case 'completed':
+        return '/completed'
+    }
   }
 }
 

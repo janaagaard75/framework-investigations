@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
+import { MouseEvent } from 'react'
 
 import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
@@ -31,7 +32,7 @@ export class Footer extends Component<Props, void> {
             <a
               className="selected"
               href="#/"
-              onClick={() => this.props.setCurrentFilter('all')}
+              onClick={e => this.navigate(e, 'all')}
             >
               All
             </a>
@@ -39,7 +40,7 @@ export class Footer extends Component<Props, void> {
           <li>
             <a
               href="#/active"
-              onClick={() => this.props.setCurrentFilter('active')}
+              onClick={e => this.navigate(e, 'active')}
             >
               Active
             </a>
@@ -47,7 +48,7 @@ export class Footer extends Component<Props, void> {
           <li>
             <a
               href="#/completed"
-              onClick={() => this.props.setCurrentFilter('completed')}
+              onClick={e => this.navigate(e, 'completed')}
             >
               Completed
             </a>
@@ -81,5 +82,10 @@ export class Footer extends Component<Props, void> {
     }
 
     return word + 's'
+  }
+
+  private navigate(e: MouseEvent<HTMLAnchorElement>, filter: Filter): void {
+    e.preventDefault()
+    this.props.setCurrentFilter(filter)
   }
 }
