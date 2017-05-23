@@ -11,6 +11,26 @@ import { Info } from './Info'
 import { Main } from './Main'
 import { TodoModel } from './TodoModel'
 
+interface PathAndFilter {
+  filter: Filter
+  path: string
+}
+
+const pathsAndFilters: Array<PathAndFilter> = [
+  {
+    filter: 'all',
+    path: '/'
+  },
+  {
+    filter: 'active',
+    path: '/active'
+  },
+  {
+    filter: 'completed',
+    path: '/completed'
+  }
+]
+
 @observer
 export class App extends Component<{}, void> {
   constructor(props: {}, context?: any) {
@@ -21,18 +41,7 @@ export class App extends Component<{}, void> {
       new TodoModel('Buy a unicorn', false)
     ]
 
-    switch (window.location.pathname) {
-      case '/active':
-        this.currentFilter = 'active'
-        break
-
-      case '/completed':
-        this.currentFilter = 'completed'
-        break
-
-      default:
-        this.currentFilter = 'all'
-    }
+    this.currentFilter = App.getFilter(window.location.pathname)
 
     autorun(() => {
       this.updatePath()
@@ -82,17 +91,23 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 
-  private static getPath(filter: Filter): string {
-    switch (filter) {
-      case 'active':
-        return '/active'
-
-      case 'all':
-        return '/'
-
-      case 'completed':
-        return '/completed'
+  private static getFilter(path: string): Filter {
+    const match = pathsAndFilters.find(pathAndFilter => pathAndFilter.path === path)
+    if (match === undefined) {
+      // TODO: This should return the HTTP error 404 Not Found.
+      throw new Error(`Could not find the path '${path}'.`)
     }
+
+    return match.filter
+  }
+
+  private static getPath(filter: Filter): string {
+    const match = pathsAndFilters.find(pathAndFilter => pathAndFilter.filter === filter)
+    if (match === undefined) {
+      throw new Error(`Could not find the filter '${filter}'.`)
+    }
+
+    return match.path
   }
 
   private setCurrentFilter(filter: Filter) {
