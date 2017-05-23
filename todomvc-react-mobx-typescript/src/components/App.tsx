@@ -21,12 +21,25 @@ export class App extends Component<{}, void> {
       new TodoModel('Buy a unicorn', false)
     ]
 
+    switch (window.location.pathname) {
+      case '/active':
+        this.currentFilter = 'active'
+        break
+
+      case '/completed':
+        this.currentFilter = 'completed'
+        break
+
+      default:
+        this.currentFilter = 'all'
+    }
+
     autorun(() => {
       this.updatePath()
     })
   }
 
-  @observable private currentFilter: Filter = 'all'
+  @observable private currentFilter: Filter
   @observable private readonly todos: Array<TodoModel>
 
   public render() {
@@ -92,5 +105,4 @@ export class App extends Component<{}, void> {
   }
 }
 
-// TODO: Support deep linking.
 // TODO: What difference would it make if the todos were in App's state instead of being a private member?
