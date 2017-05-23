@@ -9,39 +9,22 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
+import { PathsAndFilters } from './PathsAndFilters'
 import { TodoModel } from './TodoModel'
-
-interface PathAndFilter {
-  filter: Filter
-  path: string
-}
-
-const pathsAndFilters: Array<PathAndFilter> = [
-  {
-    filter: 'all',
-    path: '/'
-  },
-  {
-    filter: 'active',
-    path: '/active'
-  },
-  {
-    filter: 'completed',
-    path: '/completed'
-  }
-]
 
 @observer
 export class App extends Component<{}, void> {
   constructor(props: {}, context?: any) {
     super(props, context)
 
+    this.pathsAndFilters = new PathsAndFilters()
+
+    this.currentFilter = this.pathsAndFilters.getFromPath(window.location.pathname).filter
+
     this.todos = [
       new TodoModel('Taste JavaScript', true),
       new TodoModel('Buy a unicorn', false)
     ]
-
-    this.currentFilter = App.getFilter(window.location.pathname)
 
     autorun(() => {
       this.updatePath()
@@ -49,6 +32,7 @@ export class App extends Component<{}, void> {
   }
 
   @observable private currentFilter: Filter
+  private readonly pathsAndFilters: PathsAndFilters
   @observable private readonly todos: Array<TodoModel>
 
   public render() {
@@ -91,31 +75,12 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 
-  private static getFilter(path: string): Filter {
-    const match = pathsAndFilters.find(pathAndFilter => pathAndFilter.path === path)
-    if (match === undefined) {
-      // TODO: This should return the HTTP error 404 Not Found.
-      throw new Error(`Could not find the path '${path}'.`)
-    }
-
-    return match.filter
-  }
-
-  private static getPath(filter: Filter): string {
-    const match = pathsAndFilters.find(pathAndFilter => pathAndFilter.filter === filter)
-    if (match === undefined) {
-      throw new Error(`Could not find the filter '${filter}'.`)
-    }
-
-    return match.path
-  }
-
   private setCurrentFilter(filter: Filter) {
     this.currentFilter = filter
   }
 
   private updatePath() {
-    const path = App.getPath(this.currentFilter)
+    const path = this.pathsAndFilters.getFromFilter(this.currentFilter).path
     history.pushState({}, '', path)
   }
 }
