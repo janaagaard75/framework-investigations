@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { autorun } from 'mobx'
 import { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
@@ -19,6 +20,10 @@ export class App extends Component<{}, void> {
       new TodoModel('Taste JavaScript', true),
       new TodoModel('Buy a unicorn', false)
     ]
+
+    autorun(() => {
+      this.updatePath()
+    })
   }
 
   @observable private currentFilter: Filter = 'all'
@@ -38,6 +43,7 @@ export class App extends Component<{}, void> {
           }
           {this.todos.length >= 1 &&
             <Footer
+              currentFilter={this.currentFilter}
               deleteTodo={todo => this.deleteTodo(todo)}
               setCurrentFilter={(filter: Filter) => this.setCurrentFilter(filter)}
               todos={this.todos}
@@ -63,9 +69,28 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 
+  private static getPath(filter: Filter): string {
+    switch (filter) {
+      case 'active':
+        return '/active'
+
+      case 'all':
+        return '/'
+
+      case 'completed':
+        return '/completed'
+    }
+  }
+
   private setCurrentFilter(filter: Filter) {
     this.currentFilter = filter
   }
+
+  private updatePath() {
+    const path = App.getPath(this.currentFilter)
+    history.pushState({}, '', path)
+  }
 }
 
+// TODO: Support deep linking.
 // TODO: What difference would it make if the todos were in App's state instead of being a private member?

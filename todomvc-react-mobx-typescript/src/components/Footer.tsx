@@ -2,11 +2,13 @@ import * as React from 'react'
 import { Component } from 'react'
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
+import { MouseEvent } from 'react'
 
 import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
 
 interface Props {
+  currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
   setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
@@ -29,25 +31,27 @@ export class Footer extends Component<Props, void> {
         <ul className="filters">
           <li>
             <a
-              className="selected"
-              href="#/"
-              onClick={() => this.props.setCurrentFilter('all')}
+              className={this.props.currentFilter === 'all' ? 'selected' : ''}
+              href=""
+              onClick={e => this.navigate(e, 'all')}
             >
               All
             </a>
           </li>
           <li>
             <a
-              href="#/active"
-              onClick={() => this.props.setCurrentFilter('active')}
+              className={this.props.currentFilter === 'active' ? 'selected' : ''}
+              href=""
+              onClick={e => this.navigate(e, 'active')}
             >
               Active
             </a>
           </li>
           <li>
             <a
-              href="#/completed"
-              onClick={() => this.props.setCurrentFilter('completed')}
+              className={this.props.currentFilter === 'completed' ? 'selected' : ''}
+              href=""
+              onClick={e => this.navigate(e, 'completed')}
             >
               Completed
             </a>
@@ -81,5 +85,10 @@ export class Footer extends Component<Props, void> {
     }
 
     return word + 's'
+  }
+
+  private navigate(e: MouseEvent<HTMLAnchorElement>, filter: Filter): void {
+    e.preventDefault()
+    this.props.setCurrentFilter(filter)
   }
 }
