@@ -11,7 +11,7 @@ import { TodoModel } from './TodoModel'
 interface Props {
   currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
-  pathsAndFilter: Routes
+  routes: Routes
   setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
 }
@@ -30,7 +30,7 @@ export class Footer extends Component<Props, void> {
           <strong>{numberOfActiveTodos}</strong> {pluralizedItems} left
         </span>
         <ul className="filters">
-          {this.props.pathsAndFilter.allRoutes.map(pathAndFilter =>
+          {this.props.routes.allRoutes.map(pathAndFilter =>
             <li>
               <a
                 className={this.props.currentFilter === pathAndFilter.filter ? 'selected' : ''}

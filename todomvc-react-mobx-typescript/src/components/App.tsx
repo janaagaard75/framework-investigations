@@ -51,7 +51,7 @@ export class App extends Component<{}, void> {
             <Footer
               currentFilter={this.currentFilter}
               deleteTodo={todo => this.deleteTodo(todo)}
-              pathsAndFilter={this.routes}
+              routes={this.routes}
               setCurrentFilter={(filter: Filter) => this.setCurrentFilter(filter)}
               todos={this.todos}
             />
