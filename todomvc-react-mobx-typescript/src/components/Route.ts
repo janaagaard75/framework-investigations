@@ -4,6 +4,6 @@ import { TodoModel } from './TodoModel'
 export interface Route {
   caption: string
   filter: Filter
-  filterFunction: (todos: Array<TodoModel>) => Array<TodoModel>
+  filterFunction: (todo: TodoModel) => boolean
   path: string
 }

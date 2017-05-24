@@ -17,7 +17,8 @@ interface Props {
 export class FilteredTodoList extends Component<Props, void> {
   @computed
   private get filteredTodos(): Array<TodoModel> {
-    return this.props.currentRoute.filterFunction(this.props.todos)
+    const filteredTodos = this.props.todos.filter(todo => this.props.currentRoute.filterFunction(todo))
+    return filteredTodos
   }
 
   public render() {

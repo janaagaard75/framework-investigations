@@ -7,19 +7,19 @@ export class Routes {
     {
       caption: 'All',
       filter: 'all',
-      filterFunction: (todos: Array<TodoModel>) => todos,
+      filterFunction: (_todo: TodoModel) => true,
       path: '/'
     },
     {
       caption: 'Active',
       filter: 'active',
-      filterFunction: (todos: Array<TodoModel>) => todos.filter(todo => !todo.completed),
+      filterFunction: (todo: TodoModel) => !todo.completed,
       path: '/active'
     },
     {
       caption: 'Completed',
       filter: 'completed',
-      filterFunction: (todos: Array<TodoModel>) => todos.filter(todo => todo.completed),
+      filterFunction: (todo: TodoModel) => todo.completed,
       path: '/completed'
     }
   ]
