@@ -1,15 +1,15 @@
 import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
 
-interface PathAndFilter {
+interface Route {
   caption: string
   filter: Filter
   filterFunction: (todos: Array<TodoModel>) => Array<TodoModel>
   path: string
 }
 
-export class PathsAndFilters {
-  public readonly pathsAndFilters: Array<PathAndFilter> = [
+export class Routes {
+  public readonly allRoutes: Array<Route> = [
     {
       caption: 'All',
       filter: 'all',
@@ -30,8 +30,8 @@ export class PathsAndFilters {
     }
   ]
 
-  public getFromFilter(filter: Filter): PathAndFilter {
-    const match = this.pathsAndFilters.find(pathAndFilter => pathAndFilter.filter === filter)
+  public getFromFilter(filter: Filter): Route {
+    const match = this.allRoutes.find(pathAndFilter => pathAndFilter.filter === filter)
     if (match === undefined) {
       throw new Error(`Could not find the filter '${filter}'.`)
     }
@@ -39,8 +39,8 @@ export class PathsAndFilters {
     return match
   }
 
-  public getFromPath(path: string): PathAndFilter {
-    const match = this.pathsAndFilters.find(pathAndFilter => pathAndFilter.path === path)
+  public getFromPath(path: string): Route {
+    const match = this.allRoutes.find(pathAndFilter => pathAndFilter.path === path)
     if (match === undefined) {
       // TODO: This should return the HTTP error 404 Not Found.
       throw new Error(`Could not find the path '${path}'.`)

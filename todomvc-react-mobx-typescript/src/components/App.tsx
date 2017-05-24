@@ -9,7 +9,7 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
-import { PathsAndFilters } from './PathsAndFilters'
+import { Routes } from './PathsAndFilters'
 import { TodoModel } from './TodoModel'
 
 @observer
@@ -17,7 +17,7 @@ export class App extends Component<{}, void> {
   constructor(props: {}, context?: any) {
     super(props, context)
 
-    this.pathsAndFilters = new PathsAndFilters()
+    this.pathsAndFilters = new Routes()
 
     this.currentFilter = this.pathsAndFilters.getFromPath(window.location.pathname).filter
 
@@ -32,7 +32,7 @@ export class App extends Component<{}, void> {
   }
 
   @observable private currentFilter: Filter
-  private readonly pathsAndFilters: PathsAndFilters
+  private readonly pathsAndFilters: Routes
   @observable private readonly todos: Array<TodoModel>
 
   public render() {

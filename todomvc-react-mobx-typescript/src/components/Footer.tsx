@@ -5,13 +5,13 @@ import { observer } from 'mobx-react'
 import { MouseEvent } from 'react'
 
 import { Filter } from './Filter'
-import { PathsAndFilters } from './PathsAndFilters'
+import { Routes } from './PathsAndFilters'
 import { TodoModel } from './TodoModel'
 
 interface Props {
   currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
-  pathsAndFilter: PathsAndFilters
+  pathsAndFilter: Routes
   setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
 }
@@ -30,8 +30,7 @@ export class Footer extends Component<Props, void> {
           <strong>{numberOfActiveTodos}</strong> {pluralizedItems} left
         </span>
         <ul className="filters">
-          {/* TODO: Figure out a better syntax. */}
-          {this.props.pathsAndFilter.pathsAndFilters.map(pathAndFilter =>
+          {this.props.pathsAndFilter.allRoutes.map(pathAndFilter =>
             <li>
               <a
                 className={this.props.currentFilter === pathAndFilter.filter ? 'selected' : ''}
