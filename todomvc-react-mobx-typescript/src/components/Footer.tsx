@@ -31,7 +31,7 @@ export class Footer extends Component<Props, void> {
         </span>
         <ul className="filters">
           {this.props.routes.allRoutes.map(route =>
-            <li>
+            <li key={route.filter}>
               <a
                 className={this.props.currentRoute.filter === route.filter ? 'selected' : ''}
                 href=""
