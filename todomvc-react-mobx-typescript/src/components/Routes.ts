@@ -6,19 +6,19 @@ export class Routes {
   public readonly allRoutes: Array<Route> = [
     {
       caption: 'All',
-      filter: 'all',
+      filter: Filter.All,
       filterFunction: (_todo: TodoModel) => true,
       path: '/'
     },
     {
       caption: 'Active',
-      filter: 'active',
+      filter: Filter.Active,
       filterFunction: (todo: TodoModel) => !todo.completed,
       path: '/active'
     },
     {
       caption: 'Completed',
-      filter: 'completed',
+      filter: Filter.Completed,
       filterFunction: (todo: TodoModel) => todo.completed,
       path: '/completed'
     }
