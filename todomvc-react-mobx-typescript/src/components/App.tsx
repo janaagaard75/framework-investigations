@@ -17,9 +17,9 @@ export class App extends Component<{}, void> {
   constructor(props: {}, context?: any) {
     super(props, context)
 
-    this.pathsAndFilters = new Routes()
+    this.routes = new Routes()
 
-    this.currentFilter = this.pathsAndFilters.getFromPath(window.location.pathname).filter
+    this.currentFilter = this.routes.getFromPath(window.location.pathname).filter
 
     this.todos = [
       new TodoModel('Taste JavaScript', true),
@@ -32,7 +32,7 @@ export class App extends Component<{}, void> {
   }
 
   @observable private currentFilter: Filter
-  private readonly pathsAndFilters: Routes
+  private readonly routes: Routes
   @observable private readonly todos: Array<TodoModel>
 
   public render() {
@@ -42,7 +42,7 @@ export class App extends Component<{}, void> {
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
             <Main
-              currentFilter={this.currentFilter}
+              currentRoute={this.routes.getFromFilter(this.currentFilter)}
               deleteTodo={todo => this.deleteTodo(todo)}
               todos={this.todos}
             />
@@ -51,7 +51,7 @@ export class App extends Component<{}, void> {
             <Footer
               currentFilter={this.currentFilter}
               deleteTodo={todo => this.deleteTodo(todo)}
-              pathsAndFilter={this.pathsAndFilters}
+              pathsAndFilter={this.routes}
               setCurrentFilter={(filter: Filter) => this.setCurrentFilter(filter)}
               todos={this.todos}
             />
@@ -81,7 +81,7 @@ export class App extends Component<{}, void> {
   }
 
   private updatePath() {
-    const path = this.pathsAndFilters.getFromFilter(this.currentFilter).path
+    const path = this.routes.getFromFilter(this.currentFilter).path
     history.pushState({}, '', path)
   }
 }

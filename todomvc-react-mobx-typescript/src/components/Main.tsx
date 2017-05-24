@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import { Filter } from './Filter'
 import { FilteredTodoList } from './FilteredTodoList'
+import { Route } from './Route'
 import { TodoModel } from './TodoModel'
 
 interface Props {
-  currentFilter: Filter
+  currentRoute: Route
   deleteTodo: (todo: TodoModel) => void
   todos: Array<TodoModel>
 }
@@ -28,7 +28,7 @@ export class Main extends Component<Props, void> {
         />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <FilteredTodoList
-          currentRoute={this.props.currentFilter}
+          currentRoute={this.props.currentRoute}
           deleteTodo={todo => this.props.deleteTodo(todo)}
           todos={this.props.todos}
         />
