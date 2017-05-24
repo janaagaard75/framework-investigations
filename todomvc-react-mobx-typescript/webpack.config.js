@@ -1,3 +1,4 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 const webpack = require("webpack")
@@ -21,7 +22,8 @@ const plugins = [
   }),
   new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(nodeEnv)
-  })
+  }),
+  new ExtractTextPlugin("styles.css")
 ]
 
 if (isProduction) {
@@ -45,16 +47,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                minimize: isProduction
+              }
             }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.tsx?$/,
