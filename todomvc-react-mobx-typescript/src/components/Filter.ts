@@ -3,3 +3,5 @@ export enum Filter {
   All,
   Completed
 }
+
+// TODO: The filter can probably be replaced by an internal ID used in Route.
