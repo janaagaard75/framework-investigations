@@ -37,15 +37,13 @@ export class Main extends Component<Props, void> {
   }
 
   private allTodosHaveSameState() {
-    if (this.props.todos.every(todo => todo.completed)) {
+    if (this.props.todos.length === 0) {
       return true
     }
 
-    if (this.props.todos.every(todo => !todo.completed)) {
-      return true
-    }
-
-    return false
+    const stateOfFirstTodo = this.props.todos[0].completed
+    const allTodosHaveSameState = this.props.todos.every(todo => todo.completed === stateOfFirstTodo)
+    return allTodosHaveSameState
   }
 
   private toggleAllTodos() {
