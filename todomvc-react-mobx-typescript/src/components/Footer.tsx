@@ -4,15 +4,15 @@ import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 import { MouseEvent } from 'react'
 
-import { Filter } from './Filter'
+import { Route } from './Route'
 import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
 
 interface Props {
-  currentFilter: Filter
+  currentRoute: Route
   deleteTodo: (todo: TodoModel) => void
   routes: Routes
-  setCurrentFilter: (filter: Filter) => void
+  setCurrentRoute: (route: Route) => void
   todos: Array<TodoModel>
 }
 
@@ -30,14 +30,14 @@ export class Footer extends Component<Props, void> {
           <strong>{numberOfActiveTodos}</strong> {pluralizedItems} left
         </span>
         <ul className="filters">
-          {this.props.routes.allRoutes.map(pathAndFilter =>
+          {this.props.routes.allRoutes.map(route =>
             <li>
               <a
-                className={this.props.currentFilter === pathAndFilter.filter ? 'selected' : ''}
+                className={this.props.currentRoute.filter === route.filter ? 'selected' : ''}
                 href=""
-                onClick={e => this.navigate(e, pathAndFilter.filter)}
+                onClick={e => this.navigate(e, route)}
               >
-                {pathAndFilter.caption}
+                {route.caption}
               </a>
             </li>
           )}
@@ -72,8 +72,8 @@ export class Footer extends Component<Props, void> {
     return word + 's'
   }
 
-  private navigate(e: MouseEvent<HTMLAnchorElement>, filter: Filter): void {
+  private navigate(e: MouseEvent<HTMLAnchorElement>, route: Route): void {
     e.preventDefault()
-    this.props.setCurrentFilter(filter)
+    this.props.setCurrentRoute(route)
   }
 }

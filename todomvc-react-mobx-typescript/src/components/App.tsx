@@ -4,11 +4,11 @@ import { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
-import { Filter } from './Filter'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
+import { Route } from './Route'
 import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
 
@@ -19,7 +19,7 @@ export class App extends Component<{}, void> {
 
     this.routes = new Routes()
 
-    this.currentFilter = this.routes.getFromPath(window.location.pathname).filter
+    this.currentRoute = this.routes.getFromPath(window.location.pathname)
 
     this.todos = [
       new TodoModel('Taste JavaScript', true),
@@ -31,7 +31,7 @@ export class App extends Component<{}, void> {
     })
   }
 
-  @observable private currentFilter: Filter
+  @observable private currentRoute: Route
   private readonly routes: Routes
   @observable private readonly todos: Array<TodoModel>
 
@@ -42,17 +42,17 @@ export class App extends Component<{}, void> {
           <Header addTodo={text => this.addTodo(text)}/>
           {this.todos.length >= 1 &&
             <Main
-              currentRoute={this.routes.getFromFilter(this.currentFilter)}
+              currentRoute={this.currentRoute}
               deleteTodo={todo => this.deleteTodo(todo)}
               todos={this.todos}
             />
           }
           {this.todos.length >= 1 &&
             <Footer
-              currentFilter={this.currentFilter}
+              currentRoute={this.currentRoute}
               deleteTodo={todo => this.deleteTodo(todo)}
               routes={this.routes}
-              setCurrentFilter={(filter: Filter) => this.setCurrentFilter(filter)}
+              setCurrentRoute={(route: Route) => this.setCurrentRoute(route)}
               todos={this.todos}
             />
           }
@@ -76,13 +76,12 @@ export class App extends Component<{}, void> {
     this.todos.splice(index, 1)
   }
 
-  private setCurrentFilter(filter: Filter) {
-    this.currentFilter = filter
+  private setCurrentRoute(route: Route) {
+    this.currentRoute = route
   }
 
   private updatePath() {
-    const path = this.routes.getFromFilter(this.currentFilter).path
-    history.pushState({}, '', path)
+    history.pushState({}, '', this.currentRoute.path)
   }
 }
 
