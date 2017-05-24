@@ -3,12 +3,12 @@ import { Component } from 'react'
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 
-import { Filter } from './Filter'
+import { Route } from './Filter'
 import { TodoList } from './TodoList'
 import { TodoModel } from './TodoModel'
 
 interface Props {
-  currentFilter: Filter
+  currentRoute: Route
   deleteTodo: (todo: TodoModel) => void
   todos: Array<TodoModel>
 }
@@ -18,7 +18,7 @@ export class FilteredTodoList extends Component<Props, void> {
   @computed
   private get filteredTodos(): Array<TodoModel> {
     // TODO: Avoid this switch case by associating the filtering method with the name of the filter.
-    switch (this.props.currentFilter) {
+    switch (this.props.currentRoute) {
       case 'active':
         return this.props.todos.filter(todo => !todo.completed)
 
@@ -29,7 +29,7 @@ export class FilteredTodoList extends Component<Props, void> {
         return this.props.todos.filter(todo => todo.completed)
 
       default:
-        throw new Error(`The value '${this.props.currentFilter}' is not supported.`)
+        throw new Error(`The value '${this.props.currentRoute}' is not supported.`)
     }
   }
 

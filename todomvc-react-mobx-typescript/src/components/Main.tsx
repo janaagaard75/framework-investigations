@@ -28,7 +28,7 @@ export class Main extends Component<Props, void> {
         />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <FilteredTodoList
-          currentFilter={this.props.currentFilter}
+          currentRoute={this.props.currentFilter}
           deleteTodo={todo => this.props.deleteTodo(todo)}
           todos={this.props.todos}
         />

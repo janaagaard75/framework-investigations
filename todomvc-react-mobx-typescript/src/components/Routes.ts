@@ -1,12 +1,6 @@
 import { Filter } from './Filter'
+import { Route } from './Route'
 import { TodoModel } from './TodoModel'
-
-interface Route {
-  caption: string
-  filter: Filter
-  filterFunction: (todos: Array<TodoModel>) => Array<TodoModel>
-  path: string
-}
 
 export class Routes {
   public readonly allRoutes: Array<Route> = [
