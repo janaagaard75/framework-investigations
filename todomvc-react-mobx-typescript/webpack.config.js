@@ -79,5 +79,3 @@ module.exports = {
     modules: ["node_modules"]
   }
 }
-
-// TODO: Extract CSS to avoid flash of ustyled content when the page is loading.
