@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import { MouseEvent } from 'react'
 
 import { Filter } from './Filter'
-import { Routes } from './PathsAndFilters'
+import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
 
 interface Props {

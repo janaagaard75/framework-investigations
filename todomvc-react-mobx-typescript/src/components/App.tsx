@@ -9,7 +9,7 @@ import { Footer } from './Footer'
 import { Header } from './Header'
 import { Info } from './Info'
 import { Main } from './Main'
-import { Routes } from './PathsAndFilters'
+import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
 
 @observer
