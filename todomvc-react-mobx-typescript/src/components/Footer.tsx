@@ -5,11 +5,13 @@ import { observer } from 'mobx-react'
 import { MouseEvent } from 'react'
 
 import { Filter } from './Filter'
+import { PathsAndFilters } from './PathsAndFilters'
 import { TodoModel } from './TodoModel'
 
 interface Props {
   currentFilter: Filter
   deleteTodo: (todo: TodoModel) => void
+  pathsAndFilter: PathsAndFilters
   setCurrentFilter: (filter: Filter) => void
   todos: Array<TodoModel>
 }
@@ -28,33 +30,18 @@ export class Footer extends Component<Props, void> {
           <strong>{numberOfActiveTodos}</strong> {pluralizedItems} left
         </span>
         <ul className="filters">
-          <li>
-            <a
-              className={this.props.currentFilter === 'all' ? 'selected' : ''}
-              href=""
-              onClick={e => this.navigate(e, 'all')}
-            >
-              All
-            </a>
-          </li>
-          <li>
-            <a
-              className={this.props.currentFilter === 'active' ? 'selected' : ''}
-              href=""
-              onClick={e => this.navigate(e, 'active')}
-            >
-              Active
-            </a>
-          </li>
-          <li>
-            <a
-              className={this.props.currentFilter === 'completed' ? 'selected' : ''}
-              href=""
-              onClick={e => this.navigate(e, 'completed')}
-            >
-              Completed
-            </a>
-          </li>
+          {/* TODO: Figure out a better syntax. */}
+          {this.props.pathsAndFilter.pathsAndFilters.map(pathAndFilter =>
+            <li>
+              <a
+                className={this.props.currentFilter === pathAndFilter.filter ? 'selected' : ''}
+                href=""
+                onClick={e => this.navigate(e, pathAndFilter.filter)}
+              >
+                {pathAndFilter.caption}
+              </a>
+            </li>
+          )}
         </ul>
         {this.completedTodos.length >= 0 &&
           <button

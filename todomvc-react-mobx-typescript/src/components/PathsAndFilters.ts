@@ -2,6 +2,7 @@ import { Filter } from './Filter'
 import { TodoModel } from './TodoModel'
 
 interface PathAndFilter {
+  caption: string
   filter: Filter
   filterFunction: (todos: Array<TodoModel>) => Array<TodoModel>
   path: string
@@ -10,16 +11,19 @@ interface PathAndFilter {
 export class PathsAndFilters {
   public readonly pathsAndFilters: Array<PathAndFilter> = [
     {
+      caption: 'All',
       filter: 'all',
       filterFunction: (todos: Array<TodoModel>) => todos,
       path: '/'
     },
     {
+      caption: 'Active',
       filter: 'active',
       filterFunction: (todos: Array<TodoModel>) => todos.filter(todo => !todo.completed),
       path: '/active'
     },
     {
+      caption: 'Completed',
       filter: 'completed',
       filterFunction: (todos: Array<TodoModel>) => todos.filter(todo => todo.completed),
       path: '/completed'
