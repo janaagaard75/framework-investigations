@@ -5,21 +5,22 @@ import { observer } from 'mobx-react'
 import { FilteredTodoList } from './FilteredTodoList'
 import { Route } from './Route'
 import { TodoModel } from './TodoModel'
+import { Todos } from './Todos'
 
 interface Props {
   currentRoute: Route
   deleteTodo: (todo: TodoModel) => void
-  todos: Array<TodoModel>
+  todos: Todos
 }
 
 @observer
 export class Main extends Component<Props, void> {
   public render() {
-    if (this.props.todos.length === 0) {
+    if (this.props.todos.hasTodos) {
       return null
     }
 
-    const allTodosChecked = this.props.todos.every(todo => todo.completed)
+    const allTodosChecked = this.props.todos.allTodos.every(todo => todo.completed)
 
     return (
       <section className="main">

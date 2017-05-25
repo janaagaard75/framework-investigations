@@ -11,6 +11,7 @@ import { Main } from './Main'
 import { Route } from './Route'
 import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
+import { Todos } from './Todos'
 
 @observer
 export class App extends Component<{}, void> {
@@ -21,10 +22,7 @@ export class App extends Component<{}, void> {
 
     this.currentRoute = this.routes.getFromPath(window.location.pathname)
 
-    this.todos = [
-      new TodoModel('Taste JavaScript', true),
-      new TodoModel('Buy a unicorn', false)
-    ]
+    this.todos = new Todos()
 
     autorun(() => {
       this.updatePath()
@@ -33,7 +31,7 @@ export class App extends Component<{}, void> {
 
   @observable private currentRoute: Route
   private readonly routes: Routes
-  @observable private readonly todos: Array<TodoModel>
+  @observable private readonly todos: Todos
 
   public render() {
     return (
@@ -58,19 +56,19 @@ export class App extends Component<{}, void> {
     )
   }
 
-  private addTodo(text: string) {
-    this.todos.push(new TodoModel(text, false))
-  }
+  // private addTodo(text: string) {
+  //   this.todos.push(new TodoModel(text, false))
+  // }
 
-  private deleteTodo(todo: TodoModel) {
-    const index = this.todos.indexOf(todo)
+  // private deleteTodo(todo: TodoModel) {
+  //   const index = this.todos.indexOf(todo)
 
-    if (index === -1) {
-      return
-    }
+  //   if (index === -1) {
+  //     return
+  //   }
 
-    this.todos.splice(index, 1)
-  }
+  //   this.todos.splice(index, 1)
+  // }
 
   private setCurrentRoute(route: Route) {
     this.currentRoute = route
