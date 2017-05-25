@@ -14,7 +14,7 @@
   "dependencies": {
     "classnames": "2.2.5",
     "extract-text-webpack-plugin": "2.1.0",
-    "mobx": "3.1.9",
+    "mobx": "3.1.10",
     "mobx-react": "4.1.8",
     "mobx-react-devtools": "4.2.13",
     "react": "15.5.4",
@@ -26,10 +26,10 @@
     "@types/classnames": "2.2.0",
     "@types/extract-text-webpack-plugin": "2.1.0",
     "@types/html-webpack-plugin": "2.28.0",
-    "@types/react": "15.0.24",
+    "@types/react": "15.0.25",
     "@types/react-dom": "15.5.0",
     "@types/webpack": "2.2.15",
-    "css-loader": "0.28.2",
+    "css-loader": "0.28.3",
     "html-webpack-plugin": "2.28.0",
     "rimraf": "2.6.1",
     "style-loader": "0.18.1",
@@ -38,7 +38,7 @@
     "tslint-eslint-rules": "4.1.0",
     "tslint-react": "3.0.0",
     "typescript": "2.3.3",
-    "webpack": "2.6.0",
+    "webpack": "2.6.1",
     "webpack-dev-server": "2.4.5"
   }
 }
