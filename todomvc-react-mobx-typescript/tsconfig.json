@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,7 +25,6 @@
   },
   "exclude": [
     "dist",
-    "node_modules",
-    "webpack.config.js"
+    "node_modules"
   ]
 }
