@@ -40,22 +40,18 @@ export class App extends Component<{}, void> {
       <div>
         <section className="todoapp">
           <Header addTodo={text => this.addTodo(text)}/>
-          {this.todos.length >= 1 &&
-            <Main
-              currentRoute={this.currentRoute}
-              deleteTodo={todo => this.deleteTodo(todo)}
-              todos={this.todos}
-            />
-          }
-          {this.todos.length >= 1 &&
-            <Footer
-              currentRoute={this.currentRoute}
-              deleteTodo={todo => this.deleteTodo(todo)}
-              routes={this.routes}
-              setCurrentRoute={(route: Route) => this.setCurrentRoute(route)}
-              todos={this.todos}
-            />
-          }
+          <Main
+            currentRoute={this.currentRoute}
+            deleteTodo={todo => this.deleteTodo(todo)}
+            todos={this.todos}
+          />
+          <Footer
+            currentRoute={this.currentRoute}
+            deleteTodo={todo => this.deleteTodo(todo)}
+            routes={this.routes}
+            setCurrentRoute={(route: Route) => this.setCurrentRoute(route)}
+            todos={this.todos}
+          />
         </section>
         <Info/>
       </div>
@@ -84,5 +80,3 @@ export class App extends Component<{}, void> {
     history.pushState({}, '', this.currentRoute.path)
   }
 }
-
-// TODO: What difference would it make if the todos were in App's state instead of being a private member?

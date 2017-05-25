@@ -15,6 +15,10 @@ interface Props {
 @observer
 export class Main extends Component<Props, void> {
   public render() {
+    if (this.props.todos.length === 0) {
+      return null
+    }
+
     const allTodosChecked = this.props.todos.every(todo => todo.completed)
 
     return (

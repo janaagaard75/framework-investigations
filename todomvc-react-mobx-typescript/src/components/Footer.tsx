@@ -19,6 +19,10 @@ interface Props {
 @observer
 export class Footer extends Component<Props, void> {
   public render() {
+    if (this.props.todos.length === 0) {
+      return null
+    }
+
     const numberOfActiveTodos = this.props.todos.filter(todo => !todo.completed).length
     const pluralizedItems = this.pluralize('item', numberOfActiveTodos)
 
