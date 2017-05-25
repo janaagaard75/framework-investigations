@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Component } from 'react'
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
-import { MouseEvent } from 'react'
 
+import { FilterLink } from './FilterLink'
 import { Route } from './Route'
 import { Routes } from './Routes'
 import { TodoModel } from './TodoModel'
@@ -35,15 +35,12 @@ export class Footer extends Component<Props, void> {
         </span>
         <ul className="filters">
           {this.props.routes.allRoutes.map(route =>
-            <li key={route.filter}>
-              <a
-                className={this.props.currentRoute.filter === route.filter ? 'selected' : ''}
-                href=""
-                onClick={e => this.navigate(e, route)}
-              >
-                {route.caption}
-              </a>
-            </li>
+            <FilterLink
+              currentRoute={this.props.currentRoute}
+              key={route.filter}
+              route={route}
+              setCurrentRoute={this.props.setCurrentRoute}
+            />
           )}
         </ul>
         {this.completedTodos.length >= 0 &&
@@ -74,10 +71,5 @@ export class Footer extends Component<Props, void> {
     }
 
     return word + 's'
-  }
-
-  private navigate(e: MouseEvent<HTMLAnchorElement>, route: Route): void {
-    e.preventDefault()
-    this.props.setCurrentRoute(route)
   }
 }
