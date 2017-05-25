@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn run build:dev",
     "build:dev": "yarn install && rimraf dist && webpack -d",
-    "build:prod": "yarn install && rimraf dist && webpack -p",
+    "build:prod": "yarn install && rimraf dist && NODE_ENV=production webpack -p",
     "lint": "tslint src/**/*.ts src/**/*.tsx",
     "start": "yarn install && webpack-dev-server"
   },
