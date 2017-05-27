@@ -22,7 +22,10 @@ export class App extends Component<{}, void> {
 
     this.currentRoute = this.routes.getFromPath(window.location.pathname)
 
-    this.todos = new Todos()
+    this.todos = new Todos([
+      new TodoModel('Taste JavaScript', true),
+      new TodoModel('Buy a unicorn', false)
+    ])
 
     autorun(() => {
       this.updatePath()
@@ -37,15 +40,13 @@ export class App extends Component<{}, void> {
     return (
       <div>
         <section className="todoapp">
-          <Header addTodo={text => this.addTodo(text)}/>
+          <Header addTodo={text => this.todos.addTodo(text)}/>
           <Main
             currentRoute={this.currentRoute}
-            deleteTodo={todo => this.deleteTodo(todo)}
             todos={this.todos}
           />
           <Footer
             currentRoute={this.currentRoute}
-            deleteTodo={todo => this.deleteTodo(todo)}
             routes={this.routes}
             setCurrentRoute={(route: Route) => this.setCurrentRoute(route)}
             todos={this.todos}
@@ -55,20 +56,6 @@ export class App extends Component<{}, void> {
       </div>
     )
   }
-
-  // private addTodo(text: string) {
-  //   this.todos.push(new TodoModel(text, false))
-  // }
-
-  // private deleteTodo(todo: TodoModel) {
-  //   const index = this.todos.indexOf(todo)
-
-  //   if (index === -1) {
-  //     return
-  //   }
-
-  //   this.todos.splice(index, 1)
-  // }
 
   private setCurrentRoute(route: Route) {
     this.currentRoute = route

@@ -1,29 +1,27 @@
 import * as React from 'react'
 import { Component } from 'react'
-import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 
 import { FilterLink } from './FilterLink'
 import { Route } from './Route'
 import { Routes } from './Routes'
-import { TodoModel } from './TodoModel'
+import { Todos } from './Todos'
 
 interface Props {
   currentRoute: Route
-  deleteTodo: (todo: TodoModel) => void
   routes: Routes
   setCurrentRoute: (route: Route) => void
-  todos: Array<TodoModel>
+  todos: Todos
 }
 
 @observer
 export class Footer extends Component<Props, void> {
   public render() {
-    if (this.props.todos.length === 0) {
+    if (!this.props.todos.hasTodos) {
       return null
     }
 
-    const numberOfActiveTodos = this.props.todos.filter(todo => !todo.completed).length
+    const numberOfActiveTodos = this.props.todos.activeTodos.length
     const pluralizedItems = this.pluralize('item', numberOfActiveTodos)
 
     return (
@@ -43,7 +41,7 @@ export class Footer extends Component<Props, void> {
             />
           )}
         </ul>
-        {this.completedTodos.length >= 0 &&
+        {this.props.todos.completedTodos.length >= 1 &&
           <button
             className="clear-completed"
             onClick={() => this.deleteCompletedTodos()}
@@ -55,14 +53,8 @@ export class Footer extends Component<Props, void> {
     )
   }
 
-  @computed
-  private get completedTodos(): Array<TodoModel> {
-    const completedTodos = this.props.todos.filter(todo => todo.completed)
-    return completedTodos
-  }
-
   private deleteCompletedTodos() {
-    this.completedTodos.forEach(todo => this.props.deleteTodo(todo))
+    this.props.todos.completedTodos.forEach(todo => this.props.todos.deleteTodo(todo))
   }
 
   private pluralize(word: string, items: number) {

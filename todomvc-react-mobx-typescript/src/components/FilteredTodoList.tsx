@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 
 import { Route } from './Route'
 import { TodoList } from './TodoList'
+import { TodoModel } from './TodoModel'
 import { Todos } from './Todos'
 
 interface Props {
@@ -17,8 +18,13 @@ export class FilteredTodoList extends Component<Props, void> {
     return (
       <TodoList
         deleteTodo={this.props.todos.deleteTodo}
-        todos={this.props.todos.getFilteredTodos(this.props.currentRoute)}
+        todos={this.getFilteredTodos(this.props.currentRoute)}
       />
     )
+  }
+
+  private getFilteredTodos(route: Route): Array<TodoModel> {
+    const filteredTodos = this.props.todos.allTodos.filter(todo => route.filterFunction(todo))
+    return filteredTodos
   }
 }

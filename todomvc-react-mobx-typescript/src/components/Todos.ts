@@ -1,19 +1,38 @@
 import { computed } from 'mobx'
 import { observable } from 'mobx'
 
-import { Route } from './Route'
 import { TodoModel } from './TodoModel'
 
 export class Todos {
-  constructor() {
-    this.allTodos = [
-      new TodoModel('Taste JavaScript', true),
-      new TodoModel('Buy a unicorn', false)
-    ]
+  constructor(todos: Array<TodoModel>) {
+    this.allTodos = todos
   }
 
   @observable
   public readonly allTodos: Array<TodoModel>
+
+  @computed
+  public get activeTodos(): Array<TodoModel> {
+    const activeTodos = this.allTodos.filter(todo => !todo.completed)
+    return activeTodos
+  }
+
+  @computed
+  public get completedTodos(): Array<TodoModel> {
+    const completedTodos = this.allTodos.filter(todo => todo.completed)
+    return completedTodos
+  }
+
+  @computed
+  public get allTodosHaveSameState() {
+    if (this.allTodos.length === 0) {
+      return true
+    }
+
+    const stateOfFirstTodo = this.allTodos[0].completed
+    const allTodosHaveSameState = this.allTodos.every(todo => todo.completed === stateOfFirstTodo)
+    return allTodosHaveSameState
+  }
 
   @computed
   public get hasTodos(): boolean {
@@ -35,8 +54,14 @@ export class Todos {
     this.allTodos.splice(index, 1)
   }
 
-  public getFilteredTodos(route: Route): Array<TodoModel> {
-    const filteredTodos = this.allTodos.filter(todo => route.filterFunction(todo))
-    return filteredTodos
+  public toggleAllTodos() {
+    if (this.allTodosHaveSameState) {
+      this.allTodos.forEach(todo => todo.toggle())
+      return
+    }
+
+    this.allTodos.forEach(todo => {
+      todo.completed = true
+    })
   }
 }
