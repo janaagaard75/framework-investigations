@@ -23,7 +23,6 @@ export class Routes {
   public getFromPath(path: string): Route {
     const match = this.allRoutes.find(pathAndFilter => pathAndFilter.path === path)
     if (match === undefined) {
-      // TODO: This should return the HTTP error 404 Not Found.
       throw new Error(`Could not find the path '${path}'.`)
     }
 
