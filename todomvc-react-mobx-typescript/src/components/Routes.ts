@@ -1,4 +1,3 @@
-import { Filter } from './Filter'
 import { Route } from './Route'
 import { TodoModel } from './TodoModel'
 
@@ -6,32 +5,20 @@ export class Routes {
   public readonly allRoutes: Array<Route> = [
     {
       caption: 'All',
-      filter: Filter.All,
       filterFunction: (_todo: TodoModel) => true,
       path: '/'
     },
     {
       caption: 'Active',
-      filter: Filter.Active,
       filterFunction: (todo: TodoModel) => !todo.completed,
       path: '/active'
     },
     {
       caption: 'Completed',
-      filter: Filter.Completed,
       filterFunction: (todo: TodoModel) => todo.completed,
       path: '/completed'
     }
   ]
-
-  public getFromFilter(filter: Filter): Route {
-    const match = this.allRoutes.find(pathAndFilter => pathAndFilter.filter === filter)
-    if (match === undefined) {
-      throw new Error(`Could not find the filter '${filter}'.`)
-    }
-
-    return match
-  }
 
   public getFromPath(path: string): Route {
     const match = this.allRoutes.find(pathAndFilter => pathAndFilter.path === path)

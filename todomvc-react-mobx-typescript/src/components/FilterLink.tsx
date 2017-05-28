@@ -17,7 +17,7 @@ export class FilterLink extends Component<Props, void> {
     return (
       <li>
         <a
-          className={this.props.currentRoute.filter === this.props.route.filter ? 'selected' : ''}
+          className={this.props.currentRoute === this.props.route ? 'selected' : ''}
           href=""
           onClick={e => this.navigate(e, this.props.route)}
         >

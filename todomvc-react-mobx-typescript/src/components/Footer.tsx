@@ -32,10 +32,10 @@ export class Footer extends Component<Props, void> {
           <strong>{numberOfActiveTodos}</strong> {pluralizedItems} left
         </span>
         <ul className="filters">
-          {this.props.routes.allRoutes.map(route =>
+          {this.props.routes.allRoutes.map((route, index) =>
             <FilterLink
               currentRoute={this.props.currentRoute}
-              key={route.filter}
+              key={index}
               route={route}
               setCurrentRoute={this.props.setCurrentRoute}
             />
