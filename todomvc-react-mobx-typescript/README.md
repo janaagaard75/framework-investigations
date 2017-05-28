@@ -7,7 +7,7 @@
 1. Add TSLint.
 1. Add React.
 1. Add MobX.
-1. Create a store.
+1. Move methods to the models.
 1. Add some extra touches, i.e. associate labels with todos and pointer cursor on clickable things, and move toggle all to the header component.
 
 ## Notes
